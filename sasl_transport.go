@@ -8,7 +8,7 @@ import (
 	"io"
 
 	"github.com/apache/thrift/lib/go/thrift"
-	"github.com/ichsansaid/gosasl"
+	"github.com/beltran/gosasl"
 	"github.com/pkg/errors"
 )
 

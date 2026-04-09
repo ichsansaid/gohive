@@ -11,4 +11,4 @@ require (
 	golang.org/x/net v0.41.0
 )
 
-require github.com/ichsansaid/gssapi v0.0.0-20200324152954-d86554db4bab // indirect
+require github.com/beltran/gssapi v0.0.0-20200324152954-d86554db4bab // indirect

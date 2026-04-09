@@ -29,7 +29,7 @@ before_install:
   - cat scripts/create_krbconf.sh
   - sudo bash scripts/create_krbconf.sh
   - docker network create com
-  - travis_retry go get github.com/ichsansaid/gssapi
+  - travis_retry go get github.com/beltran/gssapi
 
 
 env:
