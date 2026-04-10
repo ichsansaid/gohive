@@ -6,7 +6,7 @@ toolchain go1.23.6
 
 require (
 	github.com/apache/thrift v0.22.0
-	github.com/ichsansaid/gosasl v1.0.0
+	github.com/beltran/gosasl v1.0.0
 	github.com/pkg/errors v0.9.1
 	golang.org/x/net v0.41.0
 )
