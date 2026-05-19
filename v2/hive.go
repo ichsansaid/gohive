@@ -484,7 +484,8 @@ func (c *cursor) executeSync(ctx context.Context, query string) {
 	c.conn.clientMu.Unlock()
 
 	if c.Err != nil {
-		if strings.Contains(c.Err.Error(), "context deadline exceeded") {
+		if strings.Contains(c.Err.Error(), "context deadline exceeded") ||
+			strings.Contains(c.Err.Error(), "context canceled") {
 			c.state = _CONTEXT_DONE
 			if responseExecute == nil {
 				c.state = _ERROR
