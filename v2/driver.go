@@ -109,13 +109,18 @@ func (c *sqlConnection) PrepareContext(ctx context.Context, query string) (drive
 }
 
 // Exec executes a query that doesn't return rows.
-// Implements driver.Execer
+// Implements driver.Execer (deprecated fallback)
 func (c *sqlConnection) Exec(query string, args []driver.Value) (driver.Result, error) {
-	return c.ExecContext(context.Background(), query, args)
+	namedArgs := make([]driver.NamedValue, len(args))
+	for i, v := range args {
+		namedArgs[i] = driver.NamedValue{Ordinal: i + 1, Value: v}
+	}
+	return c.ExecContext(context.Background(), query, namedArgs)
 }
 
 // ExecContext executes a query that doesn't return rows.
-func (c *sqlConnection) ExecContext(ctx context.Context, query string, args []driver.Value) (driver.Result, error) {
+// Implements driver.ExecerContext
+func (c *sqlConnection) ExecContext(ctx context.Context, query string, args []driver.NamedValue) (driver.Result, error) {
 	if len(args) > 0 {
 		return nil, fmt.Errorf("query parameters are not supported by Hive")
 	}
@@ -129,13 +134,18 @@ func (c *sqlConnection) ExecContext(ctx context.Context, query string, args []dr
 }
 
 // Query executes a query that may return rows.
-// Implements driver.Queryer
+// Implements driver.Queryer (deprecated fallback)
 func (c *sqlConnection) Query(query string, args []driver.Value) (driver.Rows, error) {
-	return c.QueryContext(context.Background(), query, args)
+	namedArgs := make([]driver.NamedValue, len(args))
+	for i, v := range args {
+		namedArgs[i] = driver.NamedValue{Ordinal: i + 1, Value: v}
+	}
+	return c.QueryContext(context.Background(), query, namedArgs)
 }
 
 // QueryContext executes a query that may return rows.
-func (c *sqlConnection) QueryContext(ctx context.Context, query string, args []driver.Value) (driver.Rows, error) {
+// Implements driver.QueryerContext
+func (c *sqlConnection) QueryContext(ctx context.Context, query string, args []driver.NamedValue) (driver.Rows, error) {
 	if len(args) > 0 {
 		return nil, fmt.Errorf("query parameters are not supported by Hive")
 	}
