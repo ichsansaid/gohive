@@ -52,7 +52,9 @@ func (c *HiveConnector) Connect(ctx context.Context) (driver.Conn, error) {
 	connCfg.Username = c.cfg.Username
 	connCfg.Password = c.cfg.Password
 	connCfg.Database = c.cfg.Database
-	connCfg.TransportMode = c.cfg.TransportMode
+	if c.cfg.TransportMode != "" {
+	    connCfg.TransportMode = c.cfg.TransportMode
+	}
 	if c.cfg.HTTPPath != "" {
 		connCfg.HTTPPath = c.cfg.HTTPPath
 	}
