@@ -15,8 +15,6 @@ func main() {
 		Host:     "hs2.example.com",
 		Port:     10000,
 		Auth:     "KERBEROS",
-		Username: "hive",
-		Password: "hive",
 		Database: "default",
 	})
 	defer db.Close()
