@@ -29,6 +29,8 @@ type Config struct {
 	HiveConfiguration map[string]string
 }
 
+var _ driver.Connector = (*HiveConnector)(nil)
+
 // HiveConnector implements driver.Connector using gohive v2 under the hood.
 type HiveConnector struct {
 	cfg Config
@@ -80,8 +82,10 @@ func (c *HiveConnector) Connect(ctx context.Context) (driver.Conn, error) {
 			}
 			connCfg.TLSConfig = &tls.Config{
 				RootCAs:            pool,
-				InsecureSkipVerify: false,
+				InsecureSkipVerify: c.cfg.SSLInsecureSkip,
 			}
+		} else if c.cfg.SSLInsecureSkip {
+			connCfg.TLSConfig = &tls.Config{InsecureSkipVerify: true}
 		}
 	}
 
