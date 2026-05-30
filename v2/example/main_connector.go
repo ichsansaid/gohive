@@ -25,7 +25,7 @@ func main() {
 	}
 
 	// Create a test table
-	_, err = db.Exec("CREATE TABLE IF NOT EXISTS test_table (id INT, name STRING)")
+	_, err := db.Exec("CREATE TABLE IF NOT EXISTS test_table (id INT, name STRING)")
 	if err != nil {
 		log.Fatal(err)
 	}
