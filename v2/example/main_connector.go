@@ -14,7 +14,7 @@ func main() {
 	db := gohive.OpenDB(gohive.Config{
 		Host:     "hs2.example.com",
 		Port:     10000,
-		Auth:     "NONE",
+		Auth:     "KERBEROS",
 		Username: "hive",
 		Password: "hive",
 		Database: "default",
