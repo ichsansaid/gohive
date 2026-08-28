@@ -8,9 +8,10 @@ import (
 	"database/sql/driver"
 	"errors"
 	"fmt"
-	"github.com/apache/thrift/lib/go/thrift"
-	"github.com/ichsansaid/gohive/gohivemeta/fb303"
 	"time"
+
+	"github.com/apache/thrift/lib/go/thrift"
+	"github.com/beltran/gohive/gohivemeta/fb303"
 )
 
 // (needed to ensure safety because of naive import list construction.)
@@ -1804,8 +1805,8 @@ func (p *PartitionFilterMode) Value() (driver.Value, error) {
 }
 
 // Attributes:
-//  - Version
-//  - Comments
+//   - Version
+//   - Comments
 type Version struct {
 	Version  string `thrift:"version,1" db:"version" json:"version"`
 	Comments string `thrift:"comments,2" db:"comments" json:"comments"`
@@ -1959,9 +1960,9 @@ func (p *Version) String() string {
 }
 
 // Attributes:
-//  - Name
-//  - Type
-//  - Comment
+//   - Name
+//   - Type
+//   - Comment
 type FieldSchema struct {
 	Name    string `thrift:"name,1" db:"name" json:"name"`
 	Type    string `thrift:"type,2" db:"type" json:"type"`
@@ -2158,15 +2159,15 @@ func (p *FieldSchema) String() string {
 }
 
 // Attributes:
-//  - TableDb
-//  - TableName
-//  - ColumnName
-//  - KeySeq
-//  - PkName
-//  - EnableCstr
-//  - ValidateCstr
-//  - RelyCstr
-//  - CatName
+//   - TableDb
+//   - TableName
+//   - ColumnName
+//   - KeySeq
+//   - PkName
+//   - EnableCstr
+//   - ValidateCstr
+//   - RelyCstr
+//   - CatName
 type SQLPrimaryKey struct {
 	TableDb      string  `thrift:"table_db,1" db:"table_db" json:"table_db"`
 	TableName    string  `thrift:"table_name,2" db:"table_name" json:"table_name"`
@@ -2637,21 +2638,21 @@ func (p *SQLPrimaryKey) String() string {
 }
 
 // Attributes:
-//  - PktableDb
-//  - PktableName
-//  - PkcolumnName
-//  - FktableDb
-//  - FktableName
-//  - FkcolumnName
-//  - KeySeq
-//  - UpdateRule
-//  - DeleteRule
-//  - FkName
-//  - PkName
-//  - EnableCstr
-//  - ValidateCstr
-//  - RelyCstr
-//  - CatName
+//   - PktableDb
+//   - PktableName
+//   - PkcolumnName
+//   - FktableDb
+//   - FktableName
+//   - FkcolumnName
+//   - KeySeq
+//   - UpdateRule
+//   - DeleteRule
+//   - FkName
+//   - PkName
+//   - EnableCstr
+//   - ValidateCstr
+//   - RelyCstr
+//   - CatName
 type SQLForeignKey struct {
 	PktableDb    string  `thrift:"pktable_db,1" db:"pktable_db" json:"pktable_db"`
 	PktableName  string  `thrift:"pktable_name,2" db:"pktable_name" json:"pktable_name"`
@@ -3380,15 +3381,15 @@ func (p *SQLForeignKey) String() string {
 }
 
 // Attributes:
-//  - CatName
-//  - TableDb
-//  - TableName
-//  - ColumnName
-//  - KeySeq
-//  - UkName
-//  - EnableCstr
-//  - ValidateCstr
-//  - RelyCstr
+//   - CatName
+//   - TableDb
+//   - TableName
+//   - ColumnName
+//   - KeySeq
+//   - UkName
+//   - EnableCstr
+//   - ValidateCstr
+//   - RelyCstr
 type SQLUniqueConstraint struct {
 	CatName      string `thrift:"catName,1" db:"catName" json:"catName"`
 	TableDb      string `thrift:"table_db,2" db:"table_db" json:"table_db"`
@@ -3843,14 +3844,14 @@ func (p *SQLUniqueConstraint) String() string {
 }
 
 // Attributes:
-//  - CatName
-//  - TableDb
-//  - TableName
-//  - ColumnName
-//  - NnName
-//  - EnableCstr
-//  - ValidateCstr
-//  - RelyCstr
+//   - CatName
+//   - TableDb
+//   - TableName
+//   - ColumnName
+//   - NnName
+//   - EnableCstr
+//   - ValidateCstr
+//   - RelyCstr
 type SQLNotNullConstraint struct {
 	CatName      string `thrift:"catName,1" db:"catName" json:"catName"`
 	TableDb      string `thrift:"table_db,2" db:"table_db" json:"table_db"`
@@ -4262,15 +4263,15 @@ func (p *SQLNotNullConstraint) String() string {
 }
 
 // Attributes:
-//  - CatName
-//  - TableDb
-//  - TableName
-//  - ColumnName
-//  - DefaultValue
-//  - DcName
-//  - EnableCstr
-//  - ValidateCstr
-//  - RelyCstr
+//   - CatName
+//   - TableDb
+//   - TableName
+//   - ColumnName
+//   - DefaultValue
+//   - DcName
+//   - EnableCstr
+//   - ValidateCstr
+//   - RelyCstr
 type SQLDefaultConstraint struct {
 	CatName      string `thrift:"catName,1" db:"catName" json:"catName"`
 	TableDb      string `thrift:"table_db,2" db:"table_db" json:"table_db"`
@@ -4725,15 +4726,15 @@ func (p *SQLDefaultConstraint) String() string {
 }
 
 // Attributes:
-//  - CatName
-//  - TableDb
-//  - TableName
-//  - ColumnName
-//  - CheckExpression
-//  - DcName
-//  - EnableCstr
-//  - ValidateCstr
-//  - RelyCstr
+//   - CatName
+//   - TableDb
+//   - TableName
+//   - ColumnName
+//   - CheckExpression
+//   - DcName
+//   - EnableCstr
+//   - ValidateCstr
+//   - RelyCstr
 type SQLCheckConstraint struct {
 	CatName         string `thrift:"catName,1" db:"catName" json:"catName"`
 	TableDb         string `thrift:"table_db,2" db:"table_db" json:"table_db"`
@@ -5188,12 +5189,12 @@ func (p *SQLCheckConstraint) String() string {
 }
 
 // Attributes:
-//  - PrimaryKeys
-//  - ForeignKeys
-//  - UniqueConstraints
-//  - NotNullConstraints
-//  - DefaultConstraints
-//  - CheckConstraints
+//   - PrimaryKeys
+//   - ForeignKeys
+//   - UniqueConstraints
+//   - NotNullConstraints
+//   - DefaultConstraints
+//   - CheckConstraints
 type SQLAllTableConstraints struct {
 	PrimaryKeys        []*SQLPrimaryKey        `thrift:"primaryKeys,1" db:"primaryKeys" json:"primaryKeys,omitempty"`
 	ForeignKeys        []*SQLForeignKey        `thrift:"foreignKeys,2" db:"foreignKeys" json:"foreignKeys,omitempty"`
@@ -5717,10 +5718,10 @@ func (p *SQLAllTableConstraints) String() string {
 }
 
 // Attributes:
-//  - Name
-//  - Type1
-//  - Type2
-//  - Fields
+//   - Name
+//   - Type1
+//   - Type2
+//   - Fields
 type Type struct {
 	Name   string         `thrift:"name,1" db:"name" json:"name"`
 	Type1  *string        `thrift:"type1,2" db:"type1" json:"type1,omitempty"`
@@ -6025,12 +6026,12 @@ func (p *Type) String() string {
 }
 
 // Attributes:
-//  - ObjectType
-//  - DbName
-//  - ObjectName
-//  - PartValues
-//  - ColumnName
-//  - CatName
+//   - ObjectType
+//   - DbName
+//   - ObjectName
+//   - PartValues
+//   - ColumnName
+//   - CatName
 type HiveObjectRef struct {
 	ObjectType HiveObjectType `thrift:"objectType,1" db:"objectType" json:"objectType"`
 	DbName     string         `thrift:"dbName,2" db:"dbName" json:"dbName"`
@@ -6400,11 +6401,11 @@ func (p *HiveObjectRef) String() string {
 }
 
 // Attributes:
-//  - Privilege
-//  - CreateTime
-//  - Grantor
-//  - GrantorType
-//  - GrantOption
+//   - Privilege
+//   - CreateTime
+//   - Grantor
+//   - GrantorType
+//   - GrantOption
 type PrivilegeGrantInfo struct {
 	Privilege   string        `thrift:"privilege,1" db:"privilege" json:"privilege"`
 	CreateTime  int32         `thrift:"createTime,2" db:"createTime" json:"createTime"`
@@ -6688,11 +6689,11 @@ func (p *PrivilegeGrantInfo) String() string {
 }
 
 // Attributes:
-//  - HiveObject
-//  - PrincipalName
-//  - PrincipalType
-//  - GrantInfo
-//  - Authorizer
+//   - HiveObject
+//   - PrincipalName
+//   - PrincipalType
+//   - GrantInfo
+//   - Authorizer
 type HiveObjectPrivilege struct {
 	HiveObject    *HiveObjectRef      `thrift:"hiveObject,1" db:"hiveObject" json:"hiveObject"`
 	PrincipalName string              `thrift:"principalName,2" db:"principalName" json:"principalName"`
@@ -6992,7 +6993,7 @@ func (p *HiveObjectPrivilege) String() string {
 }
 
 // Attributes:
-//  - Privileges
+//   - Privileges
 type PrivilegeBag struct {
 	Privileges []*HiveObjectPrivilege `thrift:"privileges,1" db:"privileges" json:"privileges"`
 }
@@ -7128,9 +7129,9 @@ func (p *PrivilegeBag) String() string {
 }
 
 // Attributes:
-//  - UserPrivileges
-//  - GroupPrivileges
-//  - RolePrivileges
+//   - UserPrivileges
+//   - GroupPrivileges
+//   - RolePrivileges
 type PrincipalPrivilegeSet struct {
 	UserPrivileges  map[string][]*PrivilegeGrantInfo `thrift:"userPrivileges,1" db:"userPrivileges" json:"userPrivileges"`
 	GroupPrivileges map[string][]*PrivilegeGrantInfo `thrift:"groupPrivileges,2" db:"groupPrivileges" json:"groupPrivileges"`
@@ -7507,9 +7508,9 @@ func (p *PrincipalPrivilegeSet) String() string {
 }
 
 // Attributes:
-//  - RequestType
-//  - Privileges
-//  - RevokeGrantOption
+//   - RequestType
+//   - Privileges
+//   - RevokeGrantOption
 type GrantRevokePrivilegeRequest struct {
 	RequestType       GrantRevokeType `thrift:"requestType,1" db:"requestType" json:"requestType"`
 	Privileges        *PrivilegeBag   `thrift:"privileges,2" db:"privileges" json:"privileges"`
@@ -7731,7 +7732,7 @@ func (p *GrantRevokePrivilegeRequest) String() string {
 }
 
 // Attributes:
-//  - Success
+//   - Success
 type GrantRevokePrivilegeResponse struct {
 	Success *bool `thrift:"success,1" db:"success" json:"success,omitempty"`
 }
@@ -7858,11 +7859,11 @@ func (p *GrantRevokePrivilegeResponse) String() string {
 }
 
 // Attributes:
-//  - DbName
-//  - TableName
-//  - PartNames
-//  - WriteId
-//  - ValidWriteIdList
+//   - DbName
+//   - TableName
+//   - PartNames
+//   - WriteId
+//   - ValidWriteIdList
 type TruncateTableRequest struct {
 	DbName           string   `thrift:"dbName,1,required" db:"dbName" json:"dbName"`
 	TableName        string   `thrift:"tableName,2,required" db:"tableName" json:"tableName"`
@@ -8281,9 +8282,9 @@ func (p *TruncateTableResponse) String() string {
 }
 
 // Attributes:
-//  - RoleName
-//  - CreateTime
-//  - OwnerName
+//   - RoleName
+//   - CreateTime
+//   - OwnerName
 type Role struct {
 	RoleName   string `thrift:"roleName,1" db:"roleName" json:"roleName"`
 	CreateTime int32  `thrift:"createTime,2" db:"createTime" json:"createTime"`
@@ -8480,13 +8481,13 @@ func (p *Role) String() string {
 }
 
 // Attributes:
-//  - RoleName
-//  - PrincipalName
-//  - PrincipalType
-//  - GrantOption
-//  - GrantTime
-//  - GrantorName
-//  - GrantorPrincipalType
+//   - RoleName
+//   - PrincipalName
+//   - PrincipalType
+//   - GrantOption
+//   - GrantTime
+//   - GrantorName
+//   - GrantorPrincipalType
 type RolePrincipalGrant struct {
 	RoleName             string        `thrift:"roleName,1" db:"roleName" json:"roleName"`
 	PrincipalName        string        `thrift:"principalName,2" db:"principalName" json:"principalName"`
@@ -8857,8 +8858,8 @@ func (p *RolePrincipalGrant) String() string {
 }
 
 // Attributes:
-//  - PrincipalName
-//  - PrincipalType
+//   - PrincipalName
+//   - PrincipalType
 type GetRoleGrantsForPrincipalRequest struct {
 	PrincipalName string        `thrift:"principal_name,1,required" db:"principal_name" json:"principal_name"`
 	PrincipalType PrincipalType `thrift:"principal_type,2,required" db:"principal_type" json:"principal_type"`
@@ -9024,7 +9025,7 @@ func (p *GetRoleGrantsForPrincipalRequest) String() string {
 }
 
 // Attributes:
-//  - PrincipalGrants
+//   - PrincipalGrants
 type GetRoleGrantsForPrincipalResponse struct {
 	PrincipalGrants []*RolePrincipalGrant `thrift:"principalGrants,1,required" db:"principalGrants" json:"principalGrants"`
 }
@@ -9166,7 +9167,7 @@ func (p *GetRoleGrantsForPrincipalResponse) String() string {
 }
 
 // Attributes:
-//  - RoleName
+//   - RoleName
 type GetPrincipalsInRoleRequest struct {
 	RoleName string `thrift:"roleName,1,required" db:"roleName" json:"roleName"`
 }
@@ -9283,7 +9284,7 @@ func (p *GetPrincipalsInRoleRequest) String() string {
 }
 
 // Attributes:
-//  - PrincipalGrants
+//   - PrincipalGrants
 type GetPrincipalsInRoleResponse struct {
 	PrincipalGrants []*RolePrincipalGrant `thrift:"principalGrants,1,required" db:"principalGrants" json:"principalGrants"`
 }
@@ -9425,13 +9426,13 @@ func (p *GetPrincipalsInRoleResponse) String() string {
 }
 
 // Attributes:
-//  - RequestType
-//  - RoleName
-//  - PrincipalName
-//  - PrincipalType
-//  - Grantor
-//  - GrantorType
-//  - GrantOption
+//   - RequestType
+//   - RoleName
+//   - PrincipalName
+//   - PrincipalType
+//   - Grantor
+//   - GrantorType
+//   - GrantOption
 type GrantRevokeRoleRequest struct {
 	RequestType   GrantRevokeType `thrift:"requestType,1" db:"requestType" json:"requestType"`
 	RoleName      string          `thrift:"roleName,2" db:"roleName" json:"roleName"`
@@ -9851,7 +9852,7 @@ func (p *GrantRevokeRoleRequest) String() string {
 }
 
 // Attributes:
-//  - Success
+//   - Success
 type GrantRevokeRoleResponse struct {
 	Success *bool `thrift:"success,1" db:"success" json:"success,omitempty"`
 }
@@ -9978,10 +9979,10 @@ func (p *GrantRevokeRoleResponse) String() string {
 }
 
 // Attributes:
-//  - Name
-//  - Description
-//  - LocationUri
-//  - CreateTime
+//   - Name
+//   - Description
+//   - LocationUri
+//   - CreateTime
 type Catalog struct {
 	Name        string  `thrift:"name,1" db:"name" json:"name"`
 	Description *string `thrift:"description,2" db:"description" json:"description,omitempty"`
@@ -10253,7 +10254,7 @@ func (p *Catalog) String() string {
 }
 
 // Attributes:
-//  - Catalog
+//   - Catalog
 type CreateCatalogRequest struct {
 	Catalog *Catalog `thrift:"catalog,1" db:"catalog" json:"catalog"`
 }
@@ -10372,8 +10373,8 @@ func (p *CreateCatalogRequest) String() string {
 }
 
 // Attributes:
-//  - Name
-//  - NewCat_
+//   - Name
+//   - NewCat_
 type AlterCatalogRequest struct {
 	Name    string   `thrift:"name,1" db:"name" json:"name"`
 	NewCat_ *Catalog `thrift:"newCat,2" db:"newCat" json:"newCat"`
@@ -10535,7 +10536,7 @@ func (p *AlterCatalogRequest) String() string {
 }
 
 // Attributes:
-//  - Name
+//   - Name
 type GetCatalogRequest struct {
 	Name string `thrift:"name,1" db:"name" json:"name"`
 }
@@ -10646,7 +10647,7 @@ func (p *GetCatalogRequest) String() string {
 }
 
 // Attributes:
-//  - Catalog
+//   - Catalog
 type GetCatalogResponse struct {
 	Catalog *Catalog `thrift:"catalog,1" db:"catalog" json:"catalog"`
 }
@@ -10765,7 +10766,7 @@ func (p *GetCatalogResponse) String() string {
 }
 
 // Attributes:
-//  - Names
+//   - Names
 type GetCatalogsResponse struct {
 	Names []string `thrift:"names,1" db:"names" json:"names"`
 }
@@ -10903,7 +10904,7 @@ func (p *GetCatalogsResponse) String() string {
 }
 
 // Attributes:
-//  - Name
+//   - Name
 type DropCatalogRequest struct {
 	Name string `thrift:"name,1" db:"name" json:"name"`
 }
@@ -11014,19 +11015,19 @@ func (p *DropCatalogRequest) String() string {
 }
 
 // Attributes:
-//  - Name
-//  - Description
-//  - LocationUri
-//  - Parameters
-//  - Privileges
-//  - OwnerName
-//  - OwnerType
-//  - CatalogName
-//  - CreateTime
-//  - ManagedLocationUri
-//  - Type
-//  - ConnectorName
-//  - RemoteDbname
+//   - Name
+//   - Description
+//   - LocationUri
+//   - Parameters
+//   - Privileges
+//   - OwnerName
+//   - OwnerType
+//   - CatalogName
+//   - CreateTime
+//   - ManagedLocationUri
+//   - Type
+//   - ConnectorName
+//   - RemoteDbname
 type Database struct {
 	Name               string                 `thrift:"name,1" db:"name" json:"name"`
 	Description        string                 `thrift:"description,2" db:"description" json:"description"`
@@ -11829,13 +11830,13 @@ func (p *Database) String() string {
 }
 
 // Attributes:
-//  - Name
-//  - SerializationLib
-//  - Parameters
-//  - Description
-//  - SerializerClass
-//  - DeserializerClass
-//  - SerdeType
+//   - Name
+//   - SerializationLib
+//   - Parameters
+//   - Description
+//   - SerializerClass
+//   - DeserializerClass
+//   - SerdeType
 type SerDeInfo struct {
 	Name              string            `thrift:"name,1" db:"name" json:"name"`
 	SerializationLib  string            `thrift:"serializationLib,2" db:"serializationLib" json:"serializationLib"`
@@ -12305,8 +12306,8 @@ func (p *SerDeInfo) String() string {
 }
 
 // Attributes:
-//  - Col
-//  - Order
+//   - Col
+//   - Order
 type Order struct {
 	Col   string `thrift:"col,1" db:"col" json:"col"`
 	Order int32  `thrift:"order,2" db:"order" json:"order"`
@@ -12460,8 +12461,8 @@ func (p *Order) String() string {
 }
 
 // Attributes:
-//  - SkewedColNames
-//  - SkewedColValues
+//   - SkewedColNames
+//   - SkewedColValues
 type SkewedInfo struct {
 	SkewedColNames  []string   `thrift:"skewedColNames,1" db:"skewedColNames" json:"skewedColNames"`
 	SkewedColValues [][]string `thrift:"skewedColValues,2" db:"skewedColValues" json:"skewedColValues"`
@@ -12695,18 +12696,18 @@ func (p *SkewedInfo) String() string {
 }
 
 // Attributes:
-//  - Cols
-//  - Location
-//  - InputFormat
-//  - OutputFormat
-//  - Compressed
-//  - NumBuckets
-//  - SerdeInfo
-//  - BucketCols
-//  - SortCols
-//  - Parameters
-//  - SkewedInfo
-//  - StoredAsSubDirectories
+//   - Cols
+//   - Location
+//   - InputFormat
+//   - OutputFormat
+//   - Compressed
+//   - NumBuckets
+//   - SerdeInfo
+//   - BucketCols
+//   - SortCols
+//   - Parameters
+//   - SkewedInfo
+//   - StoredAsSubDirectories
 type StorageDescriptor struct {
 	Cols                   []*FieldSchema    `thrift:"cols,1" db:"cols" json:"cols"`
 	Location               string            `thrift:"location,2" db:"location" json:"location"`
@@ -13437,12 +13438,12 @@ func (p *StorageDescriptor) String() string {
 }
 
 // Attributes:
-//  - CatName
-//  - DbName
-//  - TblName
-//  - TablesUsed
-//  - ValidTxnList
-//  - MaterializationTime
+//   - CatName
+//   - DbName
+//   - TblName
+//   - TablesUsed
+//   - ValidTxnList
+//   - MaterializationTime
 type CreationMetadata struct {
 	CatName             string   `thrift:"catName,1,required" db:"catName" json:"catName"`
 	DbName              string   `thrift:"dbName,2,required" db:"dbName" json:"dbName"`
@@ -13860,10 +13861,10 @@ func (p *CreationMetadata) String() string {
 }
 
 // Attributes:
-//  - NumTrues
-//  - NumFalses
-//  - NumNulls
-//  - BitVectors
+//   - NumTrues
+//   - NumFalses
+//   - NumNulls
+//   - BitVectors
 type BooleanColumnStatsData struct {
 	NumTrues   int64  `thrift:"numTrues,1,required" db:"numTrues" json:"numTrues"`
 	NumFalses  int64  `thrift:"numFalses,2,required" db:"numFalses" json:"numFalses"`
@@ -14127,11 +14128,11 @@ func (p *BooleanColumnStatsData) String() string {
 }
 
 // Attributes:
-//  - LowValue
-//  - HighValue
-//  - NumNulls
-//  - NumDVs
-//  - BitVectors
+//   - LowValue
+//   - HighValue
+//   - NumNulls
+//   - NumDVs
+//   - BitVectors
 type DoubleColumnStatsData struct {
 	LowValue   *float64 `thrift:"lowValue,1" db:"lowValue" json:"lowValue,omitempty"`
 	HighValue  *float64 `thrift:"highValue,2" db:"highValue" json:"highValue,omitempty"`
@@ -14465,11 +14466,11 @@ func (p *DoubleColumnStatsData) String() string {
 }
 
 // Attributes:
-//  - LowValue
-//  - HighValue
-//  - NumNulls
-//  - NumDVs
-//  - BitVectors
+//   - LowValue
+//   - HighValue
+//   - NumNulls
+//   - NumDVs
+//   - BitVectors
 type LongColumnStatsData struct {
 	LowValue   *int64 `thrift:"lowValue,1" db:"lowValue" json:"lowValue,omitempty"`
 	HighValue  *int64 `thrift:"highValue,2" db:"highValue" json:"highValue,omitempty"`
@@ -14803,11 +14804,11 @@ func (p *LongColumnStatsData) String() string {
 }
 
 // Attributes:
-//  - MaxColLen
-//  - AvgColLen
-//  - NumNulls
-//  - NumDVs
-//  - BitVectors
+//   - MaxColLen
+//   - AvgColLen
+//   - NumNulls
+//   - NumDVs
+//   - BitVectors
 type StringColumnStatsData struct {
 	MaxColLen  int64   `thrift:"maxColLen,1,required" db:"maxColLen" json:"maxColLen"`
 	AvgColLen  float64 `thrift:"avgColLen,2,required" db:"avgColLen" json:"avgColLen"`
@@ -15119,10 +15120,10 @@ func (p *StringColumnStatsData) String() string {
 }
 
 // Attributes:
-//  - MaxColLen
-//  - AvgColLen
-//  - NumNulls
-//  - BitVectors
+//   - MaxColLen
+//   - AvgColLen
+//   - NumNulls
+//   - BitVectors
 type BinaryColumnStatsData struct {
 	MaxColLen  int64   `thrift:"maxColLen,1,required" db:"maxColLen" json:"maxColLen"`
 	AvgColLen  float64 `thrift:"avgColLen,2,required" db:"avgColLen" json:"avgColLen"`
@@ -15386,8 +15387,8 @@ func (p *BinaryColumnStatsData) String() string {
 }
 
 // Attributes:
-//  - Scale
-//  - Unscaled
+//   - Scale
+//   - Unscaled
 type Decimal struct {
 	Unscaled []byte `thrift:"unscaled,1,required" db:"unscaled" json:"unscaled"`
 	// unused field # 2
@@ -15553,11 +15554,11 @@ func (p *Decimal) String() string {
 }
 
 // Attributes:
-//  - LowValue
-//  - HighValue
-//  - NumNulls
-//  - NumDVs
-//  - BitVectors
+//   - LowValue
+//   - HighValue
+//   - NumNulls
+//   - NumDVs
+//   - BitVectors
 type DecimalColumnStatsData struct {
 	LowValue   *Decimal `thrift:"lowValue,1" db:"lowValue" json:"lowValue,omitempty"`
 	HighValue  *Decimal `thrift:"highValue,2" db:"highValue" json:"highValue,omitempty"`
@@ -15879,7 +15880,7 @@ func (p *DecimalColumnStatsData) String() string {
 }
 
 // Attributes:
-//  - DaysSinceEpoch
+//   - DaysSinceEpoch
 type Date struct {
 	DaysSinceEpoch int64 `thrift:"daysSinceEpoch,1,required" db:"daysSinceEpoch" json:"daysSinceEpoch"`
 }
@@ -15996,11 +15997,11 @@ func (p *Date) String() string {
 }
 
 // Attributes:
-//  - LowValue
-//  - HighValue
-//  - NumNulls
-//  - NumDVs
-//  - BitVectors
+//   - LowValue
+//   - HighValue
+//   - NumNulls
+//   - NumDVs
+//   - BitVectors
 type DateColumnStatsData struct {
 	LowValue   *Date  `thrift:"lowValue,1" db:"lowValue" json:"lowValue,omitempty"`
 	HighValue  *Date  `thrift:"highValue,2" db:"highValue" json:"highValue,omitempty"`
@@ -16322,7 +16323,7 @@ func (p *DateColumnStatsData) String() string {
 }
 
 // Attributes:
-//  - SecondsSinceEpoch
+//   - SecondsSinceEpoch
 type Timestamp struct {
 	SecondsSinceEpoch int64 `thrift:"secondsSinceEpoch,1,required" db:"secondsSinceEpoch" json:"secondsSinceEpoch"`
 }
@@ -16439,11 +16440,11 @@ func (p *Timestamp) String() string {
 }
 
 // Attributes:
-//  - LowValue
-//  - HighValue
-//  - NumNulls
-//  - NumDVs
-//  - BitVectors
+//   - LowValue
+//   - HighValue
+//   - NumNulls
+//   - NumDVs
+//   - BitVectors
 type TimestampColumnStatsData struct {
 	LowValue   *Timestamp `thrift:"lowValue,1" db:"lowValue" json:"lowValue,omitempty"`
 	HighValue  *Timestamp `thrift:"highValue,2" db:"highValue" json:"highValue,omitempty"`
@@ -16765,14 +16766,14 @@ func (p *TimestampColumnStatsData) String() string {
 }
 
 // Attributes:
-//  - BooleanStats
-//  - LongStats
-//  - DoubleStats
-//  - StringStats
-//  - BinaryStats
-//  - DecimalStats
-//  - DateStats
-//  - TimestampStats
+//   - BooleanStats
+//   - LongStats
+//   - DoubleStats
+//   - StringStats
+//   - BinaryStats
+//   - DecimalStats
+//   - DateStats
+//   - TimestampStats
 type ColumnStatisticsData struct {
 	BooleanStats   *BooleanColumnStatsData   `thrift:"booleanStats,1" db:"booleanStats" json:"booleanStats,omitempty"`
 	LongStats      *LongColumnStatsData      `thrift:"longStats,2" db:"longStats" json:"longStats,omitempty"`
@@ -17297,9 +17298,9 @@ func (p *ColumnStatisticsData) String() string {
 }
 
 // Attributes:
-//  - ColName
-//  - ColType
-//  - StatsData
+//   - ColName
+//   - ColType
+//   - StatsData
 type ColumnStatisticsObj struct {
 	ColName   string                `thrift:"colName,1,required" db:"colName" json:"colName"`
 	ColType   string                `thrift:"colType,2,required" db:"colType" json:"colType"`
@@ -17520,12 +17521,12 @@ func (p *ColumnStatisticsObj) String() string {
 }
 
 // Attributes:
-//  - IsTblLevel
-//  - DbName
-//  - TableName
-//  - PartName
-//  - LastAnalyzed
-//  - CatName
+//   - IsTblLevel
+//   - DbName
+//   - TableName
+//   - PartName
+//   - LastAnalyzed
+//   - CatName
 type ColumnStatisticsDesc struct {
 	IsTblLevel   bool    `thrift:"isTblLevel,1,required" db:"isTblLevel" json:"isTblLevel"`
 	DbName       string  `thrift:"dbName,2,required" db:"dbName" json:"dbName"`
@@ -17915,10 +17916,10 @@ func (p *ColumnStatisticsDesc) String() string {
 }
 
 // Attributes:
-//  - StatsDesc
-//  - StatsObj
-//  - IsStatsCompliant
-//  - Engine
+//   - StatsDesc
+//   - StatsObj
+//   - IsStatsCompliant
+//   - Engine
 type ColumnStatistics struct {
 	StatsDesc        *ColumnStatisticsDesc  `thrift:"statsDesc,1,required" db:"statsDesc" json:"statsDesc"`
 	StatsObj         []*ColumnStatisticsObj `thrift:"statsObj,2,required" db:"statsObj" json:"statsObj"`
@@ -18234,31 +18235,31 @@ func (p *ColumnStatistics) String() string {
 }
 
 // Attributes:
-//  - TableName
-//  - DbName
-//  - Owner
-//  - CreateTime
-//  - LastAccessTime
-//  - Retention
-//  - Sd
-//  - PartitionKeys
-//  - Parameters
-//  - ViewOriginalText
-//  - ViewExpandedText
-//  - TableType
-//  - Privileges
-//  - Temporary
-//  - RewriteEnabled
-//  - CreationMetadata
-//  - CatName
-//  - OwnerType
-//  - WriteId
-//  - IsStatsCompliant
-//  - ColStats
-//  - AccessType
-//  - RequiredReadCapabilities
-//  - RequiredWriteCapabilities
-//  - ID
+//   - TableName
+//   - DbName
+//   - Owner
+//   - CreateTime
+//   - LastAccessTime
+//   - Retention
+//   - Sd
+//   - PartitionKeys
+//   - Parameters
+//   - ViewOriginalText
+//   - ViewExpandedText
+//   - TableType
+//   - Privileges
+//   - Temporary
+//   - RewriteEnabled
+//   - CreationMetadata
+//   - CatName
+//   - OwnerType
+//   - WriteId
+//   - IsStatsCompliant
+//   - ColStats
+//   - AccessType
+//   - RequiredReadCapabilities
+//   - RequiredWriteCapabilities
+//   - ID
 type Table struct {
 	TableName                 string                 `thrift:"tableName,1" db:"tableName" json:"tableName"`
 	DbName                    string                 `thrift:"dbName,2" db:"dbName" json:"dbName"`
@@ -19680,18 +19681,18 @@ func (p *Table) String() string {
 }
 
 // Attributes:
-//  - Values
-//  - DbName
-//  - TableName
-//  - CreateTime
-//  - LastAccessTime
-//  - Sd
-//  - Parameters
-//  - Privileges
-//  - CatName
-//  - WriteId
-//  - IsStatsCompliant
-//  - ColStats
+//   - Values
+//   - DbName
+//   - TableName
+//   - CreateTime
+//   - LastAccessTime
+//   - Sd
+//   - Parameters
+//   - Privileges
+//   - CatName
+//   - WriteId
+//   - IsStatsCompliant
+//   - ColStats
 type Partition struct {
 	Values           []string               `thrift:"values,1" db:"values" json:"values"`
 	DbName           string                 `thrift:"dbName,2" db:"dbName" json:"dbName"`
@@ -20408,12 +20409,12 @@ func (p *Partition) String() string {
 }
 
 // Attributes:
-//  - Values
-//  - CreateTime
-//  - LastAccessTime
-//  - RelativePath
-//  - Parameters
-//  - Privileges
+//   - Values
+//   - CreateTime
+//   - LastAccessTime
+//   - RelativePath
+//   - Parameters
+//   - Privileges
 type PartitionWithoutSD struct {
 	Values         []string               `thrift:"values,1" db:"values" json:"values"`
 	CreateTime     int32                  `thrift:"createTime,2" db:"createTime" json:"createTime"`
@@ -20812,8 +20813,8 @@ func (p *PartitionWithoutSD) String() string {
 }
 
 // Attributes:
-//  - Partitions
-//  - Sd
+//   - Partitions
+//   - Sd
 type PartitionSpecWithSharedSD struct {
 	Partitions []*PartitionWithoutSD `thrift:"partitions,1" db:"partitions" json:"partitions"`
 	Sd         *StorageDescriptor    `thrift:"sd,2" db:"sd" json:"sd"`
@@ -21000,7 +21001,7 @@ func (p *PartitionSpecWithSharedSD) String() string {
 }
 
 // Attributes:
-//  - Partitions
+//   - Partitions
 type PartitionListComposingSpec struct {
 	Partitions []*Partition `thrift:"partitions,1" db:"partitions" json:"partitions"`
 }
@@ -21138,14 +21139,14 @@ func (p *PartitionListComposingSpec) String() string {
 }
 
 // Attributes:
-//  - DbName
-//  - TableName
-//  - RootPath
-//  - SharedSDPartitionSpec
-//  - PartitionList
-//  - CatName
-//  - WriteId
-//  - IsStatsCompliant
+//   - DbName
+//   - TableName
+//   - RootPath
+//   - SharedSDPartitionSpec
+//   - PartitionList
+//   - CatName
+//   - WriteId
+//   - IsStatsCompliant
 type PartitionSpec struct {
 	DbName                string                      `thrift:"dbName,1" db:"dbName" json:"dbName"`
 	TableName             string                      `thrift:"tableName,2" db:"tableName" json:"tableName"`
@@ -21619,9 +21620,9 @@ func (p *PartitionSpec) String() string {
 }
 
 // Attributes:
-//  - ColStats
-//  - PartsFound
-//  - IsStatsCompliant
+//   - ColStats
+//   - PartsFound
+//   - IsStatsCompliant
 type AggrStats struct {
 	ColStats         []*ColumnStatisticsObj `thrift:"colStats,1,required" db:"colStats" json:"colStats"`
 	PartsFound       int64                  `thrift:"partsFound,2,required" db:"partsFound" json:"partsFound"`
@@ -21870,11 +21871,11 @@ func (p *AggrStats) String() string {
 }
 
 // Attributes:
-//  - ColStats
-//  - NeedMerge
-//  - WriteId
-//  - ValidWriteIdList
-//  - Engine
+//   - ColStats
+//   - NeedMerge
+//   - WriteId
+//   - ValidWriteIdList
+//   - Engine
 type SetPartitionsStatsRequest struct {
 	ColStats         []*ColumnStatistics `thrift:"colStats,1,required" db:"colStats" json:"colStats"`
 	NeedMerge        *bool               `thrift:"needMerge,2" db:"needMerge" json:"needMerge,omitempty"`
@@ -22235,7 +22236,7 @@ func (p *SetPartitionsStatsRequest) String() string {
 }
 
 // Attributes:
-//  - Result_
+//   - Result_
 type SetPartitionsStatsResponse struct {
 	Result_ bool `thrift:"result,1,required" db:"result" json:"result"`
 }
@@ -22352,8 +22353,8 @@ func (p *SetPartitionsStatsResponse) String() string {
 }
 
 // Attributes:
-//  - FieldSchemas
-//  - Properties
+//   - FieldSchemas
+//   - Properties
 type Schema struct {
 	FieldSchemas []*FieldSchema    `thrift:"fieldSchemas,1" db:"fieldSchemas" json:"fieldSchemas"`
 	Properties   map[string]string `thrift:"properties,2" db:"properties" json:"properties"`
@@ -22568,7 +22569,7 @@ func (p *Schema) String() string {
 }
 
 // Attributes:
-//  - Properties
+//   - Properties
 type EnvironmentContext struct {
 	Properties map[string]string `thrift:"properties,1" db:"properties" json:"properties"`
 }
@@ -22715,9 +22716,9 @@ func (p *EnvironmentContext) String() string {
 }
 
 // Attributes:
-//  - DbName
-//  - TblName
-//  - CatName
+//   - DbName
+//   - TblName
+//   - CatName
 type PrimaryKeysRequest struct {
 	DbName  string  `thrift:"db_name,1,required" db:"db_name" json:"db_name"`
 	TblName string  `thrift:"tbl_name,2,required" db:"tbl_name" json:"tbl_name"`
@@ -22941,7 +22942,7 @@ func (p *PrimaryKeysRequest) String() string {
 }
 
 // Attributes:
-//  - PrimaryKeys
+//   - PrimaryKeys
 type PrimaryKeysResponse struct {
 	PrimaryKeys []*SQLPrimaryKey `thrift:"primaryKeys,1,required" db:"primaryKeys" json:"primaryKeys"`
 }
@@ -23083,11 +23084,11 @@ func (p *PrimaryKeysResponse) String() string {
 }
 
 // Attributes:
-//  - ParentDbName
-//  - ParentTblName
-//  - ForeignDbName
-//  - ForeignTblName
-//  - CatName
+//   - ParentDbName
+//   - ParentTblName
+//   - ForeignDbName
+//   - ForeignTblName
+//   - CatName
 type ForeignKeysRequest struct {
 	ParentDbName   string  `thrift:"parent_db_name,1" db:"parent_db_name" json:"parent_db_name"`
 	ParentTblName  string  `thrift:"parent_tbl_name,2" db:"parent_tbl_name" json:"parent_tbl_name"`
@@ -23386,7 +23387,7 @@ func (p *ForeignKeysRequest) String() string {
 }
 
 // Attributes:
-//  - ForeignKeys
+//   - ForeignKeys
 type ForeignKeysResponse struct {
 	ForeignKeys []*SQLForeignKey `thrift:"foreignKeys,1,required" db:"foreignKeys" json:"foreignKeys"`
 }
@@ -23528,9 +23529,9 @@ func (p *ForeignKeysResponse) String() string {
 }
 
 // Attributes:
-//  - CatName
-//  - DbName
-//  - TblName
+//   - CatName
+//   - DbName
+//   - TblName
 type UniqueConstraintsRequest struct {
 	CatName string `thrift:"catName,1,required" db:"catName" json:"catName"`
 	DbName  string `thrift:"db_name,2,required" db:"db_name" json:"db_name"`
@@ -23743,7 +23744,7 @@ func (p *UniqueConstraintsRequest) String() string {
 }
 
 // Attributes:
-//  - UniqueConstraints
+//   - UniqueConstraints
 type UniqueConstraintsResponse struct {
 	UniqueConstraints []*SQLUniqueConstraint `thrift:"uniqueConstraints,1,required" db:"uniqueConstraints" json:"uniqueConstraints"`
 }
@@ -23885,9 +23886,9 @@ func (p *UniqueConstraintsResponse) String() string {
 }
 
 // Attributes:
-//  - CatName
-//  - DbName
-//  - TblName
+//   - CatName
+//   - DbName
+//   - TblName
 type NotNullConstraintsRequest struct {
 	CatName string `thrift:"catName,1,required" db:"catName" json:"catName"`
 	DbName  string `thrift:"db_name,2,required" db:"db_name" json:"db_name"`
@@ -24100,7 +24101,7 @@ func (p *NotNullConstraintsRequest) String() string {
 }
 
 // Attributes:
-//  - NotNullConstraints
+//   - NotNullConstraints
 type NotNullConstraintsResponse struct {
 	NotNullConstraints []*SQLNotNullConstraint `thrift:"notNullConstraints,1,required" db:"notNullConstraints" json:"notNullConstraints"`
 }
@@ -24242,9 +24243,9 @@ func (p *NotNullConstraintsResponse) String() string {
 }
 
 // Attributes:
-//  - CatName
-//  - DbName
-//  - TblName
+//   - CatName
+//   - DbName
+//   - TblName
 type DefaultConstraintsRequest struct {
 	CatName string `thrift:"catName,1,required" db:"catName" json:"catName"`
 	DbName  string `thrift:"db_name,2,required" db:"db_name" json:"db_name"`
@@ -24457,7 +24458,7 @@ func (p *DefaultConstraintsRequest) String() string {
 }
 
 // Attributes:
-//  - DefaultConstraints
+//   - DefaultConstraints
 type DefaultConstraintsResponse struct {
 	DefaultConstraints []*SQLDefaultConstraint `thrift:"defaultConstraints,1,required" db:"defaultConstraints" json:"defaultConstraints"`
 }
@@ -24599,9 +24600,9 @@ func (p *DefaultConstraintsResponse) String() string {
 }
 
 // Attributes:
-//  - CatName
-//  - DbName
-//  - TblName
+//   - CatName
+//   - DbName
+//   - TblName
 type CheckConstraintsRequest struct {
 	CatName string `thrift:"catName,1,required" db:"catName" json:"catName"`
 	DbName  string `thrift:"db_name,2,required" db:"db_name" json:"db_name"`
@@ -24814,7 +24815,7 @@ func (p *CheckConstraintsRequest) String() string {
 }
 
 // Attributes:
-//  - CheckConstraints
+//   - CheckConstraints
 type CheckConstraintsResponse struct {
 	CheckConstraints []*SQLCheckConstraint `thrift:"checkConstraints,1,required" db:"checkConstraints" json:"checkConstraints"`
 }
@@ -24956,9 +24957,9 @@ func (p *CheckConstraintsResponse) String() string {
 }
 
 // Attributes:
-//  - DbName
-//  - TblName
-//  - CatName
+//   - DbName
+//   - TblName
+//   - CatName
 type AllTableConstraintsRequest struct {
 	DbName  string `thrift:"dbName,1,required" db:"dbName" json:"dbName"`
 	TblName string `thrift:"tblName,2,required" db:"tblName" json:"tblName"`
@@ -25171,7 +25172,7 @@ func (p *AllTableConstraintsRequest) String() string {
 }
 
 // Attributes:
-//  - AllTableConstraints
+//   - AllTableConstraints
 type AllTableConstraintsResponse struct {
 	AllTableConstraints *SQLAllTableConstraints `thrift:"allTableConstraints,1,required" db:"allTableConstraints" json:"allTableConstraints"`
 }
@@ -25296,10 +25297,10 @@ func (p *AllTableConstraintsResponse) String() string {
 }
 
 // Attributes:
-//  - Dbname
-//  - Tablename
-//  - Constraintname
-//  - CatName
+//   - Dbname
+//   - Tablename
+//   - Constraintname
+//   - CatName
 type DropConstraintRequest struct {
 	Dbname         string  `thrift:"dbname,1,required" db:"dbname" json:"dbname"`
 	Tablename      string  `thrift:"tablename,2,required" db:"tablename" json:"tablename"`
@@ -25571,7 +25572,7 @@ func (p *DropConstraintRequest) String() string {
 }
 
 // Attributes:
-//  - PrimaryKeyCols
+//   - PrimaryKeyCols
 type AddPrimaryKeyRequest struct {
 	PrimaryKeyCols []*SQLPrimaryKey `thrift:"primaryKeyCols,1,required" db:"primaryKeyCols" json:"primaryKeyCols"`
 }
@@ -25713,7 +25714,7 @@ func (p *AddPrimaryKeyRequest) String() string {
 }
 
 // Attributes:
-//  - ForeignKeyCols
+//   - ForeignKeyCols
 type AddForeignKeyRequest struct {
 	ForeignKeyCols []*SQLForeignKey `thrift:"foreignKeyCols,1,required" db:"foreignKeyCols" json:"foreignKeyCols"`
 }
@@ -25855,7 +25856,7 @@ func (p *AddForeignKeyRequest) String() string {
 }
 
 // Attributes:
-//  - UniqueConstraintCols
+//   - UniqueConstraintCols
 type AddUniqueConstraintRequest struct {
 	UniqueConstraintCols []*SQLUniqueConstraint `thrift:"uniqueConstraintCols,1,required" db:"uniqueConstraintCols" json:"uniqueConstraintCols"`
 }
@@ -25997,7 +25998,7 @@ func (p *AddUniqueConstraintRequest) String() string {
 }
 
 // Attributes:
-//  - NotNullConstraintCols
+//   - NotNullConstraintCols
 type AddNotNullConstraintRequest struct {
 	NotNullConstraintCols []*SQLNotNullConstraint `thrift:"notNullConstraintCols,1,required" db:"notNullConstraintCols" json:"notNullConstraintCols"`
 }
@@ -26139,7 +26140,7 @@ func (p *AddNotNullConstraintRequest) String() string {
 }
 
 // Attributes:
-//  - DefaultConstraintCols
+//   - DefaultConstraintCols
 type AddDefaultConstraintRequest struct {
 	DefaultConstraintCols []*SQLDefaultConstraint `thrift:"defaultConstraintCols,1,required" db:"defaultConstraintCols" json:"defaultConstraintCols"`
 }
@@ -26281,7 +26282,7 @@ func (p *AddDefaultConstraintRequest) String() string {
 }
 
 // Attributes:
-//  - CheckConstraintCols
+//   - CheckConstraintCols
 type AddCheckConstraintRequest struct {
 	CheckConstraintCols []*SQLCheckConstraint `thrift:"checkConstraintCols,1,required" db:"checkConstraintCols" json:"checkConstraintCols"`
 }
@@ -26423,8 +26424,8 @@ func (p *AddCheckConstraintRequest) String() string {
 }
 
 // Attributes:
-//  - Partitions
-//  - HasUnknownPartitions
+//   - Partitions
+//   - HasUnknownPartitions
 type PartitionsByExprResult_ struct {
 	Partitions           []*Partition `thrift:"partitions,1,required" db:"partitions" json:"partitions"`
 	HasUnknownPartitions bool         `thrift:"hasUnknownPartitions,2,required" db:"hasUnknownPartitions" json:"hasUnknownPartitions"`
@@ -26616,8 +26617,8 @@ func (p *PartitionsByExprResult_) String() string {
 }
 
 // Attributes:
-//  - PartitionsSpec
-//  - HasUnknownPartitions
+//   - PartitionsSpec
+//   - HasUnknownPartitions
 type PartitionsSpecByExprResult_ struct {
 	PartitionsSpec       []*PartitionSpec `thrift:"partitionsSpec,1,required" db:"partitionsSpec" json:"partitionsSpec"`
 	HasUnknownPartitions bool             `thrift:"hasUnknownPartitions,2,required" db:"hasUnknownPartitions" json:"hasUnknownPartitions"`
@@ -26809,15 +26810,15 @@ func (p *PartitionsSpecByExprResult_) String() string {
 }
 
 // Attributes:
-//  - DbName
-//  - TblName
-//  - Expr
-//  - DefaultPartitionName
-//  - MaxParts
-//  - CatName
-//  - Order
-//  - ValidWriteIdList
-//  - ID
+//   - DbName
+//   - TblName
+//   - Expr
+//   - DefaultPartitionName
+//   - MaxParts
+//   - CatName
+//   - Order
+//   - ValidWriteIdList
+//   - ID
 type PartitionsByExprRequest struct {
 	DbName               string  `thrift:"dbName,1,required" db:"dbName" json:"dbName"`
 	TblName              string  `thrift:"tblName,2,required" db:"tblName" json:"tblName"`
@@ -27372,8 +27373,8 @@ func (p *PartitionsByExprRequest) String() string {
 }
 
 // Attributes:
-//  - TableStats
-//  - IsStatsCompliant
+//   - TableStats
+//   - IsStatsCompliant
 type TableStatsResult_ struct {
 	TableStats       []*ColumnStatisticsObj `thrift:"tableStats,1,required" db:"tableStats" json:"tableStats"`
 	IsStatsCompliant *bool                  `thrift:"isStatsCompliant,2" db:"isStatsCompliant" json:"isStatsCompliant,omitempty"`
@@ -27574,8 +27575,8 @@ func (p *TableStatsResult_) String() string {
 }
 
 // Attributes:
-//  - PartStats
-//  - IsStatsCompliant
+//   - PartStats
+//   - IsStatsCompliant
 type PartitionsStatsResult_ struct {
 	PartStats        map[string][]*ColumnStatisticsObj `thrift:"partStats,1,required" db:"partStats" json:"partStats"`
 	IsStatsCompliant *bool                             `thrift:"isStatsCompliant,2" db:"isStatsCompliant" json:"isStatsCompliant,omitempty"`
@@ -27811,13 +27812,13 @@ func (p *PartitionsStatsResult_) String() string {
 }
 
 // Attributes:
-//  - DbName
-//  - TblName
-//  - ColNames
-//  - CatName
-//  - ValidWriteIdList
-//  - Engine
-//  - ID
+//   - DbName
+//   - TblName
+//   - ColNames
+//   - CatName
+//   - ValidWriteIdList
+//   - Engine
+//   - ID
 type TableStatsRequest struct {
 	DbName           string   `thrift:"dbName,1,required" db:"dbName" json:"dbName"`
 	TblName          string   `thrift:"tblName,2,required" db:"tblName" json:"tblName"`
@@ -28276,13 +28277,13 @@ func (p *TableStatsRequest) String() string {
 }
 
 // Attributes:
-//  - DbName
-//  - TblName
-//  - ColNames
-//  - PartNames
-//  - CatName
-//  - ValidWriteIdList
-//  - Engine
+//   - DbName
+//   - TblName
+//   - ColNames
+//   - PartNames
+//   - CatName
+//   - ValidWriteIdList
+//   - Engine
 type PartitionsStatsRequest struct {
 	DbName           string   `thrift:"dbName,1,required" db:"dbName" json:"dbName"`
 	TblName          string   `thrift:"tblName,2,required" db:"tblName" json:"tblName"`
@@ -28763,8 +28764,8 @@ func (p *PartitionsStatsRequest) String() string {
 }
 
 // Attributes:
-//  - Partitions
-//  - IsStatsCompliant
+//   - Partitions
+//   - IsStatsCompliant
 type AddPartitionsResult_ struct {
 	Partitions       []*Partition `thrift:"partitions,1" db:"partitions" json:"partitions,omitempty"`
 	IsStatsCompliant *bool        `thrift:"isStatsCompliant,2" db:"isStatsCompliant" json:"isStatsCompliant,omitempty"`
@@ -28969,13 +28970,13 @@ func (p *AddPartitionsResult_) String() string {
 }
 
 // Attributes:
-//  - DbName
-//  - TblName
-//  - Parts
-//  - IfNotExists
-//  - NeedResult_
-//  - CatName
-//  - ValidWriteIdList
+//   - DbName
+//   - TblName
+//   - Parts
+//   - IfNotExists
+//   - NeedResult_
+//   - CatName
+//   - ValidWriteIdList
 type AddPartitionsRequest struct {
 	DbName           string       `thrift:"dbName,1,required" db:"dbName" json:"dbName"`
 	TblName          string       `thrift:"tblName,2,required" db:"tblName" json:"tblName"`
@@ -29434,7 +29435,7 @@ func (p *AddPartitionsRequest) String() string {
 }
 
 // Attributes:
-//  - Partitions
+//   - Partitions
 type DropPartitionsResult_ struct {
 	Partitions []*Partition `thrift:"partitions,1" db:"partitions" json:"partitions,omitempty"`
 }
@@ -29580,8 +29581,8 @@ func (p *DropPartitionsResult_) String() string {
 }
 
 // Attributes:
-//  - Expr
-//  - PartArchiveLevel
+//   - Expr
+//   - PartArchiveLevel
 type DropPartitionsExpr struct {
 	Expr             []byte `thrift:"expr,1,required" db:"expr" json:"expr"`
 	PartArchiveLevel *int32 `thrift:"partArchiveLevel,2" db:"partArchiveLevel" json:"partArchiveLevel,omitempty"`
@@ -29757,8 +29758,8 @@ func (p *DropPartitionsExpr) String() string {
 }
 
 // Attributes:
-//  - Names
-//  - Exprs
+//   - Names
+//   - Exprs
 type RequestPartsSpec struct {
 	Names []string              `thrift:"names,1" db:"names" json:"names,omitempty"`
 	Exprs []*DropPartitionsExpr `thrift:"exprs,2" db:"exprs" json:"exprs,omitempty"`
@@ -29995,15 +29996,15 @@ func (p *RequestPartsSpec) String() string {
 }
 
 // Attributes:
-//  - DbName
-//  - TblName
-//  - Parts
-//  - DeleteData
-//  - IfExists
-//  - IgnoreProtection
-//  - EnvironmentContext
-//  - NeedResult_
-//  - CatName
+//   - DbName
+//   - TblName
+//   - Parts
+//   - DeleteData
+//   - IfExists
+//   - IgnoreProtection
+//   - EnvironmentContext
+//   - NeedResult_
+//   - CatName
 type DropPartitionsRequest struct {
 	DbName             string              `thrift:"dbName,1,required" db:"dbName" json:"dbName"`
 	TblName            string              `thrift:"tblName,2,required" db:"tblName" json:"tblName"`
@@ -30560,16 +30561,16 @@ func (p *DropPartitionsRequest) String() string {
 }
 
 // Attributes:
-//  - DbName
-//  - TblName
-//  - PartitionKeys
-//  - ApplyDistinct
-//  - Filter
-//  - PartitionOrder
-//  - Ascending
-//  - MaxParts
-//  - CatName
-//  - ValidWriteIdList
+//   - DbName
+//   - TblName
+//   - PartitionKeys
+//   - ApplyDistinct
+//   - Filter
+//   - PartitionOrder
+//   - Ascending
+//   - MaxParts
+//   - CatName
+//   - ValidWriteIdList
 type PartitionValuesRequest struct {
 	DbName           string         `thrift:"dbName,1,required" db:"dbName" json:"dbName"`
 	TblName          string         `thrift:"tblName,2,required" db:"tblName" json:"tblName"`
@@ -31219,7 +31220,7 @@ func (p *PartitionValuesRequest) String() string {
 }
 
 // Attributes:
-//  - Row
+//   - Row
 type PartitionValuesRow struct {
 	Row []string `thrift:"row,1,required" db:"row" json:"row"`
 }
@@ -31363,7 +31364,7 @@ func (p *PartitionValuesRow) String() string {
 }
 
 // Attributes:
-//  - PartitionValues
+//   - PartitionValues
 type PartitionValuesResponse struct {
 	PartitionValues []*PartitionValuesRow `thrift:"partitionValues,1,required" db:"partitionValues" json:"partitionValues"`
 }
@@ -31505,16 +31506,16 @@ func (p *PartitionValuesResponse) String() string {
 }
 
 // Attributes:
-//  - DbName
-//  - TblName
-//  - Names
-//  - GetColStats
-//  - ProcessorCapabilities
-//  - ProcessorIdentifier
-//  - Engine
-//  - ValidWriteIdList
-//  - GetFileMetadata
-//  - ID
+//   - DbName
+//   - TblName
+//   - Names
+//   - GetColStats
+//   - ProcessorCapabilities
+//   - ProcessorIdentifier
+//   - Engine
+//   - ValidWriteIdList
+//   - GetFileMetadata
+//   - ID
 type GetPartitionsByNamesRequest struct {
 	DbName                string   `thrift:"db_name,1,required" db:"db_name" json:"db_name"`
 	TblName               string   `thrift:"tbl_name,2,required" db:"tbl_name" json:"tbl_name"`
@@ -32183,7 +32184,7 @@ func (p *GetPartitionsByNamesRequest) String() string {
 }
 
 // Attributes:
-//  - Partitions
+//   - Partitions
 type GetPartitionsByNamesResult_ struct {
 	Partitions []*Partition `thrift:"partitions,1,required" db:"partitions" json:"partitions"`
 }
@@ -32327,14 +32328,14 @@ func (p *GetPartitionsByNamesResult_) String() string {
 }
 
 // Attributes:
-//  - Name
-//  - Type
-//  - URL
-//  - Description
-//  - Parameters
-//  - OwnerName
-//  - OwnerType
-//  - CreateTime
+//   - Name
+//   - Type
+//   - URL
+//   - Description
+//   - Parameters
+//   - OwnerName
+//   - OwnerType
+//   - CreateTime
 type DataConnector struct {
 	Name        string            `thrift:"name,1" db:"name" json:"name"`
 	Type        string            `thrift:"type,2" db:"type" json:"type"`
@@ -32855,8 +32856,8 @@ func (p *DataConnector) String() string {
 }
 
 // Attributes:
-//  - ResourceType
-//  - URI
+//   - ResourceType
+//   - URI
 type ResourceUri struct {
 	ResourceType ResourceType `thrift:"resourceType,1" db:"resourceType" json:"resourceType"`
 	URI          string       `thrift:"uri,2" db:"uri" json:"uri"`
@@ -33011,15 +33012,15 @@ func (p *ResourceUri) String() string {
 }
 
 // Attributes:
-//  - FunctionName
-//  - DbName
-//  - ClassName
-//  - OwnerName
-//  - OwnerType
-//  - CreateTime
-//  - FunctionType
-//  - ResourceUris
-//  - CatName
+//   - FunctionName
+//   - DbName
+//   - ClassName
+//   - OwnerName
+//   - OwnerType
+//   - CreateTime
+//   - FunctionType
+//   - ResourceUris
+//   - CatName
 type Function struct {
 	FunctionName string         `thrift:"functionName,1" db:"functionName" json:"functionName"`
 	DbName       string         `thrift:"dbName,2" db:"dbName" json:"dbName"`
@@ -33517,15 +33518,15 @@ func (p *Function) String() string {
 }
 
 // Attributes:
-//  - ID
-//  - State
-//  - User
-//  - Hostname
-//  - AgentInfo
-//  - HeartbeatCount
-//  - MetaInfo
-//  - StartedTime
-//  - LastHeartbeatTime
+//   - ID
+//   - State
+//   - User
+//   - Hostname
+//   - AgentInfo
+//   - HeartbeatCount
+//   - MetaInfo
+//   - StartedTime
+//   - LastHeartbeatTime
 type TxnInfo struct {
 	ID                int64    `thrift:"id,1,required" db:"id" json:"id"`
 	State             TxnState `thrift:"state,2,required" db:"state" json:"state"`
@@ -34068,8 +34069,8 @@ func (p *TxnInfo) String() string {
 }
 
 // Attributes:
-//  - TxnHighWaterMark
-//  - OpenTxns
+//   - TxnHighWaterMark
+//   - OpenTxns
 type GetOpenTxnsInfoResponse struct {
 	TxnHighWaterMark int64      `thrift:"txn_high_water_mark,1,required" db:"txn_high_water_mark" json:"txn_high_water_mark"`
 	OpenTxns         []*TxnInfo `thrift:"open_txns,2,required" db:"open_txns" json:"open_txns"`
@@ -34261,10 +34262,10 @@ func (p *GetOpenTxnsInfoResponse) String() string {
 }
 
 // Attributes:
-//  - TxnHighWaterMark
-//  - OpenTxns
-//  - MinOpenTxn
-//  - AbortedBits
+//   - TxnHighWaterMark
+//   - OpenTxns
+//   - MinOpenTxn
+//   - AbortedBits
 type GetOpenTxnsResponse struct {
 	TxnHighWaterMark int64   `thrift:"txn_high_water_mark,1,required" db:"txn_high_water_mark" json:"txn_high_water_mark"`
 	OpenTxns         []int64 `thrift:"open_txns,2,required" db:"open_txns" json:"open_txns"`
@@ -34563,13 +34564,13 @@ func (p *GetOpenTxnsResponse) String() string {
 }
 
 // Attributes:
-//  - NumTxns
-//  - User
-//  - Hostname
-//  - AgentInfo
-//  - ReplPolicy
-//  - ReplSrcTxnIds
-//  - TxnType
+//   - NumTxns
+//   - User
+//   - Hostname
+//   - AgentInfo
+//   - ReplPolicy
+//   - ReplSrcTxnIds
+//   - TxnType
 type OpenTxnRequest struct {
 	NumTxns       int32   `thrift:"num_txns,1,required" db:"num_txns" json:"num_txns"`
 	User          string  `thrift:"user,2,required" db:"user" json:"user"`
@@ -35026,7 +35027,7 @@ func (p *OpenTxnRequest) String() string {
 }
 
 // Attributes:
-//  - TxnIds
+//   - TxnIds
 type OpenTxnsResponse struct {
 	TxnIds []int64 `thrift:"txn_ids,1,required" db:"txn_ids" json:"txn_ids"`
 }
@@ -35170,8 +35171,8 @@ func (p *OpenTxnsResponse) String() string {
 }
 
 // Attributes:
-//  - Txnid
-//  - ReplPolicy
+//   - Txnid
+//   - ReplPolicy
 type AbortTxnRequest struct {
 	Txnid      int64   `thrift:"txnid,1,required" db:"txnid" json:"txnid"`
 	ReplPolicy *string `thrift:"replPolicy,2" db:"replPolicy" json:"replPolicy,omitempty"`
@@ -35347,7 +35348,7 @@ func (p *AbortTxnRequest) String() string {
 }
 
 // Attributes:
-//  - TxnIds
+//   - TxnIds
 type AbortTxnsRequest struct {
 	TxnIds []int64 `thrift:"txn_ids,1,required" db:"txn_ids" json:"txn_ids"`
 }
@@ -35491,9 +35492,9 @@ func (p *AbortTxnsRequest) String() string {
 }
 
 // Attributes:
-//  - TableId
-//  - Key
-//  - Value
+//   - TableId
+//   - Key
+//   - Value
 type CommitTxnKeyValue struct {
 	TableId int64  `thrift:"tableId,1,required" db:"tableId" json:"tableId"`
 	Key     string `thrift:"key,2,required" db:"key" json:"key"`
@@ -35706,13 +35707,13 @@ func (p *CommitTxnKeyValue) String() string {
 }
 
 // Attributes:
-//  - WriteId
-//  - Database
-//  - Table
-//  - Files
-//  - Partition
-//  - TableObj
-//  - PartitionObj
+//   - WriteId
+//   - Database
+//   - Table
+//   - Files
+//   - Partition
+//   - TableObj
+//   - PartitionObj
 type WriteEventInfo struct {
 	WriteId      int64   `thrift:"writeId,1,required" db:"writeId" json:"writeId"`
 	Database     string  `thrift:"database,2,required" db:"database" json:"database"`
@@ -36150,11 +36151,11 @@ func (p *WriteEventInfo) String() string {
 }
 
 // Attributes:
-//  - Database
-//  - LastReplId
-//  - Table
-//  - Catalog
-//  - PartitionList
+//   - Database
+//   - LastReplId
+//   - Table
+//   - Catalog
+//   - PartitionList
 type ReplLastIdInfo struct {
 	Database      string   `thrift:"database,1,required" db:"database" json:"database"`
 	LastReplId    int64    `thrift:"lastReplId,2,required" db:"lastReplId" json:"lastReplId"`
@@ -36515,12 +36516,12 @@ func (p *ReplLastIdInfo) String() string {
 }
 
 // Attributes:
-//  - Txnid
-//  - ReplPolicy
-//  - WriteEventInfos
-//  - ReplLastIdInfo
-//  - KeyValue
-//  - ExclWriteEnabled
+//   - Txnid
+//   - ReplPolicy
+//   - WriteEventInfos
+//   - ReplLastIdInfo
+//   - KeyValue
+//   - ExclWriteEnabled
 type CommitTxnRequest struct {
 	Txnid            int64              `thrift:"txnid,1,required" db:"txnid" json:"txnid"`
 	ReplPolicy       *string            `thrift:"replPolicy,2" db:"replPolicy" json:"replPolicy,omitempty"`
@@ -36931,12 +36932,12 @@ func (p *CommitTxnRequest) String() string {
 }
 
 // Attributes:
-//  - ValidWriteIdlist
-//  - User
-//  - HostName
-//  - DbName
-//  - TableName
-//  - PartNames
+//   - ValidWriteIdlist
+//   - User
+//   - HostName
+//   - DbName
+//   - TableName
+//   - PartNames
 type ReplTblWriteIdStateRequest struct {
 	ValidWriteIdlist string   `thrift:"validWriteIdlist,1,required" db:"validWriteIdlist" json:"validWriteIdlist"`
 	User             string   `thrift:"user,2,required" db:"user" json:"user"`
@@ -37323,9 +37324,9 @@ func (p *ReplTblWriteIdStateRequest) String() string {
 }
 
 // Attributes:
-//  - FullTableNames
-//  - ValidTxnList
-//  - WriteId
+//   - FullTableNames
+//   - ValidTxnList
+//   - WriteId
 type GetValidWriteIdsRequest struct {
 	FullTableNames []string `thrift:"fullTableNames,1,required" db:"fullTableNames" json:"fullTableNames"`
 	ValidTxnList   *string  `thrift:"validTxnList,2" db:"validTxnList" json:"validTxnList,omitempty"`
@@ -37587,11 +37588,11 @@ func (p *GetValidWriteIdsRequest) String() string {
 }
 
 // Attributes:
-//  - FullTableName
-//  - WriteIdHighWaterMark
-//  - InvalidWriteIds
-//  - MinOpenWriteId
-//  - AbortedBits
+//   - FullTableName
+//   - WriteIdHighWaterMark
+//   - InvalidWriteIds
+//   - MinOpenWriteId
+//   - AbortedBits
 type TableValidWriteIds struct {
 	FullTableName        string  `thrift:"fullTableName,1,required" db:"fullTableName" json:"fullTableName"`
 	WriteIdHighWaterMark int64   `thrift:"writeIdHighWaterMark,2,required" db:"writeIdHighWaterMark" json:"writeIdHighWaterMark"`
@@ -37938,7 +37939,7 @@ func (p *TableValidWriteIds) String() string {
 }
 
 // Attributes:
-//  - TblValidWriteIds
+//   - TblValidWriteIds
 type GetValidWriteIdsResponse struct {
 	TblValidWriteIds []*TableValidWriteIds `thrift:"tblValidWriteIds,1,required" db:"tblValidWriteIds" json:"tblValidWriteIds"`
 }
@@ -38080,8 +38081,8 @@ func (p *GetValidWriteIdsResponse) String() string {
 }
 
 // Attributes:
-//  - TxnId
-//  - WriteId
+//   - TxnId
+//   - WriteId
 type TxnToWriteId struct {
 	TxnId   int64 `thrift:"txnId,1,required" db:"txnId" json:"txnId"`
 	WriteId int64 `thrift:"writeId,2,required" db:"writeId" json:"writeId"`
@@ -38246,11 +38247,11 @@ func (p *TxnToWriteId) String() string {
 }
 
 // Attributes:
-//  - DbName
-//  - TableName
-//  - TxnIds
-//  - ReplPolicy
-//  - SrcTxnToWriteIdList
+//   - DbName
+//   - TableName
+//   - TxnIds
+//   - ReplPolicy
+//   - SrcTxnToWriteIdList
 type AllocateTableWriteIdsRequest struct {
 	DbName              string          `thrift:"dbName,1,required" db:"dbName" json:"dbName"`
 	TableName           string          `thrift:"tableName,2,required" db:"tableName" json:"tableName"`
@@ -38628,7 +38629,7 @@ func (p *AllocateTableWriteIdsRequest) String() string {
 }
 
 // Attributes:
-//  - TxnToWriteIds
+//   - TxnToWriteIds
 type AllocateTableWriteIdsResponse struct {
 	TxnToWriteIds []*TxnToWriteId `thrift:"txnToWriteIds,1,required" db:"txnToWriteIds" json:"txnToWriteIds"`
 }
@@ -38770,8 +38771,8 @@ func (p *AllocateTableWriteIdsResponse) String() string {
 }
 
 // Attributes:
-//  - DbName
-//  - TableName
+//   - DbName
+//   - TableName
 type MaxAllocatedTableWriteIdRequest struct {
 	DbName    string `thrift:"dbName,1,required" db:"dbName" json:"dbName"`
 	TableName string `thrift:"tableName,2,required" db:"tableName" json:"tableName"`
@@ -38936,7 +38937,7 @@ func (p *MaxAllocatedTableWriteIdRequest) String() string {
 }
 
 // Attributes:
-//  - MaxWriteId
+//   - MaxWriteId
 type MaxAllocatedTableWriteIdResponse struct {
 	MaxWriteId int64 `thrift:"maxWriteId,1,required" db:"maxWriteId" json:"maxWriteId"`
 }
@@ -39053,9 +39054,9 @@ func (p *MaxAllocatedTableWriteIdResponse) String() string {
 }
 
 // Attributes:
-//  - DbName
-//  - TableName
-//  - SeedWriteId
+//   - DbName
+//   - TableName
+//   - SeedWriteId
 type SeedTableWriteIdsRequest struct {
 	DbName      string `thrift:"dbName,1,required" db:"dbName" json:"dbName"`
 	TableName   string `thrift:"tableName,2,required" db:"tableName" json:"tableName"`
@@ -39268,7 +39269,7 @@ func (p *SeedTableWriteIdsRequest) String() string {
 }
 
 // Attributes:
-//  - SeedTxnId
+//   - SeedTxnId
 type SeedTxnIdRequest struct {
 	SeedTxnId int64 `thrift:"seedTxnId,1,required" db:"seedTxnId" json:"seedTxnId"`
 }
@@ -39385,14 +39386,14 @@ func (p *SeedTxnIdRequest) String() string {
 }
 
 // Attributes:
-//  - Type
-//  - Level
-//  - Dbname
-//  - Tablename
-//  - Partitionname
-//  - OperationType
-//  - IsTransactional
-//  - IsDynamicPartitionWrite
+//   - Type
+//   - Level
+//   - Dbname
+//   - Tablename
+//   - Partitionname
+//   - OperationType
+//   - IsTransactional
+//   - IsDynamicPartitionWrite
 type LockComponent struct {
 	Type                    LockType          `thrift:"type,1,required" db:"type" json:"type"`
 	Level                   LockLevel         `thrift:"level,2,required" db:"level" json:"level"`
@@ -39881,12 +39882,12 @@ func (p *LockComponent) String() string {
 }
 
 // Attributes:
-//  - Component
-//  - Txnid
-//  - User
-//  - Hostname
-//  - AgentInfo
-//  - ZeroWaitReadEnabled
+//   - Component
+//   - Txnid
+//   - User
+//   - Hostname
+//   - AgentInfo
+//   - ZeroWaitReadEnabled
 type LockRequest struct {
 	Component           []*LockComponent `thrift:"component,1,required" db:"component" json:"component"`
 	Txnid               *int64           `thrift:"txnid,2" db:"txnid" json:"txnid,omitempty"`
@@ -40289,9 +40290,9 @@ func (p *LockRequest) String() string {
 }
 
 // Attributes:
-//  - Lockid
-//  - State
-//  - ErrorMessage
+//   - Lockid
+//   - State
+//   - ErrorMessage
 type LockResponse struct {
 	Lockid       int64     `thrift:"lockid,1,required" db:"lockid" json:"lockid"`
 	State        LockState `thrift:"state,2,required" db:"state" json:"state"`
@@ -40516,9 +40517,9 @@ func (p *LockResponse) String() string {
 }
 
 // Attributes:
-//  - Lockid
-//  - Txnid
-//  - ElapsedMs
+//   - Lockid
+//   - Txnid
+//   - ElapsedMs
 type CheckLockRequest struct {
 	Lockid    int64  `thrift:"lockid,1,required" db:"lockid" json:"lockid"`
 	Txnid     *int64 `thrift:"txnid,2" db:"txnid" json:"txnid,omitempty"`
@@ -40753,7 +40754,7 @@ func (p *CheckLockRequest) String() string {
 }
 
 // Attributes:
-//  - Lockid
+//   - Lockid
 type UnlockRequest struct {
 	Lockid int64 `thrift:"lockid,1,required" db:"lockid" json:"lockid"`
 }
@@ -40870,11 +40871,11 @@ func (p *UnlockRequest) String() string {
 }
 
 // Attributes:
-//  - Dbname
-//  - Tablename
-//  - Partname
-//  - IsExtended
-//  - Txnid
+//   - Dbname
+//   - Tablename
+//   - Partname
+//   - IsExtended
+//   - Txnid
 type ShowLocksRequest struct {
 	Dbname     *string `thrift:"dbname,1" db:"dbname" json:"dbname,omitempty"`
 	Tablename  *string `thrift:"tablename,2" db:"tablename" json:"tablename,omitempty"`
@@ -41229,22 +41230,22 @@ func (p *ShowLocksRequest) String() string {
 }
 
 // Attributes:
-//  - Lockid
-//  - Dbname
-//  - Tablename
-//  - Partname
-//  - State
-//  - Type
-//  - Txnid
-//  - Lastheartbeat
-//  - Acquiredat
-//  - User
-//  - Hostname
-//  - HeartbeatCount
-//  - AgentInfo
-//  - BlockedByExtId
-//  - BlockedByIntId
-//  - LockIdInternal
+//   - Lockid
+//   - Dbname
+//   - Tablename
+//   - Partname
+//   - State
+//   - Type
+//   - Txnid
+//   - Lastheartbeat
+//   - Acquiredat
+//   - User
+//   - Hostname
+//   - HeartbeatCount
+//   - AgentInfo
+//   - BlockedByExtId
+//   - BlockedByIntId
+//   - LockIdInternal
 type ShowLocksResponseElement struct {
 	Lockid         int64     `thrift:"lockid,1,required" db:"lockid" json:"lockid"`
 	Dbname         string    `thrift:"dbname,2,required" db:"dbname" json:"dbname"`
@@ -42174,7 +42175,7 @@ func (p *ShowLocksResponseElement) String() string {
 }
 
 // Attributes:
-//  - Locks
+//   - Locks
 type ShowLocksResponse struct {
 	Locks []*ShowLocksResponseElement `thrift:"locks,1" db:"locks" json:"locks"`
 }
@@ -42310,8 +42311,8 @@ func (p *ShowLocksResponse) String() string {
 }
 
 // Attributes:
-//  - Lockid
-//  - Txnid
+//   - Lockid
+//   - Txnid
 type HeartbeatRequest struct {
 	Lockid *int64 `thrift:"lockid,1" db:"lockid" json:"lockid,omitempty"`
 	Txnid  *int64 `thrift:"txnid,2" db:"txnid" json:"txnid,omitempty"`
@@ -42497,8 +42498,8 @@ func (p *HeartbeatRequest) String() string {
 }
 
 // Attributes:
-//  - Min
-//  - Max
+//   - Min
+//   - Max
 type HeartbeatTxnRangeRequest struct {
 	Min int64 `thrift:"min,1,required" db:"min" json:"min"`
 	Max int64 `thrift:"max,2,required" db:"max" json:"max"`
@@ -42663,8 +42664,8 @@ func (p *HeartbeatTxnRangeRequest) String() string {
 }
 
 // Attributes:
-//  - Aborted
-//  - Nosuch
+//   - Aborted
+//   - Nosuch
 type HeartbeatTxnRangeResponse struct {
 	Aborted []int64 `thrift:"aborted,1,required" db:"aborted" json:"aborted"`
 	Nosuch  []int64 `thrift:"nosuch,2,required" db:"nosuch" json:"nosuch"`
@@ -42907,14 +42908,14 @@ func (p *HeartbeatTxnRangeResponse) String() string {
 }
 
 // Attributes:
-//  - Dbname
-//  - Tablename
-//  - Partitionname
-//  - Type
-//  - Runas
-//  - Properties
-//  - InitiatorId
-//  - InitiatorVersion
+//   - Dbname
+//   - Tablename
+//   - Partitionname
+//   - Type
+//   - Runas
+//   - Properties
+//   - InitiatorId
+//   - InitiatorVersion
 type CompactionRequest struct {
 	Dbname           string            `thrift:"dbname,1,required" db:"dbname" json:"dbname"`
 	Tablename        string            `thrift:"tablename,2,required" db:"tablename" json:"tablename"`
@@ -43451,21 +43452,21 @@ func (p *CompactionRequest) String() string {
 }
 
 // Attributes:
-//  - ID
-//  - Dbname
-//  - Tablename
-//  - Partitionname
-//  - Type
-//  - Runas
-//  - Properties
-//  - Toomanyaborts
-//  - State
-//  - WorkerId
-//  - Start
-//  - HighestWriteId
-//  - ErrorMessage
-//  - Hasoldabort
-//  - EnqueueTime
+//   - ID
+//   - Dbname
+//   - Tablename
+//   - Partitionname
+//   - Type
+//   - Runas
+//   - Properties
+//   - Toomanyaborts
+//   - State
+//   - WorkerId
+//   - Start
+//   - HighestWriteId
+//   - ErrorMessage
+//   - Hasoldabort
+//   - EnqueueTime
 type CompactionInfoStruct struct {
 	ID             int64          `thrift:"id,1,required" db:"id" json:"id"`
 	Dbname         string         `thrift:"dbname,2,required" db:"dbname" json:"dbname"`
@@ -44376,7 +44377,7 @@ func (p *CompactionInfoStruct) String() string {
 }
 
 // Attributes:
-//  - Ci
+//   - Ci
 type OptionalCompactionInfoStruct struct {
 	Ci *CompactionInfoStruct `thrift:"ci,1" db:"ci" json:"ci,omitempty"`
 }
@@ -44497,9 +44498,9 @@ func (p *OptionalCompactionInfoStruct) String() string {
 }
 
 // Attributes:
-//  - ID
-//  - State
-//  - Accepted
+//   - ID
+//   - State
+//   - Accepted
 type CompactionResponse struct {
 	ID       int64  `thrift:"id,1,required" db:"id" json:"id"`
 	State    string `thrift:"state,2,required" db:"state" json:"state"`
@@ -44776,24 +44777,24 @@ func (p *ShowCompactRequest) String() string {
 }
 
 // Attributes:
-//  - Dbname
-//  - Tablename
-//  - Partitionname
-//  - Type
-//  - State
-//  - Workerid
-//  - Start
-//  - RunAs
-//  - HightestTxnId
-//  - MetaInfo
-//  - EndTime
-//  - HadoopJobId
-//  - ID
-//  - ErrorMessage
-//  - EnqueueTime
-//  - WorkerVersion
-//  - InitiatorId
-//  - InitiatorVersion
+//   - Dbname
+//   - Tablename
+//   - Partitionname
+//   - Type
+//   - State
+//   - Workerid
+//   - Start
+//   - RunAs
+//   - HightestTxnId
+//   - MetaInfo
+//   - EndTime
+//   - HadoopJobId
+//   - ID
+//   - ErrorMessage
+//   - EnqueueTime
+//   - WorkerVersion
+//   - InitiatorId
+//   - InitiatorVersion
 type ShowCompactResponseElement struct {
 	Dbname           string         `thrift:"dbname,1,required" db:"dbname" json:"dbname"`
 	Tablename        string         `thrift:"tablename,2,required" db:"tablename" json:"tablename"`
@@ -45875,7 +45876,7 @@ func (p *ShowCompactResponseElement) String() string {
 }
 
 // Attributes:
-//  - Compacts
+//   - Compacts
 type ShowCompactResponse struct {
 	Compacts []*ShowCompactResponseElement `thrift:"compacts,1,required" db:"compacts" json:"compacts"`
 }
@@ -46019,9 +46020,9 @@ func (p *ShowCompactResponse) String() string {
 }
 
 // Attributes:
-//  - Dbname
-//  - Tablename
-//  - Partitionnames
+//   - Dbname
+//   - Tablename
+//   - Partitionnames
 type GetLatestCommittedCompactionInfoRequest struct {
 	Dbname         string   `thrift:"dbname,1,required" db:"dbname" json:"dbname"`
 	Tablename      string   `thrift:"tablename,2,required" db:"tablename" json:"tablename"`
@@ -46264,7 +46265,7 @@ func (p *GetLatestCommittedCompactionInfoRequest) String() string {
 }
 
 // Attributes:
-//  - Compactions
+//   - Compactions
 type GetLatestCommittedCompactionInfoResponse struct {
 	Compactions []*CompactionInfoStruct `thrift:"compactions,1,required" db:"compactions" json:"compactions"`
 }
@@ -46406,12 +46407,12 @@ func (p *GetLatestCommittedCompactionInfoResponse) String() string {
 }
 
 // Attributes:
-//  - Txnid
-//  - Writeid
-//  - Dbname
-//  - Tablename
-//  - Partitionnames
-//  - OperationType
+//   - Txnid
+//   - Writeid
+//   - Dbname
+//   - Tablename
+//   - Partitionnames
+//   - OperationType
 type AddDynamicPartitions struct {
 	Txnid          int64             `thrift:"txnid,1,required" db:"txnid" json:"txnid"`
 	Writeid        int64             `thrift:"writeid,2,required" db:"writeid" json:"writeid"`
@@ -46801,12 +46802,12 @@ func (p *AddDynamicPartitions) String() string {
 }
 
 // Attributes:
-//  - Isnull
-//  - Time
-//  - Txnid
-//  - Dbname
-//  - Tablename
-//  - Partitionname
+//   - Isnull
+//   - Time
+//   - Txnid
+//   - Dbname
+//   - Tablename
+//   - Partitionname
 type BasicTxnInfo struct {
 	Isnull        bool    `thrift:"isnull,1,required" db:"isnull" json:"isnull"`
 	Time          *int64  `thrift:"time,2" db:"time" json:"time,omitempty"`
@@ -47218,9 +47219,9 @@ func (p *BasicTxnInfo) String() string {
 }
 
 // Attributes:
-//  - LastEvent
-//  - MaxEvents
-//  - EventTypeSkipList
+//   - LastEvent
+//   - MaxEvents
+//   - EventTypeSkipList
 type NotificationEventRequest struct {
 	LastEvent         int64    `thrift:"lastEvent,1,required" db:"lastEvent" json:"lastEvent"`
 	MaxEvents         *int32   `thrift:"maxEvents,2" db:"maxEvents" json:"maxEvents,omitempty"`
@@ -47474,14 +47475,14 @@ func (p *NotificationEventRequest) String() string {
 }
 
 // Attributes:
-//  - EventId
-//  - EventTime
-//  - EventType
-//  - DbName
-//  - TableName
-//  - Message
-//  - MessageFormat
-//  - CatName
+//   - EventId
+//   - EventTime
+//   - EventType
+//   - DbName
+//   - TableName
+//   - Message
+//   - MessageFormat
+//   - CatName
 type NotificationEvent struct {
 	EventId       int64   `thrift:"eventId,1,required" db:"eventId" json:"eventId"`
 	EventTime     int32   `thrift:"eventTime,2,required" db:"eventTime" json:"eventTime"`
@@ -47978,7 +47979,7 @@ func (p *NotificationEvent) String() string {
 }
 
 // Attributes:
-//  - Events
+//   - Events
 type NotificationEventResponse struct {
 	Events []*NotificationEvent `thrift:"events,1,required" db:"events" json:"events"`
 }
@@ -48120,7 +48121,7 @@ func (p *NotificationEventResponse) String() string {
 }
 
 // Attributes:
-//  - EventId
+//   - EventId
 type CurrentNotificationEventId struct {
 	EventId int64 `thrift:"eventId,1,required" db:"eventId" json:"eventId"`
 }
@@ -48237,11 +48238,11 @@ func (p *CurrentNotificationEventId) String() string {
 }
 
 // Attributes:
-//  - FromEventId
-//  - DbName
-//  - CatName
-//  - ToEventId
-//  - Limit
+//   - FromEventId
+//   - DbName
+//   - CatName
+//   - ToEventId
+//   - Limit
 type NotificationEventsCountRequest struct {
 	FromEventId int64   `thrift:"fromEventId,1,required" db:"fromEventId" json:"fromEventId"`
 	DbName      string  `thrift:"dbName,2,required" db:"dbName" json:"dbName"`
@@ -48583,7 +48584,7 @@ func (p *NotificationEventsCountRequest) String() string {
 }
 
 // Attributes:
-//  - EventsCount
+//   - EventsCount
 type NotificationEventsCountResponse struct {
 	EventsCount int64 `thrift:"eventsCount,1,required" db:"eventsCount" json:"eventsCount"`
 }
@@ -48700,11 +48701,11 @@ func (p *NotificationEventsCountResponse) String() string {
 }
 
 // Attributes:
-//  - Replace
-//  - FilesAdded
-//  - FilesAddedChecksum
-//  - SubDirectoryList
-//  - PartitionVal
+//   - Replace
+//   - FilesAdded
+//   - FilesAddedChecksum
+//   - SubDirectoryList
+//   - PartitionVal
 type InsertEventRequestData struct {
 	Replace            *bool    `thrift:"replace,1" db:"replace" json:"replace,omitempty"`
 	FilesAdded         []string `thrift:"filesAdded,2,required" db:"filesAdded" json:"filesAdded"`
@@ -49141,8 +49142,8 @@ func (p *InsertEventRequestData) String() string {
 }
 
 // Attributes:
-//  - InsertData
-//  - InsertDatas
+//   - InsertData
+//   - InsertDatas
 type FireEventRequestData struct {
 	InsertData  *InsertEventRequestData   `thrift:"insertData,1" db:"insertData" json:"insertData,omitempty"`
 	InsertDatas []*InsertEventRequestData `thrift:"insertDatas,2" db:"insertDatas" json:"insertDatas,omitempty"`
@@ -49354,12 +49355,12 @@ func (p *FireEventRequestData) String() string {
 }
 
 // Attributes:
-//  - Successful
-//  - Data
-//  - DbName
-//  - TableName
-//  - PartitionVals
-//  - CatName
+//   - Successful
+//   - Data
+//   - DbName
+//   - TableName
+//   - PartitionVals
+//   - CatName
 type FireEventRequest struct {
 	Successful    bool                  `thrift:"successful,1,required" db:"successful" json:"successful"`
 	Data          *FireEventRequestData `thrift:"data,2,required" db:"data" json:"data"`
@@ -49787,7 +49788,7 @@ func (p *FireEventRequest) String() string {
 }
 
 // Attributes:
-//  - EventIds
+//   - EventIds
 type FireEventResponse struct {
 	EventIds []int64 `thrift:"eventIds,1" db:"eventIds" json:"eventIds"`
 }
@@ -49925,12 +49926,12 @@ func (p *FireEventResponse) String() string {
 }
 
 // Attributes:
-//  - TxnId
-//  - WriteId
-//  - Db
-//  - Table
-//  - FileInfo
-//  - PartitionVals
+//   - TxnId
+//   - WriteId
+//   - Db
+//   - Table
+//   - FileInfo
+//   - PartitionVals
 type WriteNotificationLogRequest struct {
 	TxnId         int64                   `thrift:"txnId,1,required" db:"txnId" json:"txnId"`
 	WriteId       int64                   `thrift:"writeId,2,required" db:"writeId" json:"writeId"`
@@ -50389,8 +50390,8 @@ func (p *WriteNotificationLogResponse) String() string {
 }
 
 // Attributes:
-//  - Metadata
-//  - IncludeBitset
+//   - Metadata
+//   - IncludeBitset
 type MetadataPpdResult_ struct {
 	Metadata      []byte `thrift:"metadata,1" db:"metadata" json:"metadata,omitempty"`
 	IncludeBitset []byte `thrift:"includeBitset,2" db:"includeBitset" json:"includeBitset,omitempty"`
@@ -50560,8 +50561,8 @@ func (p *MetadataPpdResult_) String() string {
 }
 
 // Attributes:
-//  - Metadata
-//  - IsSupported
+//   - Metadata
+//   - IsSupported
 type GetFileMetadataByExprResult_ struct {
 	Metadata    map[int64]*MetadataPpdResult_ `thrift:"metadata,1,required" db:"metadata" json:"metadata"`
 	IsSupported bool                          `thrift:"isSupported,2,required" db:"isSupported" json:"isSupported"`
@@ -50760,10 +50761,10 @@ func (p *GetFileMetadataByExprResult_) String() string {
 }
 
 // Attributes:
-//  - FileIds
-//  - Expr
-//  - DoGetFooters
-//  - Type
+//   - FileIds
+//   - Expr
+//   - DoGetFooters
+//   - Type
 type GetFileMetadataByExprRequest struct {
 	FileIds      []int64               `thrift:"fileIds,1,required" db:"fileIds" json:"fileIds"`
 	Expr         []byte                `thrift:"expr,2,required" db:"expr" json:"expr"`
@@ -51074,8 +51075,8 @@ func (p *GetFileMetadataByExprRequest) String() string {
 }
 
 // Attributes:
-//  - Metadata
-//  - IsSupported
+//   - Metadata
+//   - IsSupported
 type GetFileMetadataResult_ struct {
 	Metadata    map[int64][]byte `thrift:"metadata,1,required" db:"metadata" json:"metadata"`
 	IsSupported bool             `thrift:"isSupported,2,required" db:"isSupported" json:"isSupported"`
@@ -51276,7 +51277,7 @@ func (p *GetFileMetadataResult_) String() string {
 }
 
 // Attributes:
-//  - FileIds
+//   - FileIds
 type GetFileMetadataRequest struct {
 	FileIds []int64 `thrift:"fileIds,1,required" db:"fileIds" json:"fileIds"`
 }
@@ -51484,9 +51485,9 @@ func (p *PutFileMetadataResult_) String() string {
 }
 
 // Attributes:
-//  - FileIds
-//  - Metadata
-//  - Type
+//   - FileIds
+//   - Metadata
+//   - Type
 type PutFileMetadataRequest struct {
 	FileIds  []int64               `thrift:"fileIds,1,required" db:"fileIds" json:"fileIds"`
 	Metadata [][]byte              `thrift:"metadata,2,required" db:"metadata" json:"metadata"`
@@ -51829,7 +51830,7 @@ func (p *ClearFileMetadataResult_) String() string {
 }
 
 // Attributes:
-//  - FileIds
+//   - FileIds
 type ClearFileMetadataRequest struct {
 	FileIds []int64 `thrift:"fileIds,1,required" db:"fileIds" json:"fileIds"`
 }
@@ -51973,7 +51974,7 @@ func (p *ClearFileMetadataRequest) String() string {
 }
 
 // Attributes:
-//  - IsSupported
+//   - IsSupported
 type CacheFileMetadataResult_ struct {
 	IsSupported bool `thrift:"isSupported,1,required" db:"isSupported" json:"isSupported"`
 }
@@ -52090,10 +52091,10 @@ func (p *CacheFileMetadataResult_) String() string {
 }
 
 // Attributes:
-//  - DbName
-//  - TblName
-//  - PartName
-//  - IsAllParts
+//   - DbName
+//   - TblName
+//   - PartName
+//   - IsAllParts
 type CacheFileMetadataRequest struct {
 	DbName     string  `thrift:"dbName,1,required" db:"dbName" json:"dbName"`
 	TblName    string  `thrift:"tblName,2,required" db:"tblName" json:"tblName"`
@@ -52376,7 +52377,7 @@ func (p *CacheFileMetadataRequest) String() string {
 }
 
 // Attributes:
-//  - Functions
+//   - Functions
 type GetAllFunctionsResponse struct {
 	Functions []*Function `thrift:"functions,1" db:"functions" json:"functions,omitempty"`
 }
@@ -52520,7 +52521,7 @@ func (p *GetAllFunctionsResponse) String() string {
 }
 
 // Attributes:
-//  - Values
+//   - Values
 type ClientCapabilities struct {
 	Values []ClientCapability `thrift:"values,1,required" db:"values" json:"values"`
 }
@@ -52665,9 +52666,9 @@ func (p *ClientCapabilities) String() string {
 }
 
 // Attributes:
-//  - FieldList
-//  - IncludeParamKeyPattern
-//  - ExcludeParamKeyPattern
+//   - FieldList
+//   - IncludeParamKeyPattern
+//   - ExcludeParamKeyPattern
 type GetProjectionsSpec struct {
 	FieldList              []string `thrift:"fieldList,1" db:"fieldList" json:"fieldList"`
 	IncludeParamKeyPattern string   `thrift:"includeParamKeyPattern,2" db:"includeParamKeyPattern" json:"includeParamKeyPattern"`
@@ -52891,16 +52892,16 @@ func (p *GetProjectionsSpec) String() string {
 }
 
 // Attributes:
-//  - DbName
-//  - TblName
-//  - Capabilities
-//  - CatName
-//  - ValidWriteIdList
-//  - GetColumnStats
-//  - ProcessorCapabilities
-//  - ProcessorIdentifier
-//  - Engine
-//  - ID
+//   - DbName
+//   - TblName
+//   - Capabilities
+//   - CatName
+//   - ValidWriteIdList
+//   - GetColumnStats
+//   - ProcessorCapabilities
+//   - ProcessorIdentifier
+//   - Engine
+//   - ID
 type GetTableRequest struct {
 	DbName       string              `thrift:"dbName,1,required" db:"dbName" json:"dbName"`
 	TblName      string              `thrift:"tblName,2,required" db:"tblName" json:"tblName"`
@@ -53545,8 +53546,8 @@ func (p *GetTableRequest) String() string {
 }
 
 // Attributes:
-//  - Table
-//  - IsStatsCompliant
+//   - Table
+//   - IsStatsCompliant
 type GetTableResult_ struct {
 	Table            *Table `thrift:"table,1,required" db:"table" json:"table"`
 	IsStatsCompliant *bool  `thrift:"isStatsCompliant,2" db:"isStatsCompliant" json:"isStatsCompliant,omitempty"`
@@ -53734,13 +53735,13 @@ func (p *GetTableResult_) String() string {
 }
 
 // Attributes:
-//  - DbName
-//  - TblNames
-//  - Capabilities
-//  - CatName
-//  - ProcessorCapabilities
-//  - ProcessorIdentifier
-//  - ProjectionSpec
+//   - DbName
+//   - TblNames
+//   - Capabilities
+//   - CatName
+//   - ProcessorCapabilities
+//   - ProcessorIdentifier
+//   - ProjectionSpec
 type GetTablesRequest struct {
 	DbName                string              `thrift:"dbName,1,required" db:"dbName" json:"dbName"`
 	TblNames              []string            `thrift:"tblNames,2" db:"tblNames" json:"tblNames,omitempty"`
@@ -54237,7 +54238,7 @@ func (p *GetTablesRequest) String() string {
 }
 
 // Attributes:
-//  - Tables
+//   - Tables
 type GetTablesResult_ struct {
 	Tables []*Table `thrift:"tables,1,required" db:"tables" json:"tables"`
 }
@@ -54383,13 +54384,13 @@ func (p *GetTablesResult_) String() string {
 }
 
 // Attributes:
-//  - Catalog
-//  - Database
-//  - TableNamePattern
-//  - RequestedFields
-//  - Limit
-//  - ProcessorCapabilities
-//  - ProcessorIdentifier
+//   - Catalog
+//   - Database
+//   - TableNamePattern
+//   - RequestedFields
+//   - Limit
+//   - ProcessorCapabilities
+//   - ProcessorIdentifier
 type GetTablesExtRequest struct {
 	Catalog               string   `thrift:"catalog,1,required" db:"catalog" json:"catalog"`
 	Database              string   `thrift:"database,2,required" db:"database" json:"database"`
@@ -54846,10 +54847,10 @@ func (p *GetTablesExtRequest) String() string {
 }
 
 // Attributes:
-//  - TblName
-//  - AccessType
-//  - RequiredReadCapabilities
-//  - RequiredWriteCapabilities
+//   - TblName
+//   - AccessType
+//   - RequiredReadCapabilities
+//   - RequiredWriteCapabilities
 type ExtendedTableInfo struct {
 	TblName                   string   `thrift:"tblName,1,required" db:"tblName" json:"tblName"`
 	AccessType                *int32   `thrift:"accessType,2" db:"accessType" json:"accessType,omitempty"`
@@ -55181,10 +55182,10 @@ func (p *ExtendedTableInfo) String() string {
 }
 
 // Attributes:
-//  - Name
-//  - CatalogName
-//  - ProcessorCapabilities
-//  - ProcessorIdentifier
+//   - Name
+//   - CatalogName
+//   - ProcessorCapabilities
+//   - ProcessorIdentifier
 type GetDatabaseRequest struct {
 	Name                  *string  `thrift:"name,1" db:"name" json:"name,omitempty"`
 	CatalogName           *string  `thrift:"catalogName,2" db:"catalogName" json:"catalogName,omitempty"`
@@ -55507,8 +55508,8 @@ func (p *GetDatabaseRequest) String() string {
 }
 
 // Attributes:
-//  - DataPath
-//  - Purge
+//   - DataPath
+//   - Purge
 type CmRecycleRequest struct {
 	DataPath string `thrift:"dataPath,1,required" db:"dataPath" json:"dataPath"`
 	Purge    bool   `thrift:"purge,2,required" db:"purge" json:"purge"`
@@ -55737,11 +55738,11 @@ func (p *CmRecycleResponse) String() string {
 }
 
 // Attributes:
-//  - DbName
-//  - TableName
-//  - TableType
-//  - Comments
-//  - CatName
+//   - DbName
+//   - TableName
+//   - TableType
+//   - Comments
+//   - CatName
 type TableMeta struct {
 	DbName    string  `thrift:"dbName,1,required" db:"dbName" json:"dbName"`
 	TableName string  `thrift:"tableName,2,required" db:"tableName" json:"tableName"`
@@ -56072,8 +56073,8 @@ func (p *TableMeta) String() string {
 }
 
 // Attributes:
-//  - SourceTablesUpdateDeleteModified
-//  - SourceTablesCompacted
+//   - SourceTablesUpdateDeleteModified
+//   - SourceTablesCompacted
 type Materialization struct {
 	SourceTablesUpdateDeleteModified bool `thrift:"sourceTablesUpdateDeleteModified,1,required" db:"sourceTablesUpdateDeleteModified" json:"sourceTablesUpdateDeleteModified"`
 	SourceTablesCompacted            bool `thrift:"sourceTablesCompacted,2,required" db:"sourceTablesCompacted" json:"sourceTablesCompacted"`
@@ -56238,11 +56239,11 @@ func (p *Materialization) String() string {
 }
 
 // Attributes:
-//  - Name
-//  - Status
-//  - QueryParallelism
-//  - DefaultPoolPath
-//  - Ns
+//   - Name
+//   - Status
+//   - QueryParallelism
+//   - DefaultPoolPath
+//   - Ns
 type WMResourcePlan struct {
 	Name             string                `thrift:"name,1,required" db:"name" json:"name"`
 	Status           *WMResourcePlanStatus `thrift:"status,2" db:"status" json:"status,omitempty"`
@@ -56596,13 +56597,13 @@ func (p *WMResourcePlan) String() string {
 }
 
 // Attributes:
-//  - Name
-//  - Status
-//  - QueryParallelism
-//  - IsSetQueryParallelism
-//  - DefaultPoolPath
-//  - IsSetDefaultPoolPath
-//  - Ns
+//   - Name
+//   - Status
+//   - QueryParallelism
+//   - IsSetQueryParallelism
+//   - DefaultPoolPath
+//   - IsSetDefaultPoolPath
+//   - Ns
 type WMNullableResourcePlan struct {
 	Name   *string               `thrift:"name,1" db:"name" json:"name,omitempty"`
 	Status *WMResourcePlanStatus `thrift:"status,2" db:"status" json:"status,omitempty"`
@@ -57085,12 +57086,12 @@ func (p *WMNullableResourcePlan) String() string {
 }
 
 // Attributes:
-//  - ResourcePlanName
-//  - PoolPath
-//  - AllocFraction
-//  - QueryParallelism
-//  - SchedulingPolicy
-//  - Ns
+//   - ResourcePlanName
+//   - PoolPath
+//   - AllocFraction
+//   - QueryParallelism
+//   - SchedulingPolicy
+//   - Ns
 type WMPool struct {
 	ResourcePlanName string   `thrift:"resourcePlanName,1,required" db:"resourcePlanName" json:"resourcePlanName"`
 	PoolPath         string   `thrift:"poolPath,2,required" db:"poolPath" json:"poolPath"`
@@ -57491,13 +57492,13 @@ func (p *WMPool) String() string {
 }
 
 // Attributes:
-//  - ResourcePlanName
-//  - PoolPath
-//  - AllocFraction
-//  - QueryParallelism
-//  - SchedulingPolicy
-//  - IsSetSchedulingPolicy
-//  - Ns
+//   - ResourcePlanName
+//   - PoolPath
+//   - AllocFraction
+//   - QueryParallelism
+//   - SchedulingPolicy
+//   - IsSetSchedulingPolicy
+//   - Ns
 type WMNullablePool struct {
 	ResourcePlanName           string   `thrift:"resourcePlanName,1,required" db:"resourcePlanName" json:"resourcePlanName"`
 	PoolPath                   string   `thrift:"poolPath,2,required" db:"poolPath" json:"poolPath"`
@@ -57957,12 +57958,12 @@ func (p *WMNullablePool) String() string {
 }
 
 // Attributes:
-//  - ResourcePlanName
-//  - TriggerName
-//  - TriggerExpression
-//  - ActionExpression
-//  - IsInUnmanaged
-//  - Ns
+//   - ResourcePlanName
+//   - TriggerName
+//   - TriggerExpression
+//   - ActionExpression
+//   - IsInUnmanaged
+//   - Ns
 type WMTrigger struct {
 	ResourcePlanName  string  `thrift:"resourcePlanName,1,required" db:"resourcePlanName" json:"resourcePlanName"`
 	TriggerName       string  `thrift:"triggerName,2,required" db:"triggerName" json:"triggerName"`
@@ -58363,12 +58364,12 @@ func (p *WMTrigger) String() string {
 }
 
 // Attributes:
-//  - ResourcePlanName
-//  - EntityType
-//  - EntityName
-//  - PoolPath
-//  - Ordering
-//  - Ns
+//   - ResourcePlanName
+//   - EntityType
+//   - EntityName
+//   - PoolPath
+//   - Ordering
+//   - Ns
 type WMMapping struct {
 	ResourcePlanName string  `thrift:"resourcePlanName,1,required" db:"resourcePlanName" json:"resourcePlanName"`
 	EntityType       string  `thrift:"entityType,2,required" db:"entityType" json:"entityType"`
@@ -58758,9 +58759,9 @@ func (p *WMMapping) String() string {
 }
 
 // Attributes:
-//  - Pool
-//  - Trigger
-//  - Ns
+//   - Pool
+//   - Trigger
+//   - Ns
 type WMPoolTrigger struct {
 	Pool    string  `thrift:"pool,1,required" db:"pool" json:"pool"`
 	Trigger string  `thrift:"trigger,2,required" db:"trigger" json:"trigger"`
@@ -58984,11 +58985,11 @@ func (p *WMPoolTrigger) String() string {
 }
 
 // Attributes:
-//  - Plan
-//  - Pools
-//  - Mappings
-//  - Triggers
-//  - PoolTriggers
+//   - Plan
+//   - Pools
+//   - Mappings
+//   - Triggers
+//   - PoolTriggers
 type WMFullResourcePlan struct {
 	Plan         *WMResourcePlan  `thrift:"plan,1,required" db:"plan" json:"plan"`
 	Pools        []*WMPool        `thrift:"pools,2,required" db:"pools" json:"pools"`
@@ -59414,8 +59415,8 @@ func (p *WMFullResourcePlan) String() string {
 }
 
 // Attributes:
-//  - ResourcePlan
-//  - CopyFrom
+//   - ResourcePlan
+//   - CopyFrom
 type WMCreateResourcePlanRequest struct {
 	ResourcePlan *WMResourcePlan `thrift:"resourcePlan,1" db:"resourcePlan" json:"resourcePlan,omitempty"`
 	CopyFrom     *string         `thrift:"copyFrom,2" db:"copyFrom" json:"copyFrom,omitempty"`
@@ -59659,7 +59660,7 @@ func (p *WMCreateResourcePlanResponse) String() string {
 }
 
 // Attributes:
-//  - Ns
+//   - Ns
 type WMGetActiveResourcePlanRequest struct {
 	Ns *string `thrift:"ns,1" db:"ns" json:"ns,omitempty"`
 }
@@ -59786,7 +59787,7 @@ func (p *WMGetActiveResourcePlanRequest) String() string {
 }
 
 // Attributes:
-//  - ResourcePlan
+//   - ResourcePlan
 type WMGetActiveResourcePlanResponse struct {
 	ResourcePlan *WMFullResourcePlan `thrift:"resourcePlan,1" db:"resourcePlan" json:"resourcePlan,omitempty"`
 }
@@ -59907,8 +59908,8 @@ func (p *WMGetActiveResourcePlanResponse) String() string {
 }
 
 // Attributes:
-//  - ResourcePlanName
-//  - Ns
+//   - ResourcePlanName
+//   - Ns
 type WMGetResourcePlanRequest struct {
 	ResourcePlanName *string `thrift:"resourcePlanName,1" db:"resourcePlanName" json:"resourcePlanName,omitempty"`
 	Ns               *string `thrift:"ns,2" db:"ns" json:"ns,omitempty"`
@@ -60094,7 +60095,7 @@ func (p *WMGetResourcePlanRequest) String() string {
 }
 
 // Attributes:
-//  - ResourcePlan
+//   - ResourcePlan
 type WMGetResourcePlanResponse struct {
 	ResourcePlan *WMFullResourcePlan `thrift:"resourcePlan,1" db:"resourcePlan" json:"resourcePlan,omitempty"`
 }
@@ -60215,7 +60216,7 @@ func (p *WMGetResourcePlanResponse) String() string {
 }
 
 // Attributes:
-//  - Ns
+//   - Ns
 type WMGetAllResourcePlanRequest struct {
 	Ns *string `thrift:"ns,1" db:"ns" json:"ns,omitempty"`
 }
@@ -60342,7 +60343,7 @@ func (p *WMGetAllResourcePlanRequest) String() string {
 }
 
 // Attributes:
-//  - ResourcePlans
+//   - ResourcePlans
 type WMGetAllResourcePlanResponse struct {
 	ResourcePlans []*WMResourcePlan `thrift:"resourcePlans,1" db:"resourcePlans" json:"resourcePlans,omitempty"`
 }
@@ -60486,12 +60487,12 @@ func (p *WMGetAllResourcePlanResponse) String() string {
 }
 
 // Attributes:
-//  - ResourcePlanName
-//  - ResourcePlan
-//  - IsEnableAndActivate
-//  - IsForceDeactivate
-//  - IsReplace
-//  - Ns
+//   - ResourcePlanName
+//   - ResourcePlan
+//   - IsEnableAndActivate
+//   - IsForceDeactivate
+//   - IsReplace
+//   - Ns
 type WMAlterResourcePlanRequest struct {
 	ResourcePlanName    *string                 `thrift:"resourcePlanName,1" db:"resourcePlanName" json:"resourcePlanName,omitempty"`
 	ResourcePlan        *WMNullableResourcePlan `thrift:"resourcePlan,2" db:"resourcePlan" json:"resourcePlan,omitempty"`
@@ -60907,7 +60908,7 @@ func (p *WMAlterResourcePlanRequest) String() string {
 }
 
 // Attributes:
-//  - FullResourcePlan
+//   - FullResourcePlan
 type WMAlterResourcePlanResponse struct {
 	FullResourcePlan *WMFullResourcePlan `thrift:"fullResourcePlan,1" db:"fullResourcePlan" json:"fullResourcePlan,omitempty"`
 }
@@ -61028,8 +61029,8 @@ func (p *WMAlterResourcePlanResponse) String() string {
 }
 
 // Attributes:
-//  - ResourcePlanName
-//  - Ns
+//   - ResourcePlanName
+//   - Ns
 type WMValidateResourcePlanRequest struct {
 	ResourcePlanName *string `thrift:"resourcePlanName,1" db:"resourcePlanName" json:"resourcePlanName,omitempty"`
 	Ns               *string `thrift:"ns,2" db:"ns" json:"ns,omitempty"`
@@ -61215,8 +61216,8 @@ func (p *WMValidateResourcePlanRequest) String() string {
 }
 
 // Attributes:
-//  - Errors
-//  - Warnings
+//   - Errors
+//   - Warnings
 type WMValidateResourcePlanResponse struct {
 	Errors   []string `thrift:"errors,1" db:"errors" json:"errors,omitempty"`
 	Warnings []string `thrift:"warnings,2" db:"warnings" json:"warnings,omitempty"`
@@ -61440,8 +61441,8 @@ func (p *WMValidateResourcePlanResponse) String() string {
 }
 
 // Attributes:
-//  - ResourcePlanName
-//  - Ns
+//   - ResourcePlanName
+//   - Ns
 type WMDropResourcePlanRequest struct {
 	ResourcePlanName *string `thrift:"resourcePlanName,1" db:"resourcePlanName" json:"resourcePlanName,omitempty"`
 	Ns               *string `thrift:"ns,2" db:"ns" json:"ns,omitempty"`
@@ -61691,7 +61692,7 @@ func (p *WMDropResourcePlanResponse) String() string {
 }
 
 // Attributes:
-//  - Trigger
+//   - Trigger
 type WMCreateTriggerRequest struct {
 	Trigger *WMTrigger `thrift:"trigger,1" db:"trigger" json:"trigger,omitempty"`
 }
@@ -61876,7 +61877,7 @@ func (p *WMCreateTriggerResponse) String() string {
 }
 
 // Attributes:
-//  - Trigger
+//   - Trigger
 type WMAlterTriggerRequest struct {
 	Trigger *WMTrigger `thrift:"trigger,1" db:"trigger" json:"trigger,omitempty"`
 }
@@ -62061,9 +62062,9 @@ func (p *WMAlterTriggerResponse) String() string {
 }
 
 // Attributes:
-//  - ResourcePlanName
-//  - TriggerName
-//  - Ns
+//   - ResourcePlanName
+//   - TriggerName
+//   - Ns
 type WMDropTriggerRequest struct {
 	ResourcePlanName *string `thrift:"resourcePlanName,1" db:"resourcePlanName" json:"resourcePlanName,omitempty"`
 	TriggerName      *string `thrift:"triggerName,2" db:"triggerName" json:"triggerName,omitempty"`
@@ -62372,8 +62373,8 @@ func (p *WMDropTriggerResponse) String() string {
 }
 
 // Attributes:
-//  - ResourcePlanName
-//  - Ns
+//   - ResourcePlanName
+//   - Ns
 type WMGetTriggersForResourePlanRequest struct {
 	ResourcePlanName *string `thrift:"resourcePlanName,1" db:"resourcePlanName" json:"resourcePlanName,omitempty"`
 	Ns               *string `thrift:"ns,2" db:"ns" json:"ns,omitempty"`
@@ -62559,7 +62560,7 @@ func (p *WMGetTriggersForResourePlanRequest) String() string {
 }
 
 // Attributes:
-//  - Triggers
+//   - Triggers
 type WMGetTriggersForResourePlanResponse struct {
 	Triggers []*WMTrigger `thrift:"triggers,1" db:"triggers" json:"triggers,omitempty"`
 }
@@ -62703,7 +62704,7 @@ func (p *WMGetTriggersForResourePlanResponse) String() string {
 }
 
 // Attributes:
-//  - Pool
+//   - Pool
 type WMCreatePoolRequest struct {
 	Pool *WMPool `thrift:"pool,1" db:"pool" json:"pool,omitempty"`
 }
@@ -62888,8 +62889,8 @@ func (p *WMCreatePoolResponse) String() string {
 }
 
 // Attributes:
-//  - Pool
-//  - PoolPath
+//   - Pool
+//   - PoolPath
 type WMAlterPoolRequest struct {
 	Pool     *WMNullablePool `thrift:"pool,1" db:"pool" json:"pool,omitempty"`
 	PoolPath *string         `thrift:"poolPath,2" db:"poolPath" json:"poolPath,omitempty"`
@@ -63133,9 +63134,9 @@ func (p *WMAlterPoolResponse) String() string {
 }
 
 // Attributes:
-//  - ResourcePlanName
-//  - PoolPath
-//  - Ns
+//   - ResourcePlanName
+//   - PoolPath
+//   - Ns
 type WMDropPoolRequest struct {
 	ResourcePlanName *string `thrift:"resourcePlanName,1" db:"resourcePlanName" json:"resourcePlanName,omitempty"`
 	PoolPath         *string `thrift:"poolPath,2" db:"poolPath" json:"poolPath,omitempty"`
@@ -63444,8 +63445,8 @@ func (p *WMDropPoolResponse) String() string {
 }
 
 // Attributes:
-//  - Mapping
-//  - Update
+//   - Mapping
+//   - Update
 type WMCreateOrUpdateMappingRequest struct {
 	Mapping *WMMapping `thrift:"mapping,1" db:"mapping" json:"mapping,omitempty"`
 	Update  *bool      `thrift:"update,2" db:"update" json:"update,omitempty"`
@@ -63689,7 +63690,7 @@ func (p *WMCreateOrUpdateMappingResponse) String() string {
 }
 
 // Attributes:
-//  - Mapping
+//   - Mapping
 type WMDropMappingRequest struct {
 	Mapping *WMMapping `thrift:"mapping,1" db:"mapping" json:"mapping,omitempty"`
 }
@@ -63874,11 +63875,11 @@ func (p *WMDropMappingResponse) String() string {
 }
 
 // Attributes:
-//  - ResourcePlanName
-//  - TriggerName
-//  - PoolPath
-//  - Drop
-//  - Ns
+//   - ResourcePlanName
+//   - TriggerName
+//   - PoolPath
+//   - Drop
+//   - Ns
 type WMCreateOrDropTriggerToPoolMappingRequest struct {
 	ResourcePlanName *string `thrift:"resourcePlanName,1" db:"resourcePlanName" json:"resourcePlanName,omitempty"`
 	TriggerName      *string `thrift:"triggerName,2" db:"triggerName" json:"triggerName,omitempty"`
@@ -64305,15 +64306,15 @@ func (p *WMCreateOrDropTriggerToPoolMappingResponse) String() string {
 }
 
 // Attributes:
-//  - SchemaType
-//  - Name
-//  - CatName
-//  - DbName
-//  - Compatibility
-//  - ValidationLevel
-//  - CanEvolve
-//  - SchemaGroup
-//  - Description
+//   - SchemaType
+//   - Name
+//   - CatName
+//   - DbName
+//   - Compatibility
+//   - ValidationLevel
+//   - CanEvolve
+//   - SchemaGroup
+//   - Description
 type ISchema struct {
 	SchemaType      SchemaType          `thrift:"schemaType,1" db:"schemaType" json:"schemaType"`
 	Name            string              `thrift:"name,2" db:"name" json:"name"`
@@ -64803,9 +64804,9 @@ func (p *ISchema) String() string {
 }
 
 // Attributes:
-//  - CatName
-//  - DbName
-//  - SchemaName
+//   - CatName
+//   - DbName
+//   - SchemaName
 type ISchemaName struct {
 	CatName    string `thrift:"catName,1" db:"catName" json:"catName"`
 	DbName     string `thrift:"dbName,2" db:"dbName" json:"dbName"`
@@ -65002,8 +65003,8 @@ func (p *ISchemaName) String() string {
 }
 
 // Attributes:
-//  - Name
-//  - NewSchema_
+//   - Name
+//   - NewSchema_
 type AlterISchemaRequest struct {
 	Name *ISchemaName `thrift:"name,1" db:"name" json:"name"`
 	// unused field # 2
@@ -65174,16 +65175,16 @@ func (p *AlterISchemaRequest) String() string {
 }
 
 // Attributes:
-//  - Schema
-//  - Version
-//  - CreatedAt
-//  - Cols
-//  - State
-//  - Description
-//  - SchemaText
-//  - Fingerprint
-//  - Name
-//  - SerDe
+//   - Schema
+//   - Version
+//   - CreatedAt
+//   - Cols
+//   - State
+//   - Description
+//   - SchemaText
+//   - Fingerprint
+//   - Name
+//   - SerDe
 type SchemaVersion struct {
 	Schema      *ISchemaName        `thrift:"schema,1" db:"schema" json:"schema"`
 	Version     int32               `thrift:"version,2" db:"version" json:"version"`
@@ -65805,8 +65806,8 @@ func (p *SchemaVersion) String() string {
 }
 
 // Attributes:
-//  - Schema
-//  - Version
+//   - Schema
+//   - Version
 type SchemaVersionDescriptor struct {
 	Schema  *ISchemaName `thrift:"schema,1" db:"schema" json:"schema"`
 	Version int32        `thrift:"version,2" db:"version" json:"version"`
@@ -65968,9 +65969,9 @@ func (p *SchemaVersionDescriptor) String() string {
 }
 
 // Attributes:
-//  - ColName
-//  - ColNamespace
-//  - Type
+//   - ColName
+//   - ColNamespace
+//   - Type
 type FindSchemasByColsRqst struct {
 	ColName      *string `thrift:"colName,1" db:"colName" json:"colName,omitempty"`
 	ColNamespace *string `thrift:"colNamespace,2" db:"colNamespace" json:"colNamespace,omitempty"`
@@ -66215,7 +66216,7 @@ func (p *FindSchemasByColsRqst) String() string {
 }
 
 // Attributes:
-//  - SchemaVersions
+//   - SchemaVersions
 type FindSchemasByColsResp struct {
 	SchemaVersions []*SchemaVersionDescriptor `thrift:"schemaVersions,1" db:"schemaVersions" json:"schemaVersions"`
 }
@@ -66351,8 +66352,8 @@ func (p *FindSchemasByColsResp) String() string {
 }
 
 // Attributes:
-//  - SchemaVersion
-//  - SerdeName
+//   - SchemaVersion
+//   - SerdeName
 type MapSchemaVersionToSerdeRequest struct {
 	SchemaVersion *SchemaVersionDescriptor `thrift:"schemaVersion,1" db:"schemaVersion" json:"schemaVersion"`
 	SerdeName     string                   `thrift:"serdeName,2" db:"serdeName" json:"serdeName"`
@@ -66514,8 +66515,8 @@ func (p *MapSchemaVersionToSerdeRequest) String() string {
 }
 
 // Attributes:
-//  - SchemaVersion
-//  - State
+//   - SchemaVersion
+//   - State
 type SetSchemaVersionStateRequest struct {
 	SchemaVersion *SchemaVersionDescriptor `thrift:"schemaVersion,1" db:"schemaVersion" json:"schemaVersion"`
 	State         SchemaVersionState       `thrift:"state,2" db:"state" json:"state"`
@@ -66678,7 +66679,7 @@ func (p *SetSchemaVersionStateRequest) String() string {
 }
 
 // Attributes:
-//  - SerdeName
+//   - SerdeName
 type GetSerdeRequest struct {
 	SerdeName string `thrift:"serdeName,1" db:"serdeName" json:"serdeName"`
 }
@@ -66789,9 +66790,9 @@ func (p *GetSerdeRequest) String() string {
 }
 
 // Attributes:
-//  - CreateTime
-//  - Weight
-//  - Payload
+//   - CreateTime
+//   - Weight
+//   - Payload
 type RuntimeStat struct {
 	CreateTime *int32 `thrift:"createTime,1" db:"createTime" json:"createTime,omitempty"`
 	Weight     int32  `thrift:"weight,2,required" db:"weight" json:"weight"`
@@ -67015,8 +67016,8 @@ func (p *RuntimeStat) String() string {
 }
 
 // Attributes:
-//  - MaxWeight
-//  - MaxCreateTime
+//   - MaxWeight
+//   - MaxCreateTime
 type GetRuntimeStatsRequest struct {
 	MaxWeight     int32 `thrift:"maxWeight,1,required" db:"maxWeight" json:"maxWeight"`
 	MaxCreateTime int32 `thrift:"maxCreateTime,2,required" db:"maxCreateTime" json:"maxCreateTime"`
@@ -67181,16 +67182,16 @@ func (p *GetRuntimeStatsRequest) String() string {
 }
 
 // Attributes:
-//  - Table
-//  - EnvContext
-//  - PrimaryKeys
-//  - ForeignKeys
-//  - UniqueConstraints
-//  - NotNullConstraints
-//  - DefaultConstraints
-//  - CheckConstraints
-//  - ProcessorCapabilities
-//  - ProcessorIdentifier
+//   - Table
+//   - EnvContext
+//   - PrimaryKeys
+//   - ForeignKeys
+//   - UniqueConstraints
+//   - NotNullConstraints
+//   - DefaultConstraints
+//   - CheckConstraints
+//   - ProcessorCapabilities
+//   - ProcessorIdentifier
 type CreateTableRequest struct {
 	Table                 *Table                  `thrift:"table,1,required" db:"table" json:"table"`
 	EnvContext            *EnvironmentContext     `thrift:"envContext,2" db:"envContext" json:"envContext,omitempty"`
@@ -67965,18 +67966,18 @@ func (p *CreateTableRequest) String() string {
 }
 
 // Attributes:
-//  - DatabaseName
-//  - Description
-//  - LocationUri
-//  - Parameters
-//  - Privileges
-//  - OwnerName
-//  - OwnerType
-//  - CatalogName
-//  - CreateTime
-//  - ManagedLocationUri
-//  - Type
-//  - DataConnectorName
+//   - DatabaseName
+//   - Description
+//   - LocationUri
+//   - Parameters
+//   - Privileges
+//   - OwnerName
+//   - OwnerType
+//   - CatalogName
+//   - CreateTime
+//   - ManagedLocationUri
+//   - Type
+//   - DataConnectorName
 type CreateDatabaseRequest struct {
 	DatabaseName       string                 `thrift:"databaseName,1,required" db:"databaseName" json:"databaseName"`
 	Description        *string                `thrift:"description,2" db:"description" json:"description,omitempty"`
@@ -68765,7 +68766,7 @@ func (p *CreateDatabaseRequest) String() string {
 }
 
 // Attributes:
-//  - Connector
+//   - Connector
 type CreateDataConnectorRequest struct {
 	Connector *DataConnector `thrift:"connector,1" db:"connector" json:"connector"`
 }
@@ -68884,7 +68885,7 @@ func (p *CreateDataConnectorRequest) String() string {
 }
 
 // Attributes:
-//  - ConnectorName
+//   - ConnectorName
 type GetDataConnectorRequest struct {
 	ConnectorName string `thrift:"connectorName,1,required" db:"connectorName" json:"connectorName"`
 }
@@ -69001,7 +69002,7 @@ func (p *GetDataConnectorRequest) String() string {
 }
 
 // Attributes:
-//  - ClusterNamespace
+//   - ClusterNamespace
 type ScheduledQueryPollRequest struct {
 	ClusterNamespace string `thrift:"clusterNamespace,1,required" db:"clusterNamespace" json:"clusterNamespace"`
 }
@@ -69118,8 +69119,8 @@ func (p *ScheduledQueryPollRequest) String() string {
 }
 
 // Attributes:
-//  - ScheduleName
-//  - ClusterNamespace
+//   - ScheduleName
+//   - ClusterNamespace
 type ScheduledQueryKey struct {
 	ScheduleName     string `thrift:"scheduleName,1,required" db:"scheduleName" json:"scheduleName"`
 	ClusterNamespace string `thrift:"clusterNamespace,2,required" db:"clusterNamespace" json:"clusterNamespace"`
@@ -69284,10 +69285,10 @@ func (p *ScheduledQueryKey) String() string {
 }
 
 // Attributes:
-//  - ScheduleKey
-//  - ExecutionId
-//  - Query
-//  - User
+//   - ScheduleKey
+//   - ExecutionId
+//   - Query
+//   - User
 type ScheduledQueryPollResponse struct {
 	ScheduleKey *ScheduledQueryKey `thrift:"scheduleKey,1" db:"scheduleKey" json:"scheduleKey,omitempty"`
 	ExecutionId *int64             `thrift:"executionId,2" db:"executionId" json:"executionId,omitempty"`
@@ -69585,12 +69586,12 @@ func (p *ScheduledQueryPollResponse) String() string {
 }
 
 // Attributes:
-//  - ScheduleKey
-//  - Enabled
-//  - Schedule
-//  - User
-//  - Query
-//  - NextExecution
+//   - ScheduleKey
+//   - Enabled
+//   - Schedule
+//   - User
+//   - Query
+//   - NextExecution
 type ScheduledQuery struct {
 	ScheduleKey *ScheduledQueryKey `thrift:"scheduleKey,1,required" db:"scheduleKey" json:"scheduleKey"`
 	Enabled     *bool              `thrift:"enabled,2" db:"enabled" json:"enabled,omitempty"`
@@ -70011,8 +70012,8 @@ func (p *ScheduledQuery) String() string {
 }
 
 // Attributes:
-//  - Type
-//  - ScheduledQuery
+//   - Type
+//   - ScheduledQuery
 type ScheduledQueryMaintenanceRequest struct {
 	Type           ScheduledQueryMaintenanceRequestType `thrift:"type,1,required" db:"type" json:"type"`
 	ScheduledQuery *ScheduledQuery                      `thrift:"scheduledQuery,2,required" db:"scheduledQuery" json:"scheduledQuery"`
@@ -70186,10 +70187,10 @@ func (p *ScheduledQueryMaintenanceRequest) String() string {
 }
 
 // Attributes:
-//  - ScheduledExecutionId
-//  - State
-//  - ExecutorQueryId
-//  - ErrorMessage
+//   - ScheduledExecutionId
+//   - State
+//   - ExecutorQueryId
+//   - ErrorMessage
 type ScheduledQueryProgressInfo struct {
 	ScheduledExecutionId int64      `thrift:"scheduledExecutionId,1,required" db:"scheduledExecutionId" json:"scheduledExecutionId"`
 	State                QueryState `thrift:"state,2,required" db:"state" json:"state"`
@@ -70462,13 +70463,13 @@ func (p *ScheduledQueryProgressInfo) String() string {
 }
 
 // Attributes:
-//  - CatName
-//  - DbName
-//  - TableName
-//  - Partitions
-//  - EnvironmentContext
-//  - WriteId
-//  - ValidWriteIdList
+//   - CatName
+//   - DbName
+//   - TableName
+//   - Partitions
+//   - EnvironmentContext
+//   - WriteId
+//   - ValidWriteIdList
 type AlterPartitionsRequest struct {
 	CatName            *string             `thrift:"catName,1" db:"catName" json:"catName,omitempty"`
 	DbName             string              `thrift:"dbName,2,required" db:"dbName" json:"dbName"`
@@ -70996,12 +70997,12 @@ func (p *AlterPartitionsResponse) String() string {
 }
 
 // Attributes:
-//  - CatName
-//  - DbName
-//  - TableName
-//  - PartVals
-//  - NewPart_
-//  - ValidWriteIdList
+//   - CatName
+//   - DbName
+//   - TableName
+//   - PartVals
+//   - NewPart_
+//   - ValidWriteIdList
 type RenamePartitionRequest struct {
 	CatName          *string    `thrift:"catName,1" db:"catName" json:"catName,omitempty"`
 	DbName           string     `thrift:"dbName,2,required" db:"dbName" json:"dbName"`
@@ -71481,15 +71482,15 @@ func (p *RenamePartitionResponse) String() string {
 }
 
 // Attributes:
-//  - CatName
-//  - DbName
-//  - TableName
-//  - Table
-//  - EnvironmentContext
-//  - WriteId
-//  - ValidWriteIdList
-//  - ProcessorCapabilities
-//  - ProcessorIdentifier
+//   - CatName
+//   - DbName
+//   - TableName
+//   - Table
+//   - EnvironmentContext
+//   - WriteId
+//   - ValidWriteIdList
+//   - ProcessorCapabilities
+//   - ProcessorIdentifier
 type AlterTableRequest struct {
 	CatName               *string             `thrift:"catName,1" db:"catName" json:"catName,omitempty"`
 	DbName                string              `thrift:"dbName,2,required" db:"dbName" json:"dbName"`
@@ -72139,8 +72140,8 @@ func (p *AlterTableResponse) String() string {
 }
 
 // Attributes:
-//  - FilterMode
-//  - Filters
+//   - FilterMode
+//   - Filters
 type GetPartitionsFilterSpec struct {
 	// unused fields # 1 to 6
 	FilterMode *PartitionFilterMode `thrift:"filterMode,7" db:"filterMode" json:"filterMode,omitempty"`
@@ -72347,7 +72348,7 @@ func (p *GetPartitionsFilterSpec) String() string {
 }
 
 // Attributes:
-//  - PartitionSpec
+//   - PartitionSpec
 type GetPartitionsResponse struct {
 	PartitionSpec []*PartitionSpec `thrift:"partitionSpec,1" db:"partitionSpec" json:"partitionSpec"`
 }
@@ -72485,17 +72486,17 @@ func (p *GetPartitionsResponse) String() string {
 }
 
 // Attributes:
-//  - CatName
-//  - DbName
-//  - TblName
-//  - WithAuth
-//  - User
-//  - GroupNames
-//  - ProjectionSpec
-//  - FilterSpec
-//  - ProcessorCapabilities
-//  - ProcessorIdentifier
-//  - ValidWriteIdList
+//   - CatName
+//   - DbName
+//   - TblName
+//   - WithAuth
+//   - User
+//   - GroupNames
+//   - ProjectionSpec
+//   - FilterSpec
+//   - ProcessorCapabilities
+//   - ProcessorIdentifier
+//   - ValidWriteIdList
 type GetPartitionsRequest struct {
 	CatName               *string                  `thrift:"catName,1" db:"catName" json:"catName,omitempty"`
 	DbName                string                   `thrift:"dbName,2" db:"dbName" json:"dbName"`
@@ -73202,12 +73203,12 @@ func (p *GetPartitionsRequest) String() string {
 }
 
 // Attributes:
-//  - CatName
-//  - DbName
-//  - TblName
-//  - EnvContext
-//  - ValidWriteIdList
-//  - ID
+//   - CatName
+//   - DbName
+//   - TblName
+//   - EnvContext
+//   - ValidWriteIdList
+//   - ID
 type GetFieldsRequest struct {
 	CatName          *string             `thrift:"catName,1" db:"catName" json:"catName,omitempty"`
 	DbName           string              `thrift:"dbName,2,required" db:"dbName" json:"dbName"`
@@ -73596,7 +73597,7 @@ func (p *GetFieldsRequest) String() string {
 }
 
 // Attributes:
-//  - Fields
+//   - Fields
 type GetFieldsResponse struct {
 	Fields []*FieldSchema `thrift:"fields,1,required" db:"fields" json:"fields"`
 }
@@ -73738,12 +73739,12 @@ func (p *GetFieldsResponse) String() string {
 }
 
 // Attributes:
-//  - CatName
-//  - DbName
-//  - TblName
-//  - EnvContext
-//  - ValidWriteIdList
-//  - ID
+//   - CatName
+//   - DbName
+//   - TblName
+//   - EnvContext
+//   - ValidWriteIdList
+//   - ID
 type GetSchemaRequest struct {
 	CatName          *string             `thrift:"catName,1" db:"catName" json:"catName,omitempty"`
 	DbName           string              `thrift:"dbName,2,required" db:"dbName" json:"dbName"`
@@ -74132,7 +74133,7 @@ func (p *GetSchemaRequest) String() string {
 }
 
 // Attributes:
-//  - Fields
+//   - Fields
 type GetSchemaResponse struct {
 	Fields []*FieldSchema `thrift:"fields,1,required" db:"fields" json:"fields"`
 }
@@ -74274,12 +74275,12 @@ func (p *GetSchemaResponse) String() string {
 }
 
 // Attributes:
-//  - CatName
-//  - DbName
-//  - TblName
-//  - PartVals
-//  - ValidWriteIdList
-//  - ID
+//   - CatName
+//   - DbName
+//   - TblName
+//   - PartVals
+//   - ValidWriteIdList
+//   - ID
 type GetPartitionRequest struct {
 	CatName          *string  `thrift:"catName,1" db:"catName" json:"catName,omitempty"`
 	DbName           string   `thrift:"dbName,2,required" db:"dbName" json:"dbName"`
@@ -74690,7 +74691,7 @@ func (p *GetPartitionRequest) String() string {
 }
 
 // Attributes:
-//  - Partition
+//   - Partition
 type GetPartitionResponse struct {
 	Partition *Partition `thrift:"partition,1,required" db:"partition" json:"partition"`
 }
@@ -74817,12 +74818,12 @@ func (p *GetPartitionResponse) String() string {
 }
 
 // Attributes:
-//  - CatName
-//  - DbName
-//  - TblName
-//  - MaxParts
-//  - ValidWriteIdList
-//  - ID
+//   - CatName
+//   - DbName
+//   - TblName
+//   - MaxParts
+//   - ValidWriteIdList
+//   - ID
 type PartitionsRequest struct {
 	CatName          *string `thrift:"catName,1" db:"catName" json:"catName,omitempty"`
 	DbName           string  `thrift:"dbName,2,required" db:"dbName" json:"dbName"`
@@ -75211,7 +75212,7 @@ func (p *PartitionsRequest) String() string {
 }
 
 // Attributes:
-//  - Partitions
+//   - Partitions
 type PartitionsResponse struct {
 	Partitions []*Partition `thrift:"partitions,1,required" db:"partitions" json:"partitions"`
 }
@@ -75355,13 +75356,13 @@ func (p *PartitionsResponse) String() string {
 }
 
 // Attributes:
-//  - CatName
-//  - DbName
-//  - TblName
-//  - PartValues
-//  - MaxParts
-//  - ValidWriteIdList
-//  - ID
+//   - CatName
+//   - DbName
+//   - TblName
+//   - PartValues
+//   - MaxParts
+//   - ValidWriteIdList
+//   - ID
 type GetPartitionNamesPsRequest struct {
 	CatName          *string  `thrift:"catName,1" db:"catName" json:"catName,omitempty"`
 	DbName           string   `thrift:"dbName,2,required" db:"dbName" json:"dbName"`
@@ -75828,7 +75829,7 @@ func (p *GetPartitionNamesPsRequest) String() string {
 }
 
 // Attributes:
-//  - Names
+//   - Names
 type GetPartitionNamesPsResponse struct {
 	Names []string `thrift:"names,1,required" db:"names" json:"names"`
 }
@@ -75972,15 +75973,15 @@ func (p *GetPartitionNamesPsResponse) String() string {
 }
 
 // Attributes:
-//  - CatName
-//  - DbName
-//  - TblName
-//  - PartVals
-//  - MaxParts
-//  - UserName
-//  - GroupNames
-//  - ValidWriteIdList
-//  - ID
+//   - CatName
+//   - DbName
+//   - TblName
+//   - PartVals
+//   - MaxParts
+//   - UserName
+//   - GroupNames
+//   - ValidWriteIdList
+//   - ID
 type GetPartitionsPsWithAuthRequest struct {
 	CatName          *string  `thrift:"catName,1" db:"catName" json:"catName,omitempty"`
 	DbName           string   `thrift:"dbName,2,required" db:"dbName" json:"dbName"`
@@ -76584,7 +76585,7 @@ func (p *GetPartitionsPsWithAuthRequest) String() string {
 }
 
 // Attributes:
-//  - Partitions
+//   - Partitions
 type GetPartitionsPsWithAuthResponse struct {
 	Partitions []*Partition `thrift:"partitions,1,required" db:"partitions" json:"partitions"`
 }
@@ -76728,11 +76729,11 @@ func (p *GetPartitionsPsWithAuthResponse) String() string {
 }
 
 // Attributes:
-//  - ScheduledExecutionId
-//  - Policy
-//  - DumpExecutionId
-//  - Metadata
-//  - Progress
+//   - ScheduledExecutionId
+//   - Policy
+//   - DumpExecutionId
+//   - Metadata
+//   - Progress
 type ReplicationMetrics struct {
 	ScheduledExecutionId int64   `thrift:"scheduledExecutionId,1,required" db:"scheduledExecutionId" json:"scheduledExecutionId"`
 	Policy               string  `thrift:"policy,2,required" db:"policy" json:"policy"`
@@ -77063,7 +77064,7 @@ func (p *ReplicationMetrics) String() string {
 }
 
 // Attributes:
-//  - ReplicationMetricList
+//   - ReplicationMetricList
 type ReplicationMetricList struct {
 	ReplicationMetricList []*ReplicationMetrics `thrift:"replicationMetricList,1,required" db:"replicationMetricList" json:"replicationMetricList"`
 }
@@ -77205,9 +77206,9 @@ func (p *ReplicationMetricList) String() string {
 }
 
 // Attributes:
-//  - ScheduledExecutionId
-//  - Policy
-//  - DumpExecutionId
+//   - ScheduledExecutionId
+//   - Policy
+//   - DumpExecutionId
 type GetReplicationMetricsRequest struct {
 	ScheduledExecutionId *int64  `thrift:"scheduledExecutionId,1" db:"scheduledExecutionId" json:"scheduledExecutionId,omitempty"`
 	Policy               *string `thrift:"policy,2" db:"policy" json:"policy,omitempty"`
@@ -77452,7 +77453,7 @@ func (p *GetReplicationMetricsRequest) String() string {
 }
 
 // Attributes:
-//  - ExcludeTxnTypes
+//   - ExcludeTxnTypes
 type GetOpenTxnsRequest struct {
 	ExcludeTxnTypes []TxnType `thrift:"excludeTxnTypes,1" db:"excludeTxnTypes" json:"excludeTxnTypes,omitempty"`
 }
@@ -77599,9 +77600,9 @@ func (p *GetOpenTxnsRequest) String() string {
 }
 
 // Attributes:
-//  - CatName
-//  - DbName
-//  - ProcName
+//   - CatName
+//   - DbName
+//   - ProcName
 type StoredProcedureRequest struct {
 	CatName  string `thrift:"catName,1,required" db:"catName" json:"catName"`
 	DbName   string `thrift:"dbName,2,required" db:"dbName" json:"dbName"`
@@ -77814,8 +77815,8 @@ func (p *StoredProcedureRequest) String() string {
 }
 
 // Attributes:
-//  - CatName
-//  - DbName
+//   - CatName
+//   - DbName
 type ListStoredProcedureRequest struct {
 	CatName string  `thrift:"catName,1,required" db:"catName" json:"catName"`
 	DbName  *string `thrift:"dbName,2" db:"dbName" json:"dbName,omitempty"`
@@ -77991,11 +77992,11 @@ func (p *ListStoredProcedureRequest) String() string {
 }
 
 // Attributes:
-//  - Name
-//  - DbName
-//  - CatName
-//  - OwnerName
-//  - Source
+//   - Name
+//   - DbName
+//   - CatName
+//   - OwnerName
+//   - Source
 type StoredProcedure struct {
 	Name      string `thrift:"name,1" db:"name" json:"name"`
 	DbName    string `thrift:"dbName,2" db:"dbName" json:"dbName"`
@@ -78278,12 +78279,12 @@ func (p *StoredProcedure) String() string {
 }
 
 // Attributes:
-//  - CatName
-//  - DbName
-//  - PackageName
-//  - OwnerName
-//  - Header
-//  - Body
+//   - CatName
+//   - DbName
+//   - PackageName
+//   - OwnerName
+//   - Header
+//   - Body
 type AddPackageRequest struct {
 	CatName     string `thrift:"catName,1" db:"catName" json:"catName"`
 	DbName      string `thrift:"dbName,2" db:"dbName" json:"dbName"`
@@ -78609,9 +78610,9 @@ func (p *AddPackageRequest) String() string {
 }
 
 // Attributes:
-//  - CatName
-//  - DbName
-//  - PackageName
+//   - CatName
+//   - DbName
+//   - PackageName
 type GetPackageRequest struct {
 	CatName     string `thrift:"catName,1,required" db:"catName" json:"catName"`
 	DbName      string `thrift:"dbName,2,required" db:"dbName" json:"dbName"`
@@ -78824,9 +78825,9 @@ func (p *GetPackageRequest) String() string {
 }
 
 // Attributes:
-//  - CatName
-//  - DbName
-//  - PackageName
+//   - CatName
+//   - DbName
+//   - PackageName
 type DropPackageRequest struct {
 	CatName     string `thrift:"catName,1,required" db:"catName" json:"catName"`
 	DbName      string `thrift:"dbName,2,required" db:"dbName" json:"dbName"`
@@ -79039,8 +79040,8 @@ func (p *DropPackageRequest) String() string {
 }
 
 // Attributes:
-//  - CatName
-//  - DbName
+//   - CatName
+//   - DbName
 type ListPackageRequest struct {
 	CatName string  `thrift:"catName,1,required" db:"catName" json:"catName"`
 	DbName  *string `thrift:"dbName,2" db:"dbName" json:"dbName,omitempty"`
@@ -79216,12 +79217,12 @@ func (p *ListPackageRequest) String() string {
 }
 
 // Attributes:
-//  - CatName
-//  - DbName
-//  - PackageName
-//  - OwnerName
-//  - Header
-//  - Body
+//   - CatName
+//   - DbName
+//   - PackageName
+//   - OwnerName
+//   - Header
+//   - Body
 type Package struct {
 	CatName     string `thrift:"catName,1" db:"catName" json:"catName"`
 	DbName      string `thrift:"dbName,2" db:"dbName" json:"dbName"`
@@ -79547,7 +79548,7 @@ func (p *Package) String() string {
 }
 
 // Attributes:
-//  - Message
+//   - Message
 type MetaException struct {
 	Message string `thrift:"message,1" db:"message" json:"message"`
 }
@@ -79668,7 +79669,7 @@ func (MetaException) TExceptionType() thrift.TExceptionType {
 var _ thrift.TException = (*MetaException)(nil)
 
 // Attributes:
-//  - Message
+//   - Message
 type UnknownTableException struct {
 	Message string `thrift:"message,1" db:"message" json:"message"`
 }
@@ -79789,7 +79790,7 @@ func (UnknownTableException) TExceptionType() thrift.TExceptionType {
 var _ thrift.TException = (*UnknownTableException)(nil)
 
 // Attributes:
-//  - Message
+//   - Message
 type UnknownDBException struct {
 	Message string `thrift:"message,1" db:"message" json:"message"`
 }
@@ -79910,7 +79911,7 @@ func (UnknownDBException) TExceptionType() thrift.TExceptionType {
 var _ thrift.TException = (*UnknownDBException)(nil)
 
 // Attributes:
-//  - Message
+//   - Message
 type AlreadyExistsException struct {
 	Message string `thrift:"message,1" db:"message" json:"message"`
 }
@@ -80031,7 +80032,7 @@ func (AlreadyExistsException) TExceptionType() thrift.TExceptionType {
 var _ thrift.TException = (*AlreadyExistsException)(nil)
 
 // Attributes:
-//  - Message
+//   - Message
 type InvalidPartitionException struct {
 	Message string `thrift:"message,1" db:"message" json:"message"`
 }
@@ -80152,7 +80153,7 @@ func (InvalidPartitionException) TExceptionType() thrift.TExceptionType {
 var _ thrift.TException = (*InvalidPartitionException)(nil)
 
 // Attributes:
-//  - Message
+//   - Message
 type UnknownPartitionException struct {
 	Message string `thrift:"message,1" db:"message" json:"message"`
 }
@@ -80273,7 +80274,7 @@ func (UnknownPartitionException) TExceptionType() thrift.TExceptionType {
 var _ thrift.TException = (*UnknownPartitionException)(nil)
 
 // Attributes:
-//  - Message
+//   - Message
 type InvalidObjectException struct {
 	Message string `thrift:"message,1" db:"message" json:"message"`
 }
@@ -80394,7 +80395,7 @@ func (InvalidObjectException) TExceptionType() thrift.TExceptionType {
 var _ thrift.TException = (*InvalidObjectException)(nil)
 
 // Attributes:
-//  - Message
+//   - Message
 type NoSuchObjectException struct {
 	Message string `thrift:"message,1" db:"message" json:"message"`
 }
@@ -80515,7 +80516,7 @@ func (NoSuchObjectException) TExceptionType() thrift.TExceptionType {
 var _ thrift.TException = (*NoSuchObjectException)(nil)
 
 // Attributes:
-//  - Message
+//   - Message
 type InvalidOperationException struct {
 	Message string `thrift:"message,1" db:"message" json:"message"`
 }
@@ -80636,7 +80637,7 @@ func (InvalidOperationException) TExceptionType() thrift.TExceptionType {
 var _ thrift.TException = (*InvalidOperationException)(nil)
 
 // Attributes:
-//  - Message
+//   - Message
 type ConfigValSecurityException struct {
 	Message string `thrift:"message,1" db:"message" json:"message"`
 }
@@ -80757,7 +80758,7 @@ func (ConfigValSecurityException) TExceptionType() thrift.TExceptionType {
 var _ thrift.TException = (*ConfigValSecurityException)(nil)
 
 // Attributes:
-//  - Message
+//   - Message
 type InvalidInputException struct {
 	Message string `thrift:"message,1" db:"message" json:"message"`
 }
@@ -80878,7 +80879,7 @@ func (InvalidInputException) TExceptionType() thrift.TExceptionType {
 var _ thrift.TException = (*InvalidInputException)(nil)
 
 // Attributes:
-//  - Message
+//   - Message
 type NoSuchTxnException struct {
 	Message string `thrift:"message,1" db:"message" json:"message"`
 }
@@ -80999,7 +81000,7 @@ func (NoSuchTxnException) TExceptionType() thrift.TExceptionType {
 var _ thrift.TException = (*NoSuchTxnException)(nil)
 
 // Attributes:
-//  - Message
+//   - Message
 type TxnAbortedException struct {
 	Message string `thrift:"message,1" db:"message" json:"message"`
 }
@@ -81120,7 +81121,7 @@ func (TxnAbortedException) TExceptionType() thrift.TExceptionType {
 var _ thrift.TException = (*TxnAbortedException)(nil)
 
 // Attributes:
-//  - Message
+//   - Message
 type TxnOpenException struct {
 	Message string `thrift:"message,1" db:"message" json:"message"`
 }
@@ -81241,7 +81242,7 @@ func (TxnOpenException) TExceptionType() thrift.TExceptionType {
 var _ thrift.TException = (*TxnOpenException)(nil)
 
 // Attributes:
-//  - Message
+//   - Message
 type NoSuchLockException struct {
 	Message string `thrift:"message,1" db:"message" json:"message"`
 }
@@ -82307,7 +82308,7 @@ type ThriftHiveMetastore interface {
 	DropPackage(ctx context.Context, request *DropPackageRequest) (err error)
 }
 
-//This interface is live.
+// This interface is live.
 type ThriftHiveMetastoreClient struct {
 	*fb303.FacebookServiceClient
 }
@@ -82327,7 +82328,7 @@ func NewThriftHiveMetastoreClient(c thrift.TClient) *ThriftHiveMetastoreClient {
 }
 
 // Parameters:
-//  - Key
+//   - Key
 func (p *ThriftHiveMetastoreClient) GetMetaConf(ctx context.Context, key string) (r string, err error) {
 	var _args349 ThriftHiveMetastoreGetMetaConfArgs
 	_args349.Key = key
@@ -82347,8 +82348,8 @@ func (p *ThriftHiveMetastoreClient) GetMetaConf(ctx context.Context, key string)
 }
 
 // Parameters:
-//  - Key
-//  - Value
+//   - Key
+//   - Value
 func (p *ThriftHiveMetastoreClient) SetMetaConf(ctx context.Context, key string, value string) (err error) {
 	var _args351 ThriftHiveMetastoreSetMetaConfArgs
 	_args351.Key = key
@@ -82369,7 +82370,7 @@ func (p *ThriftHiveMetastoreClient) SetMetaConf(ctx context.Context, key string,
 }
 
 // Parameters:
-//  - Catalog
+//   - Catalog
 func (p *ThriftHiveMetastoreClient) CreateCatalog(ctx context.Context, catalog *CreateCatalogRequest) (err error) {
 	var _args353 ThriftHiveMetastoreCreateCatalogArgs
 	_args353.Catalog = catalog
@@ -82393,7 +82394,7 @@ func (p *ThriftHiveMetastoreClient) CreateCatalog(ctx context.Context, catalog *
 }
 
 // Parameters:
-//  - Rqst
+//   - Rqst
 func (p *ThriftHiveMetastoreClient) AlterCatalog(ctx context.Context, rqst *AlterCatalogRequest) (err error) {
 	var _args355 ThriftHiveMetastoreAlterCatalogArgs
 	_args355.Rqst = rqst
@@ -82417,7 +82418,7 @@ func (p *ThriftHiveMetastoreClient) AlterCatalog(ctx context.Context, rqst *Alte
 }
 
 // Parameters:
-//  - CatName
+//   - CatName
 func (p *ThriftHiveMetastoreClient) GetCatalog(ctx context.Context, catName *GetCatalogRequest) (r *GetCatalogResponse, err error) {
 	var _args357 ThriftHiveMetastoreGetCatalogArgs
 	_args357.CatName = catName
@@ -82456,7 +82457,7 @@ func (p *ThriftHiveMetastoreClient) GetCatalogs(ctx context.Context) (r *GetCata
 }
 
 // Parameters:
-//  - CatName
+//   - CatName
 func (p *ThriftHiveMetastoreClient) DropCatalog(ctx context.Context, catName *DropCatalogRequest) (err error) {
 	var _args361 ThriftHiveMetastoreDropCatalogArgs
 	_args361.CatName = catName
@@ -82480,7 +82481,7 @@ func (p *ThriftHiveMetastoreClient) DropCatalog(ctx context.Context, catName *Dr
 }
 
 // Parameters:
-//  - Database
+//   - Database
 func (p *ThriftHiveMetastoreClient) CreateDatabase(ctx context.Context, database *Database) (err error) {
 	var _args363 ThriftHiveMetastoreCreateDatabaseArgs
 	_args363.Database = database
@@ -82504,7 +82505,7 @@ func (p *ThriftHiveMetastoreClient) CreateDatabase(ctx context.Context, database
 }
 
 // Parameters:
-//  - Name
+//   - Name
 func (p *ThriftHiveMetastoreClient) GetDatabase(ctx context.Context, name string) (r *Database, err error) {
 	var _args365 ThriftHiveMetastoreGetDatabaseArgs
 	_args365.Name = name
@@ -82526,7 +82527,7 @@ func (p *ThriftHiveMetastoreClient) GetDatabase(ctx context.Context, name string
 }
 
 // Parameters:
-//  - Request
+//   - Request
 func (p *ThriftHiveMetastoreClient) GetDatabaseReq(ctx context.Context, request *GetDatabaseRequest) (r *Database, err error) {
 	var _args367 ThriftHiveMetastoreGetDatabaseReqArgs
 	_args367.Request = request
@@ -82548,9 +82549,9 @@ func (p *ThriftHiveMetastoreClient) GetDatabaseReq(ctx context.Context, request 
 }
 
 // Parameters:
-//  - Name
-//  - DeleteData
-//  - Cascade
+//   - Name
+//   - DeleteData
+//   - Cascade
 func (p *ThriftHiveMetastoreClient) DropDatabase(ctx context.Context, name string, deleteData bool, cascade bool) (err error) {
 	var _args369 ThriftHiveMetastoreDropDatabaseArgs
 	_args369.Name = name
@@ -82576,7 +82577,7 @@ func (p *ThriftHiveMetastoreClient) DropDatabase(ctx context.Context, name strin
 }
 
 // Parameters:
-//  - Pattern
+//   - Pattern
 func (p *ThriftHiveMetastoreClient) GetDatabases(ctx context.Context, pattern string) (r []string, err error) {
 	var _args371 ThriftHiveMetastoreGetDatabasesArgs
 	_args371.Pattern = pattern
@@ -82613,8 +82614,8 @@ func (p *ThriftHiveMetastoreClient) GetAllDatabases(ctx context.Context) (r []st
 }
 
 // Parameters:
-//  - Dbname
-//  - Db
+//   - Dbname
+//   - Db
 func (p *ThriftHiveMetastoreClient) AlterDatabase(ctx context.Context, dbname string, db *Database) (err error) {
 	var _args375 ThriftHiveMetastoreAlterDatabaseArgs
 	_args375.Dbname = dbname
@@ -82637,7 +82638,7 @@ func (p *ThriftHiveMetastoreClient) AlterDatabase(ctx context.Context, dbname st
 }
 
 // Parameters:
-//  - Connector
+//   - Connector
 func (p *ThriftHiveMetastoreClient) CreateDataconnector(ctx context.Context, connector *DataConnector) (err error) {
 	var _args377 ThriftHiveMetastoreCreateDataconnectorArgs
 	_args377.Connector = connector
@@ -82661,7 +82662,7 @@ func (p *ThriftHiveMetastoreClient) CreateDataconnector(ctx context.Context, con
 }
 
 // Parameters:
-//  - Request
+//   - Request
 func (p *ThriftHiveMetastoreClient) GetDataconnectorReq(ctx context.Context, request *GetDataConnectorRequest) (r *DataConnector, err error) {
 	var _args379 ThriftHiveMetastoreGetDataconnectorReqArgs
 	_args379.Request = request
@@ -82683,9 +82684,9 @@ func (p *ThriftHiveMetastoreClient) GetDataconnectorReq(ctx context.Context, req
 }
 
 // Parameters:
-//  - Name
-//  - IfNotExists
-//  - CheckReferences
+//   - Name
+//   - IfNotExists
+//   - CheckReferences
 func (p *ThriftHiveMetastoreClient) DropDataconnector(ctx context.Context, name string, ifNotExists bool, checkReferences bool) (err error) {
 	var _args381 ThriftHiveMetastoreDropDataconnectorArgs
 	_args381.Name = name
@@ -82728,8 +82729,8 @@ func (p *ThriftHiveMetastoreClient) GetDataconnectors(ctx context.Context) (r []
 }
 
 // Parameters:
-//  - Name
-//  - Connector
+//   - Name
+//   - Connector
 func (p *ThriftHiveMetastoreClient) AlterDataconnector(ctx context.Context, name string, connector *DataConnector) (err error) {
 	var _args385 ThriftHiveMetastoreAlterDataconnectorArgs
 	_args385.Name = name
@@ -82752,7 +82753,7 @@ func (p *ThriftHiveMetastoreClient) AlterDataconnector(ctx context.Context, name
 }
 
 // Parameters:
-//  - Name
+//   - Name
 func (p *ThriftHiveMetastoreClient) GetType(ctx context.Context, name string) (r *Type, err error) {
 	var _args387 ThriftHiveMetastoreGetTypeArgs
 	_args387.Name = name
@@ -82774,7 +82775,7 @@ func (p *ThriftHiveMetastoreClient) GetType(ctx context.Context, name string) (r
 }
 
 // Parameters:
-//  - Type
+//   - Type
 func (p *ThriftHiveMetastoreClient) CreateType(ctx context.Context, type_a1 *Type) (r bool, err error) {
 	var _args389 ThriftHiveMetastoreCreateTypeArgs
 	_args389.Type = type_a1
@@ -82798,7 +82799,7 @@ func (p *ThriftHiveMetastoreClient) CreateType(ctx context.Context, type_a1 *Typ
 }
 
 // Parameters:
-//  - Type
+//   - Type
 func (p *ThriftHiveMetastoreClient) DropType(ctx context.Context, type_a1 string) (r bool, err error) {
 	var _args391 ThriftHiveMetastoreDropTypeArgs
 	_args391.Type = type_a1
@@ -82820,7 +82821,7 @@ func (p *ThriftHiveMetastoreClient) DropType(ctx context.Context, type_a1 string
 }
 
 // Parameters:
-//  - Name
+//   - Name
 func (p *ThriftHiveMetastoreClient) GetTypeAll(ctx context.Context, name string) (r map[string]*Type, err error) {
 	var _args393 ThriftHiveMetastoreGetTypeAllArgs
 	_args393.Name = name
@@ -82840,8 +82841,8 @@ func (p *ThriftHiveMetastoreClient) GetTypeAll(ctx context.Context, name string)
 }
 
 // Parameters:
-//  - DbName
-//  - TableName
+//   - DbName
+//   - TableName
 func (p *ThriftHiveMetastoreClient) GetFields(ctx context.Context, db_name string, table_name string) (r []*FieldSchema, err error) {
 	var _args395 ThriftHiveMetastoreGetFieldsArgs
 	_args395.DbName = db_name
@@ -82866,9 +82867,9 @@ func (p *ThriftHiveMetastoreClient) GetFields(ctx context.Context, db_name strin
 }
 
 // Parameters:
-//  - DbName
-//  - TableName
-//  - EnvironmentContext
+//   - DbName
+//   - TableName
+//   - EnvironmentContext
 func (p *ThriftHiveMetastoreClient) GetFieldsWithEnvironmentContext(ctx context.Context, db_name string, table_name string, environment_context *EnvironmentContext) (r []*FieldSchema, err error) {
 	var _args397 ThriftHiveMetastoreGetFieldsWithEnvironmentContextArgs
 	_args397.DbName = db_name
@@ -82894,7 +82895,7 @@ func (p *ThriftHiveMetastoreClient) GetFieldsWithEnvironmentContext(ctx context.
 }
 
 // Parameters:
-//  - Req
+//   - Req
 func (p *ThriftHiveMetastoreClient) GetFieldsReq(ctx context.Context, req *GetFieldsRequest) (r *GetFieldsResponse, err error) {
 	var _args399 ThriftHiveMetastoreGetFieldsReqArgs
 	_args399.Req = req
@@ -82918,8 +82919,8 @@ func (p *ThriftHiveMetastoreClient) GetFieldsReq(ctx context.Context, req *GetFi
 }
 
 // Parameters:
-//  - DbName
-//  - TableName
+//   - DbName
+//   - TableName
 func (p *ThriftHiveMetastoreClient) GetSchema(ctx context.Context, db_name string, table_name string) (r []*FieldSchema, err error) {
 	var _args401 ThriftHiveMetastoreGetSchemaArgs
 	_args401.DbName = db_name
@@ -82944,9 +82945,9 @@ func (p *ThriftHiveMetastoreClient) GetSchema(ctx context.Context, db_name strin
 }
 
 // Parameters:
-//  - DbName
-//  - TableName
-//  - EnvironmentContext
+//   - DbName
+//   - TableName
+//   - EnvironmentContext
 func (p *ThriftHiveMetastoreClient) GetSchemaWithEnvironmentContext(ctx context.Context, db_name string, table_name string, environment_context *EnvironmentContext) (r []*FieldSchema, err error) {
 	var _args403 ThriftHiveMetastoreGetSchemaWithEnvironmentContextArgs
 	_args403.DbName = db_name
@@ -82972,7 +82973,7 @@ func (p *ThriftHiveMetastoreClient) GetSchemaWithEnvironmentContext(ctx context.
 }
 
 // Parameters:
-//  - Req
+//   - Req
 func (p *ThriftHiveMetastoreClient) GetSchemaReq(ctx context.Context, req *GetSchemaRequest) (r *GetSchemaResponse, err error) {
 	var _args405 ThriftHiveMetastoreGetSchemaReqArgs
 	_args405.Req = req
@@ -82996,7 +82997,7 @@ func (p *ThriftHiveMetastoreClient) GetSchemaReq(ctx context.Context, req *GetSc
 }
 
 // Parameters:
-//  - Tbl
+//   - Tbl
 func (p *ThriftHiveMetastoreClient) CreateTable(ctx context.Context, tbl *Table) (err error) {
 	var _args407 ThriftHiveMetastoreCreateTableArgs
 	_args407.Tbl = tbl
@@ -83022,8 +83023,8 @@ func (p *ThriftHiveMetastoreClient) CreateTable(ctx context.Context, tbl *Table)
 }
 
 // Parameters:
-//  - Tbl
-//  - EnvironmentContext
+//   - Tbl
+//   - EnvironmentContext
 func (p *ThriftHiveMetastoreClient) CreateTableWithEnvironmentContext(ctx context.Context, tbl *Table, environment_context *EnvironmentContext) (err error) {
 	var _args409 ThriftHiveMetastoreCreateTableWithEnvironmentContextArgs
 	_args409.Tbl = tbl
@@ -83050,13 +83051,13 @@ func (p *ThriftHiveMetastoreClient) CreateTableWithEnvironmentContext(ctx contex
 }
 
 // Parameters:
-//  - Tbl
-//  - PrimaryKeys
-//  - ForeignKeys
-//  - UniqueConstraints
-//  - NotNullConstraints
-//  - DefaultConstraints
-//  - CheckConstraints
+//   - Tbl
+//   - PrimaryKeys
+//   - ForeignKeys
+//   - UniqueConstraints
+//   - NotNullConstraints
+//   - DefaultConstraints
+//   - CheckConstraints
 func (p *ThriftHiveMetastoreClient) CreateTableWithConstraints(ctx context.Context, tbl *Table, primaryKeys []*SQLPrimaryKey, foreignKeys []*SQLForeignKey, uniqueConstraints []*SQLUniqueConstraint, notNullConstraints []*SQLNotNullConstraint, defaultConstraints []*SQLDefaultConstraint, checkConstraints []*SQLCheckConstraint) (err error) {
 	var _args411 ThriftHiveMetastoreCreateTableWithConstraintsArgs
 	_args411.Tbl = tbl
@@ -83088,7 +83089,7 @@ func (p *ThriftHiveMetastoreClient) CreateTableWithConstraints(ctx context.Conte
 }
 
 // Parameters:
-//  - Request
+//   - Request
 func (p *ThriftHiveMetastoreClient) CreateTableReq(ctx context.Context, request *CreateTableRequest) (err error) {
 	var _args413 ThriftHiveMetastoreCreateTableReqArgs
 	_args413.Request = request
@@ -83114,7 +83115,7 @@ func (p *ThriftHiveMetastoreClient) CreateTableReq(ctx context.Context, request 
 }
 
 // Parameters:
-//  - Req
+//   - Req
 func (p *ThriftHiveMetastoreClient) DropConstraint(ctx context.Context, req *DropConstraintRequest) (err error) {
 	var _args415 ThriftHiveMetastoreDropConstraintArgs
 	_args415.Req = req
@@ -83136,7 +83137,7 @@ func (p *ThriftHiveMetastoreClient) DropConstraint(ctx context.Context, req *Dro
 }
 
 // Parameters:
-//  - Req
+//   - Req
 func (p *ThriftHiveMetastoreClient) AddPrimaryKey(ctx context.Context, req *AddPrimaryKeyRequest) (err error) {
 	var _args417 ThriftHiveMetastoreAddPrimaryKeyArgs
 	_args417.Req = req
@@ -83158,7 +83159,7 @@ func (p *ThriftHiveMetastoreClient) AddPrimaryKey(ctx context.Context, req *AddP
 }
 
 // Parameters:
-//  - Req
+//   - Req
 func (p *ThriftHiveMetastoreClient) AddForeignKey(ctx context.Context, req *AddForeignKeyRequest) (err error) {
 	var _args419 ThriftHiveMetastoreAddForeignKeyArgs
 	_args419.Req = req
@@ -83180,7 +83181,7 @@ func (p *ThriftHiveMetastoreClient) AddForeignKey(ctx context.Context, req *AddF
 }
 
 // Parameters:
-//  - Req
+//   - Req
 func (p *ThriftHiveMetastoreClient) AddUniqueConstraint(ctx context.Context, req *AddUniqueConstraintRequest) (err error) {
 	var _args421 ThriftHiveMetastoreAddUniqueConstraintArgs
 	_args421.Req = req
@@ -83202,7 +83203,7 @@ func (p *ThriftHiveMetastoreClient) AddUniqueConstraint(ctx context.Context, req
 }
 
 // Parameters:
-//  - Req
+//   - Req
 func (p *ThriftHiveMetastoreClient) AddNotNullConstraint(ctx context.Context, req *AddNotNullConstraintRequest) (err error) {
 	var _args423 ThriftHiveMetastoreAddNotNullConstraintArgs
 	_args423.Req = req
@@ -83224,7 +83225,7 @@ func (p *ThriftHiveMetastoreClient) AddNotNullConstraint(ctx context.Context, re
 }
 
 // Parameters:
-//  - Req
+//   - Req
 func (p *ThriftHiveMetastoreClient) AddDefaultConstraint(ctx context.Context, req *AddDefaultConstraintRequest) (err error) {
 	var _args425 ThriftHiveMetastoreAddDefaultConstraintArgs
 	_args425.Req = req
@@ -83246,7 +83247,7 @@ func (p *ThriftHiveMetastoreClient) AddDefaultConstraint(ctx context.Context, re
 }
 
 // Parameters:
-//  - Req
+//   - Req
 func (p *ThriftHiveMetastoreClient) AddCheckConstraint(ctx context.Context, req *AddCheckConstraintRequest) (err error) {
 	var _args427 ThriftHiveMetastoreAddCheckConstraintArgs
 	_args427.Req = req
@@ -83268,9 +83269,9 @@ func (p *ThriftHiveMetastoreClient) AddCheckConstraint(ctx context.Context, req 
 }
 
 // Parameters:
-//  - Dbname
-//  - Name
-//  - DeleteData
+//   - Dbname
+//   - Name
+//   - DeleteData
 func (p *ThriftHiveMetastoreClient) DropTable(ctx context.Context, dbname string, name string, deleteData bool) (err error) {
 	var _args429 ThriftHiveMetastoreDropTableArgs
 	_args429.Dbname = dbname
@@ -83294,10 +83295,10 @@ func (p *ThriftHiveMetastoreClient) DropTable(ctx context.Context, dbname string
 }
 
 // Parameters:
-//  - Dbname
-//  - Name
-//  - DeleteData
-//  - EnvironmentContext
+//   - Dbname
+//   - Name
+//   - DeleteData
+//   - EnvironmentContext
 func (p *ThriftHiveMetastoreClient) DropTableWithEnvironmentContext(ctx context.Context, dbname string, name string, deleteData bool, environment_context *EnvironmentContext) (err error) {
 	var _args431 ThriftHiveMetastoreDropTableWithEnvironmentContextArgs
 	_args431.Dbname = dbname
@@ -83322,9 +83323,9 @@ func (p *ThriftHiveMetastoreClient) DropTableWithEnvironmentContext(ctx context.
 }
 
 // Parameters:
-//  - DbName
-//  - TableName
-//  - PartNames
+//   - DbName
+//   - TableName
+//   - PartNames
 func (p *ThriftHiveMetastoreClient) TruncateTable(ctx context.Context, dbName string, tableName string, partNames []string) (err error) {
 	var _args433 ThriftHiveMetastoreTruncateTableArgs
 	_args433.DbName = dbName
@@ -83346,7 +83347,7 @@ func (p *ThriftHiveMetastoreClient) TruncateTable(ctx context.Context, dbName st
 }
 
 // Parameters:
-//  - Req
+//   - Req
 func (p *ThriftHiveMetastoreClient) TruncateTableReq(ctx context.Context, req *TruncateTableRequest) (r *TruncateTableResponse, err error) {
 	var _args435 ThriftHiveMetastoreTruncateTableReqArgs
 	_args435.Req = req
@@ -83366,8 +83367,8 @@ func (p *ThriftHiveMetastoreClient) TruncateTableReq(ctx context.Context, req *T
 }
 
 // Parameters:
-//  - DbName
-//  - Pattern
+//   - DbName
+//   - Pattern
 func (p *ThriftHiveMetastoreClient) GetTables(ctx context.Context, db_name string, pattern string) (r []string, err error) {
 	var _args437 ThriftHiveMetastoreGetTablesArgs
 	_args437.DbName = db_name
@@ -83388,9 +83389,9 @@ func (p *ThriftHiveMetastoreClient) GetTables(ctx context.Context, db_name strin
 }
 
 // Parameters:
-//  - DbName
-//  - Pattern
-//  - TableType
+//   - DbName
+//   - Pattern
+//   - TableType
 func (p *ThriftHiveMetastoreClient) GetTablesByType(ctx context.Context, db_name string, pattern string, tableType string) (r []string, err error) {
 	var _args439 ThriftHiveMetastoreGetTablesByTypeArgs
 	_args439.DbName = db_name
@@ -83429,7 +83430,7 @@ func (p *ThriftHiveMetastoreClient) GetAllMaterializedViewObjectsForRewriting(ct
 }
 
 // Parameters:
-//  - DbName
+//   - DbName
 func (p *ThriftHiveMetastoreClient) GetMaterializedViewsForRewriting(ctx context.Context, db_name string) (r []string, err error) {
 	var _args443 ThriftHiveMetastoreGetMaterializedViewsForRewritingArgs
 	_args443.DbName = db_name
@@ -83449,9 +83450,9 @@ func (p *ThriftHiveMetastoreClient) GetMaterializedViewsForRewriting(ctx context
 }
 
 // Parameters:
-//  - DbPatterns
-//  - TblPatterns
-//  - TblTypes
+//   - DbPatterns
+//   - TblPatterns
+//   - TblTypes
 func (p *ThriftHiveMetastoreClient) GetTableMeta(ctx context.Context, db_patterns string, tbl_patterns string, tbl_types []string) (r []*TableMeta, err error) {
 	var _args445 ThriftHiveMetastoreGetTableMetaArgs
 	_args445.DbPatterns = db_patterns
@@ -83473,7 +83474,7 @@ func (p *ThriftHiveMetastoreClient) GetTableMeta(ctx context.Context, db_pattern
 }
 
 // Parameters:
-//  - DbName
+//   - DbName
 func (p *ThriftHiveMetastoreClient) GetAllTables(ctx context.Context, db_name string) (r []string, err error) {
 	var _args447 ThriftHiveMetastoreGetAllTablesArgs
 	_args447.DbName = db_name
@@ -83493,8 +83494,8 @@ func (p *ThriftHiveMetastoreClient) GetAllTables(ctx context.Context, db_name st
 }
 
 // Parameters:
-//  - Dbname
-//  - TblName
+//   - Dbname
+//   - TblName
 func (p *ThriftHiveMetastoreClient) GetTable(ctx context.Context, dbname string, tbl_name string) (r *Table, err error) {
 	var _args449 ThriftHiveMetastoreGetTableArgs
 	_args449.Dbname = dbname
@@ -83517,8 +83518,8 @@ func (p *ThriftHiveMetastoreClient) GetTable(ctx context.Context, dbname string,
 }
 
 // Parameters:
-//  - Dbname
-//  - TblNames
+//   - Dbname
+//   - TblNames
 func (p *ThriftHiveMetastoreClient) GetTableObjectsByName(ctx context.Context, dbname string, tbl_names []string) (r []*Table, err error) {
 	var _args451 ThriftHiveMetastoreGetTableObjectsByNameArgs
 	_args451.Dbname = dbname
@@ -83534,7 +83535,7 @@ func (p *ThriftHiveMetastoreClient) GetTableObjectsByName(ctx context.Context, d
 }
 
 // Parameters:
-//  - Req
+//   - Req
 func (p *ThriftHiveMetastoreClient) GetTablesExt(ctx context.Context, req *GetTablesExtRequest) (r []*ExtendedTableInfo, err error) {
 	var _args453 ThriftHiveMetastoreGetTablesExtArgs
 	_args453.Req = req
@@ -83554,7 +83555,7 @@ func (p *ThriftHiveMetastoreClient) GetTablesExt(ctx context.Context, req *GetTa
 }
 
 // Parameters:
-//  - Req
+//   - Req
 func (p *ThriftHiveMetastoreClient) GetTableReq(ctx context.Context, req *GetTableRequest) (r *GetTableResult_, err error) {
 	var _args455 ThriftHiveMetastoreGetTableReqArgs
 	_args455.Req = req
@@ -83576,7 +83577,7 @@ func (p *ThriftHiveMetastoreClient) GetTableReq(ctx context.Context, req *GetTab
 }
 
 // Parameters:
-//  - Req
+//   - Req
 func (p *ThriftHiveMetastoreClient) GetTableObjectsByNameReq(ctx context.Context, req *GetTablesRequest) (r *GetTablesResult_, err error) {
 	var _args457 ThriftHiveMetastoreGetTableObjectsByNameReqArgs
 	_args457.Req = req
@@ -83600,8 +83601,8 @@ func (p *ThriftHiveMetastoreClient) GetTableObjectsByNameReq(ctx context.Context
 }
 
 // Parameters:
-//  - CreationMetadata
-//  - ValidTxnList
+//   - CreationMetadata
+//   - ValidTxnList
 func (p *ThriftHiveMetastoreClient) GetMaterializationInvalidationInfo(ctx context.Context, creation_metadata *CreationMetadata, validTxnList string) (r *Materialization, err error) {
 	var _args459 ThriftHiveMetastoreGetMaterializationInvalidationInfoArgs
 	_args459.CreationMetadata = creation_metadata
@@ -83626,10 +83627,10 @@ func (p *ThriftHiveMetastoreClient) GetMaterializationInvalidationInfo(ctx conte
 }
 
 // Parameters:
-//  - CatName
-//  - Dbname
-//  - TblName
-//  - CreationMetadata
+//   - CatName
+//   - Dbname
+//   - TblName
+//   - CreationMetadata
 func (p *ThriftHiveMetastoreClient) UpdateCreationMetadata(ctx context.Context, catName string, dbname string, tbl_name string, creation_metadata *CreationMetadata) (err error) {
 	var _args461 ThriftHiveMetastoreUpdateCreationMetadataArgs
 	_args461.CatName = catName
@@ -83656,9 +83657,9 @@ func (p *ThriftHiveMetastoreClient) UpdateCreationMetadata(ctx context.Context, 
 }
 
 // Parameters:
-//  - Dbname
-//  - Filter
-//  - MaxTables
+//   - Dbname
+//   - Filter
+//   - MaxTables
 func (p *ThriftHiveMetastoreClient) GetTableNamesByFilter(ctx context.Context, dbname string, filter string, max_tables int16) (r []string, err error) {
 	var _args463 ThriftHiveMetastoreGetTableNamesByFilterArgs
 	_args463.Dbname = dbname
@@ -83684,9 +83685,9 @@ func (p *ThriftHiveMetastoreClient) GetTableNamesByFilter(ctx context.Context, d
 }
 
 // Parameters:
-//  - Dbname
-//  - TblName
-//  - NewTbl_
+//   - Dbname
+//   - TblName
+//   - NewTbl_
 func (p *ThriftHiveMetastoreClient) AlterTable(ctx context.Context, dbname string, tbl_name string, new_tbl *Table) (err error) {
 	var _args465 ThriftHiveMetastoreAlterTableArgs
 	_args465.Dbname = dbname
@@ -83710,10 +83711,10 @@ func (p *ThriftHiveMetastoreClient) AlterTable(ctx context.Context, dbname strin
 }
 
 // Parameters:
-//  - Dbname
-//  - TblName
-//  - NewTbl_
-//  - EnvironmentContext
+//   - Dbname
+//   - TblName
+//   - NewTbl_
+//   - EnvironmentContext
 func (p *ThriftHiveMetastoreClient) AlterTableWithEnvironmentContext(ctx context.Context, dbname string, tbl_name string, new_tbl *Table, environment_context *EnvironmentContext) (err error) {
 	var _args467 ThriftHiveMetastoreAlterTableWithEnvironmentContextArgs
 	_args467.Dbname = dbname
@@ -83738,10 +83739,10 @@ func (p *ThriftHiveMetastoreClient) AlterTableWithEnvironmentContext(ctx context
 }
 
 // Parameters:
-//  - Dbname
-//  - TblName
-//  - NewTbl_
-//  - Cascade
+//   - Dbname
+//   - TblName
+//   - NewTbl_
+//   - Cascade
 func (p *ThriftHiveMetastoreClient) AlterTableWithCascade(ctx context.Context, dbname string, tbl_name string, new_tbl *Table, cascade bool) (err error) {
 	var _args469 ThriftHiveMetastoreAlterTableWithCascadeArgs
 	_args469.Dbname = dbname
@@ -83766,7 +83767,7 @@ func (p *ThriftHiveMetastoreClient) AlterTableWithCascade(ctx context.Context, d
 }
 
 // Parameters:
-//  - Req
+//   - Req
 func (p *ThriftHiveMetastoreClient) AlterTableReq(ctx context.Context, req *AlterTableRequest) (r *AlterTableResponse, err error) {
 	var _args471 ThriftHiveMetastoreAlterTableReqArgs
 	_args471.Req = req
@@ -83788,7 +83789,7 @@ func (p *ThriftHiveMetastoreClient) AlterTableReq(ctx context.Context, req *Alte
 }
 
 // Parameters:
-//  - NewPart_
+//   - NewPart_
 func (p *ThriftHiveMetastoreClient) AddPartition(ctx context.Context, new_part *Partition) (r *Partition, err error) {
 	var _args473 ThriftHiveMetastoreAddPartitionArgs
 	_args473.NewPart_ = new_part
@@ -83812,8 +83813,8 @@ func (p *ThriftHiveMetastoreClient) AddPartition(ctx context.Context, new_part *
 }
 
 // Parameters:
-//  - NewPart_
-//  - EnvironmentContext
+//   - NewPart_
+//   - EnvironmentContext
 func (p *ThriftHiveMetastoreClient) AddPartitionWithEnvironmentContext(ctx context.Context, new_part *Partition, environment_context *EnvironmentContext) (r *Partition, err error) {
 	var _args475 ThriftHiveMetastoreAddPartitionWithEnvironmentContextArgs
 	_args475.NewPart_ = new_part
@@ -83838,7 +83839,7 @@ func (p *ThriftHiveMetastoreClient) AddPartitionWithEnvironmentContext(ctx conte
 }
 
 // Parameters:
-//  - NewParts_
+//   - NewParts_
 func (p *ThriftHiveMetastoreClient) AddPartitions(ctx context.Context, new_parts []*Partition) (r int32, err error) {
 	var _args477 ThriftHiveMetastoreAddPartitionsArgs
 	_args477.NewParts_ = new_parts
@@ -83862,7 +83863,7 @@ func (p *ThriftHiveMetastoreClient) AddPartitions(ctx context.Context, new_parts
 }
 
 // Parameters:
-//  - NewParts_
+//   - NewParts_
 func (p *ThriftHiveMetastoreClient) AddPartitionsPspec(ctx context.Context, new_parts []*PartitionSpec) (r int32, err error) {
 	var _args479 ThriftHiveMetastoreAddPartitionsPspecArgs
 	_args479.NewParts_ = new_parts
@@ -83886,9 +83887,9 @@ func (p *ThriftHiveMetastoreClient) AddPartitionsPspec(ctx context.Context, new_
 }
 
 // Parameters:
-//  - DbName
-//  - TblName
-//  - PartVals
+//   - DbName
+//   - TblName
+//   - PartVals
 func (p *ThriftHiveMetastoreClient) AppendPartition(ctx context.Context, db_name string, tbl_name string, part_vals []string) (r *Partition, err error) {
 	var _args481 ThriftHiveMetastoreAppendPartitionArgs
 	_args481.DbName = db_name
@@ -83914,7 +83915,7 @@ func (p *ThriftHiveMetastoreClient) AppendPartition(ctx context.Context, db_name
 }
 
 // Parameters:
-//  - Request
+//   - Request
 func (p *ThriftHiveMetastoreClient) AddPartitionsReq(ctx context.Context, request *AddPartitionsRequest) (r *AddPartitionsResult_, err error) {
 	var _args483 ThriftHiveMetastoreAddPartitionsReqArgs
 	_args483.Request = request
@@ -83938,10 +83939,10 @@ func (p *ThriftHiveMetastoreClient) AddPartitionsReq(ctx context.Context, reques
 }
 
 // Parameters:
-//  - DbName
-//  - TblName
-//  - PartVals
-//  - EnvironmentContext
+//   - DbName
+//   - TblName
+//   - PartVals
+//   - EnvironmentContext
 func (p *ThriftHiveMetastoreClient) AppendPartitionWithEnvironmentContext(ctx context.Context, db_name string, tbl_name string, part_vals []string, environment_context *EnvironmentContext) (r *Partition, err error) {
 	var _args485 ThriftHiveMetastoreAppendPartitionWithEnvironmentContextArgs
 	_args485.DbName = db_name
@@ -83968,9 +83969,9 @@ func (p *ThriftHiveMetastoreClient) AppendPartitionWithEnvironmentContext(ctx co
 }
 
 // Parameters:
-//  - DbName
-//  - TblName
-//  - PartName
+//   - DbName
+//   - TblName
+//   - PartName
 func (p *ThriftHiveMetastoreClient) AppendPartitionByName(ctx context.Context, db_name string, tbl_name string, part_name string) (r *Partition, err error) {
 	var _args487 ThriftHiveMetastoreAppendPartitionByNameArgs
 	_args487.DbName = db_name
@@ -83996,10 +83997,10 @@ func (p *ThriftHiveMetastoreClient) AppendPartitionByName(ctx context.Context, d
 }
 
 // Parameters:
-//  - DbName
-//  - TblName
-//  - PartName
-//  - EnvironmentContext
+//   - DbName
+//   - TblName
+//   - PartName
+//   - EnvironmentContext
 func (p *ThriftHiveMetastoreClient) AppendPartitionByNameWithEnvironmentContext(ctx context.Context, db_name string, tbl_name string, part_name string, environment_context *EnvironmentContext) (r *Partition, err error) {
 	var _args489 ThriftHiveMetastoreAppendPartitionByNameWithEnvironmentContextArgs
 	_args489.DbName = db_name
@@ -84026,10 +84027,10 @@ func (p *ThriftHiveMetastoreClient) AppendPartitionByNameWithEnvironmentContext(
 }
 
 // Parameters:
-//  - DbName
-//  - TblName
-//  - PartVals
-//  - DeleteData
+//   - DbName
+//   - TblName
+//   - PartVals
+//   - DeleteData
 func (p *ThriftHiveMetastoreClient) DropPartition(ctx context.Context, db_name string, tbl_name string, part_vals []string, deleteData bool) (r bool, err error) {
 	var _args491 ThriftHiveMetastoreDropPartitionArgs
 	_args491.DbName = db_name
@@ -84054,11 +84055,11 @@ func (p *ThriftHiveMetastoreClient) DropPartition(ctx context.Context, db_name s
 }
 
 // Parameters:
-//  - DbName
-//  - TblName
-//  - PartVals
-//  - DeleteData
-//  - EnvironmentContext
+//   - DbName
+//   - TblName
+//   - PartVals
+//   - DeleteData
+//   - EnvironmentContext
 func (p *ThriftHiveMetastoreClient) DropPartitionWithEnvironmentContext(ctx context.Context, db_name string, tbl_name string, part_vals []string, deleteData bool, environment_context *EnvironmentContext) (r bool, err error) {
 	var _args493 ThriftHiveMetastoreDropPartitionWithEnvironmentContextArgs
 	_args493.DbName = db_name
@@ -84084,10 +84085,10 @@ func (p *ThriftHiveMetastoreClient) DropPartitionWithEnvironmentContext(ctx cont
 }
 
 // Parameters:
-//  - DbName
-//  - TblName
-//  - PartName
-//  - DeleteData
+//   - DbName
+//   - TblName
+//   - PartName
+//   - DeleteData
 func (p *ThriftHiveMetastoreClient) DropPartitionByName(ctx context.Context, db_name string, tbl_name string, part_name string, deleteData bool) (r bool, err error) {
 	var _args495 ThriftHiveMetastoreDropPartitionByNameArgs
 	_args495.DbName = db_name
@@ -84112,11 +84113,11 @@ func (p *ThriftHiveMetastoreClient) DropPartitionByName(ctx context.Context, db_
 }
 
 // Parameters:
-//  - DbName
-//  - TblName
-//  - PartName
-//  - DeleteData
-//  - EnvironmentContext
+//   - DbName
+//   - TblName
+//   - PartName
+//   - DeleteData
+//   - EnvironmentContext
 func (p *ThriftHiveMetastoreClient) DropPartitionByNameWithEnvironmentContext(ctx context.Context, db_name string, tbl_name string, part_name string, deleteData bool, environment_context *EnvironmentContext) (r bool, err error) {
 	var _args497 ThriftHiveMetastoreDropPartitionByNameWithEnvironmentContextArgs
 	_args497.DbName = db_name
@@ -84142,7 +84143,7 @@ func (p *ThriftHiveMetastoreClient) DropPartitionByNameWithEnvironmentContext(ct
 }
 
 // Parameters:
-//  - Req
+//   - Req
 func (p *ThriftHiveMetastoreClient) DropPartitionsReq(ctx context.Context, req *DropPartitionsRequest) (r *DropPartitionsResult_, err error) {
 	var _args499 ThriftHiveMetastoreDropPartitionsReqArgs
 	_args499.Req = req
@@ -84164,9 +84165,9 @@ func (p *ThriftHiveMetastoreClient) DropPartitionsReq(ctx context.Context, req *
 }
 
 // Parameters:
-//  - DbName
-//  - TblName
-//  - PartVals
+//   - DbName
+//   - TblName
+//   - PartVals
 func (p *ThriftHiveMetastoreClient) GetPartition(ctx context.Context, db_name string, tbl_name string, part_vals []string) (r *Partition, err error) {
 	var _args501 ThriftHiveMetastoreGetPartitionArgs
 	_args501.DbName = db_name
@@ -84190,7 +84191,7 @@ func (p *ThriftHiveMetastoreClient) GetPartition(ctx context.Context, db_name st
 }
 
 // Parameters:
-//  - Req
+//   - Req
 func (p *ThriftHiveMetastoreClient) GetPartitionReq(ctx context.Context, req *GetPartitionRequest) (r *GetPartitionResponse, err error) {
 	var _args503 ThriftHiveMetastoreGetPartitionReqArgs
 	_args503.Req = req
@@ -84212,11 +84213,11 @@ func (p *ThriftHiveMetastoreClient) GetPartitionReq(ctx context.Context, req *Ge
 }
 
 // Parameters:
-//  - PartitionSpecs
-//  - SourceDb
-//  - SourceTableName
-//  - DestDb
-//  - DestTableName
+//   - PartitionSpecs
+//   - SourceDb
+//   - SourceTableName
+//   - DestDb
+//   - DestTableName
 func (p *ThriftHiveMetastoreClient) ExchangePartition(ctx context.Context, partitionSpecs map[string]string, source_db string, source_table_name string, dest_db string, dest_table_name string) (r *Partition, err error) {
 	var _args505 ThriftHiveMetastoreExchangePartitionArgs
 	_args505.PartitionSpecs = partitionSpecs
@@ -84246,11 +84247,11 @@ func (p *ThriftHiveMetastoreClient) ExchangePartition(ctx context.Context, parti
 }
 
 // Parameters:
-//  - PartitionSpecs
-//  - SourceDb
-//  - SourceTableName
-//  - DestDb
-//  - DestTableName
+//   - PartitionSpecs
+//   - SourceDb
+//   - SourceTableName
+//   - DestDb
+//   - DestTableName
 func (p *ThriftHiveMetastoreClient) ExchangePartitions(ctx context.Context, partitionSpecs map[string]string, source_db string, source_table_name string, dest_db string, dest_table_name string) (r []*Partition, err error) {
 	var _args507 ThriftHiveMetastoreExchangePartitionsArgs
 	_args507.PartitionSpecs = partitionSpecs
@@ -84280,11 +84281,11 @@ func (p *ThriftHiveMetastoreClient) ExchangePartitions(ctx context.Context, part
 }
 
 // Parameters:
-//  - DbName
-//  - TblName
-//  - PartVals
-//  - UserName
-//  - GroupNames
+//   - DbName
+//   - TblName
+//   - PartVals
+//   - UserName
+//   - GroupNames
 func (p *ThriftHiveMetastoreClient) GetPartitionWithAuth(ctx context.Context, db_name string, tbl_name string, part_vals []string, user_name string, group_names []string) (r *Partition, err error) {
 	var _args509 ThriftHiveMetastoreGetPartitionWithAuthArgs
 	_args509.DbName = db_name
@@ -84310,9 +84311,9 @@ func (p *ThriftHiveMetastoreClient) GetPartitionWithAuth(ctx context.Context, db
 }
 
 // Parameters:
-//  - DbName
-//  - TblName
-//  - PartName
+//   - DbName
+//   - TblName
+//   - PartName
 func (p *ThriftHiveMetastoreClient) GetPartitionByName(ctx context.Context, db_name string, tbl_name string, part_name string) (r *Partition, err error) {
 	var _args511 ThriftHiveMetastoreGetPartitionByNameArgs
 	_args511.DbName = db_name
@@ -84336,9 +84337,9 @@ func (p *ThriftHiveMetastoreClient) GetPartitionByName(ctx context.Context, db_n
 }
 
 // Parameters:
-//  - DbName
-//  - TblName
-//  - MaxParts
+//   - DbName
+//   - TblName
+//   - MaxParts
 func (p *ThriftHiveMetastoreClient) GetPartitions(ctx context.Context, db_name string, tbl_name string, max_parts int16) (r []*Partition, err error) {
 	var _args513 ThriftHiveMetastoreGetPartitionsArgs
 	_args513.DbName = db_name
@@ -84362,7 +84363,7 @@ func (p *ThriftHiveMetastoreClient) GetPartitions(ctx context.Context, db_name s
 }
 
 // Parameters:
-//  - Req
+//   - Req
 func (p *ThriftHiveMetastoreClient) GetPartitionsReq(ctx context.Context, req *PartitionsRequest) (r *PartitionsResponse, err error) {
 	var _args515 ThriftHiveMetastoreGetPartitionsReqArgs
 	_args515.Req = req
@@ -84384,11 +84385,11 @@ func (p *ThriftHiveMetastoreClient) GetPartitionsReq(ctx context.Context, req *P
 }
 
 // Parameters:
-//  - DbName
-//  - TblName
-//  - MaxParts
-//  - UserName
-//  - GroupNames
+//   - DbName
+//   - TblName
+//   - MaxParts
+//   - UserName
+//   - GroupNames
 func (p *ThriftHiveMetastoreClient) GetPartitionsWithAuth(ctx context.Context, db_name string, tbl_name string, max_parts int16, user_name string, group_names []string) (r []*Partition, err error) {
 	var _args517 ThriftHiveMetastoreGetPartitionsWithAuthArgs
 	_args517.DbName = db_name
@@ -84414,9 +84415,9 @@ func (p *ThriftHiveMetastoreClient) GetPartitionsWithAuth(ctx context.Context, d
 }
 
 // Parameters:
-//  - DbName
-//  - TblName
-//  - MaxParts
+//   - DbName
+//   - TblName
+//   - MaxParts
 func (p *ThriftHiveMetastoreClient) GetPartitionsPspec(ctx context.Context, db_name string, tbl_name string, max_parts int32) (r []*PartitionSpec, err error) {
 	var _args519 ThriftHiveMetastoreGetPartitionsPspecArgs
 	_args519.DbName = db_name
@@ -84440,9 +84441,9 @@ func (p *ThriftHiveMetastoreClient) GetPartitionsPspec(ctx context.Context, db_n
 }
 
 // Parameters:
-//  - DbName
-//  - TblName
-//  - MaxParts
+//   - DbName
+//   - TblName
+//   - MaxParts
 func (p *ThriftHiveMetastoreClient) GetPartitionNames(ctx context.Context, db_name string, tbl_name string, max_parts int16) (r []string, err error) {
 	var _args521 ThriftHiveMetastoreGetPartitionNamesArgs
 	_args521.DbName = db_name
@@ -84466,7 +84467,7 @@ func (p *ThriftHiveMetastoreClient) GetPartitionNames(ctx context.Context, db_na
 }
 
 // Parameters:
-//  - Request
+//   - Request
 func (p *ThriftHiveMetastoreClient) GetPartitionValues(ctx context.Context, request *PartitionValuesRequest) (r *PartitionValuesResponse, err error) {
 	var _args523 ThriftHiveMetastoreGetPartitionValuesArgs
 	_args523.Request = request
@@ -84488,10 +84489,10 @@ func (p *ThriftHiveMetastoreClient) GetPartitionValues(ctx context.Context, requ
 }
 
 // Parameters:
-//  - DbName
-//  - TblName
-//  - PartVals
-//  - MaxParts
+//   - DbName
+//   - TblName
+//   - PartVals
+//   - MaxParts
 func (p *ThriftHiveMetastoreClient) GetPartitionsPs(ctx context.Context, db_name string, tbl_name string, part_vals []string, max_parts int16) (r []*Partition, err error) {
 	var _args525 ThriftHiveMetastoreGetPartitionsPsArgs
 	_args525.DbName = db_name
@@ -84516,12 +84517,12 @@ func (p *ThriftHiveMetastoreClient) GetPartitionsPs(ctx context.Context, db_name
 }
 
 // Parameters:
-//  - DbName
-//  - TblName
-//  - PartVals
-//  - MaxParts
-//  - UserName
-//  - GroupNames
+//   - DbName
+//   - TblName
+//   - PartVals
+//   - MaxParts
+//   - UserName
+//   - GroupNames
 func (p *ThriftHiveMetastoreClient) GetPartitionsPsWithAuth(ctx context.Context, db_name string, tbl_name string, part_vals []string, max_parts int16, user_name string, group_names []string) (r []*Partition, err error) {
 	var _args527 ThriftHiveMetastoreGetPartitionsPsWithAuthArgs
 	_args527.DbName = db_name
@@ -84548,7 +84549,7 @@ func (p *ThriftHiveMetastoreClient) GetPartitionsPsWithAuth(ctx context.Context,
 }
 
 // Parameters:
-//  - Req
+//   - Req
 func (p *ThriftHiveMetastoreClient) GetPartitionsPsWithAuthReq(ctx context.Context, req *GetPartitionsPsWithAuthRequest) (r *GetPartitionsPsWithAuthResponse, err error) {
 	var _args529 ThriftHiveMetastoreGetPartitionsPsWithAuthReqArgs
 	_args529.Req = req
@@ -84570,10 +84571,10 @@ func (p *ThriftHiveMetastoreClient) GetPartitionsPsWithAuthReq(ctx context.Conte
 }
 
 // Parameters:
-//  - DbName
-//  - TblName
-//  - PartVals
-//  - MaxParts
+//   - DbName
+//   - TblName
+//   - PartVals
+//   - MaxParts
 func (p *ThriftHiveMetastoreClient) GetPartitionNamesPs(ctx context.Context, db_name string, tbl_name string, part_vals []string, max_parts int16) (r []string, err error) {
 	var _args531 ThriftHiveMetastoreGetPartitionNamesPsArgs
 	_args531.DbName = db_name
@@ -84598,7 +84599,7 @@ func (p *ThriftHiveMetastoreClient) GetPartitionNamesPs(ctx context.Context, db_
 }
 
 // Parameters:
-//  - Req
+//   - Req
 func (p *ThriftHiveMetastoreClient) GetPartitionNamesPsReq(ctx context.Context, req *GetPartitionNamesPsRequest) (r *GetPartitionNamesPsResponse, err error) {
 	var _args533 ThriftHiveMetastoreGetPartitionNamesPsReqArgs
 	_args533.Req = req
@@ -84620,7 +84621,7 @@ func (p *ThriftHiveMetastoreClient) GetPartitionNamesPsReq(ctx context.Context, 
 }
 
 // Parameters:
-//  - Req
+//   - Req
 func (p *ThriftHiveMetastoreClient) GetPartitionNamesReq(ctx context.Context, req *PartitionsByExprRequest) (r []string, err error) {
 	var _args535 ThriftHiveMetastoreGetPartitionNamesReqArgs
 	_args535.Req = req
@@ -84642,10 +84643,10 @@ func (p *ThriftHiveMetastoreClient) GetPartitionNamesReq(ctx context.Context, re
 }
 
 // Parameters:
-//  - DbName
-//  - TblName
-//  - Filter
-//  - MaxParts
+//   - DbName
+//   - TblName
+//   - Filter
+//   - MaxParts
 func (p *ThriftHiveMetastoreClient) GetPartitionsByFilter(ctx context.Context, db_name string, tbl_name string, filter string, max_parts int16) (r []*Partition, err error) {
 	var _args537 ThriftHiveMetastoreGetPartitionsByFilterArgs
 	_args537.DbName = db_name
@@ -84670,10 +84671,10 @@ func (p *ThriftHiveMetastoreClient) GetPartitionsByFilter(ctx context.Context, d
 }
 
 // Parameters:
-//  - DbName
-//  - TblName
-//  - Filter
-//  - MaxParts
+//   - DbName
+//   - TblName
+//   - Filter
+//   - MaxParts
 func (p *ThriftHiveMetastoreClient) GetPartSpecsByFilter(ctx context.Context, db_name string, tbl_name string, filter string, max_parts int32) (r []*PartitionSpec, err error) {
 	var _args539 ThriftHiveMetastoreGetPartSpecsByFilterArgs
 	_args539.DbName = db_name
@@ -84698,7 +84699,7 @@ func (p *ThriftHiveMetastoreClient) GetPartSpecsByFilter(ctx context.Context, db
 }
 
 // Parameters:
-//  - Req
+//   - Req
 func (p *ThriftHiveMetastoreClient) GetPartitionsByExpr(ctx context.Context, req *PartitionsByExprRequest) (r *PartitionsByExprResult_, err error) {
 	var _args541 ThriftHiveMetastoreGetPartitionsByExprArgs
 	_args541.Req = req
@@ -84720,7 +84721,7 @@ func (p *ThriftHiveMetastoreClient) GetPartitionsByExpr(ctx context.Context, req
 }
 
 // Parameters:
-//  - Req
+//   - Req
 func (p *ThriftHiveMetastoreClient) GetPartitionsSpecByExpr(ctx context.Context, req *PartitionsByExprRequest) (r *PartitionsSpecByExprResult_, err error) {
 	var _args543 ThriftHiveMetastoreGetPartitionsSpecByExprArgs
 	_args543.Req = req
@@ -84742,9 +84743,9 @@ func (p *ThriftHiveMetastoreClient) GetPartitionsSpecByExpr(ctx context.Context,
 }
 
 // Parameters:
-//  - DbName
-//  - TblName
-//  - Filter
+//   - DbName
+//   - TblName
+//   - Filter
 func (p *ThriftHiveMetastoreClient) GetNumPartitionsByFilter(ctx context.Context, db_name string, tbl_name string, filter string) (r int32, err error) {
 	var _args545 ThriftHiveMetastoreGetNumPartitionsByFilterArgs
 	_args545.DbName = db_name
@@ -84768,9 +84769,9 @@ func (p *ThriftHiveMetastoreClient) GetNumPartitionsByFilter(ctx context.Context
 }
 
 // Parameters:
-//  - DbName
-//  - TblName
-//  - Names
+//   - DbName
+//   - TblName
+//   - Names
 func (p *ThriftHiveMetastoreClient) GetPartitionsByNames(ctx context.Context, db_name string, tbl_name string, names []string) (r []*Partition, err error) {
 	var _args547 ThriftHiveMetastoreGetPartitionsByNamesArgs
 	_args547.DbName = db_name
@@ -84794,7 +84795,7 @@ func (p *ThriftHiveMetastoreClient) GetPartitionsByNames(ctx context.Context, db
 }
 
 // Parameters:
-//  - Req
+//   - Req
 func (p *ThriftHiveMetastoreClient) GetPartitionsByNamesReq(ctx context.Context, req *GetPartitionsByNamesRequest) (r *GetPartitionsByNamesResult_, err error) {
 	var _args549 ThriftHiveMetastoreGetPartitionsByNamesReqArgs
 	_args549.Req = req
@@ -84816,9 +84817,9 @@ func (p *ThriftHiveMetastoreClient) GetPartitionsByNamesReq(ctx context.Context,
 }
 
 // Parameters:
-//  - DbName
-//  - TblName
-//  - NewPart_
+//   - DbName
+//   - TblName
+//   - NewPart_
 func (p *ThriftHiveMetastoreClient) AlterPartition(ctx context.Context, db_name string, tbl_name string, new_part *Partition) (err error) {
 	var _args551 ThriftHiveMetastoreAlterPartitionArgs
 	_args551.DbName = db_name
@@ -84842,9 +84843,9 @@ func (p *ThriftHiveMetastoreClient) AlterPartition(ctx context.Context, db_name 
 }
 
 // Parameters:
-//  - DbName
-//  - TblName
-//  - NewParts_
+//   - DbName
+//   - TblName
+//   - NewParts_
 func (p *ThriftHiveMetastoreClient) AlterPartitions(ctx context.Context, db_name string, tbl_name string, new_parts []*Partition) (err error) {
 	var _args553 ThriftHiveMetastoreAlterPartitionsArgs
 	_args553.DbName = db_name
@@ -84868,10 +84869,10 @@ func (p *ThriftHiveMetastoreClient) AlterPartitions(ctx context.Context, db_name
 }
 
 // Parameters:
-//  - DbName
-//  - TblName
-//  - NewParts_
-//  - EnvironmentContext
+//   - DbName
+//   - TblName
+//   - NewParts_
+//   - EnvironmentContext
 func (p *ThriftHiveMetastoreClient) AlterPartitionsWithEnvironmentContext(ctx context.Context, db_name string, tbl_name string, new_parts []*Partition, environment_context *EnvironmentContext) (err error) {
 	var _args555 ThriftHiveMetastoreAlterPartitionsWithEnvironmentContextArgs
 	_args555.DbName = db_name
@@ -84896,7 +84897,7 @@ func (p *ThriftHiveMetastoreClient) AlterPartitionsWithEnvironmentContext(ctx co
 }
 
 // Parameters:
-//  - Req
+//   - Req
 func (p *ThriftHiveMetastoreClient) AlterPartitionsReq(ctx context.Context, req *AlterPartitionsRequest) (r *AlterPartitionsResponse, err error) {
 	var _args557 ThriftHiveMetastoreAlterPartitionsReqArgs
 	_args557.Req = req
@@ -84918,10 +84919,10 @@ func (p *ThriftHiveMetastoreClient) AlterPartitionsReq(ctx context.Context, req 
 }
 
 // Parameters:
-//  - DbName
-//  - TblName
-//  - NewPart_
-//  - EnvironmentContext
+//   - DbName
+//   - TblName
+//   - NewPart_
+//   - EnvironmentContext
 func (p *ThriftHiveMetastoreClient) AlterPartitionWithEnvironmentContext(ctx context.Context, db_name string, tbl_name string, new_part *Partition, environment_context *EnvironmentContext) (err error) {
 	var _args559 ThriftHiveMetastoreAlterPartitionWithEnvironmentContextArgs
 	_args559.DbName = db_name
@@ -84946,10 +84947,10 @@ func (p *ThriftHiveMetastoreClient) AlterPartitionWithEnvironmentContext(ctx con
 }
 
 // Parameters:
-//  - DbName
-//  - TblName
-//  - PartVals
-//  - NewPart_
+//   - DbName
+//   - TblName
+//   - PartVals
+//   - NewPart_
 func (p *ThriftHiveMetastoreClient) RenamePartition(ctx context.Context, db_name string, tbl_name string, part_vals []string, new_part *Partition) (err error) {
 	var _args561 ThriftHiveMetastoreRenamePartitionArgs
 	_args561.DbName = db_name
@@ -84974,7 +84975,7 @@ func (p *ThriftHiveMetastoreClient) RenamePartition(ctx context.Context, db_name
 }
 
 // Parameters:
-//  - Req
+//   - Req
 func (p *ThriftHiveMetastoreClient) RenamePartitionReq(ctx context.Context, req *RenamePartitionRequest) (r *RenamePartitionResponse, err error) {
 	var _args563 ThriftHiveMetastoreRenamePartitionReqArgs
 	_args563.Req = req
@@ -84996,8 +84997,8 @@ func (p *ThriftHiveMetastoreClient) RenamePartitionReq(ctx context.Context, req 
 }
 
 // Parameters:
-//  - PartVals
-//  - ThrowException
+//   - PartVals
+//   - ThrowException
 func (p *ThriftHiveMetastoreClient) PartitionNameHasValidCharacters(ctx context.Context, part_vals []string, throw_exception bool) (r bool, err error) {
 	var _args565 ThriftHiveMetastorePartitionNameHasValidCharactersArgs
 	_args565.PartVals = part_vals
@@ -85018,8 +85019,8 @@ func (p *ThriftHiveMetastoreClient) PartitionNameHasValidCharacters(ctx context.
 }
 
 // Parameters:
-//  - Name
-//  - DefaultValue
+//   - Name
+//   - DefaultValue
 func (p *ThriftHiveMetastoreClient) GetConfigValue(ctx context.Context, name string, defaultValue string) (r string, err error) {
 	var _args567 ThriftHiveMetastoreGetConfigValueArgs
 	_args567.Name = name
@@ -85040,7 +85041,7 @@ func (p *ThriftHiveMetastoreClient) GetConfigValue(ctx context.Context, name str
 }
 
 // Parameters:
-//  - PartName
+//   - PartName
 func (p *ThriftHiveMetastoreClient) PartitionNameToVals(ctx context.Context, part_name string) (r []string, err error) {
 	var _args569 ThriftHiveMetastorePartitionNameToValsArgs
 	_args569.PartName = part_name
@@ -85060,7 +85061,7 @@ func (p *ThriftHiveMetastoreClient) PartitionNameToVals(ctx context.Context, par
 }
 
 // Parameters:
-//  - PartName
+//   - PartName
 func (p *ThriftHiveMetastoreClient) PartitionNameToSpec(ctx context.Context, part_name string) (r map[string]string, err error) {
 	var _args571 ThriftHiveMetastorePartitionNameToSpecArgs
 	_args571.PartName = part_name
@@ -85080,10 +85081,10 @@ func (p *ThriftHiveMetastoreClient) PartitionNameToSpec(ctx context.Context, par
 }
 
 // Parameters:
-//  - DbName
-//  - TblName
-//  - PartVals
-//  - EventType
+//   - DbName
+//   - TblName
+//   - PartVals
+//   - EventType
 func (p *ThriftHiveMetastoreClient) MarkPartitionForEvent(ctx context.Context, db_name string, tbl_name string, part_vals map[string]string, eventType PartitionEventType) (err error) {
 	var _args573 ThriftHiveMetastoreMarkPartitionForEventArgs
 	_args573.DbName = db_name
@@ -85116,10 +85117,10 @@ func (p *ThriftHiveMetastoreClient) MarkPartitionForEvent(ctx context.Context, d
 }
 
 // Parameters:
-//  - DbName
-//  - TblName
-//  - PartVals
-//  - EventType
+//   - DbName
+//   - TblName
+//   - PartVals
+//   - EventType
 func (p *ThriftHiveMetastoreClient) IsPartitionMarkedForEvent(ctx context.Context, db_name string, tbl_name string, part_vals map[string]string, eventType PartitionEventType) (r bool, err error) {
 	var _args575 ThriftHiveMetastoreIsPartitionMarkedForEventArgs
 	_args575.DbName = db_name
@@ -85152,7 +85153,7 @@ func (p *ThriftHiveMetastoreClient) IsPartitionMarkedForEvent(ctx context.Contex
 }
 
 // Parameters:
-//  - Request
+//   - Request
 func (p *ThriftHiveMetastoreClient) GetPrimaryKeys(ctx context.Context, request *PrimaryKeysRequest) (r *PrimaryKeysResponse, err error) {
 	var _args577 ThriftHiveMetastoreGetPrimaryKeysArgs
 	_args577.Request = request
@@ -85174,7 +85175,7 @@ func (p *ThriftHiveMetastoreClient) GetPrimaryKeys(ctx context.Context, request 
 }
 
 // Parameters:
-//  - Request
+//   - Request
 func (p *ThriftHiveMetastoreClient) GetForeignKeys(ctx context.Context, request *ForeignKeysRequest) (r *ForeignKeysResponse, err error) {
 	var _args579 ThriftHiveMetastoreGetForeignKeysArgs
 	_args579.Request = request
@@ -85196,7 +85197,7 @@ func (p *ThriftHiveMetastoreClient) GetForeignKeys(ctx context.Context, request 
 }
 
 // Parameters:
-//  - Request
+//   - Request
 func (p *ThriftHiveMetastoreClient) GetUniqueConstraints(ctx context.Context, request *UniqueConstraintsRequest) (r *UniqueConstraintsResponse, err error) {
 	var _args581 ThriftHiveMetastoreGetUniqueConstraintsArgs
 	_args581.Request = request
@@ -85218,7 +85219,7 @@ func (p *ThriftHiveMetastoreClient) GetUniqueConstraints(ctx context.Context, re
 }
 
 // Parameters:
-//  - Request
+//   - Request
 func (p *ThriftHiveMetastoreClient) GetNotNullConstraints(ctx context.Context, request *NotNullConstraintsRequest) (r *NotNullConstraintsResponse, err error) {
 	var _args583 ThriftHiveMetastoreGetNotNullConstraintsArgs
 	_args583.Request = request
@@ -85240,7 +85241,7 @@ func (p *ThriftHiveMetastoreClient) GetNotNullConstraints(ctx context.Context, r
 }
 
 // Parameters:
-//  - Request
+//   - Request
 func (p *ThriftHiveMetastoreClient) GetDefaultConstraints(ctx context.Context, request *DefaultConstraintsRequest) (r *DefaultConstraintsResponse, err error) {
 	var _args585 ThriftHiveMetastoreGetDefaultConstraintsArgs
 	_args585.Request = request
@@ -85262,7 +85263,7 @@ func (p *ThriftHiveMetastoreClient) GetDefaultConstraints(ctx context.Context, r
 }
 
 // Parameters:
-//  - Request
+//   - Request
 func (p *ThriftHiveMetastoreClient) GetCheckConstraints(ctx context.Context, request *CheckConstraintsRequest) (r *CheckConstraintsResponse, err error) {
 	var _args587 ThriftHiveMetastoreGetCheckConstraintsArgs
 	_args587.Request = request
@@ -85284,7 +85285,7 @@ func (p *ThriftHiveMetastoreClient) GetCheckConstraints(ctx context.Context, req
 }
 
 // Parameters:
-//  - Request
+//   - Request
 func (p *ThriftHiveMetastoreClient) GetAllTableConstraints(ctx context.Context, request *AllTableConstraintsRequest) (r *AllTableConstraintsResponse, err error) {
 	var _args589 ThriftHiveMetastoreGetAllTableConstraintsArgs
 	_args589.Request = request
@@ -85306,7 +85307,7 @@ func (p *ThriftHiveMetastoreClient) GetAllTableConstraints(ctx context.Context, 
 }
 
 // Parameters:
-//  - StatsObj
+//   - StatsObj
 func (p *ThriftHiveMetastoreClient) UpdateTableColumnStatistics(ctx context.Context, stats_obj *ColumnStatistics) (r bool, err error) {
 	var _args591 ThriftHiveMetastoreUpdateTableColumnStatisticsArgs
 	_args591.StatsObj = stats_obj
@@ -85332,7 +85333,7 @@ func (p *ThriftHiveMetastoreClient) UpdateTableColumnStatistics(ctx context.Cont
 }
 
 // Parameters:
-//  - StatsObj
+//   - StatsObj
 func (p *ThriftHiveMetastoreClient) UpdatePartitionColumnStatistics(ctx context.Context, stats_obj *ColumnStatistics) (r bool, err error) {
 	var _args593 ThriftHiveMetastoreUpdatePartitionColumnStatisticsArgs
 	_args593.StatsObj = stats_obj
@@ -85358,7 +85359,7 @@ func (p *ThriftHiveMetastoreClient) UpdatePartitionColumnStatistics(ctx context.
 }
 
 // Parameters:
-//  - Req
+//   - Req
 func (p *ThriftHiveMetastoreClient) UpdateTableColumnStatisticsReq(ctx context.Context, req *SetPartitionsStatsRequest) (r *SetPartitionsStatsResponse, err error) {
 	var _args595 ThriftHiveMetastoreUpdateTableColumnStatisticsReqArgs
 	_args595.Req = req
@@ -85384,7 +85385,7 @@ func (p *ThriftHiveMetastoreClient) UpdateTableColumnStatisticsReq(ctx context.C
 }
 
 // Parameters:
-//  - Req
+//   - Req
 func (p *ThriftHiveMetastoreClient) UpdatePartitionColumnStatisticsReq(ctx context.Context, req *SetPartitionsStatsRequest) (r *SetPartitionsStatsResponse, err error) {
 	var _args597 ThriftHiveMetastoreUpdatePartitionColumnStatisticsReqArgs
 	_args597.Req = req
@@ -85410,9 +85411,9 @@ func (p *ThriftHiveMetastoreClient) UpdatePartitionColumnStatisticsReq(ctx conte
 }
 
 // Parameters:
-//  - DbName
-//  - TblName
-//  - ColName
+//   - DbName
+//   - TblName
+//   - ColName
 func (p *ThriftHiveMetastoreClient) GetTableColumnStatistics(ctx context.Context, db_name string, tbl_name string, col_name string) (r *ColumnStatistics, err error) {
 	var _args599 ThriftHiveMetastoreGetTableColumnStatisticsArgs
 	_args599.DbName = db_name
@@ -85440,10 +85441,10 @@ func (p *ThriftHiveMetastoreClient) GetTableColumnStatistics(ctx context.Context
 }
 
 // Parameters:
-//  - DbName
-//  - TblName
-//  - PartName
-//  - ColName
+//   - DbName
+//   - TblName
+//   - PartName
+//   - ColName
 func (p *ThriftHiveMetastoreClient) GetPartitionColumnStatistics(ctx context.Context, db_name string, tbl_name string, part_name string, col_name string) (r *ColumnStatistics, err error) {
 	var _args601 ThriftHiveMetastoreGetPartitionColumnStatisticsArgs
 	_args601.DbName = db_name
@@ -85472,7 +85473,7 @@ func (p *ThriftHiveMetastoreClient) GetPartitionColumnStatistics(ctx context.Con
 }
 
 // Parameters:
-//  - Request
+//   - Request
 func (p *ThriftHiveMetastoreClient) GetTableStatisticsReq(ctx context.Context, request *TableStatsRequest) (r *TableStatsResult_, err error) {
 	var _args603 ThriftHiveMetastoreGetTableStatisticsReqArgs
 	_args603.Request = request
@@ -85494,7 +85495,7 @@ func (p *ThriftHiveMetastoreClient) GetTableStatisticsReq(ctx context.Context, r
 }
 
 // Parameters:
-//  - Request
+//   - Request
 func (p *ThriftHiveMetastoreClient) GetPartitionsStatisticsReq(ctx context.Context, request *PartitionsStatsRequest) (r *PartitionsStatsResult_, err error) {
 	var _args605 ThriftHiveMetastoreGetPartitionsStatisticsReqArgs
 	_args605.Request = request
@@ -85516,7 +85517,7 @@ func (p *ThriftHiveMetastoreClient) GetPartitionsStatisticsReq(ctx context.Conte
 }
 
 // Parameters:
-//  - Request
+//   - Request
 func (p *ThriftHiveMetastoreClient) GetAggrStatsFor(ctx context.Context, request *PartitionsStatsRequest) (r *AggrStats, err error) {
 	var _args607 ThriftHiveMetastoreGetAggrStatsForArgs
 	_args607.Request = request
@@ -85538,7 +85539,7 @@ func (p *ThriftHiveMetastoreClient) GetAggrStatsFor(ctx context.Context, request
 }
 
 // Parameters:
-//  - Request
+//   - Request
 func (p *ThriftHiveMetastoreClient) SetAggrStatsFor(ctx context.Context, request *SetPartitionsStatsRequest) (r bool, err error) {
 	var _args609 ThriftHiveMetastoreSetAggrStatsForArgs
 	_args609.Request = request
@@ -85564,11 +85565,11 @@ func (p *ThriftHiveMetastoreClient) SetAggrStatsFor(ctx context.Context, request
 }
 
 // Parameters:
-//  - DbName
-//  - TblName
-//  - PartName
-//  - ColName
-//  - Engine
+//   - DbName
+//   - TblName
+//   - PartName
+//   - ColName
+//   - Engine
 func (p *ThriftHiveMetastoreClient) DeletePartitionColumnStatistics(ctx context.Context, db_name string, tbl_name string, part_name string, col_name string, engine string) (r bool, err error) {
 	var _args611 ThriftHiveMetastoreDeletePartitionColumnStatisticsArgs
 	_args611.DbName = db_name
@@ -85598,10 +85599,10 @@ func (p *ThriftHiveMetastoreClient) DeletePartitionColumnStatistics(ctx context.
 }
 
 // Parameters:
-//  - DbName
-//  - TblName
-//  - ColName
-//  - Engine
+//   - DbName
+//   - TblName
+//   - ColName
+//   - Engine
 func (p *ThriftHiveMetastoreClient) DeleteTableColumnStatistics(ctx context.Context, db_name string, tbl_name string, col_name string, engine string) (r bool, err error) {
 	var _args613 ThriftHiveMetastoreDeleteTableColumnStatisticsArgs
 	_args613.DbName = db_name
@@ -85630,7 +85631,7 @@ func (p *ThriftHiveMetastoreClient) DeleteTableColumnStatistics(ctx context.Cont
 }
 
 // Parameters:
-//  - Func
+//   - Func
 func (p *ThriftHiveMetastoreClient) CreateFunction(ctx context.Context, func_a1 *Function) (err error) {
 	var _args615 ThriftHiveMetastoreCreateFunctionArgs
 	_args615.Func = func_a1
@@ -85656,8 +85657,8 @@ func (p *ThriftHiveMetastoreClient) CreateFunction(ctx context.Context, func_a1 
 }
 
 // Parameters:
-//  - DbName
-//  - FuncName
+//   - DbName
+//   - FuncName
 func (p *ThriftHiveMetastoreClient) DropFunction(ctx context.Context, dbName string, funcName string) (err error) {
 	var _args617 ThriftHiveMetastoreDropFunctionArgs
 	_args617.DbName = dbName
@@ -85680,9 +85681,9 @@ func (p *ThriftHiveMetastoreClient) DropFunction(ctx context.Context, dbName str
 }
 
 // Parameters:
-//  - DbName
-//  - FuncName
-//  - NewFunc_
+//   - DbName
+//   - FuncName
+//   - NewFunc_
 func (p *ThriftHiveMetastoreClient) AlterFunction(ctx context.Context, dbName string, funcName string, newFunc *Function) (err error) {
 	var _args619 ThriftHiveMetastoreAlterFunctionArgs
 	_args619.DbName = dbName
@@ -85706,8 +85707,8 @@ func (p *ThriftHiveMetastoreClient) AlterFunction(ctx context.Context, dbName st
 }
 
 // Parameters:
-//  - DbName
-//  - Pattern
+//   - DbName
+//   - Pattern
 func (p *ThriftHiveMetastoreClient) GetFunctions(ctx context.Context, dbName string, pattern string) (r []string, err error) {
 	var _args621 ThriftHiveMetastoreGetFunctionsArgs
 	_args621.DbName = dbName
@@ -85728,8 +85729,8 @@ func (p *ThriftHiveMetastoreClient) GetFunctions(ctx context.Context, dbName str
 }
 
 // Parameters:
-//  - DbName
-//  - FuncName
+//   - DbName
+//   - FuncName
 func (p *ThriftHiveMetastoreClient) GetFunction(ctx context.Context, dbName string, funcName string) (r *Function, err error) {
 	var _args623 ThriftHiveMetastoreGetFunctionArgs
 	_args623.DbName = dbName
@@ -85769,7 +85770,7 @@ func (p *ThriftHiveMetastoreClient) GetAllFunctions(ctx context.Context) (r *Get
 }
 
 // Parameters:
-//  - Role
+//   - Role
 func (p *ThriftHiveMetastoreClient) CreateRole(ctx context.Context, role *Role) (r bool, err error) {
 	var _args627 ThriftHiveMetastoreCreateRoleArgs
 	_args627.Role = role
@@ -85789,7 +85790,7 @@ func (p *ThriftHiveMetastoreClient) CreateRole(ctx context.Context, role *Role) 
 }
 
 // Parameters:
-//  - RoleName
+//   - RoleName
 func (p *ThriftHiveMetastoreClient) DropRole(ctx context.Context, role_name string) (r bool, err error) {
 	var _args629 ThriftHiveMetastoreDropRoleArgs
 	_args629.RoleName = role_name
@@ -85826,12 +85827,12 @@ func (p *ThriftHiveMetastoreClient) GetRoleNames(ctx context.Context) (r []strin
 }
 
 // Parameters:
-//  - RoleName
-//  - PrincipalName
-//  - PrincipalType
-//  - Grantor
-//  - GrantorType
-//  - GrantOption
+//   - RoleName
+//   - PrincipalName
+//   - PrincipalType
+//   - Grantor
+//   - GrantorType
+//   - GrantOption
 func (p *ThriftHiveMetastoreClient) GrantRole(ctx context.Context, role_name string, principal_name string, principal_type PrincipalType, grantor string, grantorType PrincipalType, grant_option bool) (r bool, err error) {
 	var _args633 ThriftHiveMetastoreGrantRoleArgs
 	_args633.RoleName = role_name
@@ -85856,9 +85857,9 @@ func (p *ThriftHiveMetastoreClient) GrantRole(ctx context.Context, role_name str
 }
 
 // Parameters:
-//  - RoleName
-//  - PrincipalName
-//  - PrincipalType
+//   - RoleName
+//   - PrincipalName
+//   - PrincipalType
 func (p *ThriftHiveMetastoreClient) RevokeRole(ctx context.Context, role_name string, principal_name string, principal_type PrincipalType) (r bool, err error) {
 	var _args635 ThriftHiveMetastoreRevokeRoleArgs
 	_args635.RoleName = role_name
@@ -85880,8 +85881,8 @@ func (p *ThriftHiveMetastoreClient) RevokeRole(ctx context.Context, role_name st
 }
 
 // Parameters:
-//  - PrincipalName
-//  - PrincipalType
+//   - PrincipalName
+//   - PrincipalType
 func (p *ThriftHiveMetastoreClient) ListRoles(ctx context.Context, principal_name string, principal_type PrincipalType) (r []*Role, err error) {
 	var _args637 ThriftHiveMetastoreListRolesArgs
 	_args637.PrincipalName = principal_name
@@ -85902,7 +85903,7 @@ func (p *ThriftHiveMetastoreClient) ListRoles(ctx context.Context, principal_nam
 }
 
 // Parameters:
-//  - Request
+//   - Request
 func (p *ThriftHiveMetastoreClient) GrantRevokeRole(ctx context.Context, request *GrantRevokeRoleRequest) (r *GrantRevokeRoleResponse, err error) {
 	var _args639 ThriftHiveMetastoreGrantRevokeRoleArgs
 	_args639.Request = request
@@ -85922,7 +85923,7 @@ func (p *ThriftHiveMetastoreClient) GrantRevokeRole(ctx context.Context, request
 }
 
 // Parameters:
-//  - Request
+//   - Request
 func (p *ThriftHiveMetastoreClient) GetPrincipalsInRole(ctx context.Context, request *GetPrincipalsInRoleRequest) (r *GetPrincipalsInRoleResponse, err error) {
 	var _args641 ThriftHiveMetastoreGetPrincipalsInRoleArgs
 	_args641.Request = request
@@ -85942,7 +85943,7 @@ func (p *ThriftHiveMetastoreClient) GetPrincipalsInRole(ctx context.Context, req
 }
 
 // Parameters:
-//  - Request
+//   - Request
 func (p *ThriftHiveMetastoreClient) GetRoleGrantsForPrincipal(ctx context.Context, request *GetRoleGrantsForPrincipalRequest) (r *GetRoleGrantsForPrincipalResponse, err error) {
 	var _args643 ThriftHiveMetastoreGetRoleGrantsForPrincipalArgs
 	_args643.Request = request
@@ -85962,9 +85963,9 @@ func (p *ThriftHiveMetastoreClient) GetRoleGrantsForPrincipal(ctx context.Contex
 }
 
 // Parameters:
-//  - HiveObject
-//  - UserName
-//  - GroupNames
+//   - HiveObject
+//   - UserName
+//   - GroupNames
 func (p *ThriftHiveMetastoreClient) GetPrivilegeSet(ctx context.Context, hiveObject *HiveObjectRef, user_name string, group_names []string) (r *PrincipalPrivilegeSet, err error) {
 	var _args645 ThriftHiveMetastoreGetPrivilegeSetArgs
 	_args645.HiveObject = hiveObject
@@ -85986,9 +85987,9 @@ func (p *ThriftHiveMetastoreClient) GetPrivilegeSet(ctx context.Context, hiveObj
 }
 
 // Parameters:
-//  - PrincipalName
-//  - PrincipalType
-//  - HiveObject
+//   - PrincipalName
+//   - PrincipalType
+//   - HiveObject
 func (p *ThriftHiveMetastoreClient) ListPrivileges(ctx context.Context, principal_name string, principal_type PrincipalType, hiveObject *HiveObjectRef) (r []*HiveObjectPrivilege, err error) {
 	var _args647 ThriftHiveMetastoreListPrivilegesArgs
 	_args647.PrincipalName = principal_name
@@ -86010,7 +86011,7 @@ func (p *ThriftHiveMetastoreClient) ListPrivileges(ctx context.Context, principa
 }
 
 // Parameters:
-//  - Privileges
+//   - Privileges
 func (p *ThriftHiveMetastoreClient) GrantPrivileges(ctx context.Context, privileges *PrivilegeBag) (r bool, err error) {
 	var _args649 ThriftHiveMetastoreGrantPrivilegesArgs
 	_args649.Privileges = privileges
@@ -86030,7 +86031,7 @@ func (p *ThriftHiveMetastoreClient) GrantPrivileges(ctx context.Context, privile
 }
 
 // Parameters:
-//  - Privileges
+//   - Privileges
 func (p *ThriftHiveMetastoreClient) RevokePrivileges(ctx context.Context, privileges *PrivilegeBag) (r bool, err error) {
 	var _args651 ThriftHiveMetastoreRevokePrivilegesArgs
 	_args651.Privileges = privileges
@@ -86050,7 +86051,7 @@ func (p *ThriftHiveMetastoreClient) RevokePrivileges(ctx context.Context, privil
 }
 
 // Parameters:
-//  - Request
+//   - Request
 func (p *ThriftHiveMetastoreClient) GrantRevokePrivileges(ctx context.Context, request *GrantRevokePrivilegeRequest) (r *GrantRevokePrivilegeResponse, err error) {
 	var _args653 ThriftHiveMetastoreGrantRevokePrivilegesArgs
 	_args653.Request = request
@@ -86070,9 +86071,9 @@ func (p *ThriftHiveMetastoreClient) GrantRevokePrivileges(ctx context.Context, r
 }
 
 // Parameters:
-//  - ObjToRefresh
-//  - Authorizer
-//  - GrantRequest
+//   - ObjToRefresh
+//   - Authorizer
+//   - GrantRequest
 func (p *ThriftHiveMetastoreClient) RefreshPrivileges(ctx context.Context, objToRefresh *HiveObjectRef, authorizer string, grantRequest *GrantRevokePrivilegeRequest) (r *GrantRevokePrivilegeResponse, err error) {
 	var _args655 ThriftHiveMetastoreRefreshPrivilegesArgs
 	_args655.ObjToRefresh = objToRefresh
@@ -86094,8 +86095,8 @@ func (p *ThriftHiveMetastoreClient) RefreshPrivileges(ctx context.Context, objTo
 }
 
 // Parameters:
-//  - UserName
-//  - GroupNames
+//   - UserName
+//   - GroupNames
 func (p *ThriftHiveMetastoreClient) SetUgi(ctx context.Context, user_name string, group_names []string) (r []string, err error) {
 	var _args657 ThriftHiveMetastoreSetUgiArgs
 	_args657.UserName = user_name
@@ -86116,8 +86117,8 @@ func (p *ThriftHiveMetastoreClient) SetUgi(ctx context.Context, user_name string
 }
 
 // Parameters:
-//  - TokenOwner
-//  - RenewerKerberosPrincipalName
+//   - TokenOwner
+//   - RenewerKerberosPrincipalName
 func (p *ThriftHiveMetastoreClient) GetDelegationToken(ctx context.Context, token_owner string, renewer_kerberos_principal_name string) (r string, err error) {
 	var _args659 ThriftHiveMetastoreGetDelegationTokenArgs
 	_args659.TokenOwner = token_owner
@@ -86138,7 +86139,7 @@ func (p *ThriftHiveMetastoreClient) GetDelegationToken(ctx context.Context, toke
 }
 
 // Parameters:
-//  - TokenStrForm
+//   - TokenStrForm
 func (p *ThriftHiveMetastoreClient) RenewDelegationToken(ctx context.Context, token_str_form string) (r int64, err error) {
 	var _args661 ThriftHiveMetastoreRenewDelegationTokenArgs
 	_args661.TokenStrForm = token_str_form
@@ -86158,7 +86159,7 @@ func (p *ThriftHiveMetastoreClient) RenewDelegationToken(ctx context.Context, to
 }
 
 // Parameters:
-//  - TokenStrForm
+//   - TokenStrForm
 func (p *ThriftHiveMetastoreClient) CancelDelegationToken(ctx context.Context, token_str_form string) (err error) {
 	var _args663 ThriftHiveMetastoreCancelDelegationTokenArgs
 	_args663.TokenStrForm = token_str_form
@@ -86178,8 +86179,8 @@ func (p *ThriftHiveMetastoreClient) CancelDelegationToken(ctx context.Context, t
 }
 
 // Parameters:
-//  - TokenIdentifier
-//  - DelegationToken
+//   - TokenIdentifier
+//   - DelegationToken
 func (p *ThriftHiveMetastoreClient) AddToken(ctx context.Context, token_identifier string, delegation_token string) (r bool, err error) {
 	var _args665 ThriftHiveMetastoreAddTokenArgs
 	_args665.TokenIdentifier = token_identifier
@@ -86195,7 +86196,7 @@ func (p *ThriftHiveMetastoreClient) AddToken(ctx context.Context, token_identifi
 }
 
 // Parameters:
-//  - TokenIdentifier
+//   - TokenIdentifier
 func (p *ThriftHiveMetastoreClient) RemoveToken(ctx context.Context, token_identifier string) (r bool, err error) {
 	var _args667 ThriftHiveMetastoreRemoveTokenArgs
 	_args667.TokenIdentifier = token_identifier
@@ -86210,7 +86211,7 @@ func (p *ThriftHiveMetastoreClient) RemoveToken(ctx context.Context, token_ident
 }
 
 // Parameters:
-//  - TokenIdentifier
+//   - TokenIdentifier
 func (p *ThriftHiveMetastoreClient) GetToken(ctx context.Context, token_identifier string) (r string, err error) {
 	var _args669 ThriftHiveMetastoreGetTokenArgs
 	_args669.TokenIdentifier = token_identifier
@@ -86237,7 +86238,7 @@ func (p *ThriftHiveMetastoreClient) GetAllTokenIdentifiers(ctx context.Context) 
 }
 
 // Parameters:
-//  - Key
+//   - Key
 func (p *ThriftHiveMetastoreClient) AddMasterKey(ctx context.Context, key string) (r int32, err error) {
 	var _args673 ThriftHiveMetastoreAddMasterKeyArgs
 	_args673.Key = key
@@ -86257,8 +86258,8 @@ func (p *ThriftHiveMetastoreClient) AddMasterKey(ctx context.Context, key string
 }
 
 // Parameters:
-//  - SeqNumber
-//  - Key
+//   - SeqNumber
+//   - Key
 func (p *ThriftHiveMetastoreClient) UpdateMasterKey(ctx context.Context, seq_number int32, key string) (err error) {
 	var _args675 ThriftHiveMetastoreUpdateMasterKeyArgs
 	_args675.SeqNumber = seq_number
@@ -86281,7 +86282,7 @@ func (p *ThriftHiveMetastoreClient) UpdateMasterKey(ctx context.Context, seq_num
 }
 
 // Parameters:
-//  - KeySeq
+//   - KeySeq
 func (p *ThriftHiveMetastoreClient) RemoveMasterKey(ctx context.Context, key_seq int32) (r bool, err error) {
 	var _args677 ThriftHiveMetastoreRemoveMasterKeyArgs
 	_args677.KeySeq = key_seq
@@ -86332,7 +86333,7 @@ func (p *ThriftHiveMetastoreClient) GetOpenTxnsInfo(ctx context.Context) (r *Get
 }
 
 // Parameters:
-//  - Rqst
+//   - Rqst
 func (p *ThriftHiveMetastoreClient) OpenTxns(ctx context.Context, rqst *OpenTxnRequest) (r *OpenTxnsResponse, err error) {
 	var _args685 ThriftHiveMetastoreOpenTxnsArgs
 	_args685.Rqst = rqst
@@ -86347,7 +86348,7 @@ func (p *ThriftHiveMetastoreClient) OpenTxns(ctx context.Context, rqst *OpenTxnR
 }
 
 // Parameters:
-//  - Rqst
+//   - Rqst
 func (p *ThriftHiveMetastoreClient) AbortTxn(ctx context.Context, rqst *AbortTxnRequest) (err error) {
 	var _args687 ThriftHiveMetastoreAbortTxnArgs
 	_args687.Rqst = rqst
@@ -86367,7 +86368,7 @@ func (p *ThriftHiveMetastoreClient) AbortTxn(ctx context.Context, rqst *AbortTxn
 }
 
 // Parameters:
-//  - Rqst
+//   - Rqst
 func (p *ThriftHiveMetastoreClient) AbortTxns(ctx context.Context, rqst *AbortTxnsRequest) (err error) {
 	var _args689 ThriftHiveMetastoreAbortTxnsArgs
 	_args689.Rqst = rqst
@@ -86387,7 +86388,7 @@ func (p *ThriftHiveMetastoreClient) AbortTxns(ctx context.Context, rqst *AbortTx
 }
 
 // Parameters:
-//  - Rqst
+//   - Rqst
 func (p *ThriftHiveMetastoreClient) CommitTxn(ctx context.Context, rqst *CommitTxnRequest) (err error) {
 	var _args691 ThriftHiveMetastoreCommitTxnArgs
 	_args691.Rqst = rqst
@@ -86409,7 +86410,7 @@ func (p *ThriftHiveMetastoreClient) CommitTxn(ctx context.Context, rqst *CommitT
 }
 
 // Parameters:
-//  - TxnId
+//   - TxnId
 func (p *ThriftHiveMetastoreClient) GetLatestTxnidInConflict(ctx context.Context, txnId int64) (r int64, err error) {
 	var _args693 ThriftHiveMetastoreGetLatestTxnidInConflictArgs
 	_args693.TxnId = txnId
@@ -86429,7 +86430,7 @@ func (p *ThriftHiveMetastoreClient) GetLatestTxnidInConflict(ctx context.Context
 }
 
 // Parameters:
-//  - Rqst
+//   - Rqst
 func (p *ThriftHiveMetastoreClient) ReplTblWriteidState(ctx context.Context, rqst *ReplTblWriteIdStateRequest) (err error) {
 	var _args695 ThriftHiveMetastoreReplTblWriteidStateArgs
 	_args695.Rqst = rqst
@@ -86444,7 +86445,7 @@ func (p *ThriftHiveMetastoreClient) ReplTblWriteidState(ctx context.Context, rqs
 }
 
 // Parameters:
-//  - Rqst
+//   - Rqst
 func (p *ThriftHiveMetastoreClient) GetValidWriteIds(ctx context.Context, rqst *GetValidWriteIdsRequest) (r *GetValidWriteIdsResponse, err error) {
 	var _args697 ThriftHiveMetastoreGetValidWriteIdsArgs
 	_args697.Rqst = rqst
@@ -86466,7 +86467,7 @@ func (p *ThriftHiveMetastoreClient) GetValidWriteIds(ctx context.Context, rqst *
 }
 
 // Parameters:
-//  - Rqst
+//   - Rqst
 func (p *ThriftHiveMetastoreClient) AllocateTableWriteIds(ctx context.Context, rqst *AllocateTableWriteIdsRequest) (r *AllocateTableWriteIdsResponse, err error) {
 	var _args699 ThriftHiveMetastoreAllocateTableWriteIdsArgs
 	_args699.Rqst = rqst
@@ -86490,7 +86491,7 @@ func (p *ThriftHiveMetastoreClient) AllocateTableWriteIds(ctx context.Context, r
 }
 
 // Parameters:
-//  - Rqst
+//   - Rqst
 func (p *ThriftHiveMetastoreClient) GetMaxAllocatedTableWriteID(ctx context.Context, rqst *MaxAllocatedTableWriteIdRequest) (r *MaxAllocatedTableWriteIdResponse, err error) {
 	var _args701 ThriftHiveMetastoreGetMaxAllocatedTableWriteIDArgs
 	_args701.Rqst = rqst
@@ -86510,7 +86511,7 @@ func (p *ThriftHiveMetastoreClient) GetMaxAllocatedTableWriteID(ctx context.Cont
 }
 
 // Parameters:
-//  - Rqst
+//   - Rqst
 func (p *ThriftHiveMetastoreClient) SeedWriteID(ctx context.Context, rqst *SeedTableWriteIdsRequest) (err error) {
 	var _args703 ThriftHiveMetastoreSeedWriteIDArgs
 	_args703.Rqst = rqst
@@ -86530,7 +86531,7 @@ func (p *ThriftHiveMetastoreClient) SeedWriteID(ctx context.Context, rqst *SeedT
 }
 
 // Parameters:
-//  - Rqst
+//   - Rqst
 func (p *ThriftHiveMetastoreClient) SeedTxnID(ctx context.Context, rqst *SeedTxnIdRequest) (err error) {
 	var _args705 ThriftHiveMetastoreSeedTxnIDArgs
 	_args705.Rqst = rqst
@@ -86550,7 +86551,7 @@ func (p *ThriftHiveMetastoreClient) SeedTxnID(ctx context.Context, rqst *SeedTxn
 }
 
 // Parameters:
-//  - Rqst
+//   - Rqst
 func (p *ThriftHiveMetastoreClient) Lock(ctx context.Context, rqst *LockRequest) (r *LockResponse, err error) {
 	var _args707 ThriftHiveMetastoreLockArgs
 	_args707.Rqst = rqst
@@ -86572,7 +86573,7 @@ func (p *ThriftHiveMetastoreClient) Lock(ctx context.Context, rqst *LockRequest)
 }
 
 // Parameters:
-//  - Rqst
+//   - Rqst
 func (p *ThriftHiveMetastoreClient) CheckLock(ctx context.Context, rqst *CheckLockRequest) (r *LockResponse, err error) {
 	var _args709 ThriftHiveMetastoreCheckLockArgs
 	_args709.Rqst = rqst
@@ -86596,7 +86597,7 @@ func (p *ThriftHiveMetastoreClient) CheckLock(ctx context.Context, rqst *CheckLo
 }
 
 // Parameters:
-//  - Rqst
+//   - Rqst
 func (p *ThriftHiveMetastoreClient) Unlock(ctx context.Context, rqst *UnlockRequest) (err error) {
 	var _args711 ThriftHiveMetastoreUnlockArgs
 	_args711.Rqst = rqst
@@ -86618,7 +86619,7 @@ func (p *ThriftHiveMetastoreClient) Unlock(ctx context.Context, rqst *UnlockRequ
 }
 
 // Parameters:
-//  - Rqst
+//   - Rqst
 func (p *ThriftHiveMetastoreClient) ShowLocks(ctx context.Context, rqst *ShowLocksRequest) (r *ShowLocksResponse, err error) {
 	var _args713 ThriftHiveMetastoreShowLocksArgs
 	_args713.Rqst = rqst
@@ -86633,7 +86634,7 @@ func (p *ThriftHiveMetastoreClient) ShowLocks(ctx context.Context, rqst *ShowLoc
 }
 
 // Parameters:
-//  - Ids
+//   - Ids
 func (p *ThriftHiveMetastoreClient) Heartbeat(ctx context.Context, ids *HeartbeatRequest) (err error) {
 	var _args715 ThriftHiveMetastoreHeartbeatArgs
 	_args715.Ids = ids
@@ -86657,7 +86658,7 @@ func (p *ThriftHiveMetastoreClient) Heartbeat(ctx context.Context, ids *Heartbea
 }
 
 // Parameters:
-//  - Txns
+//   - Txns
 func (p *ThriftHiveMetastoreClient) HeartbeatTxnRange(ctx context.Context, txns *HeartbeatTxnRangeRequest) (r *HeartbeatTxnRangeResponse, err error) {
 	var _args717 ThriftHiveMetastoreHeartbeatTxnRangeArgs
 	_args717.Txns = txns
@@ -86672,7 +86673,7 @@ func (p *ThriftHiveMetastoreClient) HeartbeatTxnRange(ctx context.Context, txns 
 }
 
 // Parameters:
-//  - Rqst
+//   - Rqst
 func (p *ThriftHiveMetastoreClient) Compact(ctx context.Context, rqst *CompactionRequest) (err error) {
 	var _args719 ThriftHiveMetastoreCompactArgs
 	_args719.Rqst = rqst
@@ -86687,7 +86688,7 @@ func (p *ThriftHiveMetastoreClient) Compact(ctx context.Context, rqst *Compactio
 }
 
 // Parameters:
-//  - Rqst
+//   - Rqst
 func (p *ThriftHiveMetastoreClient) Compact2(ctx context.Context, rqst *CompactionRequest) (r *CompactionResponse, err error) {
 	var _args721 ThriftHiveMetastoreCompact2Args
 	_args721.Rqst = rqst
@@ -86702,7 +86703,7 @@ func (p *ThriftHiveMetastoreClient) Compact2(ctx context.Context, rqst *Compacti
 }
 
 // Parameters:
-//  - Rqst
+//   - Rqst
 func (p *ThriftHiveMetastoreClient) ShowCompact(ctx context.Context, rqst *ShowCompactRequest) (r *ShowCompactResponse, err error) {
 	var _args723 ThriftHiveMetastoreShowCompactArgs
 	_args723.Rqst = rqst
@@ -86717,7 +86718,7 @@ func (p *ThriftHiveMetastoreClient) ShowCompact(ctx context.Context, rqst *ShowC
 }
 
 // Parameters:
-//  - Rqst
+//   - Rqst
 func (p *ThriftHiveMetastoreClient) AddDynamicPartitions(ctx context.Context, rqst *AddDynamicPartitions) (err error) {
 	var _args725 ThriftHiveMetastoreAddDynamicPartitionsArgs
 	_args725.Rqst = rqst
@@ -86739,8 +86740,8 @@ func (p *ThriftHiveMetastoreClient) AddDynamicPartitions(ctx context.Context, rq
 }
 
 // Parameters:
-//  - WorkerId
-//  - WorkerVersion
+//   - WorkerId
+//   - WorkerVersion
 func (p *ThriftHiveMetastoreClient) FindNextCompact(ctx context.Context, workerId string, workerVersion string) (r *OptionalCompactionInfoStruct, err error) {
 	var _args727 ThriftHiveMetastoreFindNextCompactArgs
 	_args727.WorkerId = workerId
@@ -86761,8 +86762,8 @@ func (p *ThriftHiveMetastoreClient) FindNextCompact(ctx context.Context, workerI
 }
 
 // Parameters:
-//  - Cr
-//  - TxnID
+//   - Cr
+//   - TxnID
 func (p *ThriftHiveMetastoreClient) UpdateCompactorState(ctx context.Context, cr *CompactionInfoStruct, txn_id int64) (err error) {
 	var _args729 ThriftHiveMetastoreUpdateCompactorStateArgs
 	_args729.Cr = cr
@@ -86778,7 +86779,7 @@ func (p *ThriftHiveMetastoreClient) UpdateCompactorState(ctx context.Context, cr
 }
 
 // Parameters:
-//  - Cr
+//   - Cr
 func (p *ThriftHiveMetastoreClient) FindColumnsWithStats(ctx context.Context, cr *CompactionInfoStruct) (r []string, err error) {
 	var _args731 ThriftHiveMetastoreFindColumnsWithStatsArgs
 	_args731.Cr = cr
@@ -86793,7 +86794,7 @@ func (p *ThriftHiveMetastoreClient) FindColumnsWithStats(ctx context.Context, cr
 }
 
 // Parameters:
-//  - Cr
+//   - Cr
 func (p *ThriftHiveMetastoreClient) MarkCleaned(ctx context.Context, cr *CompactionInfoStruct) (err error) {
 	var _args733 ThriftHiveMetastoreMarkCleanedArgs
 	_args733.Cr = cr
@@ -86813,7 +86814,7 @@ func (p *ThriftHiveMetastoreClient) MarkCleaned(ctx context.Context, cr *Compact
 }
 
 // Parameters:
-//  - Cr
+//   - Cr
 func (p *ThriftHiveMetastoreClient) MarkCompacted(ctx context.Context, cr *CompactionInfoStruct) (err error) {
 	var _args735 ThriftHiveMetastoreMarkCompactedArgs
 	_args735.Cr = cr
@@ -86833,7 +86834,7 @@ func (p *ThriftHiveMetastoreClient) MarkCompacted(ctx context.Context, cr *Compa
 }
 
 // Parameters:
-//  - Cr
+//   - Cr
 func (p *ThriftHiveMetastoreClient) MarkFailed(ctx context.Context, cr *CompactionInfoStruct) (err error) {
 	var _args737 ThriftHiveMetastoreMarkFailedArgs
 	_args737.Cr = cr
@@ -86853,8 +86854,8 @@ func (p *ThriftHiveMetastoreClient) MarkFailed(ctx context.Context, cr *Compacti
 }
 
 // Parameters:
-//  - JobId
-//  - CqID
+//   - JobId
+//   - CqID
 func (p *ThriftHiveMetastoreClient) SetHadoopJobid(ctx context.Context, jobId string, cq_id int64) (err error) {
 	var _args739 ThriftHiveMetastoreSetHadoopJobidArgs
 	_args739.JobId = jobId
@@ -86870,7 +86871,7 @@ func (p *ThriftHiveMetastoreClient) SetHadoopJobid(ctx context.Context, jobId st
 }
 
 // Parameters:
-//  - Rqst
+//   - Rqst
 func (p *ThriftHiveMetastoreClient) GetLatestCommittedCompactionInfo(ctx context.Context, rqst *GetLatestCommittedCompactionInfoRequest) (r *GetLatestCommittedCompactionInfoResponse, err error) {
 	var _args741 ThriftHiveMetastoreGetLatestCommittedCompactionInfoArgs
 	_args741.Rqst = rqst
@@ -86885,7 +86886,7 @@ func (p *ThriftHiveMetastoreClient) GetLatestCommittedCompactionInfo(ctx context
 }
 
 // Parameters:
-//  - Rqst
+//   - Rqst
 func (p *ThriftHiveMetastoreClient) GetNextNotification(ctx context.Context, rqst *NotificationEventRequest) (r *NotificationEventResponse, err error) {
 	var _args743 ThriftHiveMetastoreGetNextNotificationArgs
 	_args743.Rqst = rqst
@@ -86912,7 +86913,7 @@ func (p *ThriftHiveMetastoreClient) GetCurrentNotificationEventId(ctx context.Co
 }
 
 // Parameters:
-//  - Rqst
+//   - Rqst
 func (p *ThriftHiveMetastoreClient) GetNotificationEventsCount(ctx context.Context, rqst *NotificationEventsCountRequest) (r *NotificationEventsCountResponse, err error) {
 	var _args747 ThriftHiveMetastoreGetNotificationEventsCountArgs
 	_args747.Rqst = rqst
@@ -86927,7 +86928,7 @@ func (p *ThriftHiveMetastoreClient) GetNotificationEventsCount(ctx context.Conte
 }
 
 // Parameters:
-//  - Rqst
+//   - Rqst
 func (p *ThriftHiveMetastoreClient) FireListenerEvent(ctx context.Context, rqst *FireEventRequest) (r *FireEventResponse, err error) {
 	var _args749 ThriftHiveMetastoreFireListenerEventArgs
 	_args749.Rqst = rqst
@@ -86954,7 +86955,7 @@ func (p *ThriftHiveMetastoreClient) FlushCache(ctx context.Context) (err error) 
 }
 
 // Parameters:
-//  - Rqst
+//   - Rqst
 func (p *ThriftHiveMetastoreClient) AddWriteNotificationLog(ctx context.Context, rqst *WriteNotificationLogRequest) (r *WriteNotificationLogResponse, err error) {
 	var _args753 ThriftHiveMetastoreAddWriteNotificationLogArgs
 	_args753.Rqst = rqst
@@ -86969,7 +86970,7 @@ func (p *ThriftHiveMetastoreClient) AddWriteNotificationLog(ctx context.Context,
 }
 
 // Parameters:
-//  - Request
+//   - Request
 func (p *ThriftHiveMetastoreClient) CmRecycle(ctx context.Context, request *CmRecycleRequest) (r *CmRecycleResponse, err error) {
 	var _args755 ThriftHiveMetastoreCmRecycleArgs
 	_args755.Request = request
@@ -86989,7 +86990,7 @@ func (p *ThriftHiveMetastoreClient) CmRecycle(ctx context.Context, request *CmRe
 }
 
 // Parameters:
-//  - Req
+//   - Req
 func (p *ThriftHiveMetastoreClient) GetFileMetadataByExpr(ctx context.Context, req *GetFileMetadataByExprRequest) (r *GetFileMetadataByExprResult_, err error) {
 	var _args757 ThriftHiveMetastoreGetFileMetadataByExprArgs
 	_args757.Req = req
@@ -87004,7 +87005,7 @@ func (p *ThriftHiveMetastoreClient) GetFileMetadataByExpr(ctx context.Context, r
 }
 
 // Parameters:
-//  - Req
+//   - Req
 func (p *ThriftHiveMetastoreClient) GetFileMetadata(ctx context.Context, req *GetFileMetadataRequest) (r *GetFileMetadataResult_, err error) {
 	var _args759 ThriftHiveMetastoreGetFileMetadataArgs
 	_args759.Req = req
@@ -87019,7 +87020,7 @@ func (p *ThriftHiveMetastoreClient) GetFileMetadata(ctx context.Context, req *Ge
 }
 
 // Parameters:
-//  - Req
+//   - Req
 func (p *ThriftHiveMetastoreClient) PutFileMetadata(ctx context.Context, req *PutFileMetadataRequest) (r *PutFileMetadataResult_, err error) {
 	var _args761 ThriftHiveMetastorePutFileMetadataArgs
 	_args761.Req = req
@@ -87034,7 +87035,7 @@ func (p *ThriftHiveMetastoreClient) PutFileMetadata(ctx context.Context, req *Pu
 }
 
 // Parameters:
-//  - Req
+//   - Req
 func (p *ThriftHiveMetastoreClient) ClearFileMetadata(ctx context.Context, req *ClearFileMetadataRequest) (r *ClearFileMetadataResult_, err error) {
 	var _args763 ThriftHiveMetastoreClearFileMetadataArgs
 	_args763.Req = req
@@ -87049,7 +87050,7 @@ func (p *ThriftHiveMetastoreClient) ClearFileMetadata(ctx context.Context, req *
 }
 
 // Parameters:
-//  - Req
+//   - Req
 func (p *ThriftHiveMetastoreClient) CacheFileMetadata(ctx context.Context, req *CacheFileMetadataRequest) (r *CacheFileMetadataResult_, err error) {
 	var _args765 ThriftHiveMetastoreCacheFileMetadataArgs
 	_args765.Req = req
@@ -87081,7 +87082,7 @@ func (p *ThriftHiveMetastoreClient) GetMetastoreDbUUID(ctx context.Context) (r s
 }
 
 // Parameters:
-//  - Request
+//   - Request
 func (p *ThriftHiveMetastoreClient) CreateResourcePlan(ctx context.Context, request *WMCreateResourcePlanRequest) (r *WMCreateResourcePlanResponse, err error) {
 	var _args769 ThriftHiveMetastoreCreateResourcePlanArgs
 	_args769.Request = request
@@ -87105,7 +87106,7 @@ func (p *ThriftHiveMetastoreClient) CreateResourcePlan(ctx context.Context, requ
 }
 
 // Parameters:
-//  - Request
+//   - Request
 func (p *ThriftHiveMetastoreClient) GetResourcePlan(ctx context.Context, request *WMGetResourcePlanRequest) (r *WMGetResourcePlanResponse, err error) {
 	var _args771 ThriftHiveMetastoreGetResourcePlanArgs
 	_args771.Request = request
@@ -87127,7 +87128,7 @@ func (p *ThriftHiveMetastoreClient) GetResourcePlan(ctx context.Context, request
 }
 
 // Parameters:
-//  - Request
+//   - Request
 func (p *ThriftHiveMetastoreClient) GetActiveResourcePlan(ctx context.Context, request *WMGetActiveResourcePlanRequest) (r *WMGetActiveResourcePlanResponse, err error) {
 	var _args773 ThriftHiveMetastoreGetActiveResourcePlanArgs
 	_args773.Request = request
@@ -87147,7 +87148,7 @@ func (p *ThriftHiveMetastoreClient) GetActiveResourcePlan(ctx context.Context, r
 }
 
 // Parameters:
-//  - Request
+//   - Request
 func (p *ThriftHiveMetastoreClient) GetAllResourcePlans(ctx context.Context, request *WMGetAllResourcePlanRequest) (r *WMGetAllResourcePlanResponse, err error) {
 	var _args775 ThriftHiveMetastoreGetAllResourcePlansArgs
 	_args775.Request = request
@@ -87167,7 +87168,7 @@ func (p *ThriftHiveMetastoreClient) GetAllResourcePlans(ctx context.Context, req
 }
 
 // Parameters:
-//  - Request
+//   - Request
 func (p *ThriftHiveMetastoreClient) AlterResourcePlan(ctx context.Context, request *WMAlterResourcePlanRequest) (r *WMAlterResourcePlanResponse, err error) {
 	var _args777 ThriftHiveMetastoreAlterResourcePlanArgs
 	_args777.Request = request
@@ -87191,7 +87192,7 @@ func (p *ThriftHiveMetastoreClient) AlterResourcePlan(ctx context.Context, reque
 }
 
 // Parameters:
-//  - Request
+//   - Request
 func (p *ThriftHiveMetastoreClient) ValidateResourcePlan(ctx context.Context, request *WMValidateResourcePlanRequest) (r *WMValidateResourcePlanResponse, err error) {
 	var _args779 ThriftHiveMetastoreValidateResourcePlanArgs
 	_args779.Request = request
@@ -87213,7 +87214,7 @@ func (p *ThriftHiveMetastoreClient) ValidateResourcePlan(ctx context.Context, re
 }
 
 // Parameters:
-//  - Request
+//   - Request
 func (p *ThriftHiveMetastoreClient) DropResourcePlan(ctx context.Context, request *WMDropResourcePlanRequest) (r *WMDropResourcePlanResponse, err error) {
 	var _args781 ThriftHiveMetastoreDropResourcePlanArgs
 	_args781.Request = request
@@ -87237,7 +87238,7 @@ func (p *ThriftHiveMetastoreClient) DropResourcePlan(ctx context.Context, reques
 }
 
 // Parameters:
-//  - Request
+//   - Request
 func (p *ThriftHiveMetastoreClient) CreateWmTrigger(ctx context.Context, request *WMCreateTriggerRequest) (r *WMCreateTriggerResponse, err error) {
 	var _args783 ThriftHiveMetastoreCreateWmTriggerArgs
 	_args783.Request = request
@@ -87263,7 +87264,7 @@ func (p *ThriftHiveMetastoreClient) CreateWmTrigger(ctx context.Context, request
 }
 
 // Parameters:
-//  - Request
+//   - Request
 func (p *ThriftHiveMetastoreClient) AlterWmTrigger(ctx context.Context, request *WMAlterTriggerRequest) (r *WMAlterTriggerResponse, err error) {
 	var _args785 ThriftHiveMetastoreAlterWmTriggerArgs
 	_args785.Request = request
@@ -87287,7 +87288,7 @@ func (p *ThriftHiveMetastoreClient) AlterWmTrigger(ctx context.Context, request 
 }
 
 // Parameters:
-//  - Request
+//   - Request
 func (p *ThriftHiveMetastoreClient) DropWmTrigger(ctx context.Context, request *WMDropTriggerRequest) (r *WMDropTriggerResponse, err error) {
 	var _args787 ThriftHiveMetastoreDropWmTriggerArgs
 	_args787.Request = request
@@ -87311,7 +87312,7 @@ func (p *ThriftHiveMetastoreClient) DropWmTrigger(ctx context.Context, request *
 }
 
 // Parameters:
-//  - Request
+//   - Request
 func (p *ThriftHiveMetastoreClient) GetTriggersForResourceplan(ctx context.Context, request *WMGetTriggersForResourePlanRequest) (r *WMGetTriggersForResourePlanResponse, err error) {
 	var _args789 ThriftHiveMetastoreGetTriggersForResourceplanArgs
 	_args789.Request = request
@@ -87333,7 +87334,7 @@ func (p *ThriftHiveMetastoreClient) GetTriggersForResourceplan(ctx context.Conte
 }
 
 // Parameters:
-//  - Request
+//   - Request
 func (p *ThriftHiveMetastoreClient) CreateWmPool(ctx context.Context, request *WMCreatePoolRequest) (r *WMCreatePoolResponse, err error) {
 	var _args791 ThriftHiveMetastoreCreateWmPoolArgs
 	_args791.Request = request
@@ -87359,7 +87360,7 @@ func (p *ThriftHiveMetastoreClient) CreateWmPool(ctx context.Context, request *W
 }
 
 // Parameters:
-//  - Request
+//   - Request
 func (p *ThriftHiveMetastoreClient) AlterWmPool(ctx context.Context, request *WMAlterPoolRequest) (r *WMAlterPoolResponse, err error) {
 	var _args793 ThriftHiveMetastoreAlterWmPoolArgs
 	_args793.Request = request
@@ -87385,7 +87386,7 @@ func (p *ThriftHiveMetastoreClient) AlterWmPool(ctx context.Context, request *WM
 }
 
 // Parameters:
-//  - Request
+//   - Request
 func (p *ThriftHiveMetastoreClient) DropWmPool(ctx context.Context, request *WMDropPoolRequest) (r *WMDropPoolResponse, err error) {
 	var _args795 ThriftHiveMetastoreDropWmPoolArgs
 	_args795.Request = request
@@ -87409,7 +87410,7 @@ func (p *ThriftHiveMetastoreClient) DropWmPool(ctx context.Context, request *WMD
 }
 
 // Parameters:
-//  - Request
+//   - Request
 func (p *ThriftHiveMetastoreClient) CreateOrUpdateWmMapping(ctx context.Context, request *WMCreateOrUpdateMappingRequest) (r *WMCreateOrUpdateMappingResponse, err error) {
 	var _args797 ThriftHiveMetastoreCreateOrUpdateWmMappingArgs
 	_args797.Request = request
@@ -87435,7 +87436,7 @@ func (p *ThriftHiveMetastoreClient) CreateOrUpdateWmMapping(ctx context.Context,
 }
 
 // Parameters:
-//  - Request
+//   - Request
 func (p *ThriftHiveMetastoreClient) DropWmMapping(ctx context.Context, request *WMDropMappingRequest) (r *WMDropMappingResponse, err error) {
 	var _args799 ThriftHiveMetastoreDropWmMappingArgs
 	_args799.Request = request
@@ -87459,7 +87460,7 @@ func (p *ThriftHiveMetastoreClient) DropWmMapping(ctx context.Context, request *
 }
 
 // Parameters:
-//  - Request
+//   - Request
 func (p *ThriftHiveMetastoreClient) CreateOrDropWmTriggerToPoolMapping(ctx context.Context, request *WMCreateOrDropTriggerToPoolMappingRequest) (r *WMCreateOrDropTriggerToPoolMappingResponse, err error) {
 	var _args801 ThriftHiveMetastoreCreateOrDropWmTriggerToPoolMappingArgs
 	_args801.Request = request
@@ -87485,7 +87486,7 @@ func (p *ThriftHiveMetastoreClient) CreateOrDropWmTriggerToPoolMapping(ctx conte
 }
 
 // Parameters:
-//  - Schema
+//   - Schema
 func (p *ThriftHiveMetastoreClient) CreateIschema(ctx context.Context, schema *ISchema) (err error) {
 	var _args803 ThriftHiveMetastoreCreateIschemaArgs
 	_args803.Schema = schema
@@ -87509,7 +87510,7 @@ func (p *ThriftHiveMetastoreClient) CreateIschema(ctx context.Context, schema *I
 }
 
 // Parameters:
-//  - Rqst
+//   - Rqst
 func (p *ThriftHiveMetastoreClient) AlterIschema(ctx context.Context, rqst *AlterISchemaRequest) (err error) {
 	var _args805 ThriftHiveMetastoreAlterIschemaArgs
 	_args805.Rqst = rqst
@@ -87531,7 +87532,7 @@ func (p *ThriftHiveMetastoreClient) AlterIschema(ctx context.Context, rqst *Alte
 }
 
 // Parameters:
-//  - Name
+//   - Name
 func (p *ThriftHiveMetastoreClient) GetIschema(ctx context.Context, name *ISchemaName) (r *ISchema, err error) {
 	var _args807 ThriftHiveMetastoreGetIschemaArgs
 	_args807.Name = name
@@ -87553,7 +87554,7 @@ func (p *ThriftHiveMetastoreClient) GetIschema(ctx context.Context, name *ISchem
 }
 
 // Parameters:
-//  - Name
+//   - Name
 func (p *ThriftHiveMetastoreClient) DropIschema(ctx context.Context, name *ISchemaName) (err error) {
 	var _args809 ThriftHiveMetastoreDropIschemaArgs
 	_args809.Name = name
@@ -87577,7 +87578,7 @@ func (p *ThriftHiveMetastoreClient) DropIschema(ctx context.Context, name *ISche
 }
 
 // Parameters:
-//  - SchemaVersion
+//   - SchemaVersion
 func (p *ThriftHiveMetastoreClient) AddSchemaVersion(ctx context.Context, schemaVersion *SchemaVersion) (err error) {
 	var _args811 ThriftHiveMetastoreAddSchemaVersionArgs
 	_args811.SchemaVersion = schemaVersion
@@ -87601,7 +87602,7 @@ func (p *ThriftHiveMetastoreClient) AddSchemaVersion(ctx context.Context, schema
 }
 
 // Parameters:
-//  - SchemaVersion
+//   - SchemaVersion
 func (p *ThriftHiveMetastoreClient) GetSchemaVersion(ctx context.Context, schemaVersion *SchemaVersionDescriptor) (r *SchemaVersion, err error) {
 	var _args813 ThriftHiveMetastoreGetSchemaVersionArgs
 	_args813.SchemaVersion = schemaVersion
@@ -87623,7 +87624,7 @@ func (p *ThriftHiveMetastoreClient) GetSchemaVersion(ctx context.Context, schema
 }
 
 // Parameters:
-//  - SchemaName
+//   - SchemaName
 func (p *ThriftHiveMetastoreClient) GetSchemaLatestVersion(ctx context.Context, schemaName *ISchemaName) (r *SchemaVersion, err error) {
 	var _args815 ThriftHiveMetastoreGetSchemaLatestVersionArgs
 	_args815.SchemaName = schemaName
@@ -87645,7 +87646,7 @@ func (p *ThriftHiveMetastoreClient) GetSchemaLatestVersion(ctx context.Context, 
 }
 
 // Parameters:
-//  - SchemaName
+//   - SchemaName
 func (p *ThriftHiveMetastoreClient) GetSchemaAllVersions(ctx context.Context, schemaName *ISchemaName) (r []*SchemaVersion, err error) {
 	var _args817 ThriftHiveMetastoreGetSchemaAllVersionsArgs
 	_args817.SchemaName = schemaName
@@ -87667,7 +87668,7 @@ func (p *ThriftHiveMetastoreClient) GetSchemaAllVersions(ctx context.Context, sc
 }
 
 // Parameters:
-//  - SchemaVersion
+//   - SchemaVersion
 func (p *ThriftHiveMetastoreClient) DropSchemaVersion(ctx context.Context, schemaVersion *SchemaVersionDescriptor) (err error) {
 	var _args819 ThriftHiveMetastoreDropSchemaVersionArgs
 	_args819.SchemaVersion = schemaVersion
@@ -87689,7 +87690,7 @@ func (p *ThriftHiveMetastoreClient) DropSchemaVersion(ctx context.Context, schem
 }
 
 // Parameters:
-//  - Rqst
+//   - Rqst
 func (p *ThriftHiveMetastoreClient) GetSchemasByCols(ctx context.Context, rqst *FindSchemasByColsRqst) (r *FindSchemasByColsResp, err error) {
 	var _args821 ThriftHiveMetastoreGetSchemasByColsArgs
 	_args821.Rqst = rqst
@@ -87709,7 +87710,7 @@ func (p *ThriftHiveMetastoreClient) GetSchemasByCols(ctx context.Context, rqst *
 }
 
 // Parameters:
-//  - Rqst
+//   - Rqst
 func (p *ThriftHiveMetastoreClient) MapSchemaVersionToSerde(ctx context.Context, rqst *MapSchemaVersionToSerdeRequest) (err error) {
 	var _args823 ThriftHiveMetastoreMapSchemaVersionToSerdeArgs
 	_args823.Rqst = rqst
@@ -87731,7 +87732,7 @@ func (p *ThriftHiveMetastoreClient) MapSchemaVersionToSerde(ctx context.Context,
 }
 
 // Parameters:
-//  - Rqst
+//   - Rqst
 func (p *ThriftHiveMetastoreClient) SetSchemaVersionState(ctx context.Context, rqst *SetSchemaVersionStateRequest) (err error) {
 	var _args825 ThriftHiveMetastoreSetSchemaVersionStateArgs
 	_args825.Rqst = rqst
@@ -87755,7 +87756,7 @@ func (p *ThriftHiveMetastoreClient) SetSchemaVersionState(ctx context.Context, r
 }
 
 // Parameters:
-//  - Serde
+//   - Serde
 func (p *ThriftHiveMetastoreClient) AddSerde(ctx context.Context, serde *SerDeInfo) (err error) {
 	var _args827 ThriftHiveMetastoreAddSerdeArgs
 	_args827.Serde = serde
@@ -87777,7 +87778,7 @@ func (p *ThriftHiveMetastoreClient) AddSerde(ctx context.Context, serde *SerDeIn
 }
 
 // Parameters:
-//  - Rqst
+//   - Rqst
 func (p *ThriftHiveMetastoreClient) GetSerde(ctx context.Context, rqst *GetSerdeRequest) (r *SerDeInfo, err error) {
 	var _args829 ThriftHiveMetastoreGetSerdeArgs
 	_args829.Rqst = rqst
@@ -87799,9 +87800,9 @@ func (p *ThriftHiveMetastoreClient) GetSerde(ctx context.Context, rqst *GetSerde
 }
 
 // Parameters:
-//  - DbName
-//  - TableName
-//  - TxnId
+//   - DbName
+//   - TableName
+//   - TxnId
 func (p *ThriftHiveMetastoreClient) GetLockMaterializationRebuild(ctx context.Context, dbName string, tableName string, txnId int64) (r *LockResponse, err error) {
 	var _args831 ThriftHiveMetastoreGetLockMaterializationRebuildArgs
 	_args831.DbName = dbName
@@ -87818,9 +87819,9 @@ func (p *ThriftHiveMetastoreClient) GetLockMaterializationRebuild(ctx context.Co
 }
 
 // Parameters:
-//  - DbName
-//  - TableName
-//  - TxnId
+//   - DbName
+//   - TableName
+//   - TxnId
 func (p *ThriftHiveMetastoreClient) HeartbeatLockMaterializationRebuild(ctx context.Context, dbName string, tableName string, txnId int64) (r bool, err error) {
 	var _args833 ThriftHiveMetastoreHeartbeatLockMaterializationRebuildArgs
 	_args833.DbName = dbName
@@ -87837,7 +87838,7 @@ func (p *ThriftHiveMetastoreClient) HeartbeatLockMaterializationRebuild(ctx cont
 }
 
 // Parameters:
-//  - Stat
+//   - Stat
 func (p *ThriftHiveMetastoreClient) AddRuntimeStats(ctx context.Context, stat *RuntimeStat) (err error) {
 	var _args835 ThriftHiveMetastoreAddRuntimeStatsArgs
 	_args835.Stat = stat
@@ -87857,7 +87858,7 @@ func (p *ThriftHiveMetastoreClient) AddRuntimeStats(ctx context.Context, stat *R
 }
 
 // Parameters:
-//  - Rqst
+//   - Rqst
 func (p *ThriftHiveMetastoreClient) GetRuntimeStats(ctx context.Context, rqst *GetRuntimeStatsRequest) (r []*RuntimeStat, err error) {
 	var _args837 ThriftHiveMetastoreGetRuntimeStatsArgs
 	_args837.Rqst = rqst
@@ -87877,7 +87878,7 @@ func (p *ThriftHiveMetastoreClient) GetRuntimeStats(ctx context.Context, rqst *G
 }
 
 // Parameters:
-//  - Request
+//   - Request
 func (p *ThriftHiveMetastoreClient) GetPartitionsWithSpecs(ctx context.Context, request *GetPartitionsRequest) (r *GetPartitionsResponse, err error) {
 	var _args839 ThriftHiveMetastoreGetPartitionsWithSpecsArgs
 	_args839.Request = request
@@ -87897,7 +87898,7 @@ func (p *ThriftHiveMetastoreClient) GetPartitionsWithSpecs(ctx context.Context, 
 }
 
 // Parameters:
-//  - Request
+//   - Request
 func (p *ThriftHiveMetastoreClient) ScheduledQueryPoll(ctx context.Context, request *ScheduledQueryPollRequest) (r *ScheduledQueryPollResponse, err error) {
 	var _args841 ThriftHiveMetastoreScheduledQueryPollArgs
 	_args841.Request = request
@@ -87917,7 +87918,7 @@ func (p *ThriftHiveMetastoreClient) ScheduledQueryPoll(ctx context.Context, requ
 }
 
 // Parameters:
-//  - Request
+//   - Request
 func (p *ThriftHiveMetastoreClient) ScheduledQueryMaintenance(ctx context.Context, request *ScheduledQueryMaintenanceRequest) (err error) {
 	var _args843 ThriftHiveMetastoreScheduledQueryMaintenanceArgs
 	_args843.Request = request
@@ -87943,7 +87944,7 @@ func (p *ThriftHiveMetastoreClient) ScheduledQueryMaintenance(ctx context.Contex
 }
 
 // Parameters:
-//  - Info
+//   - Info
 func (p *ThriftHiveMetastoreClient) ScheduledQueryProgress(ctx context.Context, info *ScheduledQueryProgressInfo) (err error) {
 	var _args845 ThriftHiveMetastoreScheduledQueryProgressArgs
 	_args845.Info = info
@@ -87965,7 +87966,7 @@ func (p *ThriftHiveMetastoreClient) ScheduledQueryProgress(ctx context.Context, 
 }
 
 // Parameters:
-//  - ScheduleKey
+//   - ScheduleKey
 func (p *ThriftHiveMetastoreClient) GetScheduledQuery(ctx context.Context, scheduleKey *ScheduledQueryKey) (r *ScheduledQuery, err error) {
 	var _args847 ThriftHiveMetastoreGetScheduledQueryArgs
 	_args847.ScheduleKey = scheduleKey
@@ -87987,7 +87988,7 @@ func (p *ThriftHiveMetastoreClient) GetScheduledQuery(ctx context.Context, sched
 }
 
 // Parameters:
-//  - ReplicationMetricList
+//   - ReplicationMetricList
 func (p *ThriftHiveMetastoreClient) AddReplicationMetrics(ctx context.Context, replicationMetricList *ReplicationMetricList) (err error) {
 	var _args849 ThriftHiveMetastoreAddReplicationMetricsArgs
 	_args849.ReplicationMetricList = replicationMetricList
@@ -88007,7 +88008,7 @@ func (p *ThriftHiveMetastoreClient) AddReplicationMetrics(ctx context.Context, r
 }
 
 // Parameters:
-//  - Rqst
+//   - Rqst
 func (p *ThriftHiveMetastoreClient) GetReplicationMetrics(ctx context.Context, rqst *GetReplicationMetricsRequest) (r *ReplicationMetricList, err error) {
 	var _args851 ThriftHiveMetastoreGetReplicationMetricsArgs
 	_args851.Rqst = rqst
@@ -88027,7 +88028,7 @@ func (p *ThriftHiveMetastoreClient) GetReplicationMetrics(ctx context.Context, r
 }
 
 // Parameters:
-//  - GetOpenTxnsRequest
+//   - GetOpenTxnsRequest
 func (p *ThriftHiveMetastoreClient) GetOpenTxnsReq(ctx context.Context, getOpenTxnsRequest *GetOpenTxnsRequest) (r *GetOpenTxnsResponse, err error) {
 	var _args853 ThriftHiveMetastoreGetOpenTxnsReqArgs
 	_args853.GetOpenTxnsRequest = getOpenTxnsRequest
@@ -88042,7 +88043,7 @@ func (p *ThriftHiveMetastoreClient) GetOpenTxnsReq(ctx context.Context, getOpenT
 }
 
 // Parameters:
-//  - Proc
+//   - Proc
 func (p *ThriftHiveMetastoreClient) CreateStoredProcedure(ctx context.Context, proc *StoredProcedure) (err error) {
 	var _args855 ThriftHiveMetastoreCreateStoredProcedureArgs
 	_args855.Proc = proc
@@ -88064,7 +88065,7 @@ func (p *ThriftHiveMetastoreClient) CreateStoredProcedure(ctx context.Context, p
 }
 
 // Parameters:
-//  - Request
+//   - Request
 func (p *ThriftHiveMetastoreClient) GetStoredProcedure(ctx context.Context, request *StoredProcedureRequest) (r *StoredProcedure, err error) {
 	var _args857 ThriftHiveMetastoreGetStoredProcedureArgs
 	_args857.Request = request
@@ -88084,7 +88085,7 @@ func (p *ThriftHiveMetastoreClient) GetStoredProcedure(ctx context.Context, requ
 }
 
 // Parameters:
-//  - Request
+//   - Request
 func (p *ThriftHiveMetastoreClient) DropStoredProcedure(ctx context.Context, request *StoredProcedureRequest) (err error) {
 	var _args859 ThriftHiveMetastoreDropStoredProcedureArgs
 	_args859.Request = request
@@ -88104,7 +88105,7 @@ func (p *ThriftHiveMetastoreClient) DropStoredProcedure(ctx context.Context, req
 }
 
 // Parameters:
-//  - Request
+//   - Request
 func (p *ThriftHiveMetastoreClient) GetAllStoredProcedures(ctx context.Context, request *ListStoredProcedureRequest) (r []string, err error) {
 	var _args861 ThriftHiveMetastoreGetAllStoredProceduresArgs
 	_args861.Request = request
@@ -88124,7 +88125,7 @@ func (p *ThriftHiveMetastoreClient) GetAllStoredProcedures(ctx context.Context, 
 }
 
 // Parameters:
-//  - Request
+//   - Request
 func (p *ThriftHiveMetastoreClient) FindPackage(ctx context.Context, request *GetPackageRequest) (r *Package, err error) {
 	var _args863 ThriftHiveMetastoreFindPackageArgs
 	_args863.Request = request
@@ -88144,7 +88145,7 @@ func (p *ThriftHiveMetastoreClient) FindPackage(ctx context.Context, request *Ge
 }
 
 // Parameters:
-//  - Request
+//   - Request
 func (p *ThriftHiveMetastoreClient) AddPackage(ctx context.Context, request *AddPackageRequest) (err error) {
 	var _args865 ThriftHiveMetastoreAddPackageArgs
 	_args865.Request = request
@@ -88164,7 +88165,7 @@ func (p *ThriftHiveMetastoreClient) AddPackage(ctx context.Context, request *Add
 }
 
 // Parameters:
-//  - Request
+//   - Request
 func (p *ThriftHiveMetastoreClient) GetAllPackages(ctx context.Context, request *ListPackageRequest) (r []string, err error) {
 	var _args867 ThriftHiveMetastoreGetAllPackagesArgs
 	_args867.Request = request
@@ -88184,7 +88185,7 @@ func (p *ThriftHiveMetastoreClient) GetAllPackages(ctx context.Context, request 
 }
 
 // Parameters:
-//  - Request
+//   - Request
 func (p *ThriftHiveMetastoreClient) DropPackage(ctx context.Context, request *DropPackageRequest) (err error) {
 	var _args869 ThriftHiveMetastoreDropPackageArgs
 	_args869.Request = request
@@ -110517,7 +110518,7 @@ func (p *thriftHiveMetastoreProcessorDropPackage) Process(ctx context.Context, s
 // HELPER FUNCTIONS AND STRUCTURES
 
 // Attributes:
-//  - Key
+//   - Key
 type ThriftHiveMetastoreGetMetaConfArgs struct {
 	Key string `thrift:"key,1" db:"key" json:"key"`
 }
@@ -110616,8 +110617,8 @@ func (p *ThriftHiveMetastoreGetMetaConfArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
+//   - Success
+//   - O1
 type ThriftHiveMetastoreGetMetaConfResult struct {
 	Success *string        `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -110777,8 +110778,8 @@ func (p *ThriftHiveMetastoreGetMetaConfResult) String() string {
 }
 
 // Attributes:
-//  - Key
-//  - Value
+//   - Key
+//   - Value
 type ThriftHiveMetastoreSetMetaConfArgs struct {
 	Key   string `thrift:"key,1" db:"key" json:"key"`
 	Value string `thrift:"value,2" db:"value" json:"value"`
@@ -110917,7 +110918,7 @@ func (p *ThriftHiveMetastoreSetMetaConfArgs) String() string {
 }
 
 // Attributes:
-//  - O1
+//   - O1
 type ThriftHiveMetastoreSetMetaConfResult struct {
 	O1 *MetaException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 }
@@ -111026,7 +111027,7 @@ func (p *ThriftHiveMetastoreSetMetaConfResult) String() string {
 }
 
 // Attributes:
-//  - Catalog
+//   - Catalog
 type ThriftHiveMetastoreCreateCatalogArgs struct {
 	Catalog *CreateCatalogRequest `thrift:"catalog,1" db:"catalog" json:"catalog"`
 }
@@ -111133,9 +111134,9 @@ func (p *ThriftHiveMetastoreCreateCatalogArgs) String() string {
 }
 
 // Attributes:
-//  - O1
-//  - O2
-//  - O3
+//   - O1
+//   - O2
+//   - O3
 type ThriftHiveMetastoreCreateCatalogResult struct {
 	O1 *AlreadyExistsException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 	O2 *InvalidObjectException `thrift:"o2,2" db:"o2" json:"o2,omitempty"`
@@ -111344,7 +111345,7 @@ func (p *ThriftHiveMetastoreCreateCatalogResult) String() string {
 }
 
 // Attributes:
-//  - Rqst
+//   - Rqst
 type ThriftHiveMetastoreAlterCatalogArgs struct {
 	Rqst *AlterCatalogRequest `thrift:"rqst,1" db:"rqst" json:"rqst"`
 }
@@ -111451,9 +111452,9 @@ func (p *ThriftHiveMetastoreAlterCatalogArgs) String() string {
 }
 
 // Attributes:
-//  - O1
-//  - O2
-//  - O3
+//   - O1
+//   - O2
+//   - O3
 type ThriftHiveMetastoreAlterCatalogResult struct {
 	O1 *NoSuchObjectException     `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 	O2 *InvalidOperationException `thrift:"o2,2" db:"o2" json:"o2,omitempty"`
@@ -111662,7 +111663,7 @@ func (p *ThriftHiveMetastoreAlterCatalogResult) String() string {
 }
 
 // Attributes:
-//  - CatName
+//   - CatName
 type ThriftHiveMetastoreGetCatalogArgs struct {
 	CatName *GetCatalogRequest `thrift:"catName,1" db:"catName" json:"catName"`
 }
@@ -111769,9 +111770,9 @@ func (p *ThriftHiveMetastoreGetCatalogArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
+//   - Success
+//   - O1
+//   - O2
 type ThriftHiveMetastoreGetCatalogResult struct {
 	Success *GetCatalogResponse    `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *NoSuchObjectException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -112035,8 +112036,8 @@ func (p *ThriftHiveMetastoreGetCatalogsArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
+//   - Success
+//   - O1
 type ThriftHiveMetastoreGetCatalogsResult struct {
 	Success *GetCatalogsResponse `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException       `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -112195,7 +112196,7 @@ func (p *ThriftHiveMetastoreGetCatalogsResult) String() string {
 }
 
 // Attributes:
-//  - CatName
+//   - CatName
 type ThriftHiveMetastoreDropCatalogArgs struct {
 	CatName *DropCatalogRequest `thrift:"catName,1" db:"catName" json:"catName"`
 }
@@ -112302,9 +112303,9 @@ func (p *ThriftHiveMetastoreDropCatalogArgs) String() string {
 }
 
 // Attributes:
-//  - O1
-//  - O2
-//  - O3
+//   - O1
+//   - O2
+//   - O3
 type ThriftHiveMetastoreDropCatalogResult struct {
 	O1 *NoSuchObjectException     `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 	O2 *InvalidOperationException `thrift:"o2,2" db:"o2" json:"o2,omitempty"`
@@ -112513,7 +112514,7 @@ func (p *ThriftHiveMetastoreDropCatalogResult) String() string {
 }
 
 // Attributes:
-//  - Database
+//   - Database
 type ThriftHiveMetastoreCreateDatabaseArgs struct {
 	Database *Database `thrift:"database,1" db:"database" json:"database"`
 }
@@ -112620,9 +112621,9 @@ func (p *ThriftHiveMetastoreCreateDatabaseArgs) String() string {
 }
 
 // Attributes:
-//  - O1
-//  - O2
-//  - O3
+//   - O1
+//   - O2
+//   - O3
 type ThriftHiveMetastoreCreateDatabaseResult struct {
 	O1 *AlreadyExistsException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 	O2 *InvalidObjectException `thrift:"o2,2" db:"o2" json:"o2,omitempty"`
@@ -112831,7 +112832,7 @@ func (p *ThriftHiveMetastoreCreateDatabaseResult) String() string {
 }
 
 // Attributes:
-//  - Name
+//   - Name
 type ThriftHiveMetastoreGetDatabaseArgs struct {
 	Name string `thrift:"name,1" db:"name" json:"name"`
 }
@@ -112930,9 +112931,9 @@ func (p *ThriftHiveMetastoreGetDatabaseArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
+//   - Success
+//   - O1
+//   - O2
 type ThriftHiveMetastoreGetDatabaseResult struct {
 	Success *Database              `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *NoSuchObjectException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -113141,7 +113142,7 @@ func (p *ThriftHiveMetastoreGetDatabaseResult) String() string {
 }
 
 // Attributes:
-//  - Request
+//   - Request
 type ThriftHiveMetastoreGetDatabaseReqArgs struct {
 	Request *GetDatabaseRequest `thrift:"request,1" db:"request" json:"request"`
 }
@@ -113248,9 +113249,9 @@ func (p *ThriftHiveMetastoreGetDatabaseReqArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
+//   - Success
+//   - O1
+//   - O2
 type ThriftHiveMetastoreGetDatabaseReqResult struct {
 	Success *Database              `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *NoSuchObjectException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -113459,9 +113460,9 @@ func (p *ThriftHiveMetastoreGetDatabaseReqResult) String() string {
 }
 
 // Attributes:
-//  - Name
-//  - DeleteData
-//  - Cascade
+//   - Name
+//   - DeleteData
+//   - Cascade
 type ThriftHiveMetastoreDropDatabaseArgs struct {
 	Name       string `thrift:"name,1" db:"name" json:"name"`
 	DeleteData bool   `thrift:"deleteData,2" db:"deleteData" json:"deleteData"`
@@ -113640,9 +113641,9 @@ func (p *ThriftHiveMetastoreDropDatabaseArgs) String() string {
 }
 
 // Attributes:
-//  - O1
-//  - O2
-//  - O3
+//   - O1
+//   - O2
+//   - O3
 type ThriftHiveMetastoreDropDatabaseResult struct {
 	O1 *NoSuchObjectException     `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 	O2 *InvalidOperationException `thrift:"o2,2" db:"o2" json:"o2,omitempty"`
@@ -113851,7 +113852,7 @@ func (p *ThriftHiveMetastoreDropDatabaseResult) String() string {
 }
 
 // Attributes:
-//  - Pattern
+//   - Pattern
 type ThriftHiveMetastoreGetDatabasesArgs struct {
 	Pattern string `thrift:"pattern,1" db:"pattern" json:"pattern"`
 }
@@ -113950,8 +113951,8 @@ func (p *ThriftHiveMetastoreGetDatabasesArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
+//   - Success
+//   - O1
 type ThriftHiveMetastoreGetDatabasesResult struct {
 	Success []string       `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -114184,8 +114185,8 @@ func (p *ThriftHiveMetastoreGetAllDatabasesArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
+//   - Success
+//   - O1
 type ThriftHiveMetastoreGetAllDatabasesResult struct {
 	Success []string       `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -114363,8 +114364,8 @@ func (p *ThriftHiveMetastoreGetAllDatabasesResult) String() string {
 }
 
 // Attributes:
-//  - Dbname
-//  - Db
+//   - Dbname
+//   - Db
 type ThriftHiveMetastoreAlterDatabaseArgs struct {
 	Dbname string    `thrift:"dbname,1" db:"dbname" json:"dbname"`
 	Db     *Database `thrift:"db,2" db:"db" json:"db"`
@@ -114511,8 +114512,8 @@ func (p *ThriftHiveMetastoreAlterDatabaseArgs) String() string {
 }
 
 // Attributes:
-//  - O1
-//  - O2
+//   - O1
+//   - O2
 type ThriftHiveMetastoreAlterDatabaseResult struct {
 	O1 *MetaException         `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 	O2 *NoSuchObjectException `thrift:"o2,2" db:"o2" json:"o2,omitempty"`
@@ -114671,7 +114672,7 @@ func (p *ThriftHiveMetastoreAlterDatabaseResult) String() string {
 }
 
 // Attributes:
-//  - Connector
+//   - Connector
 type ThriftHiveMetastoreCreateDataconnectorArgs struct {
 	Connector *DataConnector `thrift:"connector,1" db:"connector" json:"connector"`
 }
@@ -114778,9 +114779,9 @@ func (p *ThriftHiveMetastoreCreateDataconnectorArgs) String() string {
 }
 
 // Attributes:
-//  - O1
-//  - O2
-//  - O3
+//   - O1
+//   - O2
+//   - O3
 type ThriftHiveMetastoreCreateDataconnectorResult struct {
 	O1 *AlreadyExistsException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 	O2 *InvalidObjectException `thrift:"o2,2" db:"o2" json:"o2,omitempty"`
@@ -114989,7 +114990,7 @@ func (p *ThriftHiveMetastoreCreateDataconnectorResult) String() string {
 }
 
 // Attributes:
-//  - Request
+//   - Request
 type ThriftHiveMetastoreGetDataconnectorReqArgs struct {
 	Request *GetDataConnectorRequest `thrift:"request,1" db:"request" json:"request"`
 }
@@ -115096,9 +115097,9 @@ func (p *ThriftHiveMetastoreGetDataconnectorReqArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
+//   - Success
+//   - O1
+//   - O2
 type ThriftHiveMetastoreGetDataconnectorReqResult struct {
 	Success *DataConnector         `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *NoSuchObjectException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -115307,9 +115308,9 @@ func (p *ThriftHiveMetastoreGetDataconnectorReqResult) String() string {
 }
 
 // Attributes:
-//  - Name
-//  - IfNotExists
-//  - CheckReferences
+//   - Name
+//   - IfNotExists
+//   - CheckReferences
 type ThriftHiveMetastoreDropDataconnectorArgs struct {
 	Name            string
 	IfNotExists     bool
@@ -115488,9 +115489,9 @@ func (p *ThriftHiveMetastoreDropDataconnectorArgs) String() string {
 }
 
 // Attributes:
-//  - O1
-//  - O2
-//  - O3
+//   - O1
+//   - O2
+//   - O3
 type ThriftHiveMetastoreDropDataconnectorResult struct {
 	O1 *NoSuchObjectException     `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 	O2 *InvalidOperationException `thrift:"o2,2" db:"o2" json:"o2,omitempty"`
@@ -115754,8 +115755,8 @@ func (p *ThriftHiveMetastoreGetDataconnectorsArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
+//   - Success
+//   - O1
 type ThriftHiveMetastoreGetDataconnectorsResult struct {
 	Success []string       `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -115933,8 +115934,8 @@ func (p *ThriftHiveMetastoreGetDataconnectorsResult) String() string {
 }
 
 // Attributes:
-//  - Name
-//  - Connector
+//   - Name
+//   - Connector
 type ThriftHiveMetastoreAlterDataconnectorArgs struct {
 	Name      string         `thrift:"name,1" db:"name" json:"name"`
 	Connector *DataConnector `thrift:"connector,2" db:"connector" json:"connector"`
@@ -116081,8 +116082,8 @@ func (p *ThriftHiveMetastoreAlterDataconnectorArgs) String() string {
 }
 
 // Attributes:
-//  - O1
-//  - O2
+//   - O1
+//   - O2
 type ThriftHiveMetastoreAlterDataconnectorResult struct {
 	O1 *MetaException         `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 	O2 *NoSuchObjectException `thrift:"o2,2" db:"o2" json:"o2,omitempty"`
@@ -116241,7 +116242,7 @@ func (p *ThriftHiveMetastoreAlterDataconnectorResult) String() string {
 }
 
 // Attributes:
-//  - Name
+//   - Name
 type ThriftHiveMetastoreGetTypeArgs struct {
 	Name string `thrift:"name,1" db:"name" json:"name"`
 }
@@ -116340,9 +116341,9 @@ func (p *ThriftHiveMetastoreGetTypeArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
+//   - Success
+//   - O1
+//   - O2
 type ThriftHiveMetastoreGetTypeResult struct {
 	Success *Type                  `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException         `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -116551,7 +116552,7 @@ func (p *ThriftHiveMetastoreGetTypeResult) String() string {
 }
 
 // Attributes:
-//  - Type
+//   - Type
 type ThriftHiveMetastoreCreateTypeArgs struct {
 	Type *Type `thrift:"type,1" db:"type" json:"type"`
 }
@@ -116658,10 +116659,10 @@ func (p *ThriftHiveMetastoreCreateTypeArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
-//  - O3
+//   - Success
+//   - O1
+//   - O2
+//   - O3
 type ThriftHiveMetastoreCreateTypeResult struct {
 	Success *bool                   `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *AlreadyExistsException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -116921,7 +116922,7 @@ func (p *ThriftHiveMetastoreCreateTypeResult) String() string {
 }
 
 // Attributes:
-//  - Type
+//   - Type
 type ThriftHiveMetastoreDropTypeArgs struct {
 	Type string `thrift:"type,1" db:"type" json:"type"`
 }
@@ -117020,9 +117021,9 @@ func (p *ThriftHiveMetastoreDropTypeArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
+//   - Success
+//   - O1
+//   - O2
 type ThriftHiveMetastoreDropTypeResult struct {
 	Success *bool                  `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException         `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -117232,7 +117233,7 @@ func (p *ThriftHiveMetastoreDropTypeResult) String() string {
 }
 
 // Attributes:
-//  - Name
+//   - Name
 type ThriftHiveMetastoreGetTypeAllArgs struct {
 	Name string `thrift:"name,1" db:"name" json:"name"`
 }
@@ -117331,8 +117332,8 @@ func (p *ThriftHiveMetastoreGetTypeAllArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O2
+//   - Success
+//   - O2
 type ThriftHiveMetastoreGetTypeAllResult struct {
 	Success map[string]*Type `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O2      *MetaException   `thrift:"o2,1" db:"o2" json:"o2,omitempty"`
@@ -117517,8 +117518,8 @@ func (p *ThriftHiveMetastoreGetTypeAllResult) String() string {
 }
 
 // Attributes:
-//  - DbName
-//  - TableName
+//   - DbName
+//   - TableName
 type ThriftHiveMetastoreGetFieldsArgs struct {
 	DbName    string `thrift:"db_name,1" db:"db_name" json:"db_name"`
 	TableName string `thrift:"table_name,2" db:"table_name" json:"table_name"`
@@ -117657,10 +117658,10 @@ func (p *ThriftHiveMetastoreGetFieldsArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
-//  - O3
+//   - Success
+//   - O1
+//   - O2
+//   - O3
 type ThriftHiveMetastoreGetFieldsResult struct {
 	Success []*FieldSchema         `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException         `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -117936,9 +117937,9 @@ func (p *ThriftHiveMetastoreGetFieldsResult) String() string {
 }
 
 // Attributes:
-//  - DbName
-//  - TableName
-//  - EnvironmentContext
+//   - DbName
+//   - TableName
+//   - EnvironmentContext
 type ThriftHiveMetastoreGetFieldsWithEnvironmentContextArgs struct {
 	DbName             string              `thrift:"db_name,1" db:"db_name" json:"db_name"`
 	TableName          string              `thrift:"table_name,2" db:"table_name" json:"table_name"`
@@ -118125,10 +118126,10 @@ func (p *ThriftHiveMetastoreGetFieldsWithEnvironmentContextArgs) String() string
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
-//  - O3
+//   - Success
+//   - O1
+//   - O2
+//   - O3
 type ThriftHiveMetastoreGetFieldsWithEnvironmentContextResult struct {
 	Success []*FieldSchema         `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException         `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -118404,7 +118405,7 @@ func (p *ThriftHiveMetastoreGetFieldsWithEnvironmentContextResult) String() stri
 }
 
 // Attributes:
-//  - Req
+//   - Req
 type ThriftHiveMetastoreGetFieldsReqArgs struct {
 	Req *GetFieldsRequest `thrift:"req,1" db:"req" json:"req"`
 }
@@ -118513,10 +118514,10 @@ func (p *ThriftHiveMetastoreGetFieldsReqArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
-//  - O3
+//   - Success
+//   - O1
+//   - O2
+//   - O3
 type ThriftHiveMetastoreGetFieldsReqResult struct {
 	Success *GetFieldsResponse     `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException         `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -118775,8 +118776,8 @@ func (p *ThriftHiveMetastoreGetFieldsReqResult) String() string {
 }
 
 // Attributes:
-//  - DbName
-//  - TableName
+//   - DbName
+//   - TableName
 type ThriftHiveMetastoreGetSchemaArgs struct {
 	DbName    string `thrift:"db_name,1" db:"db_name" json:"db_name"`
 	TableName string `thrift:"table_name,2" db:"table_name" json:"table_name"`
@@ -118915,10 +118916,10 @@ func (p *ThriftHiveMetastoreGetSchemaArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
-//  - O3
+//   - Success
+//   - O1
+//   - O2
+//   - O3
 type ThriftHiveMetastoreGetSchemaResult struct {
 	Success []*FieldSchema         `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException         `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -119194,9 +119195,9 @@ func (p *ThriftHiveMetastoreGetSchemaResult) String() string {
 }
 
 // Attributes:
-//  - DbName
-//  - TableName
-//  - EnvironmentContext
+//   - DbName
+//   - TableName
+//   - EnvironmentContext
 type ThriftHiveMetastoreGetSchemaWithEnvironmentContextArgs struct {
 	DbName             string              `thrift:"db_name,1" db:"db_name" json:"db_name"`
 	TableName          string              `thrift:"table_name,2" db:"table_name" json:"table_name"`
@@ -119383,10 +119384,10 @@ func (p *ThriftHiveMetastoreGetSchemaWithEnvironmentContextArgs) String() string
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
-//  - O3
+//   - Success
+//   - O1
+//   - O2
+//   - O3
 type ThriftHiveMetastoreGetSchemaWithEnvironmentContextResult struct {
 	Success []*FieldSchema         `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException         `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -119662,7 +119663,7 @@ func (p *ThriftHiveMetastoreGetSchemaWithEnvironmentContextResult) String() stri
 }
 
 // Attributes:
-//  - Req
+//   - Req
 type ThriftHiveMetastoreGetSchemaReqArgs struct {
 	Req *GetSchemaRequest `thrift:"req,1" db:"req" json:"req"`
 }
@@ -119771,10 +119772,10 @@ func (p *ThriftHiveMetastoreGetSchemaReqArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
-//  - O3
+//   - Success
+//   - O1
+//   - O2
+//   - O3
 type ThriftHiveMetastoreGetSchemaReqResult struct {
 	Success *GetSchemaResponse     `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException         `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -120033,7 +120034,7 @@ func (p *ThriftHiveMetastoreGetSchemaReqResult) String() string {
 }
 
 // Attributes:
-//  - Tbl
+//   - Tbl
 type ThriftHiveMetastoreCreateTableArgs struct {
 	Tbl *Table `thrift:"tbl,1" db:"tbl" json:"tbl"`
 }
@@ -120144,10 +120145,10 @@ func (p *ThriftHiveMetastoreCreateTableArgs) String() string {
 }
 
 // Attributes:
-//  - O1
-//  - O2
-//  - O3
-//  - O4
+//   - O1
+//   - O2
+//   - O3
+//   - O4
 type ThriftHiveMetastoreCreateTableResult struct {
 	O1 *AlreadyExistsException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 	O2 *InvalidObjectException `thrift:"o2,2" db:"o2" json:"o2,omitempty"`
@@ -120406,8 +120407,8 @@ func (p *ThriftHiveMetastoreCreateTableResult) String() string {
 }
 
 // Attributes:
-//  - Tbl
-//  - EnvironmentContext
+//   - Tbl
+//   - EnvironmentContext
 type ThriftHiveMetastoreCreateTableWithEnvironmentContextArgs struct {
 	Tbl                *Table              `thrift:"tbl,1" db:"tbl" json:"tbl"`
 	EnvironmentContext *EnvironmentContext `thrift:"environment_context,2" db:"environment_context" json:"environment_context"`
@@ -120566,10 +120567,10 @@ func (p *ThriftHiveMetastoreCreateTableWithEnvironmentContextArgs) String() stri
 }
 
 // Attributes:
-//  - O1
-//  - O2
-//  - O3
-//  - O4
+//   - O1
+//   - O2
+//   - O3
+//   - O4
 type ThriftHiveMetastoreCreateTableWithEnvironmentContextResult struct {
 	O1 *AlreadyExistsException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 	O2 *InvalidObjectException `thrift:"o2,2" db:"o2" json:"o2,omitempty"`
@@ -120828,13 +120829,13 @@ func (p *ThriftHiveMetastoreCreateTableWithEnvironmentContextResult) String() st
 }
 
 // Attributes:
-//  - Tbl
-//  - PrimaryKeys
-//  - ForeignKeys
-//  - UniqueConstraints
-//  - NotNullConstraints
-//  - DefaultConstraints
-//  - CheckConstraints
+//   - Tbl
+//   - PrimaryKeys
+//   - ForeignKeys
+//   - UniqueConstraints
+//   - NotNullConstraints
+//   - DefaultConstraints
+//   - CheckConstraints
 type ThriftHiveMetastoreCreateTableWithConstraintsArgs struct {
 	Tbl                *Table                  `thrift:"tbl,1" db:"tbl" json:"tbl"`
 	PrimaryKeys        []*SQLPrimaryKey        `thrift:"primaryKeys,2" db:"primaryKeys" json:"primaryKeys"`
@@ -121299,10 +121300,10 @@ func (p *ThriftHiveMetastoreCreateTableWithConstraintsArgs) String() string {
 }
 
 // Attributes:
-//  - O1
-//  - O2
-//  - O3
-//  - O4
+//   - O1
+//   - O2
+//   - O3
+//   - O4
 type ThriftHiveMetastoreCreateTableWithConstraintsResult struct {
 	O1 *AlreadyExistsException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 	O2 *InvalidObjectException `thrift:"o2,2" db:"o2" json:"o2,omitempty"`
@@ -121561,7 +121562,7 @@ func (p *ThriftHiveMetastoreCreateTableWithConstraintsResult) String() string {
 }
 
 // Attributes:
-//  - Request
+//   - Request
 type ThriftHiveMetastoreCreateTableReqArgs struct {
 	Request *CreateTableRequest `thrift:"request,1" db:"request" json:"request"`
 }
@@ -121668,10 +121669,10 @@ func (p *ThriftHiveMetastoreCreateTableReqArgs) String() string {
 }
 
 // Attributes:
-//  - O1
-//  - O2
-//  - O3
-//  - O4
+//   - O1
+//   - O2
+//   - O3
+//   - O4
 type ThriftHiveMetastoreCreateTableReqResult struct {
 	O1 *AlreadyExistsException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 	O2 *InvalidObjectException `thrift:"o2,2" db:"o2" json:"o2,omitempty"`
@@ -121930,7 +121931,7 @@ func (p *ThriftHiveMetastoreCreateTableReqResult) String() string {
 }
 
 // Attributes:
-//  - Req
+//   - Req
 type ThriftHiveMetastoreDropConstraintArgs struct {
 	Req *DropConstraintRequest `thrift:"req,1" db:"req" json:"req"`
 }
@@ -122037,8 +122038,8 @@ func (p *ThriftHiveMetastoreDropConstraintArgs) String() string {
 }
 
 // Attributes:
-//  - O1
-//  - O3
+//   - O1
+//   - O3
 type ThriftHiveMetastoreDropConstraintResult struct {
 	O1 *NoSuchObjectException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 	O3 *MetaException         `thrift:"o3,2" db:"o3" json:"o3,omitempty"`
@@ -122197,7 +122198,7 @@ func (p *ThriftHiveMetastoreDropConstraintResult) String() string {
 }
 
 // Attributes:
-//  - Req
+//   - Req
 type ThriftHiveMetastoreAddPrimaryKeyArgs struct {
 	Req *AddPrimaryKeyRequest `thrift:"req,1" db:"req" json:"req"`
 }
@@ -122304,8 +122305,8 @@ func (p *ThriftHiveMetastoreAddPrimaryKeyArgs) String() string {
 }
 
 // Attributes:
-//  - O1
-//  - O2
+//   - O1
+//   - O2
 type ThriftHiveMetastoreAddPrimaryKeyResult struct {
 	O1 *NoSuchObjectException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 	O2 *MetaException         `thrift:"o2,2" db:"o2" json:"o2,omitempty"`
@@ -122464,7 +122465,7 @@ func (p *ThriftHiveMetastoreAddPrimaryKeyResult) String() string {
 }
 
 // Attributes:
-//  - Req
+//   - Req
 type ThriftHiveMetastoreAddForeignKeyArgs struct {
 	Req *AddForeignKeyRequest `thrift:"req,1" db:"req" json:"req"`
 }
@@ -122571,8 +122572,8 @@ func (p *ThriftHiveMetastoreAddForeignKeyArgs) String() string {
 }
 
 // Attributes:
-//  - O1
-//  - O2
+//   - O1
+//   - O2
 type ThriftHiveMetastoreAddForeignKeyResult struct {
 	O1 *NoSuchObjectException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 	O2 *MetaException         `thrift:"o2,2" db:"o2" json:"o2,omitempty"`
@@ -122731,7 +122732,7 @@ func (p *ThriftHiveMetastoreAddForeignKeyResult) String() string {
 }
 
 // Attributes:
-//  - Req
+//   - Req
 type ThriftHiveMetastoreAddUniqueConstraintArgs struct {
 	Req *AddUniqueConstraintRequest `thrift:"req,1" db:"req" json:"req"`
 }
@@ -122838,8 +122839,8 @@ func (p *ThriftHiveMetastoreAddUniqueConstraintArgs) String() string {
 }
 
 // Attributes:
-//  - O1
-//  - O2
+//   - O1
+//   - O2
 type ThriftHiveMetastoreAddUniqueConstraintResult struct {
 	O1 *NoSuchObjectException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 	O2 *MetaException         `thrift:"o2,2" db:"o2" json:"o2,omitempty"`
@@ -122998,7 +122999,7 @@ func (p *ThriftHiveMetastoreAddUniqueConstraintResult) String() string {
 }
 
 // Attributes:
-//  - Req
+//   - Req
 type ThriftHiveMetastoreAddNotNullConstraintArgs struct {
 	Req *AddNotNullConstraintRequest `thrift:"req,1" db:"req" json:"req"`
 }
@@ -123105,8 +123106,8 @@ func (p *ThriftHiveMetastoreAddNotNullConstraintArgs) String() string {
 }
 
 // Attributes:
-//  - O1
-//  - O2
+//   - O1
+//   - O2
 type ThriftHiveMetastoreAddNotNullConstraintResult struct {
 	O1 *NoSuchObjectException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 	O2 *MetaException         `thrift:"o2,2" db:"o2" json:"o2,omitempty"`
@@ -123265,7 +123266,7 @@ func (p *ThriftHiveMetastoreAddNotNullConstraintResult) String() string {
 }
 
 // Attributes:
-//  - Req
+//   - Req
 type ThriftHiveMetastoreAddDefaultConstraintArgs struct {
 	Req *AddDefaultConstraintRequest `thrift:"req,1" db:"req" json:"req"`
 }
@@ -123372,8 +123373,8 @@ func (p *ThriftHiveMetastoreAddDefaultConstraintArgs) String() string {
 }
 
 // Attributes:
-//  - O1
-//  - O2
+//   - O1
+//   - O2
 type ThriftHiveMetastoreAddDefaultConstraintResult struct {
 	O1 *NoSuchObjectException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 	O2 *MetaException         `thrift:"o2,2" db:"o2" json:"o2,omitempty"`
@@ -123532,7 +123533,7 @@ func (p *ThriftHiveMetastoreAddDefaultConstraintResult) String() string {
 }
 
 // Attributes:
-//  - Req
+//   - Req
 type ThriftHiveMetastoreAddCheckConstraintArgs struct {
 	Req *AddCheckConstraintRequest `thrift:"req,1" db:"req" json:"req"`
 }
@@ -123639,8 +123640,8 @@ func (p *ThriftHiveMetastoreAddCheckConstraintArgs) String() string {
 }
 
 // Attributes:
-//  - O1
-//  - O2
+//   - O1
+//   - O2
 type ThriftHiveMetastoreAddCheckConstraintResult struct {
 	O1 *NoSuchObjectException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 	O2 *MetaException         `thrift:"o2,2" db:"o2" json:"o2,omitempty"`
@@ -123799,9 +123800,9 @@ func (p *ThriftHiveMetastoreAddCheckConstraintResult) String() string {
 }
 
 // Attributes:
-//  - Dbname
-//  - Name
-//  - DeleteData
+//   - Dbname
+//   - Name
+//   - DeleteData
 type ThriftHiveMetastoreDropTableArgs struct {
 	Dbname     string `thrift:"dbname,1" db:"dbname" json:"dbname"`
 	Name       string `thrift:"name,2" db:"name" json:"name"`
@@ -123980,8 +123981,8 @@ func (p *ThriftHiveMetastoreDropTableArgs) String() string {
 }
 
 // Attributes:
-//  - O1
-//  - O3
+//   - O1
+//   - O3
 type ThriftHiveMetastoreDropTableResult struct {
 	O1 *NoSuchObjectException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 	O3 *MetaException         `thrift:"o3,2" db:"o3" json:"o3,omitempty"`
@@ -124140,10 +124141,10 @@ func (p *ThriftHiveMetastoreDropTableResult) String() string {
 }
 
 // Attributes:
-//  - Dbname
-//  - Name
-//  - DeleteData
-//  - EnvironmentContext
+//   - Dbname
+//   - Name
+//   - DeleteData
+//   - EnvironmentContext
 type ThriftHiveMetastoreDropTableWithEnvironmentContextArgs struct {
 	Dbname             string              `thrift:"dbname,1" db:"dbname" json:"dbname"`
 	Name               string              `thrift:"name,2" db:"name" json:"name"`
@@ -124370,8 +124371,8 @@ func (p *ThriftHiveMetastoreDropTableWithEnvironmentContextArgs) String() string
 }
 
 // Attributes:
-//  - O1
-//  - O3
+//   - O1
+//   - O3
 type ThriftHiveMetastoreDropTableWithEnvironmentContextResult struct {
 	O1 *NoSuchObjectException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 	O3 *MetaException         `thrift:"o3,2" db:"o3" json:"o3,omitempty"`
@@ -124530,9 +124531,9 @@ func (p *ThriftHiveMetastoreDropTableWithEnvironmentContextResult) String() stri
 }
 
 // Attributes:
-//  - DbName
-//  - TableName
-//  - PartNames
+//   - DbName
+//   - TableName
+//   - PartNames
 type ThriftHiveMetastoreTruncateTableArgs struct {
 	DbName    string   `thrift:"dbName,1" db:"dbName" json:"dbName"`
 	TableName string   `thrift:"tableName,2" db:"tableName" json:"tableName"`
@@ -124732,7 +124733,7 @@ func (p *ThriftHiveMetastoreTruncateTableArgs) String() string {
 }
 
 // Attributes:
-//  - O1
+//   - O1
 type ThriftHiveMetastoreTruncateTableResult struct {
 	O1 *MetaException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 }
@@ -124841,7 +124842,7 @@ func (p *ThriftHiveMetastoreTruncateTableResult) String() string {
 }
 
 // Attributes:
-//  - Req
+//   - Req
 type ThriftHiveMetastoreTruncateTableReqArgs struct {
 	Req *TruncateTableRequest `thrift:"req,1" db:"req" json:"req"`
 }
@@ -124950,8 +124951,8 @@ func (p *ThriftHiveMetastoreTruncateTableReqArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
+//   - Success
+//   - O1
 type ThriftHiveMetastoreTruncateTableReqResult struct {
 	Success *TruncateTableResponse `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException         `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -125110,8 +125111,8 @@ func (p *ThriftHiveMetastoreTruncateTableReqResult) String() string {
 }
 
 // Attributes:
-//  - DbName
-//  - Pattern
+//   - DbName
+//   - Pattern
 type ThriftHiveMetastoreGetTablesArgs struct {
 	DbName  string `thrift:"db_name,1" db:"db_name" json:"db_name"`
 	Pattern string `thrift:"pattern,2" db:"pattern" json:"pattern"`
@@ -125250,8 +125251,8 @@ func (p *ThriftHiveMetastoreGetTablesArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
+//   - Success
+//   - O1
 type ThriftHiveMetastoreGetTablesResult struct {
 	Success []string       `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -125429,9 +125430,9 @@ func (p *ThriftHiveMetastoreGetTablesResult) String() string {
 }
 
 // Attributes:
-//  - DbName
-//  - Pattern
-//  - TableType
+//   - DbName
+//   - Pattern
+//   - TableType
 type ThriftHiveMetastoreGetTablesByTypeArgs struct {
 	DbName    string `thrift:"db_name,1" db:"db_name" json:"db_name"`
 	Pattern   string `thrift:"pattern,2" db:"pattern" json:"pattern"`
@@ -125610,8 +125611,8 @@ func (p *ThriftHiveMetastoreGetTablesByTypeArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
+//   - Success
+//   - O1
 type ThriftHiveMetastoreGetTablesByTypeResult struct {
 	Success []string       `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -125844,8 +125845,8 @@ func (p *ThriftHiveMetastoreGetAllMaterializedViewObjectsForRewritingArgs) Strin
 }
 
 // Attributes:
-//  - Success
-//  - O1
+//   - Success
+//   - O1
 type ThriftHiveMetastoreGetAllMaterializedViewObjectsForRewritingResult struct {
 	Success []*Table       `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -126025,7 +126026,7 @@ func (p *ThriftHiveMetastoreGetAllMaterializedViewObjectsForRewritingResult) Str
 }
 
 // Attributes:
-//  - DbName
+//   - DbName
 type ThriftHiveMetastoreGetMaterializedViewsForRewritingArgs struct {
 	DbName string `thrift:"db_name,1" db:"db_name" json:"db_name"`
 }
@@ -126124,8 +126125,8 @@ func (p *ThriftHiveMetastoreGetMaterializedViewsForRewritingArgs) String() strin
 }
 
 // Attributes:
-//  - Success
-//  - O1
+//   - Success
+//   - O1
 type ThriftHiveMetastoreGetMaterializedViewsForRewritingResult struct {
 	Success []string       `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -126303,9 +126304,9 @@ func (p *ThriftHiveMetastoreGetMaterializedViewsForRewritingResult) String() str
 }
 
 // Attributes:
-//  - DbPatterns
-//  - TblPatterns
-//  - TblTypes
+//   - DbPatterns
+//   - TblPatterns
+//   - TblTypes
 type ThriftHiveMetastoreGetTableMetaArgs struct {
 	DbPatterns  string   `thrift:"db_patterns,1" db:"db_patterns" json:"db_patterns"`
 	TblPatterns string   `thrift:"tbl_patterns,2" db:"tbl_patterns" json:"tbl_patterns"`
@@ -126505,8 +126506,8 @@ func (p *ThriftHiveMetastoreGetTableMetaArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
+//   - Success
+//   - O1
 type ThriftHiveMetastoreGetTableMetaResult struct {
 	Success []*TableMeta   `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -126682,7 +126683,7 @@ func (p *ThriftHiveMetastoreGetTableMetaResult) String() string {
 }
 
 // Attributes:
-//  - DbName
+//   - DbName
 type ThriftHiveMetastoreGetAllTablesArgs struct {
 	DbName string `thrift:"db_name,1" db:"db_name" json:"db_name"`
 }
@@ -126781,8 +126782,8 @@ func (p *ThriftHiveMetastoreGetAllTablesArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
+//   - Success
+//   - O1
 type ThriftHiveMetastoreGetAllTablesResult struct {
 	Success []string       `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -126960,8 +126961,8 @@ func (p *ThriftHiveMetastoreGetAllTablesResult) String() string {
 }
 
 // Attributes:
-//  - Dbname
-//  - TblName
+//   - Dbname
+//   - TblName
 type ThriftHiveMetastoreGetTableArgs struct {
 	Dbname  string `thrift:"dbname,1" db:"dbname" json:"dbname"`
 	TblName string `thrift:"tbl_name,2" db:"tbl_name" json:"tbl_name"`
@@ -127100,9 +127101,9 @@ func (p *ThriftHiveMetastoreGetTableArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
+//   - Success
+//   - O1
+//   - O2
 type ThriftHiveMetastoreGetTableResult struct {
 	Success *Table                 `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException         `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -127315,8 +127316,8 @@ func (p *ThriftHiveMetastoreGetTableResult) String() string {
 }
 
 // Attributes:
-//  - Dbname
-//  - TblNames
+//   - Dbname
+//   - TblNames
 type ThriftHiveMetastoreGetTableObjectsByNameArgs struct {
 	Dbname   string   `thrift:"dbname,1" db:"dbname" json:"dbname"`
 	TblNames []string `thrift:"tbl_names,2" db:"tbl_names" json:"tbl_names"`
@@ -127476,7 +127477,7 @@ func (p *ThriftHiveMetastoreGetTableObjectsByNameArgs) String() string {
 }
 
 // Attributes:
-//  - Success
+//   - Success
 type ThriftHiveMetastoreGetTableObjectsByNameResult struct {
 	Success []*Table `thrift:"success,0" db:"success" json:"success,omitempty"`
 }
@@ -127606,7 +127607,7 @@ func (p *ThriftHiveMetastoreGetTableObjectsByNameResult) String() string {
 }
 
 // Attributes:
-//  - Req
+//   - Req
 type ThriftHiveMetastoreGetTablesExtArgs struct {
 	Req *GetTablesExtRequest `thrift:"req,1" db:"req" json:"req"`
 }
@@ -127713,8 +127714,8 @@ func (p *ThriftHiveMetastoreGetTablesExtArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
+//   - Success
+//   - O1
 type ThriftHiveMetastoreGetTablesExtResult struct {
 	Success []*ExtendedTableInfo `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException       `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -127890,7 +127891,7 @@ func (p *ThriftHiveMetastoreGetTablesExtResult) String() string {
 }
 
 // Attributes:
-//  - Req
+//   - Req
 type ThriftHiveMetastoreGetTableReqArgs struct {
 	Req *GetTableRequest `thrift:"req,1" db:"req" json:"req"`
 }
@@ -127999,9 +128000,9 @@ func (p *ThriftHiveMetastoreGetTableReqArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
+//   - Success
+//   - O1
+//   - O2
 type ThriftHiveMetastoreGetTableReqResult struct {
 	Success *GetTableResult_       `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException         `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -128210,7 +128211,7 @@ func (p *ThriftHiveMetastoreGetTableReqResult) String() string {
 }
 
 // Attributes:
-//  - Req
+//   - Req
 type ThriftHiveMetastoreGetTableObjectsByNameReqArgs struct {
 	Req *GetTablesRequest `thrift:"req,1" db:"req" json:"req"`
 }
@@ -128317,10 +128318,10 @@ func (p *ThriftHiveMetastoreGetTableObjectsByNameReqArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
-//  - O3
+//   - Success
+//   - O1
+//   - O2
+//   - O3
 type ThriftHiveMetastoreGetTableObjectsByNameReqResult struct {
 	Success *GetTablesResult_          `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException             `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -128579,8 +128580,8 @@ func (p *ThriftHiveMetastoreGetTableObjectsByNameReqResult) String() string {
 }
 
 // Attributes:
-//  - CreationMetadata
-//  - ValidTxnList
+//   - CreationMetadata
+//   - ValidTxnList
 type ThriftHiveMetastoreGetMaterializationInvalidationInfoArgs struct {
 	CreationMetadata *CreationMetadata `thrift:"creation_metadata,1" db:"creation_metadata" json:"creation_metadata"`
 	ValidTxnList     string            `thrift:"validTxnList,2" db:"validTxnList" json:"validTxnList"`
@@ -128727,10 +128728,10 @@ func (p *ThriftHiveMetastoreGetMaterializationInvalidationInfoArgs) String() str
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
-//  - O3
+//   - Success
+//   - O1
+//   - O2
+//   - O3
 type ThriftHiveMetastoreGetMaterializationInvalidationInfoResult struct {
 	Success *Materialization           `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException             `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -128989,10 +128990,10 @@ func (p *ThriftHiveMetastoreGetMaterializationInvalidationInfoResult) String() s
 }
 
 // Attributes:
-//  - CatName
-//  - Dbname
-//  - TblName
-//  - CreationMetadata
+//   - CatName
+//   - Dbname
+//   - TblName
+//   - CreationMetadata
 type ThriftHiveMetastoreUpdateCreationMetadataArgs struct {
 	CatName          string            `thrift:"catName,1" db:"catName" json:"catName"`
 	Dbname           string            `thrift:"dbname,2" db:"dbname" json:"dbname"`
@@ -129219,9 +129220,9 @@ func (p *ThriftHiveMetastoreUpdateCreationMetadataArgs) String() string {
 }
 
 // Attributes:
-//  - O1
-//  - O2
-//  - O3
+//   - O1
+//   - O2
+//   - O3
 type ThriftHiveMetastoreUpdateCreationMetadataResult struct {
 	O1 *MetaException             `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 	O2 *InvalidOperationException `thrift:"o2,2" db:"o2" json:"o2,omitempty"`
@@ -129430,9 +129431,9 @@ func (p *ThriftHiveMetastoreUpdateCreationMetadataResult) String() string {
 }
 
 // Attributes:
-//  - Dbname
-//  - Filter
-//  - MaxTables
+//   - Dbname
+//   - Filter
+//   - MaxTables
 type ThriftHiveMetastoreGetTableNamesByFilterArgs struct {
 	Dbname    string `thrift:"dbname,1" db:"dbname" json:"dbname"`
 	Filter    string `thrift:"filter,2" db:"filter" json:"filter"`
@@ -129613,10 +129614,10 @@ func (p *ThriftHiveMetastoreGetTableNamesByFilterArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
-//  - O3
+//   - Success
+//   - O1
+//   - O2
+//   - O3
 type ThriftHiveMetastoreGetTableNamesByFilterResult struct {
 	Success []string                   `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException             `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -129894,9 +129895,9 @@ func (p *ThriftHiveMetastoreGetTableNamesByFilterResult) String() string {
 }
 
 // Attributes:
-//  - Dbname
-//  - TblName
-//  - NewTbl_
+//   - Dbname
+//   - TblName
+//   - NewTbl_
 type ThriftHiveMetastoreAlterTableArgs struct {
 	Dbname  string `thrift:"dbname,1" db:"dbname" json:"dbname"`
 	TblName string `thrift:"tbl_name,2" db:"tbl_name" json:"tbl_name"`
@@ -130087,8 +130088,8 @@ func (p *ThriftHiveMetastoreAlterTableArgs) String() string {
 }
 
 // Attributes:
-//  - O1
-//  - O2
+//   - O1
+//   - O2
 type ThriftHiveMetastoreAlterTableResult struct {
 	O1 *InvalidOperationException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 	O2 *MetaException             `thrift:"o2,2" db:"o2" json:"o2,omitempty"`
@@ -130247,10 +130248,10 @@ func (p *ThriftHiveMetastoreAlterTableResult) String() string {
 }
 
 // Attributes:
-//  - Dbname
-//  - TblName
-//  - NewTbl_
-//  - EnvironmentContext
+//   - Dbname
+//   - TblName
+//   - NewTbl_
+//   - EnvironmentContext
 type ThriftHiveMetastoreAlterTableWithEnvironmentContextArgs struct {
 	Dbname             string              `thrift:"dbname,1" db:"dbname" json:"dbname"`
 	TblName            string              `thrift:"tbl_name,2" db:"tbl_name" json:"tbl_name"`
@@ -130489,8 +130490,8 @@ func (p *ThriftHiveMetastoreAlterTableWithEnvironmentContextArgs) String() strin
 }
 
 // Attributes:
-//  - O1
-//  - O2
+//   - O1
+//   - O2
 type ThriftHiveMetastoreAlterTableWithEnvironmentContextResult struct {
 	O1 *InvalidOperationException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 	O2 *MetaException             `thrift:"o2,2" db:"o2" json:"o2,omitempty"`
@@ -130649,10 +130650,10 @@ func (p *ThriftHiveMetastoreAlterTableWithEnvironmentContextResult) String() str
 }
 
 // Attributes:
-//  - Dbname
-//  - TblName
-//  - NewTbl_
-//  - Cascade
+//   - Dbname
+//   - TblName
+//   - NewTbl_
+//   - Cascade
 type ThriftHiveMetastoreAlterTableWithCascadeArgs struct {
 	Dbname  string `thrift:"dbname,1" db:"dbname" json:"dbname"`
 	TblName string `thrift:"tbl_name,2" db:"tbl_name" json:"tbl_name"`
@@ -130883,8 +130884,8 @@ func (p *ThriftHiveMetastoreAlterTableWithCascadeArgs) String() string {
 }
 
 // Attributes:
-//  - O1
-//  - O2
+//   - O1
+//   - O2
 type ThriftHiveMetastoreAlterTableWithCascadeResult struct {
 	O1 *InvalidOperationException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 	O2 *MetaException             `thrift:"o2,2" db:"o2" json:"o2,omitempty"`
@@ -131043,7 +131044,7 @@ func (p *ThriftHiveMetastoreAlterTableWithCascadeResult) String() string {
 }
 
 // Attributes:
-//  - Req
+//   - Req
 type ThriftHiveMetastoreAlterTableReqArgs struct {
 	Req *AlterTableRequest `thrift:"req,1" db:"req" json:"req"`
 }
@@ -131152,9 +131153,9 @@ func (p *ThriftHiveMetastoreAlterTableReqArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
+//   - Success
+//   - O1
+//   - O2
 type ThriftHiveMetastoreAlterTableReqResult struct {
 	Success *AlterTableResponse        `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *InvalidOperationException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -131363,7 +131364,7 @@ func (p *ThriftHiveMetastoreAlterTableReqResult) String() string {
 }
 
 // Attributes:
-//  - NewPart_
+//   - NewPart_
 type ThriftHiveMetastoreAddPartitionArgs struct {
 	NewPart_ *Partition `thrift:"new_part,1" db:"new_part" json:"new_part"`
 }
@@ -131472,10 +131473,10 @@ func (p *ThriftHiveMetastoreAddPartitionArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
-//  - O3
+//   - Success
+//   - O1
+//   - O2
+//   - O3
 type ThriftHiveMetastoreAddPartitionResult struct {
 	Success *Partition              `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *InvalidObjectException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -131736,8 +131737,8 @@ func (p *ThriftHiveMetastoreAddPartitionResult) String() string {
 }
 
 // Attributes:
-//  - NewPart_
-//  - EnvironmentContext
+//   - NewPart_
+//   - EnvironmentContext
 type ThriftHiveMetastoreAddPartitionWithEnvironmentContextArgs struct {
 	NewPart_           *Partition          `thrift:"new_part,1" db:"new_part" json:"new_part"`
 	EnvironmentContext *EnvironmentContext `thrift:"environment_context,2" db:"environment_context" json:"environment_context"`
@@ -131894,10 +131895,10 @@ func (p *ThriftHiveMetastoreAddPartitionWithEnvironmentContextArgs) String() str
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
-//  - O3
+//   - Success
+//   - O1
+//   - O2
+//   - O3
 type ThriftHiveMetastoreAddPartitionWithEnvironmentContextResult struct {
 	Success *Partition              `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *InvalidObjectException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -132158,7 +132159,7 @@ func (p *ThriftHiveMetastoreAddPartitionWithEnvironmentContextResult) String() s
 }
 
 // Attributes:
-//  - NewParts_
+//   - NewParts_
 type ThriftHiveMetastoreAddPartitionsArgs struct {
 	NewParts_ []*Partition `thrift:"new_parts,1" db:"new_parts" json:"new_parts"`
 }
@@ -132278,10 +132279,10 @@ func (p *ThriftHiveMetastoreAddPartitionsArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
-//  - O3
+//   - Success
+//   - O1
+//   - O2
+//   - O3
 type ThriftHiveMetastoreAddPartitionsResult struct {
 	Success *int32                  `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *InvalidObjectException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -132541,7 +132542,7 @@ func (p *ThriftHiveMetastoreAddPartitionsResult) String() string {
 }
 
 // Attributes:
-//  - NewParts_
+//   - NewParts_
 type ThriftHiveMetastoreAddPartitionsPspecArgs struct {
 	NewParts_ []*PartitionSpec `thrift:"new_parts,1" db:"new_parts" json:"new_parts"`
 }
@@ -132661,10 +132662,10 @@ func (p *ThriftHiveMetastoreAddPartitionsPspecArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
-//  - O3
+//   - Success
+//   - O1
+//   - O2
+//   - O3
 type ThriftHiveMetastoreAddPartitionsPspecResult struct {
 	Success *int32                  `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *InvalidObjectException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -132924,9 +132925,9 @@ func (p *ThriftHiveMetastoreAddPartitionsPspecResult) String() string {
 }
 
 // Attributes:
-//  - DbName
-//  - TblName
-//  - PartVals
+//   - DbName
+//   - TblName
+//   - PartVals
 type ThriftHiveMetastoreAppendPartitionArgs struct {
 	DbName   string   `thrift:"db_name,1" db:"db_name" json:"db_name"`
 	TblName  string   `thrift:"tbl_name,2" db:"tbl_name" json:"tbl_name"`
@@ -133126,10 +133127,10 @@ func (p *ThriftHiveMetastoreAppendPartitionArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
-//  - O3
+//   - Success
+//   - O1
+//   - O2
+//   - O3
 type ThriftHiveMetastoreAppendPartitionResult struct {
 	Success *Partition              `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *InvalidObjectException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -133390,7 +133391,7 @@ func (p *ThriftHiveMetastoreAppendPartitionResult) String() string {
 }
 
 // Attributes:
-//  - Request
+//   - Request
 type ThriftHiveMetastoreAddPartitionsReqArgs struct {
 	Request *AddPartitionsRequest `thrift:"request,1" db:"request" json:"request"`
 }
@@ -133499,10 +133500,10 @@ func (p *ThriftHiveMetastoreAddPartitionsReqArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
-//  - O3
+//   - Success
+//   - O1
+//   - O2
+//   - O3
 type ThriftHiveMetastoreAddPartitionsReqResult struct {
 	Success *AddPartitionsResult_   `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *InvalidObjectException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -133761,10 +133762,10 @@ func (p *ThriftHiveMetastoreAddPartitionsReqResult) String() string {
 }
 
 // Attributes:
-//  - DbName
-//  - TblName
-//  - PartVals
-//  - EnvironmentContext
+//   - DbName
+//   - TblName
+//   - PartVals
+//   - EnvironmentContext
 type ThriftHiveMetastoreAppendPartitionWithEnvironmentContextArgs struct {
 	DbName             string              `thrift:"db_name,1" db:"db_name" json:"db_name"`
 	TblName            string              `thrift:"tbl_name,2" db:"tbl_name" json:"tbl_name"`
@@ -134012,10 +134013,10 @@ func (p *ThriftHiveMetastoreAppendPartitionWithEnvironmentContextArgs) String() 
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
-//  - O3
+//   - Success
+//   - O1
+//   - O2
+//   - O3
 type ThriftHiveMetastoreAppendPartitionWithEnvironmentContextResult struct {
 	Success *Partition              `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *InvalidObjectException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -134276,9 +134277,9 @@ func (p *ThriftHiveMetastoreAppendPartitionWithEnvironmentContextResult) String(
 }
 
 // Attributes:
-//  - DbName
-//  - TblName
-//  - PartName
+//   - DbName
+//   - TblName
+//   - PartName
 type ThriftHiveMetastoreAppendPartitionByNameArgs struct {
 	DbName   string `thrift:"db_name,1" db:"db_name" json:"db_name"`
 	TblName  string `thrift:"tbl_name,2" db:"tbl_name" json:"tbl_name"`
@@ -134457,10 +134458,10 @@ func (p *ThriftHiveMetastoreAppendPartitionByNameArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
-//  - O3
+//   - Success
+//   - O1
+//   - O2
+//   - O3
 type ThriftHiveMetastoreAppendPartitionByNameResult struct {
 	Success *Partition              `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *InvalidObjectException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -134721,10 +134722,10 @@ func (p *ThriftHiveMetastoreAppendPartitionByNameResult) String() string {
 }
 
 // Attributes:
-//  - DbName
-//  - TblName
-//  - PartName
-//  - EnvironmentContext
+//   - DbName
+//   - TblName
+//   - PartName
+//   - EnvironmentContext
 type ThriftHiveMetastoreAppendPartitionByNameWithEnvironmentContextArgs struct {
 	DbName             string              `thrift:"db_name,1" db:"db_name" json:"db_name"`
 	TblName            string              `thrift:"tbl_name,2" db:"tbl_name" json:"tbl_name"`
@@ -134951,10 +134952,10 @@ func (p *ThriftHiveMetastoreAppendPartitionByNameWithEnvironmentContextArgs) Str
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
-//  - O3
+//   - Success
+//   - O1
+//   - O2
+//   - O3
 type ThriftHiveMetastoreAppendPartitionByNameWithEnvironmentContextResult struct {
 	Success *Partition              `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *InvalidObjectException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -135215,10 +135216,10 @@ func (p *ThriftHiveMetastoreAppendPartitionByNameWithEnvironmentContextResult) S
 }
 
 // Attributes:
-//  - DbName
-//  - TblName
-//  - PartVals
-//  - DeleteData
+//   - DbName
+//   - TblName
+//   - PartVals
+//   - DeleteData
 type ThriftHiveMetastoreDropPartitionArgs struct {
 	DbName     string   `thrift:"db_name,1" db:"db_name" json:"db_name"`
 	TblName    string   `thrift:"tbl_name,2" db:"tbl_name" json:"tbl_name"`
@@ -135458,9 +135459,9 @@ func (p *ThriftHiveMetastoreDropPartitionArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
+//   - Success
+//   - O1
+//   - O2
 type ThriftHiveMetastoreDropPartitionResult struct {
 	Success *bool                  `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *NoSuchObjectException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -135670,11 +135671,11 @@ func (p *ThriftHiveMetastoreDropPartitionResult) String() string {
 }
 
 // Attributes:
-//  - DbName
-//  - TblName
-//  - PartVals
-//  - DeleteData
-//  - EnvironmentContext
+//   - DbName
+//   - TblName
+//   - PartVals
+//   - DeleteData
+//   - EnvironmentContext
 type ThriftHiveMetastoreDropPartitionWithEnvironmentContextArgs struct {
 	DbName             string              `thrift:"db_name,1" db:"db_name" json:"db_name"`
 	TblName            string              `thrift:"tbl_name,2" db:"tbl_name" json:"tbl_name"`
@@ -135962,9 +135963,9 @@ func (p *ThriftHiveMetastoreDropPartitionWithEnvironmentContextArgs) String() st
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
+//   - Success
+//   - O1
+//   - O2
 type ThriftHiveMetastoreDropPartitionWithEnvironmentContextResult struct {
 	Success *bool                  `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *NoSuchObjectException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -136174,10 +136175,10 @@ func (p *ThriftHiveMetastoreDropPartitionWithEnvironmentContextResult) String() 
 }
 
 // Attributes:
-//  - DbName
-//  - TblName
-//  - PartName
-//  - DeleteData
+//   - DbName
+//   - TblName
+//   - PartName
+//   - DeleteData
 type ThriftHiveMetastoreDropPartitionByNameArgs struct {
 	DbName     string `thrift:"db_name,1" db:"db_name" json:"db_name"`
 	TblName    string `thrift:"tbl_name,2" db:"tbl_name" json:"tbl_name"`
@@ -136396,9 +136397,9 @@ func (p *ThriftHiveMetastoreDropPartitionByNameArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
+//   - Success
+//   - O1
+//   - O2
 type ThriftHiveMetastoreDropPartitionByNameResult struct {
 	Success *bool                  `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *NoSuchObjectException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -136608,11 +136609,11 @@ func (p *ThriftHiveMetastoreDropPartitionByNameResult) String() string {
 }
 
 // Attributes:
-//  - DbName
-//  - TblName
-//  - PartName
-//  - DeleteData
-//  - EnvironmentContext
+//   - DbName
+//   - TblName
+//   - PartName
+//   - DeleteData
+//   - EnvironmentContext
 type ThriftHiveMetastoreDropPartitionByNameWithEnvironmentContextArgs struct {
 	DbName             string              `thrift:"db_name,1" db:"db_name" json:"db_name"`
 	TblName            string              `thrift:"tbl_name,2" db:"tbl_name" json:"tbl_name"`
@@ -136879,9 +136880,9 @@ func (p *ThriftHiveMetastoreDropPartitionByNameWithEnvironmentContextArgs) Strin
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
+//   - Success
+//   - O1
+//   - O2
 type ThriftHiveMetastoreDropPartitionByNameWithEnvironmentContextResult struct {
 	Success *bool                  `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *NoSuchObjectException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -137091,7 +137092,7 @@ func (p *ThriftHiveMetastoreDropPartitionByNameWithEnvironmentContextResult) Str
 }
 
 // Attributes:
-//  - Req
+//   - Req
 type ThriftHiveMetastoreDropPartitionsReqArgs struct {
 	Req *DropPartitionsRequest `thrift:"req,1" db:"req" json:"req"`
 }
@@ -137202,9 +137203,9 @@ func (p *ThriftHiveMetastoreDropPartitionsReqArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
+//   - Success
+//   - O1
+//   - O2
 type ThriftHiveMetastoreDropPartitionsReqResult struct {
 	Success *DropPartitionsResult_ `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *NoSuchObjectException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -137413,9 +137414,9 @@ func (p *ThriftHiveMetastoreDropPartitionsReqResult) String() string {
 }
 
 // Attributes:
-//  - DbName
-//  - TblName
-//  - PartVals
+//   - DbName
+//   - TblName
+//   - PartVals
 type ThriftHiveMetastoreGetPartitionArgs struct {
 	DbName   string   `thrift:"db_name,1" db:"db_name" json:"db_name"`
 	TblName  string   `thrift:"tbl_name,2" db:"tbl_name" json:"tbl_name"`
@@ -137615,9 +137616,9 @@ func (p *ThriftHiveMetastoreGetPartitionArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
+//   - Success
+//   - O1
+//   - O2
 type ThriftHiveMetastoreGetPartitionResult struct {
 	Success *Partition             `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException         `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -137828,7 +137829,7 @@ func (p *ThriftHiveMetastoreGetPartitionResult) String() string {
 }
 
 // Attributes:
-//  - Req
+//   - Req
 type ThriftHiveMetastoreGetPartitionReqArgs struct {
 	Req *GetPartitionRequest `thrift:"req,1" db:"req" json:"req"`
 }
@@ -137937,9 +137938,9 @@ func (p *ThriftHiveMetastoreGetPartitionReqArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
+//   - Success
+//   - O1
+//   - O2
 type ThriftHiveMetastoreGetPartitionReqResult struct {
 	Success *GetPartitionResponse  `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException         `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -138148,11 +138149,11 @@ func (p *ThriftHiveMetastoreGetPartitionReqResult) String() string {
 }
 
 // Attributes:
-//  - PartitionSpecs
-//  - SourceDb
-//  - SourceTableName
-//  - DestDb
-//  - DestTableName
+//   - PartitionSpecs
+//   - SourceDb
+//   - SourceTableName
+//   - DestDb
+//   - DestTableName
 type ThriftHiveMetastoreExchangePartitionArgs struct {
 	PartitionSpecs  map[string]string `thrift:"partitionSpecs,1" db:"partitionSpecs" json:"partitionSpecs"`
 	SourceDb        string            `thrift:"source_db,2" db:"source_db" json:"source_db"`
@@ -138441,11 +138442,11 @@ func (p *ThriftHiveMetastoreExchangePartitionArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
-//  - O3
-//  - O4
+//   - Success
+//   - O1
+//   - O2
+//   - O3
+//   - O4
 type ThriftHiveMetastoreExchangePartitionResult struct {
 	Success *Partition              `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException          `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -138756,11 +138757,11 @@ func (p *ThriftHiveMetastoreExchangePartitionResult) String() string {
 }
 
 // Attributes:
-//  - PartitionSpecs
-//  - SourceDb
-//  - SourceTableName
-//  - DestDb
-//  - DestTableName
+//   - PartitionSpecs
+//   - SourceDb
+//   - SourceTableName
+//   - DestDb
+//   - DestTableName
 type ThriftHiveMetastoreExchangePartitionsArgs struct {
 	PartitionSpecs  map[string]string `thrift:"partitionSpecs,1" db:"partitionSpecs" json:"partitionSpecs"`
 	SourceDb        string            `thrift:"source_db,2" db:"source_db" json:"source_db"`
@@ -139049,11 +139050,11 @@ func (p *ThriftHiveMetastoreExchangePartitionsArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
-//  - O3
-//  - O4
+//   - Success
+//   - O1
+//   - O2
+//   - O3
+//   - O4
 type ThriftHiveMetastoreExchangePartitionsResult struct {
 	Success []*Partition            `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException          `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -139381,11 +139382,11 @@ func (p *ThriftHiveMetastoreExchangePartitionsResult) String() string {
 }
 
 // Attributes:
-//  - DbName
-//  - TblName
-//  - PartVals
-//  - UserName
-//  - GroupNames
+//   - DbName
+//   - TblName
+//   - PartVals
+//   - UserName
+//   - GroupNames
 type ThriftHiveMetastoreGetPartitionWithAuthArgs struct {
 	DbName     string   `thrift:"db_name,1" db:"db_name" json:"db_name"`
 	TblName    string   `thrift:"tbl_name,2" db:"tbl_name" json:"tbl_name"`
@@ -139686,9 +139687,9 @@ func (p *ThriftHiveMetastoreGetPartitionWithAuthArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
+//   - Success
+//   - O1
+//   - O2
 type ThriftHiveMetastoreGetPartitionWithAuthResult struct {
 	Success *Partition             `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException         `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -139899,9 +139900,9 @@ func (p *ThriftHiveMetastoreGetPartitionWithAuthResult) String() string {
 }
 
 // Attributes:
-//  - DbName
-//  - TblName
-//  - PartName
+//   - DbName
+//   - TblName
+//   - PartName
 type ThriftHiveMetastoreGetPartitionByNameArgs struct {
 	DbName   string `thrift:"db_name,1" db:"db_name" json:"db_name"`
 	TblName  string `thrift:"tbl_name,2" db:"tbl_name" json:"tbl_name"`
@@ -140080,9 +140081,9 @@ func (p *ThriftHiveMetastoreGetPartitionByNameArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
+//   - Success
+//   - O1
+//   - O2
 type ThriftHiveMetastoreGetPartitionByNameResult struct {
 	Success *Partition             `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException         `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -140293,9 +140294,9 @@ func (p *ThriftHiveMetastoreGetPartitionByNameResult) String() string {
 }
 
 // Attributes:
-//  - DbName
-//  - TblName
-//  - MaxParts
+//   - DbName
+//   - TblName
+//   - MaxParts
 type ThriftHiveMetastoreGetPartitionsArgs struct {
 	DbName   string `thrift:"db_name,1" db:"db_name" json:"db_name"`
 	TblName  string `thrift:"tbl_name,2" db:"tbl_name" json:"tbl_name"`
@@ -140476,9 +140477,9 @@ func (p *ThriftHiveMetastoreGetPartitionsArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
+//   - Success
+//   - O1
+//   - O2
 type ThriftHiveMetastoreGetPartitionsResult struct {
 	Success []*Partition           `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *NoSuchObjectException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -140706,7 +140707,7 @@ func (p *ThriftHiveMetastoreGetPartitionsResult) String() string {
 }
 
 // Attributes:
-//  - Req
+//   - Req
 type ThriftHiveMetastoreGetPartitionsReqArgs struct {
 	Req *PartitionsRequest `thrift:"req,1" db:"req" json:"req"`
 }
@@ -140817,9 +140818,9 @@ func (p *ThriftHiveMetastoreGetPartitionsReqArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
+//   - Success
+//   - O1
+//   - O2
 type ThriftHiveMetastoreGetPartitionsReqResult struct {
 	Success *PartitionsResponse    `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *NoSuchObjectException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -141028,11 +141029,11 @@ func (p *ThriftHiveMetastoreGetPartitionsReqResult) String() string {
 }
 
 // Attributes:
-//  - DbName
-//  - TblName
-//  - MaxParts
-//  - UserName
-//  - GroupNames
+//   - DbName
+//   - TblName
+//   - MaxParts
+//   - UserName
+//   - GroupNames
 type ThriftHiveMetastoreGetPartitionsWithAuthArgs struct {
 	DbName     string   `thrift:"db_name,1" db:"db_name" json:"db_name"`
 	TblName    string   `thrift:"tbl_name,2" db:"tbl_name" json:"tbl_name"`
@@ -141314,9 +141315,9 @@ func (p *ThriftHiveMetastoreGetPartitionsWithAuthArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
+//   - Success
+//   - O1
+//   - O2
 type ThriftHiveMetastoreGetPartitionsWithAuthResult struct {
 	Success []*Partition           `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *NoSuchObjectException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -141544,9 +141545,9 @@ func (p *ThriftHiveMetastoreGetPartitionsWithAuthResult) String() string {
 }
 
 // Attributes:
-//  - DbName
-//  - TblName
-//  - MaxParts
+//   - DbName
+//   - TblName
+//   - MaxParts
 type ThriftHiveMetastoreGetPartitionsPspecArgs struct {
 	DbName   string `thrift:"db_name,1" db:"db_name" json:"db_name"`
 	TblName  string `thrift:"tbl_name,2" db:"tbl_name" json:"tbl_name"`
@@ -141727,9 +141728,9 @@ func (p *ThriftHiveMetastoreGetPartitionsPspecArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
+//   - Success
+//   - O1
+//   - O2
 type ThriftHiveMetastoreGetPartitionsPspecResult struct {
 	Success []*PartitionSpec       `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *NoSuchObjectException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -141957,9 +141958,9 @@ func (p *ThriftHiveMetastoreGetPartitionsPspecResult) String() string {
 }
 
 // Attributes:
-//  - DbName
-//  - TblName
-//  - MaxParts
+//   - DbName
+//   - TblName
+//   - MaxParts
 type ThriftHiveMetastoreGetPartitionNamesArgs struct {
 	DbName   string `thrift:"db_name,1" db:"db_name" json:"db_name"`
 	TblName  string `thrift:"tbl_name,2" db:"tbl_name" json:"tbl_name"`
@@ -142140,9 +142141,9 @@ func (p *ThriftHiveMetastoreGetPartitionNamesArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
+//   - Success
+//   - O1
+//   - O2
 type ThriftHiveMetastoreGetPartitionNamesResult struct {
 	Success []string               `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *NoSuchObjectException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -142370,7 +142371,7 @@ func (p *ThriftHiveMetastoreGetPartitionNamesResult) String() string {
 }
 
 // Attributes:
-//  - Request
+//   - Request
 type ThriftHiveMetastoreGetPartitionValuesArgs struct {
 	Request *PartitionValuesRequest `thrift:"request,1" db:"request" json:"request"`
 }
@@ -142483,9 +142484,9 @@ func (p *ThriftHiveMetastoreGetPartitionValuesArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
+//   - Success
+//   - O1
+//   - O2
 type ThriftHiveMetastoreGetPartitionValuesResult struct {
 	Success *PartitionValuesResponse `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException           `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -142694,10 +142695,10 @@ func (p *ThriftHiveMetastoreGetPartitionValuesResult) String() string {
 }
 
 // Attributes:
-//  - DbName
-//  - TblName
-//  - PartVals
-//  - MaxParts
+//   - DbName
+//   - TblName
+//   - PartVals
+//   - MaxParts
 type ThriftHiveMetastoreGetPartitionsPsArgs struct {
 	DbName   string   `thrift:"db_name,1" db:"db_name" json:"db_name"`
 	TblName  string   `thrift:"tbl_name,2" db:"tbl_name" json:"tbl_name"`
@@ -142939,9 +142940,9 @@ func (p *ThriftHiveMetastoreGetPartitionsPsArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
+//   - Success
+//   - O1
+//   - O2
 type ThriftHiveMetastoreGetPartitionsPsResult struct {
 	Success []*Partition           `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException         `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -143169,12 +143170,12 @@ func (p *ThriftHiveMetastoreGetPartitionsPsResult) String() string {
 }
 
 // Attributes:
-//  - DbName
-//  - TblName
-//  - PartVals
-//  - MaxParts
-//  - UserName
-//  - GroupNames
+//   - DbName
+//   - TblName
+//   - PartVals
+//   - MaxParts
+//   - UserName
+//   - GroupNames
 type ThriftHiveMetastoreGetPartitionsPsWithAuthArgs struct {
 	DbName     string   `thrift:"db_name,1" db:"db_name" json:"db_name"`
 	TblName    string   `thrift:"tbl_name,2" db:"tbl_name" json:"tbl_name"`
@@ -143517,9 +143518,9 @@ func (p *ThriftHiveMetastoreGetPartitionsPsWithAuthArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
+//   - Success
+//   - O1
+//   - O2
 type ThriftHiveMetastoreGetPartitionsPsWithAuthResult struct {
 	Success []*Partition           `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *NoSuchObjectException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -143747,7 +143748,7 @@ func (p *ThriftHiveMetastoreGetPartitionsPsWithAuthResult) String() string {
 }
 
 // Attributes:
-//  - Req
+//   - Req
 type ThriftHiveMetastoreGetPartitionsPsWithAuthReqArgs struct {
 	Req *GetPartitionsPsWithAuthRequest `thrift:"req,1" db:"req" json:"req"`
 }
@@ -143858,9 +143859,9 @@ func (p *ThriftHiveMetastoreGetPartitionsPsWithAuthReqArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
+//   - Success
+//   - O1
+//   - O2
 type ThriftHiveMetastoreGetPartitionsPsWithAuthReqResult struct {
 	Success *GetPartitionsPsWithAuthResponse `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException                   `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -144069,10 +144070,10 @@ func (p *ThriftHiveMetastoreGetPartitionsPsWithAuthReqResult) String() string {
 }
 
 // Attributes:
-//  - DbName
-//  - TblName
-//  - PartVals
-//  - MaxParts
+//   - DbName
+//   - TblName
+//   - PartVals
+//   - MaxParts
 type ThriftHiveMetastoreGetPartitionNamesPsArgs struct {
 	DbName   string   `thrift:"db_name,1" db:"db_name" json:"db_name"`
 	TblName  string   `thrift:"tbl_name,2" db:"tbl_name" json:"tbl_name"`
@@ -144314,9 +144315,9 @@ func (p *ThriftHiveMetastoreGetPartitionNamesPsArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
+//   - Success
+//   - O1
+//   - O2
 type ThriftHiveMetastoreGetPartitionNamesPsResult struct {
 	Success []string               `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException         `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -144544,7 +144545,7 @@ func (p *ThriftHiveMetastoreGetPartitionNamesPsResult) String() string {
 }
 
 // Attributes:
-//  - Req
+//   - Req
 type ThriftHiveMetastoreGetPartitionNamesPsReqArgs struct {
 	Req *GetPartitionNamesPsRequest `thrift:"req,1" db:"req" json:"req"`
 }
@@ -144655,9 +144656,9 @@ func (p *ThriftHiveMetastoreGetPartitionNamesPsReqArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
+//   - Success
+//   - O1
+//   - O2
 type ThriftHiveMetastoreGetPartitionNamesPsReqResult struct {
 	Success *GetPartitionNamesPsResponse `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException               `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -144866,7 +144867,7 @@ func (p *ThriftHiveMetastoreGetPartitionNamesPsReqResult) String() string {
 }
 
 // Attributes:
-//  - Req
+//   - Req
 type ThriftHiveMetastoreGetPartitionNamesReqArgs struct {
 	Req *PartitionsByExprRequest `thrift:"req,1" db:"req" json:"req"`
 }
@@ -144977,9 +144978,9 @@ func (p *ThriftHiveMetastoreGetPartitionNamesReqArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
+//   - Success
+//   - O1
+//   - O2
 type ThriftHiveMetastoreGetPartitionNamesReqResult struct {
 	Success []string               `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException         `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -145207,10 +145208,10 @@ func (p *ThriftHiveMetastoreGetPartitionNamesReqResult) String() string {
 }
 
 // Attributes:
-//  - DbName
-//  - TblName
-//  - Filter
-//  - MaxParts
+//   - DbName
+//   - TblName
+//   - Filter
+//   - MaxParts
 type ThriftHiveMetastoreGetPartitionsByFilterArgs struct {
 	DbName   string `thrift:"db_name,1" db:"db_name" json:"db_name"`
 	TblName  string `thrift:"tbl_name,2" db:"tbl_name" json:"tbl_name"`
@@ -145431,9 +145432,9 @@ func (p *ThriftHiveMetastoreGetPartitionsByFilterArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
+//   - Success
+//   - O1
+//   - O2
 type ThriftHiveMetastoreGetPartitionsByFilterResult struct {
 	Success []*Partition           `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException         `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -145661,10 +145662,10 @@ func (p *ThriftHiveMetastoreGetPartitionsByFilterResult) String() string {
 }
 
 // Attributes:
-//  - DbName
-//  - TblName
-//  - Filter
-//  - MaxParts
+//   - DbName
+//   - TblName
+//   - Filter
+//   - MaxParts
 type ThriftHiveMetastoreGetPartSpecsByFilterArgs struct {
 	DbName   string `thrift:"db_name,1" db:"db_name" json:"db_name"`
 	TblName  string `thrift:"tbl_name,2" db:"tbl_name" json:"tbl_name"`
@@ -145885,9 +145886,9 @@ func (p *ThriftHiveMetastoreGetPartSpecsByFilterArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
+//   - Success
+//   - O1
+//   - O2
 type ThriftHiveMetastoreGetPartSpecsByFilterResult struct {
 	Success []*PartitionSpec       `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException         `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -146115,7 +146116,7 @@ func (p *ThriftHiveMetastoreGetPartSpecsByFilterResult) String() string {
 }
 
 // Attributes:
-//  - Req
+//   - Req
 type ThriftHiveMetastoreGetPartitionsByExprArgs struct {
 	Req *PartitionsByExprRequest `thrift:"req,1" db:"req" json:"req"`
 }
@@ -146226,9 +146227,9 @@ func (p *ThriftHiveMetastoreGetPartitionsByExprArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
+//   - Success
+//   - O1
+//   - O2
 type ThriftHiveMetastoreGetPartitionsByExprResult struct {
 	Success *PartitionsByExprResult_ `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException           `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -146437,7 +146438,7 @@ func (p *ThriftHiveMetastoreGetPartitionsByExprResult) String() string {
 }
 
 // Attributes:
-//  - Req
+//   - Req
 type ThriftHiveMetastoreGetPartitionsSpecByExprArgs struct {
 	Req *PartitionsByExprRequest `thrift:"req,1" db:"req" json:"req"`
 }
@@ -146548,9 +146549,9 @@ func (p *ThriftHiveMetastoreGetPartitionsSpecByExprArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
+//   - Success
+//   - O1
+//   - O2
 type ThriftHiveMetastoreGetPartitionsSpecByExprResult struct {
 	Success *PartitionsSpecByExprResult_ `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException               `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -146759,9 +146760,9 @@ func (p *ThriftHiveMetastoreGetPartitionsSpecByExprResult) String() string {
 }
 
 // Attributes:
-//  - DbName
-//  - TblName
-//  - Filter
+//   - DbName
+//   - TblName
+//   - Filter
 type ThriftHiveMetastoreGetNumPartitionsByFilterArgs struct {
 	DbName  string `thrift:"db_name,1" db:"db_name" json:"db_name"`
 	TblName string `thrift:"tbl_name,2" db:"tbl_name" json:"tbl_name"`
@@ -146940,9 +146941,9 @@ func (p *ThriftHiveMetastoreGetNumPartitionsByFilterArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
+//   - Success
+//   - O1
+//   - O2
 type ThriftHiveMetastoreGetNumPartitionsByFilterResult struct {
 	Success *int32                 `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException         `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -147152,9 +147153,9 @@ func (p *ThriftHiveMetastoreGetNumPartitionsByFilterResult) String() string {
 }
 
 // Attributes:
-//  - DbName
-//  - TblName
-//  - Names
+//   - DbName
+//   - TblName
+//   - Names
 type ThriftHiveMetastoreGetPartitionsByNamesArgs struct {
 	DbName  string   `thrift:"db_name,1" db:"db_name" json:"db_name"`
 	TblName string   `thrift:"tbl_name,2" db:"tbl_name" json:"tbl_name"`
@@ -147354,9 +147355,9 @@ func (p *ThriftHiveMetastoreGetPartitionsByNamesArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
+//   - Success
+//   - O1
+//   - O2
 type ThriftHiveMetastoreGetPartitionsByNamesResult struct {
 	Success []*Partition           `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException         `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -147584,7 +147585,7 @@ func (p *ThriftHiveMetastoreGetPartitionsByNamesResult) String() string {
 }
 
 // Attributes:
-//  - Req
+//   - Req
 type ThriftHiveMetastoreGetPartitionsByNamesReqArgs struct {
 	Req *GetPartitionsByNamesRequest `thrift:"req,1" db:"req" json:"req"`
 }
@@ -147693,9 +147694,9 @@ func (p *ThriftHiveMetastoreGetPartitionsByNamesReqArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
+//   - Success
+//   - O1
+//   - O2
 type ThriftHiveMetastoreGetPartitionsByNamesReqResult struct {
 	Success *GetPartitionsByNamesResult_ `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException               `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -147904,9 +147905,9 @@ func (p *ThriftHiveMetastoreGetPartitionsByNamesReqResult) String() string {
 }
 
 // Attributes:
-//  - DbName
-//  - TblName
-//  - NewPart_
+//   - DbName
+//   - TblName
+//   - NewPart_
 type ThriftHiveMetastoreAlterPartitionArgs struct {
 	DbName   string     `thrift:"db_name,1" db:"db_name" json:"db_name"`
 	TblName  string     `thrift:"tbl_name,2" db:"tbl_name" json:"tbl_name"`
@@ -148095,8 +148096,8 @@ func (p *ThriftHiveMetastoreAlterPartitionArgs) String() string {
 }
 
 // Attributes:
-//  - O1
-//  - O2
+//   - O1
+//   - O2
 type ThriftHiveMetastoreAlterPartitionResult struct {
 	O1 *InvalidOperationException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 	O2 *MetaException             `thrift:"o2,2" db:"o2" json:"o2,omitempty"`
@@ -148255,9 +148256,9 @@ func (p *ThriftHiveMetastoreAlterPartitionResult) String() string {
 }
 
 // Attributes:
-//  - DbName
-//  - TblName
-//  - NewParts_
+//   - DbName
+//   - TblName
+//   - NewParts_
 type ThriftHiveMetastoreAlterPartitionsArgs struct {
 	DbName    string       `thrift:"db_name,1" db:"db_name" json:"db_name"`
 	TblName   string       `thrift:"tbl_name,2" db:"tbl_name" json:"tbl_name"`
@@ -148457,8 +148458,8 @@ func (p *ThriftHiveMetastoreAlterPartitionsArgs) String() string {
 }
 
 // Attributes:
-//  - O1
-//  - O2
+//   - O1
+//   - O2
 type ThriftHiveMetastoreAlterPartitionsResult struct {
 	O1 *InvalidOperationException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 	O2 *MetaException             `thrift:"o2,2" db:"o2" json:"o2,omitempty"`
@@ -148617,10 +148618,10 @@ func (p *ThriftHiveMetastoreAlterPartitionsResult) String() string {
 }
 
 // Attributes:
-//  - DbName
-//  - TblName
-//  - NewParts_
-//  - EnvironmentContext
+//   - DbName
+//   - TblName
+//   - NewParts_
+//   - EnvironmentContext
 type ThriftHiveMetastoreAlterPartitionsWithEnvironmentContextArgs struct {
 	DbName             string              `thrift:"db_name,1" db:"db_name" json:"db_name"`
 	TblName            string              `thrift:"tbl_name,2" db:"tbl_name" json:"tbl_name"`
@@ -148868,8 +148869,8 @@ func (p *ThriftHiveMetastoreAlterPartitionsWithEnvironmentContextArgs) String() 
 }
 
 // Attributes:
-//  - O1
-//  - O2
+//   - O1
+//   - O2
 type ThriftHiveMetastoreAlterPartitionsWithEnvironmentContextResult struct {
 	O1 *InvalidOperationException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 	O2 *MetaException             `thrift:"o2,2" db:"o2" json:"o2,omitempty"`
@@ -149028,7 +149029,7 @@ func (p *ThriftHiveMetastoreAlterPartitionsWithEnvironmentContextResult) String(
 }
 
 // Attributes:
-//  - Req
+//   - Req
 type ThriftHiveMetastoreAlterPartitionsReqArgs struct {
 	Req *AlterPartitionsRequest `thrift:"req,1" db:"req" json:"req"`
 }
@@ -149137,9 +149138,9 @@ func (p *ThriftHiveMetastoreAlterPartitionsReqArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
+//   - Success
+//   - O1
+//   - O2
 type ThriftHiveMetastoreAlterPartitionsReqResult struct {
 	Success *AlterPartitionsResponse   `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *InvalidOperationException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -149348,10 +149349,10 @@ func (p *ThriftHiveMetastoreAlterPartitionsReqResult) String() string {
 }
 
 // Attributes:
-//  - DbName
-//  - TblName
-//  - NewPart_
-//  - EnvironmentContext
+//   - DbName
+//   - TblName
+//   - NewPart_
+//   - EnvironmentContext
 type ThriftHiveMetastoreAlterPartitionWithEnvironmentContextArgs struct {
 	DbName             string              `thrift:"db_name,1" db:"db_name" json:"db_name"`
 	TblName            string              `thrift:"tbl_name,2" db:"tbl_name" json:"tbl_name"`
@@ -149588,8 +149589,8 @@ func (p *ThriftHiveMetastoreAlterPartitionWithEnvironmentContextArgs) String() s
 }
 
 // Attributes:
-//  - O1
-//  - O2
+//   - O1
+//   - O2
 type ThriftHiveMetastoreAlterPartitionWithEnvironmentContextResult struct {
 	O1 *InvalidOperationException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 	O2 *MetaException             `thrift:"o2,2" db:"o2" json:"o2,omitempty"`
@@ -149748,10 +149749,10 @@ func (p *ThriftHiveMetastoreAlterPartitionWithEnvironmentContextResult) String()
 }
 
 // Attributes:
-//  - DbName
-//  - TblName
-//  - PartVals
-//  - NewPart_
+//   - DbName
+//   - TblName
+//   - PartVals
+//   - NewPart_
 type ThriftHiveMetastoreRenamePartitionArgs struct {
 	DbName   string     `thrift:"db_name,1" db:"db_name" json:"db_name"`
 	TblName  string     `thrift:"tbl_name,2" db:"tbl_name" json:"tbl_name"`
@@ -150001,8 +150002,8 @@ func (p *ThriftHiveMetastoreRenamePartitionArgs) String() string {
 }
 
 // Attributes:
-//  - O1
-//  - O2
+//   - O1
+//   - O2
 type ThriftHiveMetastoreRenamePartitionResult struct {
 	O1 *InvalidOperationException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 	O2 *MetaException             `thrift:"o2,2" db:"o2" json:"o2,omitempty"`
@@ -150161,7 +150162,7 @@ func (p *ThriftHiveMetastoreRenamePartitionResult) String() string {
 }
 
 // Attributes:
-//  - Req
+//   - Req
 type ThriftHiveMetastoreRenamePartitionReqArgs struct {
 	Req *RenamePartitionRequest `thrift:"req,1" db:"req" json:"req"`
 }
@@ -150268,9 +150269,9 @@ func (p *ThriftHiveMetastoreRenamePartitionReqArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
+//   - Success
+//   - O1
+//   - O2
 type ThriftHiveMetastoreRenamePartitionReqResult struct {
 	Success *RenamePartitionResponse   `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *InvalidOperationException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -150479,8 +150480,8 @@ func (p *ThriftHiveMetastoreRenamePartitionReqResult) String() string {
 }
 
 // Attributes:
-//  - PartVals
-//  - ThrowException
+//   - PartVals
+//   - ThrowException
 type ThriftHiveMetastorePartitionNameHasValidCharactersArgs struct {
 	PartVals       []string `thrift:"part_vals,1" db:"part_vals" json:"part_vals"`
 	ThrowException bool     `thrift:"throw_exception,2" db:"throw_exception" json:"throw_exception"`
@@ -150640,8 +150641,8 @@ func (p *ThriftHiveMetastorePartitionNameHasValidCharactersArgs) String() string
 }
 
 // Attributes:
-//  - Success
-//  - O1
+//   - Success
+//   - O1
 type ThriftHiveMetastorePartitionNameHasValidCharactersResult struct {
 	Success *bool          `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -150801,8 +150802,8 @@ func (p *ThriftHiveMetastorePartitionNameHasValidCharactersResult) String() stri
 }
 
 // Attributes:
-//  - Name
-//  - DefaultValue
+//   - Name
+//   - DefaultValue
 type ThriftHiveMetastoreGetConfigValueArgs struct {
 	Name         string `thrift:"name,1" db:"name" json:"name"`
 	DefaultValue string `thrift:"defaultValue,2" db:"defaultValue" json:"defaultValue"`
@@ -150941,8 +150942,8 @@ func (p *ThriftHiveMetastoreGetConfigValueArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
+//   - Success
+//   - O1
 type ThriftHiveMetastoreGetConfigValueResult struct {
 	Success *string                     `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *ConfigValSecurityException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -151102,7 +151103,7 @@ func (p *ThriftHiveMetastoreGetConfigValueResult) String() string {
 }
 
 // Attributes:
-//  - PartName
+//   - PartName
 type ThriftHiveMetastorePartitionNameToValsArgs struct {
 	PartName string `thrift:"part_name,1" db:"part_name" json:"part_name"`
 }
@@ -151201,8 +151202,8 @@ func (p *ThriftHiveMetastorePartitionNameToValsArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
+//   - Success
+//   - O1
 type ThriftHiveMetastorePartitionNameToValsResult struct {
 	Success []string       `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -151380,7 +151381,7 @@ func (p *ThriftHiveMetastorePartitionNameToValsResult) String() string {
 }
 
 // Attributes:
-//  - PartName
+//   - PartName
 type ThriftHiveMetastorePartitionNameToSpecArgs struct {
 	PartName string `thrift:"part_name,1" db:"part_name" json:"part_name"`
 }
@@ -151479,8 +151480,8 @@ func (p *ThriftHiveMetastorePartitionNameToSpecArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
+//   - Success
+//   - O1
 type ThriftHiveMetastorePartitionNameToSpecResult struct {
 	Success map[string]string `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException    `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -151667,10 +151668,10 @@ func (p *ThriftHiveMetastorePartitionNameToSpecResult) String() string {
 }
 
 // Attributes:
-//  - DbName
-//  - TblName
-//  - PartVals
-//  - EventType
+//   - DbName
+//   - TblName
+//   - PartVals
+//   - EventType
 type ThriftHiveMetastoreMarkPartitionForEventArgs struct {
 	DbName    string             `thrift:"db_name,1" db:"db_name" json:"db_name"`
 	TblName   string             `thrift:"tbl_name,2" db:"tbl_name" json:"tbl_name"`
@@ -151920,12 +151921,12 @@ func (p *ThriftHiveMetastoreMarkPartitionForEventArgs) String() string {
 }
 
 // Attributes:
-//  - O1
-//  - O2
-//  - O3
-//  - O4
-//  - O5
-//  - O6
+//   - O1
+//   - O2
+//   - O3
+//   - O4
+//   - O5
+//   - O6
 type ThriftHiveMetastoreMarkPartitionForEventResult struct {
 	O1 *MetaException             `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 	O2 *NoSuchObjectException     `thrift:"o2,2" db:"o2" json:"o2,omitempty"`
@@ -152284,10 +152285,10 @@ func (p *ThriftHiveMetastoreMarkPartitionForEventResult) String() string {
 }
 
 // Attributes:
-//  - DbName
-//  - TblName
-//  - PartVals
-//  - EventType
+//   - DbName
+//   - TblName
+//   - PartVals
+//   - EventType
 type ThriftHiveMetastoreIsPartitionMarkedForEventArgs struct {
 	DbName    string             `thrift:"db_name,1" db:"db_name" json:"db_name"`
 	TblName   string             `thrift:"tbl_name,2" db:"tbl_name" json:"tbl_name"`
@@ -152537,13 +152538,13 @@ func (p *ThriftHiveMetastoreIsPartitionMarkedForEventArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
-//  - O3
-//  - O4
-//  - O5
-//  - O6
+//   - Success
+//   - O1
+//   - O2
+//   - O3
+//   - O4
+//   - O5
+//   - O6
 type ThriftHiveMetastoreIsPartitionMarkedForEventResult struct {
 	Success *bool                      `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException             `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -152953,7 +152954,7 @@ func (p *ThriftHiveMetastoreIsPartitionMarkedForEventResult) String() string {
 }
 
 // Attributes:
-//  - Request
+//   - Request
 type ThriftHiveMetastoreGetPrimaryKeysArgs struct {
 	Request *PrimaryKeysRequest `thrift:"request,1" db:"request" json:"request"`
 }
@@ -153060,9 +153061,9 @@ func (p *ThriftHiveMetastoreGetPrimaryKeysArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
+//   - Success
+//   - O1
+//   - O2
 type ThriftHiveMetastoreGetPrimaryKeysResult struct {
 	Success *PrimaryKeysResponse   `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException         `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -153271,7 +153272,7 @@ func (p *ThriftHiveMetastoreGetPrimaryKeysResult) String() string {
 }
 
 // Attributes:
-//  - Request
+//   - Request
 type ThriftHiveMetastoreGetForeignKeysArgs struct {
 	Request *ForeignKeysRequest `thrift:"request,1" db:"request" json:"request"`
 }
@@ -153378,9 +153379,9 @@ func (p *ThriftHiveMetastoreGetForeignKeysArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
+//   - Success
+//   - O1
+//   - O2
 type ThriftHiveMetastoreGetForeignKeysResult struct {
 	Success *ForeignKeysResponse   `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException         `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -153589,7 +153590,7 @@ func (p *ThriftHiveMetastoreGetForeignKeysResult) String() string {
 }
 
 // Attributes:
-//  - Request
+//   - Request
 type ThriftHiveMetastoreGetUniqueConstraintsArgs struct {
 	Request *UniqueConstraintsRequest `thrift:"request,1" db:"request" json:"request"`
 }
@@ -153696,9 +153697,9 @@ func (p *ThriftHiveMetastoreGetUniqueConstraintsArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
+//   - Success
+//   - O1
+//   - O2
 type ThriftHiveMetastoreGetUniqueConstraintsResult struct {
 	Success *UniqueConstraintsResponse `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException             `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -153907,7 +153908,7 @@ func (p *ThriftHiveMetastoreGetUniqueConstraintsResult) String() string {
 }
 
 // Attributes:
-//  - Request
+//   - Request
 type ThriftHiveMetastoreGetNotNullConstraintsArgs struct {
 	Request *NotNullConstraintsRequest `thrift:"request,1" db:"request" json:"request"`
 }
@@ -154014,9 +154015,9 @@ func (p *ThriftHiveMetastoreGetNotNullConstraintsArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
+//   - Success
+//   - O1
+//   - O2
 type ThriftHiveMetastoreGetNotNullConstraintsResult struct {
 	Success *NotNullConstraintsResponse `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException              `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -154225,7 +154226,7 @@ func (p *ThriftHiveMetastoreGetNotNullConstraintsResult) String() string {
 }
 
 // Attributes:
-//  - Request
+//   - Request
 type ThriftHiveMetastoreGetDefaultConstraintsArgs struct {
 	Request *DefaultConstraintsRequest `thrift:"request,1" db:"request" json:"request"`
 }
@@ -154332,9 +154333,9 @@ func (p *ThriftHiveMetastoreGetDefaultConstraintsArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
+//   - Success
+//   - O1
+//   - O2
 type ThriftHiveMetastoreGetDefaultConstraintsResult struct {
 	Success *DefaultConstraintsResponse `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException              `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -154543,7 +154544,7 @@ func (p *ThriftHiveMetastoreGetDefaultConstraintsResult) String() string {
 }
 
 // Attributes:
-//  - Request
+//   - Request
 type ThriftHiveMetastoreGetCheckConstraintsArgs struct {
 	Request *CheckConstraintsRequest `thrift:"request,1" db:"request" json:"request"`
 }
@@ -154650,9 +154651,9 @@ func (p *ThriftHiveMetastoreGetCheckConstraintsArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
+//   - Success
+//   - O1
+//   - O2
 type ThriftHiveMetastoreGetCheckConstraintsResult struct {
 	Success *CheckConstraintsResponse `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException            `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -154861,7 +154862,7 @@ func (p *ThriftHiveMetastoreGetCheckConstraintsResult) String() string {
 }
 
 // Attributes:
-//  - Request
+//   - Request
 type ThriftHiveMetastoreGetAllTableConstraintsArgs struct {
 	Request *AllTableConstraintsRequest `thrift:"request,1" db:"request" json:"request"`
 }
@@ -154968,9 +154969,9 @@ func (p *ThriftHiveMetastoreGetAllTableConstraintsArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
+//   - Success
+//   - O1
+//   - O2
 type ThriftHiveMetastoreGetAllTableConstraintsResult struct {
 	Success *AllTableConstraintsResponse `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException               `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -155179,7 +155180,7 @@ func (p *ThriftHiveMetastoreGetAllTableConstraintsResult) String() string {
 }
 
 // Attributes:
-//  - StatsObj
+//   - StatsObj
 type ThriftHiveMetastoreUpdateTableColumnStatisticsArgs struct {
 	StatsObj *ColumnStatistics `thrift:"stats_obj,1" db:"stats_obj" json:"stats_obj"`
 }
@@ -155286,11 +155287,11 @@ func (p *ThriftHiveMetastoreUpdateTableColumnStatisticsArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
-//  - O3
-//  - O4
+//   - Success
+//   - O1
+//   - O2
+//   - O3
+//   - O4
 type ThriftHiveMetastoreUpdateTableColumnStatisticsResult struct {
 	Success *bool                   `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *NoSuchObjectException  `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -155600,7 +155601,7 @@ func (p *ThriftHiveMetastoreUpdateTableColumnStatisticsResult) String() string {
 }
 
 // Attributes:
-//  - StatsObj
+//   - StatsObj
 type ThriftHiveMetastoreUpdatePartitionColumnStatisticsArgs struct {
 	StatsObj *ColumnStatistics `thrift:"stats_obj,1" db:"stats_obj" json:"stats_obj"`
 }
@@ -155707,11 +155708,11 @@ func (p *ThriftHiveMetastoreUpdatePartitionColumnStatisticsArgs) String() string
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
-//  - O3
-//  - O4
+//   - Success
+//   - O1
+//   - O2
+//   - O3
+//   - O4
 type ThriftHiveMetastoreUpdatePartitionColumnStatisticsResult struct {
 	Success *bool                   `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *NoSuchObjectException  `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -156021,7 +156022,7 @@ func (p *ThriftHiveMetastoreUpdatePartitionColumnStatisticsResult) String() stri
 }
 
 // Attributes:
-//  - Req
+//   - Req
 type ThriftHiveMetastoreUpdateTableColumnStatisticsReqArgs struct {
 	Req *SetPartitionsStatsRequest `thrift:"req,1" db:"req" json:"req"`
 }
@@ -156130,11 +156131,11 @@ func (p *ThriftHiveMetastoreUpdateTableColumnStatisticsReqArgs) String() string 
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
-//  - O3
-//  - O4
+//   - Success
+//   - O1
+//   - O2
+//   - O3
+//   - O4
 type ThriftHiveMetastoreUpdateTableColumnStatisticsReqResult struct {
 	Success *SetPartitionsStatsResponse `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *NoSuchObjectException      `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -156443,7 +156444,7 @@ func (p *ThriftHiveMetastoreUpdateTableColumnStatisticsReqResult) String() strin
 }
 
 // Attributes:
-//  - Req
+//   - Req
 type ThriftHiveMetastoreUpdatePartitionColumnStatisticsReqArgs struct {
 	Req *SetPartitionsStatsRequest `thrift:"req,1" db:"req" json:"req"`
 }
@@ -156552,11 +156553,11 @@ func (p *ThriftHiveMetastoreUpdatePartitionColumnStatisticsReqArgs) String() str
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
-//  - O3
-//  - O4
+//   - Success
+//   - O1
+//   - O2
+//   - O3
+//   - O4
 type ThriftHiveMetastoreUpdatePartitionColumnStatisticsReqResult struct {
 	Success *SetPartitionsStatsResponse `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *NoSuchObjectException      `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -156865,9 +156866,9 @@ func (p *ThriftHiveMetastoreUpdatePartitionColumnStatisticsReqResult) String() s
 }
 
 // Attributes:
-//  - DbName
-//  - TblName
-//  - ColName
+//   - DbName
+//   - TblName
+//   - ColName
 type ThriftHiveMetastoreGetTableColumnStatisticsArgs struct {
 	DbName  string `thrift:"db_name,1" db:"db_name" json:"db_name"`
 	TblName string `thrift:"tbl_name,2" db:"tbl_name" json:"tbl_name"`
@@ -157046,11 +157047,11 @@ func (p *ThriftHiveMetastoreGetTableColumnStatisticsArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
-//  - O3
-//  - O4
+//   - Success
+//   - O1
+//   - O2
+//   - O3
+//   - O4
 type ThriftHiveMetastoreGetTableColumnStatisticsResult struct {
 	Success *ColumnStatistics       `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *NoSuchObjectException  `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -157359,10 +157360,10 @@ func (p *ThriftHiveMetastoreGetTableColumnStatisticsResult) String() string {
 }
 
 // Attributes:
-//  - DbName
-//  - TblName
-//  - PartName
-//  - ColName
+//   - DbName
+//   - TblName
+//   - PartName
+//   - ColName
 type ThriftHiveMetastoreGetPartitionColumnStatisticsArgs struct {
 	DbName   string `thrift:"db_name,1" db:"db_name" json:"db_name"`
 	TblName  string `thrift:"tbl_name,2" db:"tbl_name" json:"tbl_name"`
@@ -157581,11 +157582,11 @@ func (p *ThriftHiveMetastoreGetPartitionColumnStatisticsArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
-//  - O3
-//  - O4
+//   - Success
+//   - O1
+//   - O2
+//   - O3
+//   - O4
 type ThriftHiveMetastoreGetPartitionColumnStatisticsResult struct {
 	Success *ColumnStatistics       `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *NoSuchObjectException  `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -157894,7 +157895,7 @@ func (p *ThriftHiveMetastoreGetPartitionColumnStatisticsResult) String() string 
 }
 
 // Attributes:
-//  - Request
+//   - Request
 type ThriftHiveMetastoreGetTableStatisticsReqArgs struct {
 	Request *TableStatsRequest `thrift:"request,1" db:"request" json:"request"`
 }
@@ -158003,9 +158004,9 @@ func (p *ThriftHiveMetastoreGetTableStatisticsReqArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
+//   - Success
+//   - O1
+//   - O2
 type ThriftHiveMetastoreGetTableStatisticsReqResult struct {
 	Success *TableStatsResult_     `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *NoSuchObjectException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -158214,7 +158215,7 @@ func (p *ThriftHiveMetastoreGetTableStatisticsReqResult) String() string {
 }
 
 // Attributes:
-//  - Request
+//   - Request
 type ThriftHiveMetastoreGetPartitionsStatisticsReqArgs struct {
 	Request *PartitionsStatsRequest `thrift:"request,1" db:"request" json:"request"`
 }
@@ -158321,9 +158322,9 @@ func (p *ThriftHiveMetastoreGetPartitionsStatisticsReqArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
+//   - Success
+//   - O1
+//   - O2
 type ThriftHiveMetastoreGetPartitionsStatisticsReqResult struct {
 	Success *PartitionsStatsResult_ `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *NoSuchObjectException  `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -158532,7 +158533,7 @@ func (p *ThriftHiveMetastoreGetPartitionsStatisticsReqResult) String() string {
 }
 
 // Attributes:
-//  - Request
+//   - Request
 type ThriftHiveMetastoreGetAggrStatsForArgs struct {
 	Request *PartitionsStatsRequest `thrift:"request,1" db:"request" json:"request"`
 }
@@ -158639,9 +158640,9 @@ func (p *ThriftHiveMetastoreGetAggrStatsForArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
+//   - Success
+//   - O1
+//   - O2
 type ThriftHiveMetastoreGetAggrStatsForResult struct {
 	Success *AggrStats             `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *NoSuchObjectException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -158850,7 +158851,7 @@ func (p *ThriftHiveMetastoreGetAggrStatsForResult) String() string {
 }
 
 // Attributes:
-//  - Request
+//   - Request
 type ThriftHiveMetastoreSetAggrStatsForArgs struct {
 	Request *SetPartitionsStatsRequest `thrift:"request,1" db:"request" json:"request"`
 }
@@ -158959,11 +158960,11 @@ func (p *ThriftHiveMetastoreSetAggrStatsForArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
-//  - O3
-//  - O4
+//   - Success
+//   - O1
+//   - O2
+//   - O3
+//   - O4
 type ThriftHiveMetastoreSetAggrStatsForResult struct {
 	Success *bool                   `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *NoSuchObjectException  `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -159273,11 +159274,11 @@ func (p *ThriftHiveMetastoreSetAggrStatsForResult) String() string {
 }
 
 // Attributes:
-//  - DbName
-//  - TblName
-//  - PartName
-//  - ColName
-//  - Engine
+//   - DbName
+//   - TblName
+//   - PartName
+//   - ColName
+//   - Engine
 type ThriftHiveMetastoreDeletePartitionColumnStatisticsArgs struct {
 	DbName   string `thrift:"db_name,1" db:"db_name" json:"db_name"`
 	TblName  string `thrift:"tbl_name,2" db:"tbl_name" json:"tbl_name"`
@@ -159536,11 +159537,11 @@ func (p *ThriftHiveMetastoreDeletePartitionColumnStatisticsArgs) String() string
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
-//  - O3
-//  - O4
+//   - Success
+//   - O1
+//   - O2
+//   - O3
+//   - O4
 type ThriftHiveMetastoreDeletePartitionColumnStatisticsResult struct {
 	Success *bool                   `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *NoSuchObjectException  `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -159850,10 +159851,10 @@ func (p *ThriftHiveMetastoreDeletePartitionColumnStatisticsResult) String() stri
 }
 
 // Attributes:
-//  - DbName
-//  - TblName
-//  - ColName
-//  - Engine
+//   - DbName
+//   - TblName
+//   - ColName
+//   - Engine
 type ThriftHiveMetastoreDeleteTableColumnStatisticsArgs struct {
 	DbName  string `thrift:"db_name,1" db:"db_name" json:"db_name"`
 	TblName string `thrift:"tbl_name,2" db:"tbl_name" json:"tbl_name"`
@@ -160072,11 +160073,11 @@ func (p *ThriftHiveMetastoreDeleteTableColumnStatisticsArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
-//  - O3
-//  - O4
+//   - Success
+//   - O1
+//   - O2
+//   - O3
+//   - O4
 type ThriftHiveMetastoreDeleteTableColumnStatisticsResult struct {
 	Success *bool                   `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *NoSuchObjectException  `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -160386,7 +160387,7 @@ func (p *ThriftHiveMetastoreDeleteTableColumnStatisticsResult) String() string {
 }
 
 // Attributes:
-//  - Func
+//   - Func
 type ThriftHiveMetastoreCreateFunctionArgs struct {
 	Func *Function `thrift:"func,1" db:"func" json:"func"`
 }
@@ -160493,10 +160494,10 @@ func (p *ThriftHiveMetastoreCreateFunctionArgs) String() string {
 }
 
 // Attributes:
-//  - O1
-//  - O2
-//  - O3
-//  - O4
+//   - O1
+//   - O2
+//   - O3
+//   - O4
 type ThriftHiveMetastoreCreateFunctionResult struct {
 	O1 *AlreadyExistsException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 	O2 *InvalidObjectException `thrift:"o2,2" db:"o2" json:"o2,omitempty"`
@@ -160755,8 +160756,8 @@ func (p *ThriftHiveMetastoreCreateFunctionResult) String() string {
 }
 
 // Attributes:
-//  - DbName
-//  - FuncName
+//   - DbName
+//   - FuncName
 type ThriftHiveMetastoreDropFunctionArgs struct {
 	DbName   string `thrift:"dbName,1" db:"dbName" json:"dbName"`
 	FuncName string `thrift:"funcName,2" db:"funcName" json:"funcName"`
@@ -160895,8 +160896,8 @@ func (p *ThriftHiveMetastoreDropFunctionArgs) String() string {
 }
 
 // Attributes:
-//  - O1
-//  - O3
+//   - O1
+//   - O3
 type ThriftHiveMetastoreDropFunctionResult struct {
 	O1 *NoSuchObjectException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 	O3 *MetaException         `thrift:"o3,2" db:"o3" json:"o3,omitempty"`
@@ -161055,9 +161056,9 @@ func (p *ThriftHiveMetastoreDropFunctionResult) String() string {
 }
 
 // Attributes:
-//  - DbName
-//  - FuncName
-//  - NewFunc_
+//   - DbName
+//   - FuncName
+//   - NewFunc_
 type ThriftHiveMetastoreAlterFunctionArgs struct {
 	DbName   string    `thrift:"dbName,1" db:"dbName" json:"dbName"`
 	FuncName string    `thrift:"funcName,2" db:"funcName" json:"funcName"`
@@ -161244,8 +161245,8 @@ func (p *ThriftHiveMetastoreAlterFunctionArgs) String() string {
 }
 
 // Attributes:
-//  - O1
-//  - O2
+//   - O1
+//   - O2
 type ThriftHiveMetastoreAlterFunctionResult struct {
 	O1 *InvalidOperationException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 	O2 *MetaException             `thrift:"o2,2" db:"o2" json:"o2,omitempty"`
@@ -161404,8 +161405,8 @@ func (p *ThriftHiveMetastoreAlterFunctionResult) String() string {
 }
 
 // Attributes:
-//  - DbName
-//  - Pattern
+//   - DbName
+//   - Pattern
 type ThriftHiveMetastoreGetFunctionsArgs struct {
 	DbName  string `thrift:"dbName,1" db:"dbName" json:"dbName"`
 	Pattern string `thrift:"pattern,2" db:"pattern" json:"pattern"`
@@ -161544,8 +161545,8 @@ func (p *ThriftHiveMetastoreGetFunctionsArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
+//   - Success
+//   - O1
 type ThriftHiveMetastoreGetFunctionsResult struct {
 	Success []string       `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -161723,8 +161724,8 @@ func (p *ThriftHiveMetastoreGetFunctionsResult) String() string {
 }
 
 // Attributes:
-//  - DbName
-//  - FuncName
+//   - DbName
+//   - FuncName
 type ThriftHiveMetastoreGetFunctionArgs struct {
 	DbName   string `thrift:"dbName,1" db:"dbName" json:"dbName"`
 	FuncName string `thrift:"funcName,2" db:"funcName" json:"funcName"`
@@ -161863,9 +161864,9 @@ func (p *ThriftHiveMetastoreGetFunctionArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
+//   - Success
+//   - O1
+//   - O2
 type ThriftHiveMetastoreGetFunctionResult struct {
 	Success *Function              `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException         `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -162129,8 +162130,8 @@ func (p *ThriftHiveMetastoreGetAllFunctionsArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
+//   - Success
+//   - O1
 type ThriftHiveMetastoreGetAllFunctionsResult struct {
 	Success *GetAllFunctionsResponse `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException           `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -162289,7 +162290,7 @@ func (p *ThriftHiveMetastoreGetAllFunctionsResult) String() string {
 }
 
 // Attributes:
-//  - Role
+//   - Role
 type ThriftHiveMetastoreCreateRoleArgs struct {
 	Role *Role `thrift:"role,1" db:"role" json:"role"`
 }
@@ -162396,8 +162397,8 @@ func (p *ThriftHiveMetastoreCreateRoleArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
+//   - Success
+//   - O1
 type ThriftHiveMetastoreCreateRoleResult struct {
 	Success *bool          `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -162557,7 +162558,7 @@ func (p *ThriftHiveMetastoreCreateRoleResult) String() string {
 }
 
 // Attributes:
-//  - RoleName
+//   - RoleName
 type ThriftHiveMetastoreDropRoleArgs struct {
 	RoleName string `thrift:"role_name,1" db:"role_name" json:"role_name"`
 }
@@ -162656,8 +162657,8 @@ func (p *ThriftHiveMetastoreDropRoleArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
+//   - Success
+//   - O1
 type ThriftHiveMetastoreDropRoleResult struct {
 	Success *bool          `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -162872,8 +162873,8 @@ func (p *ThriftHiveMetastoreGetRoleNamesArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
+//   - Success
+//   - O1
 type ThriftHiveMetastoreGetRoleNamesResult struct {
 	Success []string       `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -163051,12 +163052,12 @@ func (p *ThriftHiveMetastoreGetRoleNamesResult) String() string {
 }
 
 // Attributes:
-//  - RoleName
-//  - PrincipalName
-//  - PrincipalType
-//  - Grantor
-//  - GrantorType
-//  - GrantOption
+//   - RoleName
+//   - PrincipalName
+//   - PrincipalType
+//   - Grantor
+//   - GrantorType
+//   - GrantOption
 type ThriftHiveMetastoreGrantRoleArgs struct {
 	RoleName      string        `thrift:"role_name,1" db:"role_name" json:"role_name"`
 	PrincipalName string        `thrift:"principal_name,2" db:"principal_name" json:"principal_name"`
@@ -163357,8 +163358,8 @@ func (p *ThriftHiveMetastoreGrantRoleArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
+//   - Success
+//   - O1
 type ThriftHiveMetastoreGrantRoleResult struct {
 	Success *bool          `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -163518,9 +163519,9 @@ func (p *ThriftHiveMetastoreGrantRoleResult) String() string {
 }
 
 // Attributes:
-//  - RoleName
-//  - PrincipalName
-//  - PrincipalType
+//   - RoleName
+//   - PrincipalName
+//   - PrincipalType
 type ThriftHiveMetastoreRevokeRoleArgs struct {
 	RoleName      string        `thrift:"role_name,1" db:"role_name" json:"role_name"`
 	PrincipalName string        `thrift:"principal_name,2" db:"principal_name" json:"principal_name"`
@@ -163700,8 +163701,8 @@ func (p *ThriftHiveMetastoreRevokeRoleArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
+//   - Success
+//   - O1
 type ThriftHiveMetastoreRevokeRoleResult struct {
 	Success *bool          `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -163861,8 +163862,8 @@ func (p *ThriftHiveMetastoreRevokeRoleResult) String() string {
 }
 
 // Attributes:
-//  - PrincipalName
-//  - PrincipalType
+//   - PrincipalName
+//   - PrincipalType
 type ThriftHiveMetastoreListRolesArgs struct {
 	PrincipalName string        `thrift:"principal_name,1" db:"principal_name" json:"principal_name"`
 	PrincipalType PrincipalType `thrift:"principal_type,2" db:"principal_type" json:"principal_type"`
@@ -164002,8 +164003,8 @@ func (p *ThriftHiveMetastoreListRolesArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
+//   - Success
+//   - O1
 type ThriftHiveMetastoreListRolesResult struct {
 	Success []*Role        `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -164179,7 +164180,7 @@ func (p *ThriftHiveMetastoreListRolesResult) String() string {
 }
 
 // Attributes:
-//  - Request
+//   - Request
 type ThriftHiveMetastoreGrantRevokeRoleArgs struct {
 	Request *GrantRevokeRoleRequest `thrift:"request,1" db:"request" json:"request"`
 }
@@ -164286,8 +164287,8 @@ func (p *ThriftHiveMetastoreGrantRevokeRoleArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
+//   - Success
+//   - O1
 type ThriftHiveMetastoreGrantRevokeRoleResult struct {
 	Success *GrantRevokeRoleResponse `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException           `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -164446,7 +164447,7 @@ func (p *ThriftHiveMetastoreGrantRevokeRoleResult) String() string {
 }
 
 // Attributes:
-//  - Request
+//   - Request
 type ThriftHiveMetastoreGetPrincipalsInRoleArgs struct {
 	Request *GetPrincipalsInRoleRequest `thrift:"request,1" db:"request" json:"request"`
 }
@@ -164553,8 +164554,8 @@ func (p *ThriftHiveMetastoreGetPrincipalsInRoleArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
+//   - Success
+//   - O1
 type ThriftHiveMetastoreGetPrincipalsInRoleResult struct {
 	Success *GetPrincipalsInRoleResponse `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException               `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -164713,7 +164714,7 @@ func (p *ThriftHiveMetastoreGetPrincipalsInRoleResult) String() string {
 }
 
 // Attributes:
-//  - Request
+//   - Request
 type ThriftHiveMetastoreGetRoleGrantsForPrincipalArgs struct {
 	Request *GetRoleGrantsForPrincipalRequest `thrift:"request,1" db:"request" json:"request"`
 }
@@ -164820,8 +164821,8 @@ func (p *ThriftHiveMetastoreGetRoleGrantsForPrincipalArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
+//   - Success
+//   - O1
 type ThriftHiveMetastoreGetRoleGrantsForPrincipalResult struct {
 	Success *GetRoleGrantsForPrincipalResponse `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException                     `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -164980,9 +164981,9 @@ func (p *ThriftHiveMetastoreGetRoleGrantsForPrincipalResult) String() string {
 }
 
 // Attributes:
-//  - HiveObject
-//  - UserName
-//  - GroupNames
+//   - HiveObject
+//   - UserName
+//   - GroupNames
 type ThriftHiveMetastoreGetPrivilegeSetArgs struct {
 	HiveObject *HiveObjectRef `thrift:"hiveObject,1" db:"hiveObject" json:"hiveObject"`
 	UserName   string         `thrift:"user_name,2" db:"user_name" json:"user_name"`
@@ -165190,8 +165191,8 @@ func (p *ThriftHiveMetastoreGetPrivilegeSetArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
+//   - Success
+//   - O1
 type ThriftHiveMetastoreGetPrivilegeSetResult struct {
 	Success *PrincipalPrivilegeSet `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException         `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -165350,9 +165351,9 @@ func (p *ThriftHiveMetastoreGetPrivilegeSetResult) String() string {
 }
 
 // Attributes:
-//  - PrincipalName
-//  - PrincipalType
-//  - HiveObject
+//   - PrincipalName
+//   - PrincipalType
+//   - HiveObject
 type ThriftHiveMetastoreListPrivilegesArgs struct {
 	PrincipalName string         `thrift:"principal_name,1" db:"principal_name" json:"principal_name"`
 	PrincipalType PrincipalType  `thrift:"principal_type,2" db:"principal_type" json:"principal_type"`
@@ -165540,8 +165541,8 @@ func (p *ThriftHiveMetastoreListPrivilegesArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
+//   - Success
+//   - O1
 type ThriftHiveMetastoreListPrivilegesResult struct {
 	Success []*HiveObjectPrivilege `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException         `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -165717,7 +165718,7 @@ func (p *ThriftHiveMetastoreListPrivilegesResult) String() string {
 }
 
 // Attributes:
-//  - Privileges
+//   - Privileges
 type ThriftHiveMetastoreGrantPrivilegesArgs struct {
 	Privileges *PrivilegeBag `thrift:"privileges,1" db:"privileges" json:"privileges"`
 }
@@ -165824,8 +165825,8 @@ func (p *ThriftHiveMetastoreGrantPrivilegesArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
+//   - Success
+//   - O1
 type ThriftHiveMetastoreGrantPrivilegesResult struct {
 	Success *bool          `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -165985,7 +165986,7 @@ func (p *ThriftHiveMetastoreGrantPrivilegesResult) String() string {
 }
 
 // Attributes:
-//  - Privileges
+//   - Privileges
 type ThriftHiveMetastoreRevokePrivilegesArgs struct {
 	Privileges *PrivilegeBag `thrift:"privileges,1" db:"privileges" json:"privileges"`
 }
@@ -166092,8 +166093,8 @@ func (p *ThriftHiveMetastoreRevokePrivilegesArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
+//   - Success
+//   - O1
 type ThriftHiveMetastoreRevokePrivilegesResult struct {
 	Success *bool          `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -166253,7 +166254,7 @@ func (p *ThriftHiveMetastoreRevokePrivilegesResult) String() string {
 }
 
 // Attributes:
-//  - Request
+//   - Request
 type ThriftHiveMetastoreGrantRevokePrivilegesArgs struct {
 	Request *GrantRevokePrivilegeRequest `thrift:"request,1" db:"request" json:"request"`
 }
@@ -166360,8 +166361,8 @@ func (p *ThriftHiveMetastoreGrantRevokePrivilegesArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
+//   - Success
+//   - O1
 type ThriftHiveMetastoreGrantRevokePrivilegesResult struct {
 	Success *GrantRevokePrivilegeResponse `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException                `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -166520,9 +166521,9 @@ func (p *ThriftHiveMetastoreGrantRevokePrivilegesResult) String() string {
 }
 
 // Attributes:
-//  - ObjToRefresh
-//  - Authorizer
-//  - GrantRequest
+//   - ObjToRefresh
+//   - Authorizer
+//   - GrantRequest
 type ThriftHiveMetastoreRefreshPrivilegesArgs struct {
 	ObjToRefresh *HiveObjectRef               `thrift:"objToRefresh,1" db:"objToRefresh" json:"objToRefresh"`
 	Authorizer   string                       `thrift:"authorizer,2" db:"authorizer" json:"authorizer"`
@@ -166717,8 +166718,8 @@ func (p *ThriftHiveMetastoreRefreshPrivilegesArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
+//   - Success
+//   - O1
 type ThriftHiveMetastoreRefreshPrivilegesResult struct {
 	Success *GrantRevokePrivilegeResponse `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException                `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -166877,8 +166878,8 @@ func (p *ThriftHiveMetastoreRefreshPrivilegesResult) String() string {
 }
 
 // Attributes:
-//  - UserName
-//  - GroupNames
+//   - UserName
+//   - GroupNames
 type ThriftHiveMetastoreSetUgiArgs struct {
 	UserName   string   `thrift:"user_name,1" db:"user_name" json:"user_name"`
 	GroupNames []string `thrift:"group_names,2" db:"group_names" json:"group_names"`
@@ -167038,8 +167039,8 @@ func (p *ThriftHiveMetastoreSetUgiArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
+//   - Success
+//   - O1
 type ThriftHiveMetastoreSetUgiResult struct {
 	Success []string       `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -167217,8 +167218,8 @@ func (p *ThriftHiveMetastoreSetUgiResult) String() string {
 }
 
 // Attributes:
-//  - TokenOwner
-//  - RenewerKerberosPrincipalName
+//   - TokenOwner
+//   - RenewerKerberosPrincipalName
 type ThriftHiveMetastoreGetDelegationTokenArgs struct {
 	TokenOwner                   string `thrift:"token_owner,1" db:"token_owner" json:"token_owner"`
 	RenewerKerberosPrincipalName string `thrift:"renewer_kerberos_principal_name,2" db:"renewer_kerberos_principal_name" json:"renewer_kerberos_principal_name"`
@@ -167357,8 +167358,8 @@ func (p *ThriftHiveMetastoreGetDelegationTokenArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
+//   - Success
+//   - O1
 type ThriftHiveMetastoreGetDelegationTokenResult struct {
 	Success *string        `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -167518,7 +167519,7 @@ func (p *ThriftHiveMetastoreGetDelegationTokenResult) String() string {
 }
 
 // Attributes:
-//  - TokenStrForm
+//   - TokenStrForm
 type ThriftHiveMetastoreRenewDelegationTokenArgs struct {
 	TokenStrForm string `thrift:"token_str_form,1" db:"token_str_form" json:"token_str_form"`
 }
@@ -167617,8 +167618,8 @@ func (p *ThriftHiveMetastoreRenewDelegationTokenArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
+//   - Success
+//   - O1
 type ThriftHiveMetastoreRenewDelegationTokenResult struct {
 	Success *int64         `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -167778,7 +167779,7 @@ func (p *ThriftHiveMetastoreRenewDelegationTokenResult) String() string {
 }
 
 // Attributes:
-//  - TokenStrForm
+//   - TokenStrForm
 type ThriftHiveMetastoreCancelDelegationTokenArgs struct {
 	TokenStrForm string `thrift:"token_str_form,1" db:"token_str_form" json:"token_str_form"`
 }
@@ -167877,7 +167878,7 @@ func (p *ThriftHiveMetastoreCancelDelegationTokenArgs) String() string {
 }
 
 // Attributes:
-//  - O1
+//   - O1
 type ThriftHiveMetastoreCancelDelegationTokenResult struct {
 	O1 *MetaException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 }
@@ -167986,8 +167987,8 @@ func (p *ThriftHiveMetastoreCancelDelegationTokenResult) String() string {
 }
 
 // Attributes:
-//  - TokenIdentifier
-//  - DelegationToken
+//   - TokenIdentifier
+//   - DelegationToken
 type ThriftHiveMetastoreAddTokenArgs struct {
 	TokenIdentifier string `thrift:"token_identifier,1" db:"token_identifier" json:"token_identifier"`
 	DelegationToken string `thrift:"delegation_token,2" db:"delegation_token" json:"delegation_token"`
@@ -168126,7 +168127,7 @@ func (p *ThriftHiveMetastoreAddTokenArgs) String() string {
 }
 
 // Attributes:
-//  - Success
+//   - Success
 type ThriftHiveMetastoreAddTokenResult struct {
 	Success *bool `thrift:"success,0" db:"success" json:"success,omitempty"`
 }
@@ -168236,7 +168237,7 @@ func (p *ThriftHiveMetastoreAddTokenResult) String() string {
 }
 
 // Attributes:
-//  - TokenIdentifier
+//   - TokenIdentifier
 type ThriftHiveMetastoreRemoveTokenArgs struct {
 	TokenIdentifier string `thrift:"token_identifier,1" db:"token_identifier" json:"token_identifier"`
 }
@@ -168335,7 +168336,7 @@ func (p *ThriftHiveMetastoreRemoveTokenArgs) String() string {
 }
 
 // Attributes:
-//  - Success
+//   - Success
 type ThriftHiveMetastoreRemoveTokenResult struct {
 	Success *bool `thrift:"success,0" db:"success" json:"success,omitempty"`
 }
@@ -168445,7 +168446,7 @@ func (p *ThriftHiveMetastoreRemoveTokenResult) String() string {
 }
 
 // Attributes:
-//  - TokenIdentifier
+//   - TokenIdentifier
 type ThriftHiveMetastoreGetTokenArgs struct {
 	TokenIdentifier string `thrift:"token_identifier,1" db:"token_identifier" json:"token_identifier"`
 }
@@ -168544,7 +168545,7 @@ func (p *ThriftHiveMetastoreGetTokenArgs) String() string {
 }
 
 // Attributes:
-//  - Success
+//   - Success
 type ThriftHiveMetastoreGetTokenResult struct {
 	Success *string `thrift:"success,0" db:"success" json:"success,omitempty"`
 }
@@ -168709,7 +168710,7 @@ func (p *ThriftHiveMetastoreGetAllTokenIdentifiersArgs) String() string {
 }
 
 // Attributes:
-//  - Success
+//   - Success
 type ThriftHiveMetastoreGetAllTokenIdentifiersResult struct {
 	Success []string `thrift:"success,0" db:"success" json:"success,omitempty"`
 }
@@ -168837,7 +168838,7 @@ func (p *ThriftHiveMetastoreGetAllTokenIdentifiersResult) String() string {
 }
 
 // Attributes:
-//  - Key
+//   - Key
 type ThriftHiveMetastoreAddMasterKeyArgs struct {
 	Key string `thrift:"key,1" db:"key" json:"key"`
 }
@@ -168936,8 +168937,8 @@ func (p *ThriftHiveMetastoreAddMasterKeyArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
+//   - Success
+//   - O1
 type ThriftHiveMetastoreAddMasterKeyResult struct {
 	Success *int32         `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -169097,8 +169098,8 @@ func (p *ThriftHiveMetastoreAddMasterKeyResult) String() string {
 }
 
 // Attributes:
-//  - SeqNumber
-//  - Key
+//   - SeqNumber
+//   - Key
 type ThriftHiveMetastoreUpdateMasterKeyArgs struct {
 	SeqNumber int32  `thrift:"seq_number,1" db:"seq_number" json:"seq_number"`
 	Key       string `thrift:"key,2" db:"key" json:"key"`
@@ -169237,8 +169238,8 @@ func (p *ThriftHiveMetastoreUpdateMasterKeyArgs) String() string {
 }
 
 // Attributes:
-//  - O1
-//  - O2
+//   - O1
+//   - O2
 type ThriftHiveMetastoreUpdateMasterKeyResult struct {
 	O1 *NoSuchObjectException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 	O2 *MetaException         `thrift:"o2,2" db:"o2" json:"o2,omitempty"`
@@ -169397,7 +169398,7 @@ func (p *ThriftHiveMetastoreUpdateMasterKeyResult) String() string {
 }
 
 // Attributes:
-//  - KeySeq
+//   - KeySeq
 type ThriftHiveMetastoreRemoveMasterKeyArgs struct {
 	KeySeq int32 `thrift:"key_seq,1" db:"key_seq" json:"key_seq"`
 }
@@ -169496,7 +169497,7 @@ func (p *ThriftHiveMetastoreRemoveMasterKeyArgs) String() string {
 }
 
 // Attributes:
-//  - Success
+//   - Success
 type ThriftHiveMetastoreRemoveMasterKeyResult struct {
 	Success *bool `thrift:"success,0" db:"success" json:"success,omitempty"`
 }
@@ -169661,7 +169662,7 @@ func (p *ThriftHiveMetastoreGetMasterKeysArgs) String() string {
 }
 
 // Attributes:
-//  - Success
+//   - Success
 type ThriftHiveMetastoreGetMasterKeysResult struct {
 	Success []string `thrift:"success,0" db:"success" json:"success,omitempty"`
 }
@@ -169844,7 +169845,7 @@ func (p *ThriftHiveMetastoreGetOpenTxnsArgs) String() string {
 }
 
 // Attributes:
-//  - Success
+//   - Success
 type ThriftHiveMetastoreGetOpenTxnsResult struct {
 	Success *GetOpenTxnsResponse `thrift:"success,0" db:"success" json:"success,omitempty"`
 }
@@ -170008,7 +170009,7 @@ func (p *ThriftHiveMetastoreGetOpenTxnsInfoArgs) String() string {
 }
 
 // Attributes:
-//  - Success
+//   - Success
 type ThriftHiveMetastoreGetOpenTxnsInfoResult struct {
 	Success *GetOpenTxnsInfoResponse `thrift:"success,0" db:"success" json:"success,omitempty"`
 }
@@ -170117,7 +170118,7 @@ func (p *ThriftHiveMetastoreGetOpenTxnsInfoResult) String() string {
 }
 
 // Attributes:
-//  - Rqst
+//   - Rqst
 type ThriftHiveMetastoreOpenTxnsArgs struct {
 	Rqst *OpenTxnRequest `thrift:"rqst,1" db:"rqst" json:"rqst"`
 }
@@ -170228,7 +170229,7 @@ func (p *ThriftHiveMetastoreOpenTxnsArgs) String() string {
 }
 
 // Attributes:
-//  - Success
+//   - Success
 type ThriftHiveMetastoreOpenTxnsResult struct {
 	Success *OpenTxnsResponse `thrift:"success,0" db:"success" json:"success,omitempty"`
 }
@@ -170337,7 +170338,7 @@ func (p *ThriftHiveMetastoreOpenTxnsResult) String() string {
 }
 
 // Attributes:
-//  - Rqst
+//   - Rqst
 type ThriftHiveMetastoreAbortTxnArgs struct {
 	Rqst *AbortTxnRequest `thrift:"rqst,1" db:"rqst" json:"rqst"`
 }
@@ -170444,7 +170445,7 @@ func (p *ThriftHiveMetastoreAbortTxnArgs) String() string {
 }
 
 // Attributes:
-//  - O1
+//   - O1
 type ThriftHiveMetastoreAbortTxnResult struct {
 	O1 *NoSuchTxnException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 }
@@ -170553,7 +170554,7 @@ func (p *ThriftHiveMetastoreAbortTxnResult) String() string {
 }
 
 // Attributes:
-//  - Rqst
+//   - Rqst
 type ThriftHiveMetastoreAbortTxnsArgs struct {
 	Rqst *AbortTxnsRequest `thrift:"rqst,1" db:"rqst" json:"rqst"`
 }
@@ -170660,7 +170661,7 @@ func (p *ThriftHiveMetastoreAbortTxnsArgs) String() string {
 }
 
 // Attributes:
-//  - O1
+//   - O1
 type ThriftHiveMetastoreAbortTxnsResult struct {
 	O1 *NoSuchTxnException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 }
@@ -170769,7 +170770,7 @@ func (p *ThriftHiveMetastoreAbortTxnsResult) String() string {
 }
 
 // Attributes:
-//  - Rqst
+//   - Rqst
 type ThriftHiveMetastoreCommitTxnArgs struct {
 	Rqst *CommitTxnRequest `thrift:"rqst,1" db:"rqst" json:"rqst"`
 }
@@ -170878,8 +170879,8 @@ func (p *ThriftHiveMetastoreCommitTxnArgs) String() string {
 }
 
 // Attributes:
-//  - O1
-//  - O2
+//   - O1
+//   - O2
 type ThriftHiveMetastoreCommitTxnResult struct {
 	O1 *NoSuchTxnException  `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 	O2 *TxnAbortedException `thrift:"o2,2" db:"o2" json:"o2,omitempty"`
@@ -171038,7 +171039,7 @@ func (p *ThriftHiveMetastoreCommitTxnResult) String() string {
 }
 
 // Attributes:
-//  - TxnId
+//   - TxnId
 type ThriftHiveMetastoreGetLatestTxnidInConflictArgs struct {
 	TxnId int64 `thrift:"txnId,1" db:"txnId" json:"txnId"`
 }
@@ -171137,8 +171138,8 @@ func (p *ThriftHiveMetastoreGetLatestTxnidInConflictArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
+//   - Success
+//   - O1
 type ThriftHiveMetastoreGetLatestTxnidInConflictResult struct {
 	Success *int64         `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -171298,7 +171299,7 @@ func (p *ThriftHiveMetastoreGetLatestTxnidInConflictResult) String() string {
 }
 
 // Attributes:
-//  - Rqst
+//   - Rqst
 type ThriftHiveMetastoreReplTblWriteidStateArgs struct {
 	Rqst *ReplTblWriteIdStateRequest `thrift:"rqst,1" db:"rqst" json:"rqst"`
 }
@@ -171460,7 +171461,7 @@ func (p *ThriftHiveMetastoreReplTblWriteidStateResult) String() string {
 }
 
 // Attributes:
-//  - Rqst
+//   - Rqst
 type ThriftHiveMetastoreGetValidWriteIdsArgs struct {
 	Rqst *GetValidWriteIdsRequest `thrift:"rqst,1" db:"rqst" json:"rqst"`
 }
@@ -171567,9 +171568,9 @@ func (p *ThriftHiveMetastoreGetValidWriteIdsArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
+//   - Success
+//   - O1
+//   - O2
 type ThriftHiveMetastoreGetValidWriteIdsResult struct {
 	Success *GetValidWriteIdsResponse `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *NoSuchTxnException       `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -171778,7 +171779,7 @@ func (p *ThriftHiveMetastoreGetValidWriteIdsResult) String() string {
 }
 
 // Attributes:
-//  - Rqst
+//   - Rqst
 type ThriftHiveMetastoreAllocateTableWriteIdsArgs struct {
 	Rqst *AllocateTableWriteIdsRequest `thrift:"rqst,1" db:"rqst" json:"rqst"`
 }
@@ -171885,10 +171886,10 @@ func (p *ThriftHiveMetastoreAllocateTableWriteIdsArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
-//  - O3
+//   - Success
+//   - O1
+//   - O2
+//   - O3
 type ThriftHiveMetastoreAllocateTableWriteIdsResult struct {
 	Success *AllocateTableWriteIdsResponse `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *NoSuchTxnException            `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -172147,7 +172148,7 @@ func (p *ThriftHiveMetastoreAllocateTableWriteIdsResult) String() string {
 }
 
 // Attributes:
-//  - Rqst
+//   - Rqst
 type ThriftHiveMetastoreGetMaxAllocatedTableWriteIDArgs struct {
 	Rqst *MaxAllocatedTableWriteIdRequest `thrift:"rqst,1" db:"rqst" json:"rqst"`
 }
@@ -172254,8 +172255,8 @@ func (p *ThriftHiveMetastoreGetMaxAllocatedTableWriteIDArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
+//   - Success
+//   - O1
 type ThriftHiveMetastoreGetMaxAllocatedTableWriteIDResult struct {
 	Success *MaxAllocatedTableWriteIdResponse `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException                    `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -172414,7 +172415,7 @@ func (p *ThriftHiveMetastoreGetMaxAllocatedTableWriteIDResult) String() string {
 }
 
 // Attributes:
-//  - Rqst
+//   - Rqst
 type ThriftHiveMetastoreSeedWriteIDArgs struct {
 	Rqst *SeedTableWriteIdsRequest `thrift:"rqst,1" db:"rqst" json:"rqst"`
 }
@@ -172521,7 +172522,7 @@ func (p *ThriftHiveMetastoreSeedWriteIDArgs) String() string {
 }
 
 // Attributes:
-//  - O1
+//   - O1
 type ThriftHiveMetastoreSeedWriteIDResult struct {
 	O1 *MetaException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 }
@@ -172630,7 +172631,7 @@ func (p *ThriftHiveMetastoreSeedWriteIDResult) String() string {
 }
 
 // Attributes:
-//  - Rqst
+//   - Rqst
 type ThriftHiveMetastoreSeedTxnIDArgs struct {
 	Rqst *SeedTxnIdRequest `thrift:"rqst,1" db:"rqst" json:"rqst"`
 }
@@ -172737,7 +172738,7 @@ func (p *ThriftHiveMetastoreSeedTxnIDArgs) String() string {
 }
 
 // Attributes:
-//  - O1
+//   - O1
 type ThriftHiveMetastoreSeedTxnIDResult struct {
 	O1 *MetaException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 }
@@ -172846,7 +172847,7 @@ func (p *ThriftHiveMetastoreSeedTxnIDResult) String() string {
 }
 
 // Attributes:
-//  - Rqst
+//   - Rqst
 type ThriftHiveMetastoreLockArgs struct {
 	Rqst *LockRequest `thrift:"rqst,1" db:"rqst" json:"rqst"`
 }
@@ -172955,9 +172956,9 @@ func (p *ThriftHiveMetastoreLockArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
+//   - Success
+//   - O1
+//   - O2
 type ThriftHiveMetastoreLockResult struct {
 	Success *LockResponse        `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *NoSuchTxnException  `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -173166,7 +173167,7 @@ func (p *ThriftHiveMetastoreLockResult) String() string {
 }
 
 // Attributes:
-//  - Rqst
+//   - Rqst
 type ThriftHiveMetastoreCheckLockArgs struct {
 	Rqst *CheckLockRequest `thrift:"rqst,1" db:"rqst" json:"rqst"`
 }
@@ -173273,10 +173274,10 @@ func (p *ThriftHiveMetastoreCheckLockArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
-//  - O3
+//   - Success
+//   - O1
+//   - O2
+//   - O3
 type ThriftHiveMetastoreCheckLockResult struct {
 	Success *LockResponse        `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *NoSuchTxnException  `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -173535,7 +173536,7 @@ func (p *ThriftHiveMetastoreCheckLockResult) String() string {
 }
 
 // Attributes:
-//  - Rqst
+//   - Rqst
 type ThriftHiveMetastoreUnlockArgs struct {
 	Rqst *UnlockRequest `thrift:"rqst,1" db:"rqst" json:"rqst"`
 }
@@ -173642,8 +173643,8 @@ func (p *ThriftHiveMetastoreUnlockArgs) String() string {
 }
 
 // Attributes:
-//  - O1
-//  - O2
+//   - O1
+//   - O2
 type ThriftHiveMetastoreUnlockResult struct {
 	O1 *NoSuchLockException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 	O2 *TxnOpenException    `thrift:"o2,2" db:"o2" json:"o2,omitempty"`
@@ -173802,7 +173803,7 @@ func (p *ThriftHiveMetastoreUnlockResult) String() string {
 }
 
 // Attributes:
-//  - Rqst
+//   - Rqst
 type ThriftHiveMetastoreShowLocksArgs struct {
 	Rqst *ShowLocksRequest `thrift:"rqst,1" db:"rqst" json:"rqst"`
 }
@@ -173909,7 +173910,7 @@ func (p *ThriftHiveMetastoreShowLocksArgs) String() string {
 }
 
 // Attributes:
-//  - Success
+//   - Success
 type ThriftHiveMetastoreShowLocksResult struct {
 	Success *ShowLocksResponse `thrift:"success,0" db:"success" json:"success,omitempty"`
 }
@@ -174018,7 +174019,7 @@ func (p *ThriftHiveMetastoreShowLocksResult) String() string {
 }
 
 // Attributes:
-//  - Ids
+//   - Ids
 type ThriftHiveMetastoreHeartbeatArgs struct {
 	Ids *HeartbeatRequest `thrift:"ids,1" db:"ids" json:"ids"`
 }
@@ -174125,9 +174126,9 @@ func (p *ThriftHiveMetastoreHeartbeatArgs) String() string {
 }
 
 // Attributes:
-//  - O1
-//  - O2
-//  - O3
+//   - O1
+//   - O2
+//   - O3
 type ThriftHiveMetastoreHeartbeatResult struct {
 	O1 *NoSuchLockException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 	O2 *NoSuchTxnException  `thrift:"o2,2" db:"o2" json:"o2,omitempty"`
@@ -174336,7 +174337,7 @@ func (p *ThriftHiveMetastoreHeartbeatResult) String() string {
 }
 
 // Attributes:
-//  - Txns
+//   - Txns
 type ThriftHiveMetastoreHeartbeatTxnRangeArgs struct {
 	Txns *HeartbeatTxnRangeRequest `thrift:"txns,1" db:"txns" json:"txns"`
 }
@@ -174443,7 +174444,7 @@ func (p *ThriftHiveMetastoreHeartbeatTxnRangeArgs) String() string {
 }
 
 // Attributes:
-//  - Success
+//   - Success
 type ThriftHiveMetastoreHeartbeatTxnRangeResult struct {
 	Success *HeartbeatTxnRangeResponse `thrift:"success,0" db:"success" json:"success,omitempty"`
 }
@@ -174552,7 +174553,7 @@ func (p *ThriftHiveMetastoreHeartbeatTxnRangeResult) String() string {
 }
 
 // Attributes:
-//  - Rqst
+//   - Rqst
 type ThriftHiveMetastoreCompactArgs struct {
 	Rqst *CompactionRequest `thrift:"rqst,1" db:"rqst" json:"rqst"`
 }
@@ -174714,7 +174715,7 @@ func (p *ThriftHiveMetastoreCompactResult) String() string {
 }
 
 // Attributes:
-//  - Rqst
+//   - Rqst
 type ThriftHiveMetastoreCompact2Args struct {
 	Rqst *CompactionRequest `thrift:"rqst,1" db:"rqst" json:"rqst"`
 }
@@ -174821,7 +174822,7 @@ func (p *ThriftHiveMetastoreCompact2Args) String() string {
 }
 
 // Attributes:
-//  - Success
+//   - Success
 type ThriftHiveMetastoreCompact2Result struct {
 	Success *CompactionResponse `thrift:"success,0" db:"success" json:"success,omitempty"`
 }
@@ -174930,7 +174931,7 @@ func (p *ThriftHiveMetastoreCompact2Result) String() string {
 }
 
 // Attributes:
-//  - Rqst
+//   - Rqst
 type ThriftHiveMetastoreShowCompactArgs struct {
 	Rqst *ShowCompactRequest `thrift:"rqst,1" db:"rqst" json:"rqst"`
 }
@@ -175037,7 +175038,7 @@ func (p *ThriftHiveMetastoreShowCompactArgs) String() string {
 }
 
 // Attributes:
-//  - Success
+//   - Success
 type ThriftHiveMetastoreShowCompactResult struct {
 	Success *ShowCompactResponse `thrift:"success,0" db:"success" json:"success,omitempty"`
 }
@@ -175146,7 +175147,7 @@ func (p *ThriftHiveMetastoreShowCompactResult) String() string {
 }
 
 // Attributes:
-//  - Rqst
+//   - Rqst
 type ThriftHiveMetastoreAddDynamicPartitionsArgs struct {
 	Rqst *AddDynamicPartitions `thrift:"rqst,1" db:"rqst" json:"rqst"`
 }
@@ -175255,8 +175256,8 @@ func (p *ThriftHiveMetastoreAddDynamicPartitionsArgs) String() string {
 }
 
 // Attributes:
-//  - O1
-//  - O2
+//   - O1
+//   - O2
 type ThriftHiveMetastoreAddDynamicPartitionsResult struct {
 	O1 *NoSuchTxnException  `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 	O2 *TxnAbortedException `thrift:"o2,2" db:"o2" json:"o2,omitempty"`
@@ -175415,8 +175416,8 @@ func (p *ThriftHiveMetastoreAddDynamicPartitionsResult) String() string {
 }
 
 // Attributes:
-//  - WorkerId
-//  - WorkerVersion
+//   - WorkerId
+//   - WorkerVersion
 type ThriftHiveMetastoreFindNextCompactArgs struct {
 	WorkerId      string `thrift:"workerId,1" db:"workerId" json:"workerId"`
 	WorkerVersion string `thrift:"workerVersion,2" db:"workerVersion" json:"workerVersion"`
@@ -175555,8 +175556,8 @@ func (p *ThriftHiveMetastoreFindNextCompactArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
+//   - Success
+//   - O1
 type ThriftHiveMetastoreFindNextCompactResult struct {
 	Success *OptionalCompactionInfoStruct `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException                `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -175715,8 +175716,8 @@ func (p *ThriftHiveMetastoreFindNextCompactResult) String() string {
 }
 
 // Attributes:
-//  - Cr
-//  - TxnID
+//   - Cr
+//   - TxnID
 type ThriftHiveMetastoreUpdateCompactorStateArgs struct {
 	Cr    *CompactionInfoStruct `thrift:"cr,1" db:"cr" json:"cr"`
 	TxnID int64                 `thrift:"txn_id,2" db:"txn_id" json:"txn_id"`
@@ -175918,7 +175919,7 @@ func (p *ThriftHiveMetastoreUpdateCompactorStateResult) String() string {
 }
 
 // Attributes:
-//  - Cr
+//   - Cr
 type ThriftHiveMetastoreFindColumnsWithStatsArgs struct {
 	Cr *CompactionInfoStruct `thrift:"cr,1" db:"cr" json:"cr"`
 }
@@ -176025,7 +176026,7 @@ func (p *ThriftHiveMetastoreFindColumnsWithStatsArgs) String() string {
 }
 
 // Attributes:
-//  - Success
+//   - Success
 type ThriftHiveMetastoreFindColumnsWithStatsResult struct {
 	Success []string `thrift:"success,0" db:"success" json:"success,omitempty"`
 }
@@ -176153,7 +176154,7 @@ func (p *ThriftHiveMetastoreFindColumnsWithStatsResult) String() string {
 }
 
 // Attributes:
-//  - Cr
+//   - Cr
 type ThriftHiveMetastoreMarkCleanedArgs struct {
 	Cr *CompactionInfoStruct `thrift:"cr,1" db:"cr" json:"cr"`
 }
@@ -176260,7 +176261,7 @@ func (p *ThriftHiveMetastoreMarkCleanedArgs) String() string {
 }
 
 // Attributes:
-//  - O1
+//   - O1
 type ThriftHiveMetastoreMarkCleanedResult struct {
 	O1 *MetaException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 }
@@ -176369,7 +176370,7 @@ func (p *ThriftHiveMetastoreMarkCleanedResult) String() string {
 }
 
 // Attributes:
-//  - Cr
+//   - Cr
 type ThriftHiveMetastoreMarkCompactedArgs struct {
 	Cr *CompactionInfoStruct `thrift:"cr,1" db:"cr" json:"cr"`
 }
@@ -176476,7 +176477,7 @@ func (p *ThriftHiveMetastoreMarkCompactedArgs) String() string {
 }
 
 // Attributes:
-//  - O1
+//   - O1
 type ThriftHiveMetastoreMarkCompactedResult struct {
 	O1 *MetaException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 }
@@ -176585,7 +176586,7 @@ func (p *ThriftHiveMetastoreMarkCompactedResult) String() string {
 }
 
 // Attributes:
-//  - Cr
+//   - Cr
 type ThriftHiveMetastoreMarkFailedArgs struct {
 	Cr *CompactionInfoStruct `thrift:"cr,1" db:"cr" json:"cr"`
 }
@@ -176692,7 +176693,7 @@ func (p *ThriftHiveMetastoreMarkFailedArgs) String() string {
 }
 
 // Attributes:
-//  - O1
+//   - O1
 type ThriftHiveMetastoreMarkFailedResult struct {
 	O1 *MetaException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 }
@@ -176801,8 +176802,8 @@ func (p *ThriftHiveMetastoreMarkFailedResult) String() string {
 }
 
 // Attributes:
-//  - JobId
-//  - CqID
+//   - JobId
+//   - CqID
 type ThriftHiveMetastoreSetHadoopJobidArgs struct {
 	JobId string `thrift:"jobId,1" db:"jobId" json:"jobId"`
 	CqID  int64  `thrift:"cq_id,2" db:"cq_id" json:"cq_id"`
@@ -176996,7 +176997,7 @@ func (p *ThriftHiveMetastoreSetHadoopJobidResult) String() string {
 }
 
 // Attributes:
-//  - Rqst
+//   - Rqst
 type ThriftHiveMetastoreGetLatestCommittedCompactionInfoArgs struct {
 	Rqst *GetLatestCommittedCompactionInfoRequest `thrift:"rqst,1" db:"rqst" json:"rqst"`
 }
@@ -177103,7 +177104,7 @@ func (p *ThriftHiveMetastoreGetLatestCommittedCompactionInfoArgs) String() strin
 }
 
 // Attributes:
-//  - Success
+//   - Success
 type ThriftHiveMetastoreGetLatestCommittedCompactionInfoResult struct {
 	Success *GetLatestCommittedCompactionInfoResponse `thrift:"success,0" db:"success" json:"success,omitempty"`
 }
@@ -177212,7 +177213,7 @@ func (p *ThriftHiveMetastoreGetLatestCommittedCompactionInfoResult) String() str
 }
 
 // Attributes:
-//  - Rqst
+//   - Rqst
 type ThriftHiveMetastoreGetNextNotificationArgs struct {
 	Rqst *NotificationEventRequest `thrift:"rqst,1" db:"rqst" json:"rqst"`
 }
@@ -177319,7 +177320,7 @@ func (p *ThriftHiveMetastoreGetNextNotificationArgs) String() string {
 }
 
 // Attributes:
-//  - Success
+//   - Success
 type ThriftHiveMetastoreGetNextNotificationResult struct {
 	Success *NotificationEventResponse `thrift:"success,0" db:"success" json:"success,omitempty"`
 }
@@ -177483,7 +177484,7 @@ func (p *ThriftHiveMetastoreGetCurrentNotificationEventIdArgs) String() string {
 }
 
 // Attributes:
-//  - Success
+//   - Success
 type ThriftHiveMetastoreGetCurrentNotificationEventIdResult struct {
 	Success *CurrentNotificationEventId `thrift:"success,0" db:"success" json:"success,omitempty"`
 }
@@ -177592,7 +177593,7 @@ func (p *ThriftHiveMetastoreGetCurrentNotificationEventIdResult) String() string
 }
 
 // Attributes:
-//  - Rqst
+//   - Rqst
 type ThriftHiveMetastoreGetNotificationEventsCountArgs struct {
 	Rqst *NotificationEventsCountRequest `thrift:"rqst,1" db:"rqst" json:"rqst"`
 }
@@ -177699,7 +177700,7 @@ func (p *ThriftHiveMetastoreGetNotificationEventsCountArgs) String() string {
 }
 
 // Attributes:
-//  - Success
+//   - Success
 type ThriftHiveMetastoreGetNotificationEventsCountResult struct {
 	Success *NotificationEventsCountResponse `thrift:"success,0" db:"success" json:"success,omitempty"`
 }
@@ -177808,7 +177809,7 @@ func (p *ThriftHiveMetastoreGetNotificationEventsCountResult) String() string {
 }
 
 // Attributes:
-//  - Rqst
+//   - Rqst
 type ThriftHiveMetastoreFireListenerEventArgs struct {
 	Rqst *FireEventRequest `thrift:"rqst,1" db:"rqst" json:"rqst"`
 }
@@ -177915,7 +177916,7 @@ func (p *ThriftHiveMetastoreFireListenerEventArgs) String() string {
 }
 
 // Attributes:
-//  - Success
+//   - Success
 type ThriftHiveMetastoreFireListenerEventResult struct {
 	Success *FireEventResponse `thrift:"success,0" db:"success" json:"success,omitempty"`
 }
@@ -178134,7 +178135,7 @@ func (p *ThriftHiveMetastoreFlushCacheResult) String() string {
 }
 
 // Attributes:
-//  - Rqst
+//   - Rqst
 type ThriftHiveMetastoreAddWriteNotificationLogArgs struct {
 	Rqst *WriteNotificationLogRequest `thrift:"rqst,1" db:"rqst" json:"rqst"`
 }
@@ -178241,7 +178242,7 @@ func (p *ThriftHiveMetastoreAddWriteNotificationLogArgs) String() string {
 }
 
 // Attributes:
-//  - Success
+//   - Success
 type ThriftHiveMetastoreAddWriteNotificationLogResult struct {
 	Success *WriteNotificationLogResponse `thrift:"success,0" db:"success" json:"success,omitempty"`
 }
@@ -178350,7 +178351,7 @@ func (p *ThriftHiveMetastoreAddWriteNotificationLogResult) String() string {
 }
 
 // Attributes:
-//  - Request
+//   - Request
 type ThriftHiveMetastoreCmRecycleArgs struct {
 	Request *CmRecycleRequest `thrift:"request,1" db:"request" json:"request"`
 }
@@ -178457,8 +178458,8 @@ func (p *ThriftHiveMetastoreCmRecycleArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
+//   - Success
+//   - O1
 type ThriftHiveMetastoreCmRecycleResult struct {
 	Success *CmRecycleResponse `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException     `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -178617,7 +178618,7 @@ func (p *ThriftHiveMetastoreCmRecycleResult) String() string {
 }
 
 // Attributes:
-//  - Req
+//   - Req
 type ThriftHiveMetastoreGetFileMetadataByExprArgs struct {
 	Req *GetFileMetadataByExprRequest `thrift:"req,1" db:"req" json:"req"`
 }
@@ -178724,7 +178725,7 @@ func (p *ThriftHiveMetastoreGetFileMetadataByExprArgs) String() string {
 }
 
 // Attributes:
-//  - Success
+//   - Success
 type ThriftHiveMetastoreGetFileMetadataByExprResult struct {
 	Success *GetFileMetadataByExprResult_ `thrift:"success,0" db:"success" json:"success,omitempty"`
 }
@@ -178833,7 +178834,7 @@ func (p *ThriftHiveMetastoreGetFileMetadataByExprResult) String() string {
 }
 
 // Attributes:
-//  - Req
+//   - Req
 type ThriftHiveMetastoreGetFileMetadataArgs struct {
 	Req *GetFileMetadataRequest `thrift:"req,1" db:"req" json:"req"`
 }
@@ -178940,7 +178941,7 @@ func (p *ThriftHiveMetastoreGetFileMetadataArgs) String() string {
 }
 
 // Attributes:
-//  - Success
+//   - Success
 type ThriftHiveMetastoreGetFileMetadataResult struct {
 	Success *GetFileMetadataResult_ `thrift:"success,0" db:"success" json:"success,omitempty"`
 }
@@ -179049,7 +179050,7 @@ func (p *ThriftHiveMetastoreGetFileMetadataResult) String() string {
 }
 
 // Attributes:
-//  - Req
+//   - Req
 type ThriftHiveMetastorePutFileMetadataArgs struct {
 	Req *PutFileMetadataRequest `thrift:"req,1" db:"req" json:"req"`
 }
@@ -179156,7 +179157,7 @@ func (p *ThriftHiveMetastorePutFileMetadataArgs) String() string {
 }
 
 // Attributes:
-//  - Success
+//   - Success
 type ThriftHiveMetastorePutFileMetadataResult struct {
 	Success *PutFileMetadataResult_ `thrift:"success,0" db:"success" json:"success,omitempty"`
 }
@@ -179265,7 +179266,7 @@ func (p *ThriftHiveMetastorePutFileMetadataResult) String() string {
 }
 
 // Attributes:
-//  - Req
+//   - Req
 type ThriftHiveMetastoreClearFileMetadataArgs struct {
 	Req *ClearFileMetadataRequest `thrift:"req,1" db:"req" json:"req"`
 }
@@ -179372,7 +179373,7 @@ func (p *ThriftHiveMetastoreClearFileMetadataArgs) String() string {
 }
 
 // Attributes:
-//  - Success
+//   - Success
 type ThriftHiveMetastoreClearFileMetadataResult struct {
 	Success *ClearFileMetadataResult_ `thrift:"success,0" db:"success" json:"success,omitempty"`
 }
@@ -179481,7 +179482,7 @@ func (p *ThriftHiveMetastoreClearFileMetadataResult) String() string {
 }
 
 // Attributes:
-//  - Req
+//   - Req
 type ThriftHiveMetastoreCacheFileMetadataArgs struct {
 	Req *CacheFileMetadataRequest `thrift:"req,1" db:"req" json:"req"`
 }
@@ -179588,7 +179589,7 @@ func (p *ThriftHiveMetastoreCacheFileMetadataArgs) String() string {
 }
 
 // Attributes:
-//  - Success
+//   - Success
 type ThriftHiveMetastoreCacheFileMetadataResult struct {
 	Success *CacheFileMetadataResult_ `thrift:"success,0" db:"success" json:"success,omitempty"`
 }
@@ -179752,8 +179753,8 @@ func (p *ThriftHiveMetastoreGetMetastoreDbUUIDArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
+//   - Success
+//   - O1
 type ThriftHiveMetastoreGetMetastoreDbUUIDResult struct {
 	Success *string        `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -179913,7 +179914,7 @@ func (p *ThriftHiveMetastoreGetMetastoreDbUUIDResult) String() string {
 }
 
 // Attributes:
-//  - Request
+//   - Request
 type ThriftHiveMetastoreCreateResourcePlanArgs struct {
 	Request *WMCreateResourcePlanRequest `thrift:"request,1" db:"request" json:"request"`
 }
@@ -180020,10 +180021,10 @@ func (p *ThriftHiveMetastoreCreateResourcePlanArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
-//  - O3
+//   - Success
+//   - O1
+//   - O2
+//   - O3
 type ThriftHiveMetastoreCreateResourcePlanResult struct {
 	Success *WMCreateResourcePlanResponse `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *AlreadyExistsException       `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -180282,7 +180283,7 @@ func (p *ThriftHiveMetastoreCreateResourcePlanResult) String() string {
 }
 
 // Attributes:
-//  - Request
+//   - Request
 type ThriftHiveMetastoreGetResourcePlanArgs struct {
 	Request *WMGetResourcePlanRequest `thrift:"request,1" db:"request" json:"request"`
 }
@@ -180389,9 +180390,9 @@ func (p *ThriftHiveMetastoreGetResourcePlanArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
+//   - Success
+//   - O1
+//   - O2
 type ThriftHiveMetastoreGetResourcePlanResult struct {
 	Success *WMGetResourcePlanResponse `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *NoSuchObjectException     `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -180600,7 +180601,7 @@ func (p *ThriftHiveMetastoreGetResourcePlanResult) String() string {
 }
 
 // Attributes:
-//  - Request
+//   - Request
 type ThriftHiveMetastoreGetActiveResourcePlanArgs struct {
 	Request *WMGetActiveResourcePlanRequest `thrift:"request,1" db:"request" json:"request"`
 }
@@ -180707,8 +180708,8 @@ func (p *ThriftHiveMetastoreGetActiveResourcePlanArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O2
+//   - Success
+//   - O2
 type ThriftHiveMetastoreGetActiveResourcePlanResult struct {
 	Success *WMGetActiveResourcePlanResponse `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O2      *MetaException                   `thrift:"o2,1" db:"o2" json:"o2,omitempty"`
@@ -180867,7 +180868,7 @@ func (p *ThriftHiveMetastoreGetActiveResourcePlanResult) String() string {
 }
 
 // Attributes:
-//  - Request
+//   - Request
 type ThriftHiveMetastoreGetAllResourcePlansArgs struct {
 	Request *WMGetAllResourcePlanRequest `thrift:"request,1" db:"request" json:"request"`
 }
@@ -180974,8 +180975,8 @@ func (p *ThriftHiveMetastoreGetAllResourcePlansArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
+//   - Success
+//   - O1
 type ThriftHiveMetastoreGetAllResourcePlansResult struct {
 	Success *WMGetAllResourcePlanResponse `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException                `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -181134,7 +181135,7 @@ func (p *ThriftHiveMetastoreGetAllResourcePlansResult) String() string {
 }
 
 // Attributes:
-//  - Request
+//   - Request
 type ThriftHiveMetastoreAlterResourcePlanArgs struct {
 	Request *WMAlterResourcePlanRequest `thrift:"request,1" db:"request" json:"request"`
 }
@@ -181241,10 +181242,10 @@ func (p *ThriftHiveMetastoreAlterResourcePlanArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
-//  - O3
+//   - Success
+//   - O1
+//   - O2
+//   - O3
 type ThriftHiveMetastoreAlterResourcePlanResult struct {
 	Success *WMAlterResourcePlanResponse `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *NoSuchObjectException       `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -181503,7 +181504,7 @@ func (p *ThriftHiveMetastoreAlterResourcePlanResult) String() string {
 }
 
 // Attributes:
-//  - Request
+//   - Request
 type ThriftHiveMetastoreValidateResourcePlanArgs struct {
 	Request *WMValidateResourcePlanRequest `thrift:"request,1" db:"request" json:"request"`
 }
@@ -181610,9 +181611,9 @@ func (p *ThriftHiveMetastoreValidateResourcePlanArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
+//   - Success
+//   - O1
+//   - O2
 type ThriftHiveMetastoreValidateResourcePlanResult struct {
 	Success *WMValidateResourcePlanResponse `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *NoSuchObjectException          `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -181821,7 +181822,7 @@ func (p *ThriftHiveMetastoreValidateResourcePlanResult) String() string {
 }
 
 // Attributes:
-//  - Request
+//   - Request
 type ThriftHiveMetastoreDropResourcePlanArgs struct {
 	Request *WMDropResourcePlanRequest `thrift:"request,1" db:"request" json:"request"`
 }
@@ -181928,10 +181929,10 @@ func (p *ThriftHiveMetastoreDropResourcePlanArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
-//  - O3
+//   - Success
+//   - O1
+//   - O2
+//   - O3
 type ThriftHiveMetastoreDropResourcePlanResult struct {
 	Success *WMDropResourcePlanResponse `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *NoSuchObjectException      `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -182190,7 +182191,7 @@ func (p *ThriftHiveMetastoreDropResourcePlanResult) String() string {
 }
 
 // Attributes:
-//  - Request
+//   - Request
 type ThriftHiveMetastoreCreateWmTriggerArgs struct {
 	Request *WMCreateTriggerRequest `thrift:"request,1" db:"request" json:"request"`
 }
@@ -182297,11 +182298,11 @@ func (p *ThriftHiveMetastoreCreateWmTriggerArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
-//  - O3
-//  - O4
+//   - Success
+//   - O1
+//   - O2
+//   - O3
+//   - O4
 type ThriftHiveMetastoreCreateWmTriggerResult struct {
 	Success *WMCreateTriggerResponse `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *AlreadyExistsException  `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -182610,7 +182611,7 @@ func (p *ThriftHiveMetastoreCreateWmTriggerResult) String() string {
 }
 
 // Attributes:
-//  - Request
+//   - Request
 type ThriftHiveMetastoreAlterWmTriggerArgs struct {
 	Request *WMAlterTriggerRequest `thrift:"request,1" db:"request" json:"request"`
 }
@@ -182717,10 +182718,10 @@ func (p *ThriftHiveMetastoreAlterWmTriggerArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
-//  - O3
+//   - Success
+//   - O1
+//   - O2
+//   - O3
 type ThriftHiveMetastoreAlterWmTriggerResult struct {
 	Success *WMAlterTriggerResponse `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *NoSuchObjectException  `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -182979,7 +182980,7 @@ func (p *ThriftHiveMetastoreAlterWmTriggerResult) String() string {
 }
 
 // Attributes:
-//  - Request
+//   - Request
 type ThriftHiveMetastoreDropWmTriggerArgs struct {
 	Request *WMDropTriggerRequest `thrift:"request,1" db:"request" json:"request"`
 }
@@ -183086,10 +183087,10 @@ func (p *ThriftHiveMetastoreDropWmTriggerArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
-//  - O3
+//   - Success
+//   - O1
+//   - O2
+//   - O3
 type ThriftHiveMetastoreDropWmTriggerResult struct {
 	Success *WMDropTriggerResponse     `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *NoSuchObjectException     `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -183348,7 +183349,7 @@ func (p *ThriftHiveMetastoreDropWmTriggerResult) String() string {
 }
 
 // Attributes:
-//  - Request
+//   - Request
 type ThriftHiveMetastoreGetTriggersForResourceplanArgs struct {
 	Request *WMGetTriggersForResourePlanRequest `thrift:"request,1" db:"request" json:"request"`
 }
@@ -183455,9 +183456,9 @@ func (p *ThriftHiveMetastoreGetTriggersForResourceplanArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
+//   - Success
+//   - O1
+//   - O2
 type ThriftHiveMetastoreGetTriggersForResourceplanResult struct {
 	Success *WMGetTriggersForResourePlanResponse `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *NoSuchObjectException               `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -183666,7 +183667,7 @@ func (p *ThriftHiveMetastoreGetTriggersForResourceplanResult) String() string {
 }
 
 // Attributes:
-//  - Request
+//   - Request
 type ThriftHiveMetastoreCreateWmPoolArgs struct {
 	Request *WMCreatePoolRequest `thrift:"request,1" db:"request" json:"request"`
 }
@@ -183773,11 +183774,11 @@ func (p *ThriftHiveMetastoreCreateWmPoolArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
-//  - O3
-//  - O4
+//   - Success
+//   - O1
+//   - O2
+//   - O3
+//   - O4
 type ThriftHiveMetastoreCreateWmPoolResult struct {
 	Success *WMCreatePoolResponse   `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *AlreadyExistsException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -184086,7 +184087,7 @@ func (p *ThriftHiveMetastoreCreateWmPoolResult) String() string {
 }
 
 // Attributes:
-//  - Request
+//   - Request
 type ThriftHiveMetastoreAlterWmPoolArgs struct {
 	Request *WMAlterPoolRequest `thrift:"request,1" db:"request" json:"request"`
 }
@@ -184193,11 +184194,11 @@ func (p *ThriftHiveMetastoreAlterWmPoolArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
-//  - O3
-//  - O4
+//   - Success
+//   - O1
+//   - O2
+//   - O3
+//   - O4
 type ThriftHiveMetastoreAlterWmPoolResult struct {
 	Success *WMAlterPoolResponse    `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *AlreadyExistsException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -184506,7 +184507,7 @@ func (p *ThriftHiveMetastoreAlterWmPoolResult) String() string {
 }
 
 // Attributes:
-//  - Request
+//   - Request
 type ThriftHiveMetastoreDropWmPoolArgs struct {
 	Request *WMDropPoolRequest `thrift:"request,1" db:"request" json:"request"`
 }
@@ -184613,10 +184614,10 @@ func (p *ThriftHiveMetastoreDropWmPoolArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
-//  - O3
+//   - Success
+//   - O1
+//   - O2
+//   - O3
 type ThriftHiveMetastoreDropWmPoolResult struct {
 	Success *WMDropPoolResponse        `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *NoSuchObjectException     `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -184875,7 +184876,7 @@ func (p *ThriftHiveMetastoreDropWmPoolResult) String() string {
 }
 
 // Attributes:
-//  - Request
+//   - Request
 type ThriftHiveMetastoreCreateOrUpdateWmMappingArgs struct {
 	Request *WMCreateOrUpdateMappingRequest `thrift:"request,1" db:"request" json:"request"`
 }
@@ -184982,11 +184983,11 @@ func (p *ThriftHiveMetastoreCreateOrUpdateWmMappingArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
-//  - O3
-//  - O4
+//   - Success
+//   - O1
+//   - O2
+//   - O3
+//   - O4
 type ThriftHiveMetastoreCreateOrUpdateWmMappingResult struct {
 	Success *WMCreateOrUpdateMappingResponse `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *AlreadyExistsException          `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -185295,7 +185296,7 @@ func (p *ThriftHiveMetastoreCreateOrUpdateWmMappingResult) String() string {
 }
 
 // Attributes:
-//  - Request
+//   - Request
 type ThriftHiveMetastoreDropWmMappingArgs struct {
 	Request *WMDropMappingRequest `thrift:"request,1" db:"request" json:"request"`
 }
@@ -185402,10 +185403,10 @@ func (p *ThriftHiveMetastoreDropWmMappingArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
-//  - O3
+//   - Success
+//   - O1
+//   - O2
+//   - O3
 type ThriftHiveMetastoreDropWmMappingResult struct {
 	Success *WMDropMappingResponse     `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *NoSuchObjectException     `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -185664,7 +185665,7 @@ func (p *ThriftHiveMetastoreDropWmMappingResult) String() string {
 }
 
 // Attributes:
-//  - Request
+//   - Request
 type ThriftHiveMetastoreCreateOrDropWmTriggerToPoolMappingArgs struct {
 	Request *WMCreateOrDropTriggerToPoolMappingRequest `thrift:"request,1" db:"request" json:"request"`
 }
@@ -185771,11 +185772,11 @@ func (p *ThriftHiveMetastoreCreateOrDropWmTriggerToPoolMappingArgs) String() str
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
-//  - O3
-//  - O4
+//   - Success
+//   - O1
+//   - O2
+//   - O3
+//   - O4
 type ThriftHiveMetastoreCreateOrDropWmTriggerToPoolMappingResult struct {
 	Success *WMCreateOrDropTriggerToPoolMappingResponse `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *AlreadyExistsException                     `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -186084,7 +186085,7 @@ func (p *ThriftHiveMetastoreCreateOrDropWmTriggerToPoolMappingResult) String() s
 }
 
 // Attributes:
-//  - Schema
+//   - Schema
 type ThriftHiveMetastoreCreateIschemaArgs struct {
 	Schema *ISchema `thrift:"schema,1" db:"schema" json:"schema"`
 }
@@ -186191,9 +186192,9 @@ func (p *ThriftHiveMetastoreCreateIschemaArgs) String() string {
 }
 
 // Attributes:
-//  - O1
-//  - O2
-//  - O3
+//   - O1
+//   - O2
+//   - O3
 type ThriftHiveMetastoreCreateIschemaResult struct {
 	O1 *AlreadyExistsException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 	O2 *NoSuchObjectException  `thrift:"o2,2" db:"o2" json:"o2,omitempty"`
@@ -186402,7 +186403,7 @@ func (p *ThriftHiveMetastoreCreateIschemaResult) String() string {
 }
 
 // Attributes:
-//  - Rqst
+//   - Rqst
 type ThriftHiveMetastoreAlterIschemaArgs struct {
 	Rqst *AlterISchemaRequest `thrift:"rqst,1" db:"rqst" json:"rqst"`
 }
@@ -186509,8 +186510,8 @@ func (p *ThriftHiveMetastoreAlterIschemaArgs) String() string {
 }
 
 // Attributes:
-//  - O1
-//  - O2
+//   - O1
+//   - O2
 type ThriftHiveMetastoreAlterIschemaResult struct {
 	O1 *NoSuchObjectException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 	O2 *MetaException         `thrift:"o2,2" db:"o2" json:"o2,omitempty"`
@@ -186669,7 +186670,7 @@ func (p *ThriftHiveMetastoreAlterIschemaResult) String() string {
 }
 
 // Attributes:
-//  - Name
+//   - Name
 type ThriftHiveMetastoreGetIschemaArgs struct {
 	Name *ISchemaName `thrift:"name,1" db:"name" json:"name"`
 }
@@ -186776,9 +186777,9 @@ func (p *ThriftHiveMetastoreGetIschemaArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
+//   - Success
+//   - O1
+//   - O2
 type ThriftHiveMetastoreGetIschemaResult struct {
 	Success *ISchema               `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *NoSuchObjectException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -186987,7 +186988,7 @@ func (p *ThriftHiveMetastoreGetIschemaResult) String() string {
 }
 
 // Attributes:
-//  - Name
+//   - Name
 type ThriftHiveMetastoreDropIschemaArgs struct {
 	Name *ISchemaName `thrift:"name,1" db:"name" json:"name"`
 }
@@ -187094,9 +187095,9 @@ func (p *ThriftHiveMetastoreDropIschemaArgs) String() string {
 }
 
 // Attributes:
-//  - O1
-//  - O2
-//  - O3
+//   - O1
+//   - O2
+//   - O3
 type ThriftHiveMetastoreDropIschemaResult struct {
 	O1 *NoSuchObjectException     `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 	O2 *InvalidOperationException `thrift:"o2,2" db:"o2" json:"o2,omitempty"`
@@ -187305,7 +187306,7 @@ func (p *ThriftHiveMetastoreDropIschemaResult) String() string {
 }
 
 // Attributes:
-//  - SchemaVersion
+//   - SchemaVersion
 type ThriftHiveMetastoreAddSchemaVersionArgs struct {
 	SchemaVersion *SchemaVersion `thrift:"schemaVersion,1" db:"schemaVersion" json:"schemaVersion"`
 }
@@ -187412,9 +187413,9 @@ func (p *ThriftHiveMetastoreAddSchemaVersionArgs) String() string {
 }
 
 // Attributes:
-//  - O1
-//  - O2
-//  - O3
+//   - O1
+//   - O2
+//   - O3
 type ThriftHiveMetastoreAddSchemaVersionResult struct {
 	O1 *AlreadyExistsException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 	O2 *NoSuchObjectException  `thrift:"o2,2" db:"o2" json:"o2,omitempty"`
@@ -187623,7 +187624,7 @@ func (p *ThriftHiveMetastoreAddSchemaVersionResult) String() string {
 }
 
 // Attributes:
-//  - SchemaVersion
+//   - SchemaVersion
 type ThriftHiveMetastoreGetSchemaVersionArgs struct {
 	SchemaVersion *SchemaVersionDescriptor `thrift:"schemaVersion,1" db:"schemaVersion" json:"schemaVersion"`
 }
@@ -187730,9 +187731,9 @@ func (p *ThriftHiveMetastoreGetSchemaVersionArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
+//   - Success
+//   - O1
+//   - O2
 type ThriftHiveMetastoreGetSchemaVersionResult struct {
 	Success *SchemaVersion         `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *NoSuchObjectException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -187941,7 +187942,7 @@ func (p *ThriftHiveMetastoreGetSchemaVersionResult) String() string {
 }
 
 // Attributes:
-//  - SchemaName
+//   - SchemaName
 type ThriftHiveMetastoreGetSchemaLatestVersionArgs struct {
 	SchemaName *ISchemaName `thrift:"schemaName,1" db:"schemaName" json:"schemaName"`
 }
@@ -188048,9 +188049,9 @@ func (p *ThriftHiveMetastoreGetSchemaLatestVersionArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
+//   - Success
+//   - O1
+//   - O2
 type ThriftHiveMetastoreGetSchemaLatestVersionResult struct {
 	Success *SchemaVersion         `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *NoSuchObjectException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -188259,7 +188260,7 @@ func (p *ThriftHiveMetastoreGetSchemaLatestVersionResult) String() string {
 }
 
 // Attributes:
-//  - SchemaName
+//   - SchemaName
 type ThriftHiveMetastoreGetSchemaAllVersionsArgs struct {
 	SchemaName *ISchemaName `thrift:"schemaName,1" db:"schemaName" json:"schemaName"`
 }
@@ -188366,9 +188367,9 @@ func (p *ThriftHiveMetastoreGetSchemaAllVersionsArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
+//   - Success
+//   - O1
+//   - O2
 type ThriftHiveMetastoreGetSchemaAllVersionsResult struct {
 	Success []*SchemaVersion       `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *NoSuchObjectException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -188594,7 +188595,7 @@ func (p *ThriftHiveMetastoreGetSchemaAllVersionsResult) String() string {
 }
 
 // Attributes:
-//  - SchemaVersion
+//   - SchemaVersion
 type ThriftHiveMetastoreDropSchemaVersionArgs struct {
 	SchemaVersion *SchemaVersionDescriptor `thrift:"schemaVersion,1" db:"schemaVersion" json:"schemaVersion"`
 }
@@ -188701,8 +188702,8 @@ func (p *ThriftHiveMetastoreDropSchemaVersionArgs) String() string {
 }
 
 // Attributes:
-//  - O1
-//  - O2
+//   - O1
+//   - O2
 type ThriftHiveMetastoreDropSchemaVersionResult struct {
 	O1 *NoSuchObjectException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 	O2 *MetaException         `thrift:"o2,2" db:"o2" json:"o2,omitempty"`
@@ -188861,7 +188862,7 @@ func (p *ThriftHiveMetastoreDropSchemaVersionResult) String() string {
 }
 
 // Attributes:
-//  - Rqst
+//   - Rqst
 type ThriftHiveMetastoreGetSchemasByColsArgs struct {
 	Rqst *FindSchemasByColsRqst `thrift:"rqst,1" db:"rqst" json:"rqst"`
 }
@@ -188968,8 +188969,8 @@ func (p *ThriftHiveMetastoreGetSchemasByColsArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
+//   - Success
+//   - O1
 type ThriftHiveMetastoreGetSchemasByColsResult struct {
 	Success *FindSchemasByColsResp `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException         `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -189128,7 +189129,7 @@ func (p *ThriftHiveMetastoreGetSchemasByColsResult) String() string {
 }
 
 // Attributes:
-//  - Rqst
+//   - Rqst
 type ThriftHiveMetastoreMapSchemaVersionToSerdeArgs struct {
 	Rqst *MapSchemaVersionToSerdeRequest `thrift:"rqst,1" db:"rqst" json:"rqst"`
 }
@@ -189235,8 +189236,8 @@ func (p *ThriftHiveMetastoreMapSchemaVersionToSerdeArgs) String() string {
 }
 
 // Attributes:
-//  - O1
-//  - O2
+//   - O1
+//   - O2
 type ThriftHiveMetastoreMapSchemaVersionToSerdeResult struct {
 	O1 *NoSuchObjectException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 	O2 *MetaException         `thrift:"o2,2" db:"o2" json:"o2,omitempty"`
@@ -189395,7 +189396,7 @@ func (p *ThriftHiveMetastoreMapSchemaVersionToSerdeResult) String() string {
 }
 
 // Attributes:
-//  - Rqst
+//   - Rqst
 type ThriftHiveMetastoreSetSchemaVersionStateArgs struct {
 	Rqst *SetSchemaVersionStateRequest `thrift:"rqst,1" db:"rqst" json:"rqst"`
 }
@@ -189502,9 +189503,9 @@ func (p *ThriftHiveMetastoreSetSchemaVersionStateArgs) String() string {
 }
 
 // Attributes:
-//  - O1
-//  - O2
-//  - O3
+//   - O1
+//   - O2
+//   - O3
 type ThriftHiveMetastoreSetSchemaVersionStateResult struct {
 	O1 *NoSuchObjectException     `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 	O2 *InvalidOperationException `thrift:"o2,2" db:"o2" json:"o2,omitempty"`
@@ -189713,7 +189714,7 @@ func (p *ThriftHiveMetastoreSetSchemaVersionStateResult) String() string {
 }
 
 // Attributes:
-//  - Serde
+//   - Serde
 type ThriftHiveMetastoreAddSerdeArgs struct {
 	Serde *SerDeInfo `thrift:"serde,1" db:"serde" json:"serde"`
 }
@@ -189820,8 +189821,8 @@ func (p *ThriftHiveMetastoreAddSerdeArgs) String() string {
 }
 
 // Attributes:
-//  - O1
-//  - O2
+//   - O1
+//   - O2
 type ThriftHiveMetastoreAddSerdeResult struct {
 	O1 *AlreadyExistsException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 	O2 *MetaException          `thrift:"o2,2" db:"o2" json:"o2,omitempty"`
@@ -189980,7 +189981,7 @@ func (p *ThriftHiveMetastoreAddSerdeResult) String() string {
 }
 
 // Attributes:
-//  - Rqst
+//   - Rqst
 type ThriftHiveMetastoreGetSerdeArgs struct {
 	Rqst *GetSerdeRequest `thrift:"rqst,1" db:"rqst" json:"rqst"`
 }
@@ -190087,9 +190088,9 @@ func (p *ThriftHiveMetastoreGetSerdeArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
+//   - Success
+//   - O1
+//   - O2
 type ThriftHiveMetastoreGetSerdeResult struct {
 	Success *SerDeInfo             `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *NoSuchObjectException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -190298,9 +190299,9 @@ func (p *ThriftHiveMetastoreGetSerdeResult) String() string {
 }
 
 // Attributes:
-//  - DbName
-//  - TableName
-//  - TxnId
+//   - DbName
+//   - TableName
+//   - TxnId
 type ThriftHiveMetastoreGetLockMaterializationRebuildArgs struct {
 	DbName    string `thrift:"dbName,1" db:"dbName" json:"dbName"`
 	TableName string `thrift:"tableName,2" db:"tableName" json:"tableName"`
@@ -190479,7 +190480,7 @@ func (p *ThriftHiveMetastoreGetLockMaterializationRebuildArgs) String() string {
 }
 
 // Attributes:
-//  - Success
+//   - Success
 type ThriftHiveMetastoreGetLockMaterializationRebuildResult struct {
 	Success *LockResponse `thrift:"success,0" db:"success" json:"success,omitempty"`
 }
@@ -190588,9 +190589,9 @@ func (p *ThriftHiveMetastoreGetLockMaterializationRebuildResult) String() string
 }
 
 // Attributes:
-//  - DbName
-//  - TableName
-//  - TxnId
+//   - DbName
+//   - TableName
+//   - TxnId
 type ThriftHiveMetastoreHeartbeatLockMaterializationRebuildArgs struct {
 	DbName    string `thrift:"dbName,1" db:"dbName" json:"dbName"`
 	TableName string `thrift:"tableName,2" db:"tableName" json:"tableName"`
@@ -190769,7 +190770,7 @@ func (p *ThriftHiveMetastoreHeartbeatLockMaterializationRebuildArgs) String() st
 }
 
 // Attributes:
-//  - Success
+//   - Success
 type ThriftHiveMetastoreHeartbeatLockMaterializationRebuildResult struct {
 	Success *bool `thrift:"success,0" db:"success" json:"success,omitempty"`
 }
@@ -190879,7 +190880,7 @@ func (p *ThriftHiveMetastoreHeartbeatLockMaterializationRebuildResult) String() 
 }
 
 // Attributes:
-//  - Stat
+//   - Stat
 type ThriftHiveMetastoreAddRuntimeStatsArgs struct {
 	Stat *RuntimeStat `thrift:"stat,1" db:"stat" json:"stat"`
 }
@@ -190986,7 +190987,7 @@ func (p *ThriftHiveMetastoreAddRuntimeStatsArgs) String() string {
 }
 
 // Attributes:
-//  - O1
+//   - O1
 type ThriftHiveMetastoreAddRuntimeStatsResult struct {
 	O1 *MetaException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 }
@@ -191095,7 +191096,7 @@ func (p *ThriftHiveMetastoreAddRuntimeStatsResult) String() string {
 }
 
 // Attributes:
-//  - Rqst
+//   - Rqst
 type ThriftHiveMetastoreGetRuntimeStatsArgs struct {
 	Rqst *GetRuntimeStatsRequest `thrift:"rqst,1" db:"rqst" json:"rqst"`
 }
@@ -191202,8 +191203,8 @@ func (p *ThriftHiveMetastoreGetRuntimeStatsArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
+//   - Success
+//   - O1
 type ThriftHiveMetastoreGetRuntimeStatsResult struct {
 	Success []*RuntimeStat `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -191379,7 +191380,7 @@ func (p *ThriftHiveMetastoreGetRuntimeStatsResult) String() string {
 }
 
 // Attributes:
-//  - Request
+//   - Request
 type ThriftHiveMetastoreGetPartitionsWithSpecsArgs struct {
 	Request *GetPartitionsRequest `thrift:"request,1" db:"request" json:"request"`
 }
@@ -191486,8 +191487,8 @@ func (p *ThriftHiveMetastoreGetPartitionsWithSpecsArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
+//   - Success
+//   - O1
 type ThriftHiveMetastoreGetPartitionsWithSpecsResult struct {
 	Success *GetPartitionsResponse `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException         `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -191646,7 +191647,7 @@ func (p *ThriftHiveMetastoreGetPartitionsWithSpecsResult) String() string {
 }
 
 // Attributes:
-//  - Request
+//   - Request
 type ThriftHiveMetastoreScheduledQueryPollArgs struct {
 	Request *ScheduledQueryPollRequest `thrift:"request,1" db:"request" json:"request"`
 }
@@ -191753,8 +191754,8 @@ func (p *ThriftHiveMetastoreScheduledQueryPollArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
+//   - Success
+//   - O1
 type ThriftHiveMetastoreScheduledQueryPollResult struct {
 	Success *ScheduledQueryPollResponse `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException              `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -191913,7 +191914,7 @@ func (p *ThriftHiveMetastoreScheduledQueryPollResult) String() string {
 }
 
 // Attributes:
-//  - Request
+//   - Request
 type ThriftHiveMetastoreScheduledQueryMaintenanceArgs struct {
 	Request *ScheduledQueryMaintenanceRequest `thrift:"request,1" db:"request" json:"request"`
 }
@@ -192020,10 +192021,10 @@ func (p *ThriftHiveMetastoreScheduledQueryMaintenanceArgs) String() string {
 }
 
 // Attributes:
-//  - O1
-//  - O2
-//  - O3
-//  - O4
+//   - O1
+//   - O2
+//   - O3
+//   - O4
 type ThriftHiveMetastoreScheduledQueryMaintenanceResult struct {
 	O1 *MetaException          `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 	O2 *NoSuchObjectException  `thrift:"o2,2" db:"o2" json:"o2,omitempty"`
@@ -192282,7 +192283,7 @@ func (p *ThriftHiveMetastoreScheduledQueryMaintenanceResult) String() string {
 }
 
 // Attributes:
-//  - Info
+//   - Info
 type ThriftHiveMetastoreScheduledQueryProgressArgs struct {
 	Info *ScheduledQueryProgressInfo `thrift:"info,1" db:"info" json:"info"`
 }
@@ -192389,8 +192390,8 @@ func (p *ThriftHiveMetastoreScheduledQueryProgressArgs) String() string {
 }
 
 // Attributes:
-//  - O1
-//  - O2
+//   - O1
+//   - O2
 type ThriftHiveMetastoreScheduledQueryProgressResult struct {
 	O1 *MetaException             `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 	O2 *InvalidOperationException `thrift:"o2,2" db:"o2" json:"o2,omitempty"`
@@ -192549,7 +192550,7 @@ func (p *ThriftHiveMetastoreScheduledQueryProgressResult) String() string {
 }
 
 // Attributes:
-//  - ScheduleKey
+//   - ScheduleKey
 type ThriftHiveMetastoreGetScheduledQueryArgs struct {
 	ScheduleKey *ScheduledQueryKey `thrift:"scheduleKey,1" db:"scheduleKey" json:"scheduleKey"`
 }
@@ -192656,9 +192657,9 @@ func (p *ThriftHiveMetastoreGetScheduledQueryArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
-//  - O2
+//   - Success
+//   - O1
+//   - O2
 type ThriftHiveMetastoreGetScheduledQueryResult struct {
 	Success *ScheduledQuery        `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException         `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -192867,7 +192868,7 @@ func (p *ThriftHiveMetastoreGetScheduledQueryResult) String() string {
 }
 
 // Attributes:
-//  - ReplicationMetricList
+//   - ReplicationMetricList
 type ThriftHiveMetastoreAddReplicationMetricsArgs struct {
 	ReplicationMetricList *ReplicationMetricList `thrift:"replicationMetricList,1" db:"replicationMetricList" json:"replicationMetricList"`
 }
@@ -192974,7 +192975,7 @@ func (p *ThriftHiveMetastoreAddReplicationMetricsArgs) String() string {
 }
 
 // Attributes:
-//  - O1
+//   - O1
 type ThriftHiveMetastoreAddReplicationMetricsResult struct {
 	O1 *MetaException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 }
@@ -193083,7 +193084,7 @@ func (p *ThriftHiveMetastoreAddReplicationMetricsResult) String() string {
 }
 
 // Attributes:
-//  - Rqst
+//   - Rqst
 type ThriftHiveMetastoreGetReplicationMetricsArgs struct {
 	Rqst *GetReplicationMetricsRequest `thrift:"rqst,1" db:"rqst" json:"rqst"`
 }
@@ -193190,8 +193191,8 @@ func (p *ThriftHiveMetastoreGetReplicationMetricsArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
+//   - Success
+//   - O1
 type ThriftHiveMetastoreGetReplicationMetricsResult struct {
 	Success *ReplicationMetricList `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException         `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -193350,7 +193351,7 @@ func (p *ThriftHiveMetastoreGetReplicationMetricsResult) String() string {
 }
 
 // Attributes:
-//  - GetOpenTxnsRequest
+//   - GetOpenTxnsRequest
 type ThriftHiveMetastoreGetOpenTxnsReqArgs struct {
 	GetOpenTxnsRequest *GetOpenTxnsRequest `thrift:"getOpenTxnsRequest,1" db:"getOpenTxnsRequest" json:"getOpenTxnsRequest"`
 }
@@ -193457,7 +193458,7 @@ func (p *ThriftHiveMetastoreGetOpenTxnsReqArgs) String() string {
 }
 
 // Attributes:
-//  - Success
+//   - Success
 type ThriftHiveMetastoreGetOpenTxnsReqResult struct {
 	Success *GetOpenTxnsResponse `thrift:"success,0" db:"success" json:"success,omitempty"`
 }
@@ -193566,7 +193567,7 @@ func (p *ThriftHiveMetastoreGetOpenTxnsReqResult) String() string {
 }
 
 // Attributes:
-//  - Proc
+//   - Proc
 type ThriftHiveMetastoreCreateStoredProcedureArgs struct {
 	Proc *StoredProcedure `thrift:"proc,1" db:"proc" json:"proc"`
 }
@@ -193673,8 +193674,8 @@ func (p *ThriftHiveMetastoreCreateStoredProcedureArgs) String() string {
 }
 
 // Attributes:
-//  - O1
-//  - O2
+//   - O1
+//   - O2
 type ThriftHiveMetastoreCreateStoredProcedureResult struct {
 	O1 *NoSuchObjectException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 	O2 *MetaException         `thrift:"o2,2" db:"o2" json:"o2,omitempty"`
@@ -193833,7 +193834,7 @@ func (p *ThriftHiveMetastoreCreateStoredProcedureResult) String() string {
 }
 
 // Attributes:
-//  - Request
+//   - Request
 type ThriftHiveMetastoreGetStoredProcedureArgs struct {
 	Request *StoredProcedureRequest `thrift:"request,1" db:"request" json:"request"`
 }
@@ -193940,8 +193941,8 @@ func (p *ThriftHiveMetastoreGetStoredProcedureArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
+//   - Success
+//   - O1
 type ThriftHiveMetastoreGetStoredProcedureResult struct {
 	Success *StoredProcedure `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException   `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -194100,7 +194101,7 @@ func (p *ThriftHiveMetastoreGetStoredProcedureResult) String() string {
 }
 
 // Attributes:
-//  - Request
+//   - Request
 type ThriftHiveMetastoreDropStoredProcedureArgs struct {
 	Request *StoredProcedureRequest `thrift:"request,1" db:"request" json:"request"`
 }
@@ -194207,7 +194208,7 @@ func (p *ThriftHiveMetastoreDropStoredProcedureArgs) String() string {
 }
 
 // Attributes:
-//  - O1
+//   - O1
 type ThriftHiveMetastoreDropStoredProcedureResult struct {
 	O1 *MetaException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 }
@@ -194316,7 +194317,7 @@ func (p *ThriftHiveMetastoreDropStoredProcedureResult) String() string {
 }
 
 // Attributes:
-//  - Request
+//   - Request
 type ThriftHiveMetastoreGetAllStoredProceduresArgs struct {
 	Request *ListStoredProcedureRequest `thrift:"request,1" db:"request" json:"request"`
 }
@@ -194423,8 +194424,8 @@ func (p *ThriftHiveMetastoreGetAllStoredProceduresArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
+//   - Success
+//   - O1
 type ThriftHiveMetastoreGetAllStoredProceduresResult struct {
 	Success []string       `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -194602,7 +194603,7 @@ func (p *ThriftHiveMetastoreGetAllStoredProceduresResult) String() string {
 }
 
 // Attributes:
-//  - Request
+//   - Request
 type ThriftHiveMetastoreFindPackageArgs struct {
 	Request *GetPackageRequest `thrift:"request,1" db:"request" json:"request"`
 }
@@ -194709,8 +194710,8 @@ func (p *ThriftHiveMetastoreFindPackageArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
+//   - Success
+//   - O1
 type ThriftHiveMetastoreFindPackageResult struct {
 	Success *Package       `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -194869,7 +194870,7 @@ func (p *ThriftHiveMetastoreFindPackageResult) String() string {
 }
 
 // Attributes:
-//  - Request
+//   - Request
 type ThriftHiveMetastoreAddPackageArgs struct {
 	Request *AddPackageRequest `thrift:"request,1" db:"request" json:"request"`
 }
@@ -194976,7 +194977,7 @@ func (p *ThriftHiveMetastoreAddPackageArgs) String() string {
 }
 
 // Attributes:
-//  - O1
+//   - O1
 type ThriftHiveMetastoreAddPackageResult struct {
 	O1 *MetaException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 }
@@ -195085,7 +195086,7 @@ func (p *ThriftHiveMetastoreAddPackageResult) String() string {
 }
 
 // Attributes:
-//  - Request
+//   - Request
 type ThriftHiveMetastoreGetAllPackagesArgs struct {
 	Request *ListPackageRequest `thrift:"request,1" db:"request" json:"request"`
 }
@@ -195192,8 +195193,8 @@ func (p *ThriftHiveMetastoreGetAllPackagesArgs) String() string {
 }
 
 // Attributes:
-//  - Success
-//  - O1
+//   - Success
+//   - O1
 type ThriftHiveMetastoreGetAllPackagesResult struct {
 	Success []string       `thrift:"success,0" db:"success" json:"success,omitempty"`
 	O1      *MetaException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
@@ -195371,7 +195372,7 @@ func (p *ThriftHiveMetastoreGetAllPackagesResult) String() string {
 }
 
 // Attributes:
-//  - Request
+//   - Request
 type ThriftHiveMetastoreDropPackageArgs struct {
 	Request *DropPackageRequest `thrift:"request,1" db:"request" json:"request"`
 }
@@ -195478,7 +195479,7 @@ func (p *ThriftHiveMetastoreDropPackageArgs) String() string {
 }
 
 // Attributes:
-//  - O1
+//   - O1
 type ThriftHiveMetastoreDropPackageResult struct {
 	O1 *MetaException `thrift:"o1,1" db:"o1" json:"o1,omitempty"`
 }

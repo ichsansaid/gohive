@@ -6,9 +6,10 @@ import (
 	"bytes"
 	"context"
 	"fmt"
-	"github.com/apache/thrift/lib/go/thrift"
-	"github.com/ichsansaid/gohive/v2/gohivemeta/fb303"
 	"time"
+
+	"github.com/apache/thrift/lib/go/thrift"
+	"github.com/beltran/gohive/v2/gohivemeta/fb303"
 )
 
 // (needed to ensure safety because of naive import list construction.)

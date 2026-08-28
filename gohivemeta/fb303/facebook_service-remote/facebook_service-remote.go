@@ -4,16 +4,17 @@ package main
 
 import (
 	"context"
-	"github.com/ichsansaid/gohive/gohivemeta/fb303"
 	"flag"
 	"fmt"
-	"github.com/apache/thrift/lib/go/thrift"
 	"math"
 	"net"
 	"net/url"
 	"os"
 	"strconv"
 	"strings"
+
+	"github.com/apache/thrift/lib/go/thrift"
+	"github.com/beltran/gohive/gohivemeta/fb303"
 )
 
 var _ = fb303.GoUnusedProtection__
