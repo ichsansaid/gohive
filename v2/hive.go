@@ -5,7 +5,6 @@ import (
 	"crypto/tls"
 	"encoding/base64"
 	"fmt"
-	"log"
 	"net"
 	"net/http"
 	"net/http/cookiejar"
@@ -315,6 +314,7 @@ func innerConnect(ctx context.Context, host string, port int, auth string,
 	openSession.Configuration = configuration.HiveConfiguration
 	openSession.Username = &configuration.Username
 	openSession.Password = &configuration.Password
+
 	// Context is ignored
 	response, err := client.OpenSession(ctx, openSession)
 	if err != nil {
@@ -483,6 +483,9 @@ func (c *cursor) executeSync(ctx context.Context, query string) {
 
 // executeSyncBlocking runs ExecuteStatement in a blocking manner.
 // Relies on SocketTimeout + THRIFT-5233 retry for context deadline enforcement.
+// For Impala HTTP mode, ExecuteStatement may return STILL_EXECUTING_STATUS instead of
+// blocking until completion. In that case we poll GetOperationStatus until the query
+// finishes or the context is cancelled.
 func (c *cursor) executeSyncBlocking(ctx context.Context, executeReq *hiveserver.TExecuteStatementReq) {
 	c.conn.clientMu.Lock()
 	var responseExecute *hiveserver.TExecuteStatementResp = nil
@@ -502,8 +505,22 @@ func (c *cursor) executeSyncBlocking(ctx context.Context, executeReq *hiveserver
 		}
 		return
 	}
-	if !success(safeStatus(responseExecute.GetStatus())) {
-		status := safeStatus(responseExecute.GetStatus())
+
+	status := safeStatus(responseExecute.GetStatus())
+
+	// Impala HTTP mode may return STILL_EXECUTING_STATUS instead of blocking.
+	// Poll GetOperationStatus until the operation completes.
+	if status.StatusCode == hiveserver.TStatusCode_STILL_EXECUTING_STATUS {
+		if responseExecute.OperationHandle == nil {
+			c.Err = errors.New("STILL_EXECUTING_STATUS received but OperationHandle is nil")
+			return
+		}
+		c.operationHandle = responseExecute.OperationHandle
+		c.Err = c.waitForCompletion(ctx)
+		return
+	}
+
+	if !success(status) {
 		c.Err = hiveError{
 			error:     errors.New("Error while executing query: " + status.String()),
 			Message:   status.GetErrorMessage(),
@@ -515,6 +532,63 @@ func (c *cursor) executeSyncBlocking(ctx context.Context, executeReq *hiveserver
 	c.operationHandle = responseExecute.OperationHandle
 	if !responseExecute.OperationHandle.HasResultSet {
 		c.state = _FINISHED
+	}
+}
+
+// waitForCompletion polls GetOperationStatus until the operation is no longer running.
+// Used for Impala HTTP mode which returns STILL_EXECUTING_STATUS from ExecuteStatement.
+func (c *cursor) waitForCompletion(ctx context.Context) error {
+	for {
+		if err := ctx.Err(); err != nil {
+			c.state = _CONTEXT_DONE
+			return err
+		}
+
+		statusReq := hiveserver.NewTGetOperationStatusReq()
+		statusReq.OperationHandle = c.operationHandle
+
+		c.conn.clientMu.Lock()
+		statusResp, err := c.conn.client.GetOperationStatus(ctx, statusReq)
+		c.conn.clientMu.Unlock()
+
+		if err != nil {
+			if strings.Contains(err.Error(), "context deadline exceeded") ||
+				strings.Contains(err.Error(), "context canceled") {
+				c.state = _CONTEXT_DONE
+			}
+			return err
+		}
+
+		opStatus := statusResp.GetOperationState()
+		switch opStatus {
+		case hiveserver.TOperationState_FINISHED_STATE:
+			if statusResp.HasResultSet != nil && !*statusResp.HasResultSet {
+				c.state = _FINISHED
+			}
+			return nil
+		case hiveserver.TOperationState_CANCELED_STATE:
+			c.state = _ERROR
+			return errors.New("query was cancelled")
+		case hiveserver.TOperationState_CLOSED_STATE:
+			c.state = _FINISHED
+			return nil
+		case hiveserver.TOperationState_ERROR_STATE:
+			c.state = _ERROR
+			errMsg := "query failed"
+			if statusResp.ErrorMessage != nil {
+				errMsg = *statusResp.ErrorMessage
+			}
+			return hiveError{
+				error:   errors.New(errMsg),
+				Message: errMsg,
+			}
+		case hiveserver.TOperationState_UKNOWN_STATE:
+			c.state = _ERROR
+			return errors.New("query entered unknown state")
+		// INITIALIZED_STATE, PENDING_STATE, RUNNING_STATE — still in progress
+		default:
+			time.Sleep(time.Duration(c.conn.configuration.PollIntervalInMillis) * time.Millisecond)
+		}
 	}
 }
 
@@ -564,127 +638,6 @@ func (c *cursor) fetchIfEmpty(ctx context.Context) {
 			return
 		}
 	}
-}
-
-// rowMap returns one row as a map. Advances the cursor one
-func (c *cursor) rowMap(ctx context.Context) map[string]interface{} {
-	c.Err = nil
-	c.fetchIfEmpty(ctx)
-	if c.Err != nil {
-		return nil
-	}
-
-	d := c.description(ctx)
-	if c.Err != nil || len(d) != len(c.queue) {
-		return nil
-	}
-	m := make(map[string]interface{}, len(c.queue))
-	for i := 0; i < len(c.queue); i++ {
-		columnName := d[i][0]
-		columnType := d[i][1]
-		if columnType == "BOOLEAN_TYPE" {
-			if isNull(c.queue[i].BoolVal.Nulls, c.columnIndex) {
-				m[columnName] = nil
-			} else {
-				m[columnName] = c.queue[i].BoolVal.Values[c.columnIndex]
-			}
-		} else if columnType == "TINYINT_TYPE" {
-			if isNull(c.queue[i].ByteVal.Nulls, c.columnIndex) {
-				m[columnName] = nil
-			} else {
-				m[columnName] = c.queue[i].ByteVal.Values[c.columnIndex]
-			}
-		} else if columnType == "SMALLINT_TYPE" {
-			if isNull(c.queue[i].I16Val.Nulls, c.columnIndex) {
-				m[columnName] = nil
-			} else {
-				m[columnName] = c.queue[i].I16Val.Values[c.columnIndex]
-			}
-		} else if columnType == "INT_TYPE" {
-			if isNull(c.queue[i].I32Val.Nulls, c.columnIndex) {
-				m[columnName] = nil
-			} else {
-				m[columnName] = c.queue[i].I32Val.Values[c.columnIndex]
-			}
-		} else if columnType == "BIGINT_TYPE" {
-			if isNull(c.queue[i].I64Val.Nulls, c.columnIndex) {
-				m[columnName] = nil
-			} else {
-				m[columnName] = c.queue[i].I64Val.Values[c.columnIndex]
-			}
-		} else if columnType == "FLOAT_TYPE" {
-			if isNull(c.queue[i].DoubleVal.Nulls, c.columnIndex) {
-				m[columnName] = nil
-			} else {
-				m[columnName] = c.queue[i].DoubleVal.Values[c.columnIndex]
-			}
-		} else if columnType == "DOUBLE_TYPE" {
-			if isNull(c.queue[i].DoubleVal.Nulls, c.columnIndex) {
-				m[columnName] = nil
-			} else {
-				m[columnName] = c.queue[i].DoubleVal.Values[c.columnIndex]
-			}
-		} else if columnType == "STRING_TYPE" || columnType == "VARCHAR_TYPE" || columnType == "CHAR_TYPE" {
-			if isNull(c.queue[i].StringVal.Nulls, c.columnIndex) {
-				m[columnName] = nil
-			} else {
-				m[columnName] = c.queue[i].StringVal.Values[c.columnIndex]
-			}
-		} else if columnType == "TIMESTAMP_TYPE" {
-			if isNull(c.queue[i].StringVal.Nulls, c.columnIndex) {
-				m[columnName] = nil
-			} else {
-				m[columnName] = c.queue[i].StringVal.Values[c.columnIndex]
-			}
-		} else if columnType == "DATE_TYPE" {
-			if isNull(c.queue[i].StringVal.Nulls, c.columnIndex) {
-				m[columnName] = nil
-			} else {
-				m[columnName] = c.queue[i].StringVal.Values[c.columnIndex]
-			}
-		} else if columnType == "BINARY_TYPE" {
-			if isNull(c.queue[i].BinaryVal.Nulls, c.columnIndex) {
-				m[columnName] = nil
-			} else {
-				m[columnName] = c.queue[i].BinaryVal.Values[c.columnIndex]
-			}
-		} else if columnType == "ARRAY_TYPE" {
-			if isNull(c.queue[i].StringVal.Nulls, c.columnIndex) {
-				m[columnName] = nil
-			} else {
-				m[columnName] = c.queue[i].StringVal.Values[c.columnIndex]
-			}
-		} else if columnType == "MAP_TYPE" {
-			if isNull(c.queue[i].StringVal.Nulls, c.columnIndex) {
-				m[columnName] = nil
-			} else {
-				m[columnName] = c.queue[i].StringVal.Values[c.columnIndex]
-			}
-		} else if columnType == "STRUCT_TYPE" {
-			if isNull(c.queue[i].StringVal.Nulls, c.columnIndex) {
-				m[columnName] = nil
-			} else {
-				m[columnName] = c.queue[i].StringVal.Values[c.columnIndex]
-			}
-		} else if columnType == "UNION_TYPE" {
-			if isNull(c.queue[i].StringVal.Nulls, c.columnIndex) {
-				m[columnName] = nil
-			} else {
-				m[columnName] = c.queue[i].StringVal.Values[c.columnIndex]
-			}
-		} else if columnType == "DECIMAL_TYPE" {
-			if isNull(c.queue[i].StringVal.Nulls, c.columnIndex) {
-				m[columnName] = nil
-			} else {
-				m[columnName] = c.queue[i].StringVal.Values[c.columnIndex]
-			}
-		}
-	}
-	if len(m) != len(d) {
-		log.Printf("Some columns have the same name as per the description: %v, this makes it impossible to get the values using the RowMap API, please use the FetchOne API", d)
-	}
-	c.columnIndex++
-	return m
 }
 
 func (c *cursor) fetchOneDriver(ctx context.Context, dests []driver.Value) {
@@ -1052,7 +1005,14 @@ func (c *cursor) pollUntilData(ctx context.Context, n int) (err error) {
 			}
 			c.response = responseFetch
 
-			if safeStatus(responseFetch.GetStatus()).StatusCode != hiveserver.TStatusCode_SUCCESS_STATUS {
+			fetchStatus := safeStatus(responseFetch.GetStatus()).StatusCode
+			if fetchStatus == hiveserver.TStatusCode_STILL_EXECUTING_STATUS {
+				// Impala HTTP mode: data not ready yet, retry after sleep
+				time.Sleep(time.Duration(c.conn.configuration.PollIntervalInMillis) * time.Millisecond)
+				continue
+			}
+			if fetchStatus != hiveserver.TStatusCode_SUCCESS_STATUS &&
+				fetchStatus != hiveserver.TStatusCode_SUCCESS_WITH_INFO_STATUS {
 				rowsAvailable <- errors.New(safeStatus(responseFetch.GetStatus()).String())
 				return
 			}
