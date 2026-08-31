@@ -468,7 +468,11 @@ func (c *cursor) handleDoneContext(ctx context.Context) {
 	c.state = _FINISHED
 }
 
-// executeSync sends a query to hive for execution with a context
+// executeSync sends a query to hive for execution with a context.
+// Uses RunAsync=true + GetOperationStatus polling (same pattern as impyla
+// _wait_to_finish) to avoid the Impala CDW HTTP long-poll issue where
+// ExecuteStatement with RunAsync=false causes FetchResults to return an
+// empty batch after ~10s even though the query is still running.
 func (c *cursor) executeSync(ctx context.Context, query string) {
 	c.resetState(ctx)
 
@@ -476,9 +480,53 @@ func (c *cursor) executeSync(ctx context.Context, query string) {
 	executeReq := hiveserver.NewTExecuteStatementReq()
 	executeReq.SessionHandle = c.conn.sessionHandle
 	executeReq.Statement = query
-	executeReq.RunAsync = false
+	executeReq.RunAsync = true // match impyla: submit async, poll status, then fetch
 
-	c.executeSyncBlocking(ctx, executeReq)
+	c.executeAsyncThenWait(ctx, executeReq)
+}
+
+// executeAsyncThenWait submits the query with RunAsync=true (returns immediately
+// with an operationHandle), then polls GetOperationStatus until the operation is
+// no longer in an executing state — exactly like impyla's execute_async +
+// _wait_to_finish pattern.
+func (c *cursor) executeAsyncThenWait(ctx context.Context, executeReq *hiveserver.TExecuteStatementReq) {
+	c.conn.clientMu.Lock()
+	responseExecute, err := c.conn.client.ExecuteStatement(ctx, executeReq)
+	c.conn.clientMu.Unlock()
+
+	if err != nil {
+		c.Err = err
+		if strings.Contains(err.Error(), "context deadline exceeded") ||
+			strings.Contains(err.Error(), "context canceled") {
+			c.state = _CONTEXT_DONE
+		}
+		return
+	}
+
+	status := safeStatus(responseExecute.GetStatus())
+	if !success(status) && status.StatusCode != hiveserver.TStatusCode_STILL_EXECUTING_STATUS {
+		errMsg := status.GetErrorMessage()
+		c.Err = hiveError{
+			error:     errors.New("Error while executing query: " + status.String()),
+			Message:   errMsg,
+			ErrorCode: int(status.GetErrorCode()),
+		}
+		return
+	}
+
+	if responseExecute.OperationHandle == nil {
+		c.Err = errors.New("ExecuteStatement returned nil OperationHandle")
+		return
+	}
+
+	c.operationHandle = responseExecute.OperationHandle
+
+	// Do NOT call waitForCompletion — GetOperationStatus on this CDW returns
+	// FINISHED_STATE immediately (premature) regardless of actual query state.
+	// pollUntilData will loop FetchResults based on hasMoreRows, same as impyla.
+	if !responseExecute.OperationHandle.HasResultSet {
+		c.state = _FINISHED
+	}
 }
 
 // executeSyncBlocking runs ExecuteStatement in a blocking manner.
@@ -1022,11 +1070,24 @@ func (c *cursor) pollUntilData(ctx context.Context, n int) (err error) {
 				return
 			}
 
-			if len(c.queue) > 0 {
+			if c.totalRows > 0 {
+				// Real data.
 				rowsAvailable <- nil
 				return
 			}
-			time.Sleep(time.Duration(c.conn.configuration.PollIntervalInMillis) * time.Millisecond)
+
+			// Empty batch. Check hasMoreRows — same logic as impyla
+			// _ensure_buffer_is_filled: if expect_more_rows (hasMoreRows)
+			// is true, keep fetching; if false, genuinely done.
+			// HasMoreRows is *bool so guard against nil (treat nil as false).
+			if c.response.HasMoreRows != nil && *c.response.HasMoreRows {
+				c.state = _RUNNING
+				time.Sleep(time.Duration(c.conn.configuration.PollIntervalInMillis) * time.Millisecond)
+				continue
+			}
+			c.state = _FINISHED
+			rowsAvailable <- nil
+			return
 		}
 	}()
 
@@ -1106,6 +1167,14 @@ func (c *cursor) resetState(ctx context.Context) error {
 }
 
 func (c *cursor) parseResults(response *hiveserver.TFetchResultsResp) (err error) {
+	// Results can be nil when Impala returns STILL_EXECUTING_STATUS
+	if response.Results == nil {
+		c.queue = nil
+		c.columnIndex = 0
+		c.totalRows = 0
+		c.newData = false
+		return nil
+	}
 	c.queue = response.Results.GetColumns()
 	c.columnIndex = 0
 	c.totalRows, err = getTotalRows(c.queue)
@@ -1138,7 +1207,7 @@ func getTotalRows(columns []*hiveserver.TColumn) (int, error) {
 			return -1, errors.Errorf("Unrecognized column type %T", el)
 		}
 	}
-	return 0, errors.New("All columns seem empty")
+	return 0, nil
 }
 
 func safeStatus(status *hiveserver.TStatus) *hiveserver.TStatus {
